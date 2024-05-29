@@ -1,0 +1,77 @@
+{
+   "login": {
+      "title":"SIGN IN",
+      "note": "Check the Option below to Login As a COMPANY",
+      "field1":{
+         "title":"User Name",
+         "placeholder":"Enter Your User Name"
+      },
+      "field2":{
+         "title":"Password",
+         "placeholder":"Enter Password"
+      },
+      "field3":{
+         "title":"Secret Key",
+         "placeholder":"Enter Secret Key"
+      },
+      "checkOption":"Sign in as a Company",
+      "register":"Don't have an account ? ",
+      "registerLink":"SIGN UP",
+      "admin":{
+         "title":"SIGN IN ( AS ADMIN )"
+      }
+   },
+
+   "register": {
+      "title":"SIGN UP",
+      "note": "Check the Option below to Login As a COMPANY",
+      "username":{
+         "title":"User Name",
+         "placeholder":"Enter User Name"
+      },
+      "publicname":{
+         "title":"Public Name",
+         "placeholder":"Enter Public Name"
+      },
+      "phone":{
+         "title":"Phone Number",
+         "placeholder":"Enter Phone Number"
+      },
+      "email":{
+         "title":"Email",
+         "placeholder":"Enter Email"
+      },
+      "birthdate":{
+         "title":"Birth Date",
+         "placeholder":"Enter Birth Date"
+      },
+      "password":{
+         "title":"Password",
+         "placeholder":"Enter Password"
+      },
+      "job":{
+         "title":"The Job",
+         "placeholder":"Enter The Job"
+      },
+      "Gender":{
+         "title":"Gender",
+         "placeholder":"",
+         "item1":"male",
+         "item2":"female"
+      },
+      "country":{
+         "title":"Country",
+         "placeholder":"Enter Your Country"
+      },
+      "secretKey":{
+         "title":"Secret Key (Enter the secret key that send to your Email)",
+         "placeholder":"Enter Your secret Key"
+      },
+      "City":{
+         "title":"City",
+         "placeholder":"Enter Your City"
+      },
+      "login":"Already have an account ? ",
+      "loginLink":"SIGN IN"
+   }
+}
