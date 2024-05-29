@@ -1,15 +1,6 @@
 
-import {getCompany} from '@/_util/userHandler';
 
-
-export default async function RootSpace({children}) {
-
-   let user;
-   try{
-      user = await getCompany();
-   }catch (err) {
-      console.log(err)
-   }
+export default  function RootSpace({children}) {
 
    return(
       <div className='flex flex-col h-full'>

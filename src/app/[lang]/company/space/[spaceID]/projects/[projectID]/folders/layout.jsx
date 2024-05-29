@@ -1,6 +1,6 @@
 
 
-export default async function RootFolders({children,params}) {
+export default function RootFolders({children,params}) {
    return(
       <>
       {children}

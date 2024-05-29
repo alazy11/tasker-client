@@ -1,19 +1,35 @@
+import PageEmployee from './component/PageEmployee';
+// import { getCompany } from '@/_util/userHandler';
+import { cookies } from 'next/headers';
 
-import PageEmployee from './component/PageEmployee'
-import {getCompany} from '@/_util/userHandler';
+export default function Employee({ user }) {
+  return (
+    <>
+      <PageEmployee user={user} />
+    </>
+  );
+}
 
-export default async function Employee() {
+export async function getServerSideProps() {
+  let user;
+  try {
+    const cookiesData = cookies().get('token').value;
+    const res = await fetch('http://localhost:4040/en/company', {
+      credentials: 'include',
+      headers: {
+        authorization: `Bearer ${cookiesData}`,
+        'cache-control': 'no-store',
+      },
+    });
+    const data = await res.json();
+    user = data.data;
+  } catch (err) {
+    console.log(err);
+  }
 
-   let user;
-   try{
-      user = await getCompany();
-   }catch (err) {
-      console.log(err)
-   }
-
-   return (
-      <>
-   <PageEmployee user={user} />
-      </>
-   );
+  return {
+    props: {
+      user,
+    },
+  };
 }

@@ -1,15 +1,11 @@
 
 import ChatPage from "./component/ChatPage";
-import {getCompany} from '@/_util/userHandler';
+import { cookies } from 'next/headers';
 
-export default async function Chat({params}) {
 
-   let user;
-   try{
-      user = await getCompany();
-   }catch (err) {
-      console.log(err)
-   }
+export default function Chat({params,user}) {
+
+
    let spaceID = params.spaceID;
 
    console.log("spaceID...",spaceID);
@@ -22,3 +18,27 @@ export default async function Chat({params}) {
    );
 
 }
+
+export async function getServerSideProps() {
+   let user;
+   try {
+     const cookiesData = cookies().get('token').value;
+     const res = await fetch('http://localhost:4040/en/company', {
+       credentials: 'include',
+       headers: {
+         authorization: `Bearer ${cookiesData}`,
+         'cache-control': 'no-store',
+       },
+     });
+     const data = await res.json();
+     user = data.data;
+   } catch (err) {
+     console.log(err);
+   }
+ 
+   return {
+     props: {
+       user,
+     },
+   };
+ }

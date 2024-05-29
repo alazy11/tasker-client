@@ -1,19 +1,10 @@
 
 import TopInlineNav from '../../component/TopInlineNav';
-import {getCompany} from '@/_util/userHandler';
+// import {getCompany} from '@/_util/userHandler';
 
-export default async function RootSpaceID({children,params}) {
+export default function RootSpaceID({children,params}) {
    
-   let spaceID = params.spaceID;
-
-   let user;
-   try{
-      user = await getCompany();
-   }catch (err) {
-      console.log(err)
-   }
-   console.log("spaceID...",spaceID);
-
+   // let spaceID = params.spaceID;
 
    return(
       <>

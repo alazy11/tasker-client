@@ -1,6 +1,6 @@
 
 
-export default async function RootMember({children,params}) {
+export default function RootMember({children,params}) {
    
    return(
       <>

@@ -2,17 +2,11 @@
 import TopInlineNav from '@/app/[lang]/company/component/TopInlineNav'
 import TopNavTrans from './component/TopNavTrans';
 import PageSpace from './component/PageSpace';
-import { getUser } from '@/_util/userHandler';
+import { cookies } from 'next/headers';
 
 
-export default async function Space() {
+export default function Space({user}) {
 
-   let user;
-   try{
-      user = await getUser();
-   }catch (err) {
-      console.log(err)
-   }
 
    return(
       <>
@@ -51,3 +45,28 @@ export default async function Space() {
       </>
    )
 }
+
+
+export async function getServerSideProps() {
+   let user;
+   try {
+     const cookiesData = cookies().get('token').value;
+     const res = await fetch('http://localhost:4040/en/user', {
+       credentials: 'include',
+       headers: {
+         authorization: `Bearer ${cookiesData}`,
+         'cache-control': 'no-store',
+       },
+     });
+     const data = await res.json();
+     user = data.data;
+   } catch (err) {
+     console.log(err);
+   }
+ 
+   return {
+     props: {
+       user,
+     },
+   };
+ }

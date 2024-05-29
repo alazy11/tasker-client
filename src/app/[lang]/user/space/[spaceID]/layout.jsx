@@ -1,16 +1,12 @@
 
 import TopInlineNav from '../../component/TopInlineNav';
 import TopMiddleNav from './component/TopMiddleNav';
-import {getUser} from '@/_util/userHandler';
+import { cookies } from 'next/headers';
 
-export default async function RootSpaceID({children}) {
-   
-   let user;
-   try{
-      user = await getUser();
-   }catch (err) {
-      console.log(err)
-   }
+
+
+export default function RootSpaceID({children}) {
+
 
    return(
       <>
@@ -51,3 +47,28 @@ export default async function RootSpaceID({children}) {
       </>
    );
 }
+
+
+export async function getServerSideProps() {
+   let user;
+   try {
+     const cookiesData = cookies().get('token').value;
+     const res = await fetch('http://localhost:4040/en/user', {
+       credentials: 'include',
+       headers: {
+         authorization: `Bearer ${cookiesData}`,
+         'cache-control': 'no-store',
+       },
+     });
+     const data = await res.json();
+     user = data.data;
+   } catch (err) {
+     console.log(err);
+   }
+ 
+   return {
+     props: {
+       user,
+     },
+   };
+ }
