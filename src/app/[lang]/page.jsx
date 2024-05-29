@@ -1,4 +1,3 @@
-import Home from './component/connect.jsx';
 
 export default function HomePage() {
 
