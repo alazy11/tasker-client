@@ -109,6 +109,8 @@ export default function Form({ dic }) {
    const [showPassword, setShowPassword] = useState(false);
    const router = useRouter();
 
+   console.log("process.env.BACKEND_URL",process.env.BACKEND_URL)
+
    return (
       <>
         {errorMessage && <ErrorMessage errorText={errorMessageText} seterrorText={setErrorMessageText} errorMessage={setErrorMessage} />}
