@@ -3,18 +3,18 @@ import TopInlineNav from '@/app/[lang]/company/component/TopInlineNav'
 import TopNavTrans from './component/TopNavTrans';
 import PageSpace from './component/PageSpace';
 // import {getCompany} from '@/_util/userHandler';
-import { cookies } from 'next/headers';
+// import { cookies } from 'next/headers';
 
 
 
 async function getCompany() {
    let user;
    try {
-     const cookiesData = cookies().get('token').value;
+   //   const cookiesData = cookies().get('token').value;
      const res = await fetch('http://localhost:4040/en/company', {
        credentials: 'include',
        headers: {
-         authorization: `Bearer ${cookiesData}`,
+         // authorization: `Bearer ${cookiesData}`,
          'cache-control': 'no-store',
        },
      });

@@ -6,6 +6,29 @@ import SideNavBar from './SideNavBar';
 import { useState } from 'react';
 // import TopInlineNav from './TopInlineNav';
 
+
+async function getCompany() {
+   let user;
+   try {
+   //   const cookiesData = cookies().get('token').value;
+     const res = await fetch('http://localhost:4040/en/company', {
+       credentials: 'include',
+       headers: {
+         // authorization: `Bearer ${cookiesData}`,
+         'cache-control': 'no-store',
+       },
+     });
+     const data = await res.json();
+     user = data.data;
+   } catch (err) {
+     console.log(err);
+   }
+ 
+   return user;
+ 
+ }
+
+
 export default function MainContainer({ children,lang,dic,user }) {
 
    // console.log('user....main',user);

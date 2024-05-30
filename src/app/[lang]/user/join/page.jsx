@@ -1,17 +1,17 @@
 
 import TopInlineNav from "../component/TopInlineNav";
 import Orders from "./component/Orders";
-import { cookies } from 'next/headers';
+// import { cookies } from 'next/headers';
 
 
 async function getUser() {
    let user;
    try {
-     const cookiesData = cookies().get('token').value;
+   //   const cookiesData = cookies().get('token').value;
      const res = await fetch('http://localhost:4040/en/user', {
        credentials: 'include',
        headers: {
-         authorization: `Bearer ${cookiesData}`,
+         // authorization: `Bearer ${cookiesData}`,
          'cache-control': 'no-store',
        },
      });

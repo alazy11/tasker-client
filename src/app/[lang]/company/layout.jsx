@@ -3,18 +3,18 @@ import './style/style.css';
 import getDictionary from "@/app/_dictionaries/dictionaries";
 // import NavBar from './component/NavBar';
 import MainContainer from './component/MainContainer'
-import { cookies } from 'next/headers';
+// import { cookies } from 'next/headers';
 import Home from '../component/Connect';
 
 
 async function getCompany() {
   let user;
   try {
-    const cookiesData = cookies().get('token').value;
+    // const cookiesData = cookies().get('token').value;
     const res = await fetch('http://localhost:4040/en/company', {
       credentials: 'include',
       headers: {
-        authorization: `Bearer ${cookiesData}`,
+        // authorization: `Bearer ${cookiesData}`,
         'cache-control': 'no-store',
       },
     });
