@@ -7,11 +7,32 @@ import Home from '../component/Connect';
 import { cookies } from 'next/headers';
 
 
+async function getUser() {
+  let user;
+  try {
+    const cookiesData = cookies().get('token').value;
+    const res = await fetch('http://localhost:4040/en/user', {
+      credentials: 'include',
+      headers: {
+        authorization: `Bearer ${cookiesData}`,
+        'cache-control': 'no-store',
+      },
+    });
+    const data = await res.json();
+    user = data.data;
+  } catch (err) {
+    console.log(err);
+  }
+
+  return user;
+
+}
 
 
-export default async function CompanyRoot({ children,params, user }) {
-   // getUser();
-   // socket.connect();
+export default async function CompanyRoot({ children,params }) {
+
+  let user = await getUser();
+
    const dic = await getDictionary(params.lang);
    return (
       <div className="root-container h-full min-h-svh">
@@ -23,28 +44,3 @@ export default async function CompanyRoot({ children,params, user }) {
       </div>
    );
 }
-
-
-export async function getServerSideProps() {
-   let user;
-   try {
-     const cookiesData = cookies().get('token').value;
-     const res = await fetch('http://localhost:4040/en/user', {
-       credentials: 'include',
-       headers: {
-         authorization: `Bearer ${cookiesData}`,
-         'cache-control': 'no-store',
-       },
-     });
-     const data = await res.json();
-     user = data.data;
-   } catch (err) {
-     console.log(err);
-   }
- 
-   return {
-     props: {
-       user,
-     },
-   };
- }

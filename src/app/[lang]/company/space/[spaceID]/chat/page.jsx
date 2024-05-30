@@ -3,23 +3,7 @@ import ChatPage from "./component/ChatPage";
 import { cookies } from 'next/headers';
 
 
-export default function Chat({params,user}) {
-
-
-   let spaceID = params.spaceID;
-
-   console.log("spaceID...",spaceID);
-
-
-   return (
-      <>
-      <ChatPage user={user} spaceID={spaceID} />
-      </>
-   );
-
-}
-
-export async function getServerSideProps() {
+async function getCompany() {
    let user;
    try {
      const cookiesData = cookies().get('token').value;
@@ -36,9 +20,25 @@ export async function getServerSideProps() {
      console.log(err);
    }
  
-   return {
-     props: {
-       user,
-     },
-   };
+   return user;
+ 
  }
+
+
+
+
+export default async function Chat({params}) {
+
+  let user = await getCompany()
+   let spaceID = params.spaceID;
+
+   console.log("spaceID...",spaceID);
+
+
+   return (
+      <>
+      <ChatPage user={user} spaceID={spaceID} />
+      </>
+   );
+
+}
