@@ -20,7 +20,7 @@ export default function SpaceModel({setSpaceModel, setSpaceID, spaceID}) {
       const abortController = new AbortController();
 
       fetch(
-         `http://localhost:4040/en/company/space?page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.BACKEND_URL}/en/company/space?page=${page}&recordNumber=${recordNumber}`,
          {
             signal: abortController.signal,
             credentials: "include",

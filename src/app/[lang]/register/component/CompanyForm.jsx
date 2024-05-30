@@ -26,7 +26,7 @@ function messageHandle(e,setError) {
 
 function clean(...fun) {
    fun.forEach((setfun,ind)=>{
-      setfun(`http://localhost:4040/en/register/company`);
+      setfun(`${process.env.BACKEND_URL}/en/register/company`);
    });
 }
 
@@ -42,7 +42,7 @@ function formHandler(e,cleanf,setErrorMessage,setErrorText,next,setNext,setViewN
       setDisable(true);
       setViewNext(true);
       disabledPerson(true);
-      fetch(`http://localhost:4040/en/register/company/getSecretKey?companyName=${data[0]}&companyEmail=${data[3]}`).then(res=>{
+      fetch(`${process.env.BACKEND_URL}/en/register/company/getSecretKey?companyName=${data[0]}&companyEmail=${data[3]}`).then(res=>{
          return res.json();
       }).then(data=>{
          if(data.status === 'fail' || data.status === 'error' ) {
@@ -76,7 +76,7 @@ function formHandler(e,cleanf,setErrorMessage,setErrorText,next,setNext,setViewN
    };
    console.log(JSON.stringify(personalJsonData));
    // clean(...cleanf);
-   fetch('http://localhost:4040/en/register/company',{
+   fetch('${process.env.BACKEND_URL}/en/register/company',{
       method:"post",
       credentials: 'include',
       headers:{
@@ -104,7 +104,7 @@ function formHandler(e,cleanf,setErrorMessage,setErrorText,next,setNext,setViewN
 
 async function searchByUserName(e,user,setError,setDisable) {
    if(user.param === 'userName') {
-      fetch(`http://localhost:4040/en/register/company?userName=${user.data}`,{
+      fetch(`${process.env.BACKEND_URL}/en/register/company?userName=${user.data}`,{
       headers:{
          "content-type":"application/json",
          "cache-control":"no-cache",
@@ -126,7 +126,7 @@ async function searchByUserName(e,user,setError,setDisable) {
       console.log(error);
    })
    } else {
-      fetch(`http://localhost:4040/en/register/company?email=${user.data}`,{
+      fetch(`${process.env.BACKEND_URL}/en/register/company?email=${user.data}`,{
       headers:{
          "content-type":"application/json",
          "cache-control":"no-cache",

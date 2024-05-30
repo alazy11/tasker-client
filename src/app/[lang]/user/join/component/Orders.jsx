@@ -17,7 +17,7 @@ function setEmployeeHandel(user,setLoader,setNotification,company,room_ID){
       job : user.job
    }
 
-   fetch(`http://localhost:4040/en/user/join`, {
+   fetch(`${process.env.BACKEND_URL}/en/user/join`, {
       method:'POST',
       credentials: "include",
       headers: {
@@ -55,7 +55,7 @@ function setEmployeeHandel(user,setLoader,setNotification,company,room_ID){
 
 function deleteOrder(setLoader,setNotification,company,room_ID,setMessage){
 
-   fetch(`http://localhost:4040/en/user/join?company_id=${company}`, {
+   fetch(`${process.env.BACKEND_URL}/en/user/join?company_id=${company}`, {
       method:'DELETE',
       credentials: "include",
       headers: {
@@ -103,7 +103,7 @@ export default function Orders({user}) {
    const [message, setMessage] = useState('');
 
    useEffect(()=>{
-      fetch(`http://localhost:4040/en/user/join`, {
+      fetch(`${process.env.BACKEND_URL}/en/user/join`, {
          credentials: "include",
          headers: {
             "content-type": "application/json",

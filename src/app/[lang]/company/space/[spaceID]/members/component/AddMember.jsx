@@ -7,7 +7,7 @@ import SuccessNotification from "@/app/[lang]/component/SuccessNotification";
 
 
 function inputHandler(value, setUser) {
-   fetch(`http://localhost:4040/en/company/employee/search?employee=${value}`, {
+   fetch(`${process.env.BACKEND_URL}/en/company/employee/search?employee=${value}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -49,7 +49,7 @@ export default function AddMember({ setEmployee,company, spaceID, referesh,setRe
 
    useEffect(()=>{
       fetch(
-         `http://localhost:4040/en/company/employee?page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.BACKEND_URL}/en/company/employee?page=${page}&recordNumber=${recordNumber}`,
        {
          credentials: "include",
          headers: {

@@ -51,7 +51,7 @@ function formHandler(e,cleanf,setErrorMessage,setErrorText,setLoader,router,...d
    };
    console.log(JSON.stringify(personalJsonData));
    // clean(...cleanf);
-   fetch('http://localhost:4040/en/register',{
+   fetch(`${process.env.BACKEND_URL}/en/register`,{
       method:"post",
       credentials: 'include',
       headers:{
@@ -82,7 +82,7 @@ function formHandler(e,cleanf,setErrorMessage,setErrorText,setLoader,router,...d
 
 async function searchByUserName(e,user,setError,setDisable) {
    if(user.param === 'userName') {
-      fetch(`http://localhost:4040/en/register?userName=${user.data}`,{
+      fetch(`${process.env.BACKEND_URL}/en/register?userName=${user.data}`,{
       headers:{
          "content-type":"application/json"
       }
@@ -103,7 +103,7 @@ async function searchByUserName(e,user,setError,setDisable) {
       console.log(error);
    })
    } else {
-      fetch(`http://localhost:4040/en/register?email=${user.data}`,{
+      fetch(`${process.env.BACKEND_URL}/en/register?email=${user.data}`,{
       headers:{
          "content-type":"application/json"
       }

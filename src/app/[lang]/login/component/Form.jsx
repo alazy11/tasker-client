@@ -30,7 +30,7 @@ function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,s
          password:data[1],
          secretKey:data[2],
       };
-      fetch(`http://localhost:4040/en/login/company`,{
+      fetch(`${process.env.BACKEND_URL}/en/login/company`,{
          method:"post",
       credentials: 'include',
       headers:{
@@ -61,7 +61,7 @@ function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,s
          userName:data[0],
          password:data[1],
       };
-      fetch(`http://localhost:4040/en/login/user`,{
+      fetch(`${process.env.BACKEND_URL}/en/login/user`,{
          method:"post",
       credentials: 'include',
       headers:{

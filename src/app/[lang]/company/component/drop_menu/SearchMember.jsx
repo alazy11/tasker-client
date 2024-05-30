@@ -18,7 +18,7 @@ export default function SearchMember({setSearchMember, setMemberID, memberID}) {
 
    useEffect(() => {
       fetch(
-         `http://localhost:4040/en/company/employee?page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.BACKEND_URL}/en/company/employee?page=${page}&recordNumber=${recordNumber}`,
          {
             credentials: "include",
             headers: {

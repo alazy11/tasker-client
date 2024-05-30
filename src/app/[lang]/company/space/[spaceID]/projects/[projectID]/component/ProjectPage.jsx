@@ -12,7 +12,7 @@ import Image from "next/image";
 // const SuccessNotification = dynamic(() => import("@/app/[lang]/component/SuccessNotification"));
 
 function inputHandler(value, setUser,spaceID) {
-   fetch(`http://localhost:4040/en/company/space/${spaceID}/members/search?member=${value}&spaceID=${spaceID}`, {
+   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/members/search?member=${value}&spaceID=${spaceID}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",

@@ -6,7 +6,7 @@ export async function getCompany() {
    let cookiesData = cookies().get('token').value;
 
    return new Promise((resolve,reject)=>{
-      fetch('http://localhost:4040/en/company',{
+      fetch(`${process.env.BACKEND_URL}/en/company`,{
          credentials: 'include',
          headers:{
             "authorization":`Bearer ${cookiesData}`,
@@ -30,7 +30,7 @@ export async function getUser() {
    let cookiesData = cookies().get('token').value;
 
    return new Promise((resolve,reject)=>{
-      fetch('http://localhost:4040/en/user',{
+      fetch(`${process.env.BACKEND_URL}/en/user`,{
          credentials: 'include',
          headers:{
             "authorization":`Bearer ${cookiesData}`,

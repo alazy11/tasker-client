@@ -20,7 +20,7 @@ function setEmployeeHandel(user,setLoader,setModel,setNotification, setMessage,e
 
    console.log("log data lksdksd", data)
 
-   fetch(`http://localhost:4040/en/company/space/${spaceID}/members`, {
+   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/members`, {
       method:'POST',
       credentials: "include",
       headers: {
@@ -82,7 +82,7 @@ export default function EmployeeInformation({employeeUserName, setModel, setNoti
 
    useEffect(() => {
 
-      fetch(`http://localhost:4040/en/company/search?user=${employeeUserName}`, {
+      fetch(`${process.env.BACKEND_URL}/en/company/search?user=${employeeUserName}`, {
          credentials: "include",
          headers: {
             "content-type": "application/json",

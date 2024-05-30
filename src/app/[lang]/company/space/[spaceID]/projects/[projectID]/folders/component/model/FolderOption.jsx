@@ -18,9 +18,9 @@ function handelDelete({user, spaceID, projectID, folderInfo,setNotification,setM
    console.log("folderInfo",name);
 
    if(folderInfo.kind === 'file') {
-      url = `http://localhost:4040/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/file`;
+      url = `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/file`;
    } else {
-      url = `http://localhost:4040/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}`;
+      url = `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}`;
    }
 
    fetch(url, {
@@ -61,9 +61,9 @@ function handelDownload({user, spaceID, projectID, folderInfo,setNotification,se
    let url= '';
 
    if(folderInfo.kind === 'file') {
-      url = `http://localhost:4040/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download/file?file=${JSON.stringify({folder_path,name})}`;
+      url = `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download/file?file=${JSON.stringify({folder_path,name})}`;
    } else {
-      url = `http://localhost:4040/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download?folder=${JSON.stringify({folder_path,name})}`;
+      url = `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download?folder=${JSON.stringify({folder_path,name})}`;
    }
 
    window.location.href = url;
@@ -78,9 +78,9 @@ function handelCopy({user, spaceID, projectID, folderInfo,setCopy}) {
    let url= '';
 
    if(folderInfo.kind === 'file') {
-      url = `http://localhost:4040/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download/file?file=${JSON.stringify({folder_path,name})}`;
+      url = `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download/file?file=${JSON.stringify({folder_path,name})}`;
    } else {
-      url = `http://localhost:4040/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download?folder=${JSON.stringify({folder_path,name})}`;
+      url = `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download?folder=${JSON.stringify({folder_path,name})}`;
    }
 
    // window.location.href = url;

@@ -37,7 +37,7 @@ function spaceHandler(
       selectColor: selectColor
    };
 
-   fetch("http://localhost:4040/en/company/space", {
+   fetch(`${process.env.BACKEND_URL}/en/company/space`, {
       method: "post",
       credentials: "include",
       headers: {

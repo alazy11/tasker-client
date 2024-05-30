@@ -10,7 +10,7 @@ let socket;
 console.log('tttokcompany',cookieValue);
 
 // if(!cookieValue) {
-//    fetch('http://localhost:4040/en/company',{
+//    fetch('${process.env.BACKEND_URL}/en/company',{
 //       credentials: 'include',
 //       headers:{
 //          "cache-control":"no-store",
@@ -30,7 +30,7 @@ console.log('tttokcompany',cookieValue);
 //    });
 
 
-//    socket = io('http://localhost:4040/company',{
+//    socket = io('${process.env.BACKEND_URL}/company',{
 //    withCredentials: true,
 //    autoConnect: false,
 //    auth: {
@@ -65,8 +65,8 @@ console.log('tttokcompany',cookieValue);
 
 
 // } else {
-//    // const socket = io('http://localhost:4040',{
-socket = io('http://localhost:4040/company',{
+//    // const socket = io('${process.env.BACKEND_URL}',{
+socket = io(`${process.env.BACKEND_URL}/company`,{
    withCredentials: true,
    autoConnect: false,
    auth: {
@@ -122,7 +122,7 @@ export default socket;
 //   try {
 //     const token = await getUser();
 
-//     const socket = io('http://localhost:4040/company', {
+//     const socket = io('${process.env.BACKEND_URL}/company', {
 //       withCredentials: true,
 //       autoConnect: false,
 //       auth: {
@@ -164,7 +164,7 @@ export default socket;
 //   try {
 //     const token = await getUser();
 
-//     const socket = io('http://localhost:4040/company', {
+//     const socket = io('${process.env.BACKEND_URL}/company', {
 //       withCredentials: true,
 //       autoConnect: false,
 //       auth: {

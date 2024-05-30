@@ -24,7 +24,7 @@ export default function PlanInformation({phaseCount,spaceID,projectID}) {
    useEffect(() => {
       const abortController = new AbortController();
 
-      fetch(`http://localhost:4040/en/company/space/${spaceID}/project/${projectID}/phase?phaseNumber=${phaseNumber}`, {
+      fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/phase?phaseNumber=${phaseNumber}`, {
          signal: abortController.signal,
          credentials: "include",
          headers: {

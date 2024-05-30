@@ -34,7 +34,7 @@ function getSubFolder(
    // console.log('okokokookokok',projectID)
 
    fetch(
-      `http://localhost:4040/en/company/space/${spaceID}/project/${projectID}/folder/${folderID}`,
+      `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderID}`,
       {
          credentials: "include",
          headers: {
@@ -321,7 +321,7 @@ export default function FolderTree({
       const abortController = new AbortController();
 
       fetch(
-         `http://localhost:4040/en/company/space/${spaceID}/project/${projectID}/folder`,
+         `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder`,
          {
             signal: abortController.signal,
             credentials: "include",

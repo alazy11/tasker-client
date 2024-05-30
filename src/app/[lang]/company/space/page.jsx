@@ -11,7 +11,7 @@ async function getCompany() {
    let user;
    try {
    //   const cookiesData = cookies().get('token').value;
-     const res = await fetch('http://localhost:4040/en/company', {
+     const res = await fetch(`${process.env.BACKEND_URL}/en/company`, {
        credentials: 'include',
        headers: {
          // authorization: `Bearer ${cookiesData}`,
