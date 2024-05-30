@@ -11,7 +11,7 @@ import SaveModel from "@/app/[lang]/component/SaveModel";
 
 
 async function getSpace(projectID, setEmployeeInfo, setModel, setEditModel) {
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${projectID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${projectID}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -46,7 +46,7 @@ async function setEmployeeInArchive(
    setModel
 ) {
    setSave(true);
-   fetch(`${process.env.BACKEND_URL}/en/company/space/archive/${projectID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/archive/${projectID}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -86,7 +86,7 @@ async function deleteProject(
    spaceID
 ) {
    setSave(true);
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}`, {
       method: "DELETE",
       credentials: "include",
       headers: {
@@ -143,7 +143,7 @@ export default function TasksElement({
    useEffect(() => {
       setSkeleton(true);
       fetch(
-         `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project?spaceID=${spaceID}&page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project?spaceID=${spaceID}&page=${page}&recordNumber=${recordNumber}`,
          {
             credentials: "include",
             headers: {

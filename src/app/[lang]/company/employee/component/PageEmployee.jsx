@@ -9,7 +9,7 @@ import TopMiddleNav from './TopMiddelNav';
 
 
 function inputHandler(value, setUser) {
-   fetch(`${process.env.BACKEND_URL}/en/company/employee/search?employee=${value}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/employee/search?employee=${value}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",

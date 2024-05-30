@@ -47,7 +47,7 @@ function spaceHandler({
       memberID : memberID
    };
 
-   fetch(`${process.env.BACKEND_URL}/en/company/space`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space`, {
       method: "post",
       credentials: "include",
       headers: {
@@ -114,7 +114,7 @@ export default function Space({ user }) {
 
    useEffect(()=>{
 
-      fetch(`${process.env.BACKEND_URL}/en/company/space?page=${page}&recordNumber=${recordNumber}`, {
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space?page=${page}&recordNumber=${recordNumber}`, {
          credentials: "include",
          headers: {
             "cache-control": "no-cache",

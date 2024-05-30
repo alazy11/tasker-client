@@ -13,7 +13,7 @@ import SaveModel from "@/app/[lang]/component/SaveModel";
 
 
 async function getSpace(employeeID, setEmployeeInfo, setModel, setEditModel) {
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${employeeID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${employeeID}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -48,7 +48,7 @@ async function setEmployeeInArchive(
    setModel
 ) {
    setSave(true);
-   fetch(`${process.env.BACKEND_URL}/en/company/space/archive/${employeeID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/archive/${employeeID}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -88,7 +88,7 @@ async function deleteMember(
    spaceID
 ) {
    setSave(true);
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/members?spaceID=${spaceID}&employeeID=${employeeID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/members?spaceID=${spaceID}&employeeID=${employeeID}`, {
       method: "DELETE",
       credentials: "include",
       headers: {
@@ -143,7 +143,7 @@ export default function MemberElement({
 
    useEffect(() => {
       fetch(
-         `${process.env.BACKEND_URL}/en/company/space/${spaceID}/members?page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/members?page=${page}&recordNumber=${recordNumber}`,
          {
             credentials: "include",
             headers: {

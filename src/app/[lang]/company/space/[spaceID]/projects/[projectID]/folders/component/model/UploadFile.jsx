@@ -32,7 +32,7 @@ const HandleUploadFile = ({spaceID, projectID, fileInfo,selectedFile,setLoader,f
    xhr.addEventListener("load",(e)=> {SuccessHandler(e,setLoader)}, false);
    xhr.addEventListener("error",(e)=> {ErrorHandler(e,setLoader)}, false);
    xhr.addEventListener("abort",(e)=> {AbortHandler(e,setLoader)}, false);
-   xhr.open("POST", `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/file`);
+   xhr.open("POST", `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/file`);
    xhr.setRequestHeader('folderFilePath', folderInfo.folder_path);
    xhr.withCredentials = true;
    xhr.send(formData);

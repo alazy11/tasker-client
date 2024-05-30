@@ -26,7 +26,7 @@ function createPhase({project_id,title,state,startDate,endDate,valueDesc,setNoti
 
    console.log(project);
 
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/phase`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/phase`, {
       method:'POST',
       credentials: "include",
       headers: {

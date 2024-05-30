@@ -15,7 +15,7 @@ function createFolder({spaceID, projectID, folderName, folderID, folderPath,setL
    let date = new Date();
    const folder = {folderName,folderID,spaceID, folderPa:folderPath, date};
 
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder`, {
       method:'POST',
       credentials: "include",
       headers: {

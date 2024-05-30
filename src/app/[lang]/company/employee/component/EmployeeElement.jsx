@@ -57,7 +57,7 @@ function clear(
 //       selectColor: selectColor,
 //    };
 
-//    fetch("${process.env.BACKEND_URL}/en/company/space", {
+//    fetch("${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space", {
 //       method: "put",
 //       credentials: "include",
 //       headers: {
@@ -96,7 +96,7 @@ function clear(
 // }
 
 async function getSpace(employeeID, setEmployeeInfo, setModel, setEditModel) {
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${employeeID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${employeeID}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -131,7 +131,7 @@ async function setEmployeeInArchive(
    setModel
 ) {
    setSave(true);
-   fetch(`${process.env.BACKEND_URL}/en/company/space/archive/${employeeID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/archive/${employeeID}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -170,7 +170,7 @@ async function deleteEmployee(
    setReferesh
 ) {
    setSave(true);
-   fetch(`${process.env.BACKEND_URL}/en/company/employee?employeeId=${employeeID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/employee?employeeId=${employeeID}`, {
       method: "DELETE",
       credentials: "include",
       headers: {
@@ -225,7 +225,7 @@ export default function EmployeeElement({
 
    useEffect(() => {
       fetch(
-         `${process.env.BACKEND_URL}/en/company/employee?page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/employee?page=${page}&recordNumber=${recordNumber}`,
          {
             credentials: "include",
             headers: {

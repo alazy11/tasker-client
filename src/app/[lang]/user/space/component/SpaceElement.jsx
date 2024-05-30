@@ -60,7 +60,7 @@ function spaceHandler(
       selectColor: selectColor
    };
 
-   fetch(`${process.env.BACKEND_URL}/en/company/space`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space`, {
       method: "put",
       credentials: "include",
       headers: {
@@ -100,7 +100,7 @@ function spaceHandler(
 
 
 async function getSpace(spaceId,setSpaceInfo,setModel,setEditModel) {
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceId}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceId}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -131,7 +131,7 @@ async function getSpace(spaceId,setSpaceInfo,setModel,setEditModel) {
 
 async function setSpaceInArchive(spaceId, setProgress, setSave, setModel) {
    setSave(true);
-   fetch(`${process.env.BACKEND_URL}/en/company/space/archive/${spaceId}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/archive/${spaceId}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -163,7 +163,7 @@ async function setSpaceInArchive(spaceId, setProgress, setSave, setModel) {
 
 async function deleteSpace(spaceId, referesh, setProgress, setSave, setModel, setReferesh) {
    setSave(true);
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceId}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceId}`, {
       method:'DELETE',
       credentials: "include",
       headers: {
@@ -212,7 +212,7 @@ export default function SpaceElement({page, recordNumber, setTotalSpace,pageEnd,
 
    useEffect(()=>{
 
-      fetch(`${process.env.BACKEND_URL}/en/company/space?page=${page}&recordNumber=${recordNumber}`, {
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space?page=${page}&recordNumber=${recordNumber}`, {
          credentials: "include",
          headers: {
             "cache-control": "no-cache",

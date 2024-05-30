@@ -37,7 +37,7 @@ function spaceHandler(
       selectColor: selectColor
    };
 
-   fetch(`${process.env.BACKEND_URL}/en/company/space`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space`, {
       method: "post",
       credentials: "include",
       headers: {

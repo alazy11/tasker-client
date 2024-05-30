@@ -21,7 +21,7 @@ function setEmployeeHandel(user,setLoader,setModel,setNotification,company, setM
       job : user.job
    }
 
-   fetch(`${process.env.BACKEND_URL}/en/company/join`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/join`, {
       method:'POST',
       credentials: "include",
       headers: {

@@ -8,7 +8,7 @@ function handelRename({user, spaceID, projectID, folderInfo,folderName,setRename
 
 
    console.log("folderInfo.name",folderInfo);
-   console.log(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/file`);
+   console.log(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/file`);
 
    let arr = [];
    let url = '';
@@ -19,14 +19,14 @@ function handelRename({user, spaceID, projectID, folderInfo,folderName,setRename
       arr = folderInfo.file_path.split('\\');
       arr.pop();
       folderInfo.new_file_path = arr.join("\\") + '\\' + folderInfo.name;
-      url = `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/file`;
+      url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/file`;
    } else {
       folderInfo.old_name = folderInfo.name;
       folderInfo.name = folderName.replace(' ','-');
       arr = folderInfo.folder_path.split('\\');
       arr.pop();
       folderInfo.new_folder_path = arr.join("\\") + '\\' + folderInfo.name;
-      url = `${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}`;
+      url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}`;
    }
 
 

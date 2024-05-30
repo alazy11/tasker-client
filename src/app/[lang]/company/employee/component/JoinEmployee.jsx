@@ -7,7 +7,7 @@ import SuccessNotification from "@/app/[lang]/component/SuccessNotification";
 
 
 function inputHandler(value, setUser) {
-   fetch(`${process.env.BACKEND_URL}/en/company/search?user=${value}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/search?user=${value}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",

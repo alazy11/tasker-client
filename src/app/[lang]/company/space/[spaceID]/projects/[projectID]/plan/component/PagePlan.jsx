@@ -25,7 +25,7 @@ const Alert = dynamic(() => import("@/app/[lang]/component/Alert"));
 
 function inputHandler(value, setUser, spaceID) {
    fetch(
-      `${process.env.BACKEND_URL}/en/company/space/${spaceID}/members/search?member=${value}&spaceID=${spaceID}`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/members/search?member=${value}&spaceID=${spaceID}`,
       {
          credentials: "include",
          headers: {
@@ -68,7 +68,7 @@ export default function PagePlan({ user, spaceID, projectID }) {
    useEffect(() => {
       const abortController = new AbortController();
 
-      fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}`, {
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}`, {
          signal: abortController.signal,
          credentials: "include",
          headers: {

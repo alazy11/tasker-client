@@ -30,7 +30,7 @@ function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,s
          password:data[1],
          secretKey:data[2],
       };
-      fetch(`${process.env.BACKEND_URL}/en/login/company`,{
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/company`,{
          method:"post",
       credentials: 'include',
       headers:{
@@ -61,7 +61,7 @@ function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,s
          userName:data[0],
          password:data[1],
       };
-      fetch(`${process.env.BACKEND_URL}/en/login/user`,{
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/user`,{
          method:"post",
       credentials: 'include',
       headers:{
@@ -109,7 +109,7 @@ export default function Form({ dic }) {
    const [showPassword, setShowPassword] = useState(false);
    const router = useRouter();
 
-   console.log("process.env.BACKEND_URL",process.env.BACKEND_URL)
+   console.log("process.env.NEXT_PUBLIC_BACKEND_URL",process.env.NEXT_PUBLIC_BACKEND_URL)
 
    return (
       <>

@@ -20,7 +20,7 @@ export default function ManagerModel({setManagerModel, setManager, manager,space
       const abortController = new AbortController();
 
       fetch(
-         `${process.env.BACKEND_URL}/en/company/space/${spaceID}/members?page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/members?page=${page}&recordNumber=${recordNumber}`,
          {
             signal: abortController.signal,
             credentials: "include",

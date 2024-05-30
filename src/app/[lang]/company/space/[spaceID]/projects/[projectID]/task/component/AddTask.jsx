@@ -38,7 +38,7 @@ function createProject({projectID,title,state,manager,priority,selectedTags,phas
    }
 
 
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/task`,
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/task`,
    {
       method:'POST',
       credentials: "include",
@@ -103,7 +103,7 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
    // useEffect(() => {
    //    const abortController = new AbortController();
 
-   //    fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}`, {
+   //    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}`, {
    //       signal: abortController.signal,
    //       credentials: "include",
    //       headers: {

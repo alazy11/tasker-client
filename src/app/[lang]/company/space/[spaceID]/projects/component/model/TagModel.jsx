@@ -18,7 +18,7 @@ export default function TagModel({spaceID,setTagModel, selectedTags, setSelected
 
       const abortController = new AbortController();
 
-         fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/project/tag?spaceID=${spaceID}`,
+         fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/tag?spaceID=${spaceID}`,
             {
             signal: abortController.signal,
             credentials: "include",

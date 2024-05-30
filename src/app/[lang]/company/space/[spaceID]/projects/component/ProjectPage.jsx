@@ -13,7 +13,7 @@ import dynamic from "next/dynamic";
 const AddProject = dynamic(() => import("./AddProject"));
 
 function inputHandler(value, setUser,spaceID) {
-   fetch(`${process.env.BACKEND_URL}/en/company/space/${spaceID}/members/search?member=${value}&spaceID=${spaceID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/members/search?member=${value}&spaceID=${spaceID}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
