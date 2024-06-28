@@ -21,7 +21,7 @@ function messageHandle(e,setError) {
    }
 }
 
-function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,setLoader,...data) {
+function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,setLoader,...data,ro) {
    e.preventDefault();
    setLoader(true);
    if(isSecretKey) {
