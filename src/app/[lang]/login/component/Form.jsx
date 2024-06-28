@@ -1,5 +1,5 @@
 "use client";
-import { useState} from "react";
+import { useState, useRef} from "react";
 import ErrorMessage from "./ErrorMessage";
 import { useRouter } from "next/navigation";
 import LoaderBtn from './LoaderBtn';
@@ -49,7 +49,8 @@ function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,s
             setErrorMessage(false);
             // socket.connect();
             // socket.emit('user',data.data);
-            router.push('/en/company');
+            // router.push('/en/company');
+            ro.current.click();
             console.log(data)
          }
       }).catch(err=>{
@@ -108,6 +109,7 @@ export default function Form({ dic }) {
    const [loader,setLoader] = useState(false);
    const [showPassword, setShowPassword] = useState(false);
    const router = useRouter();
+   const ro = useRef(null);
 
    console.log("process.env.NEXT_PUBLIC_BACKEND_URL",process.env.NEXT_PUBLIC_BACKEND_URL)
 
@@ -116,7 +118,7 @@ export default function Form({ dic }) {
         {errorMessage && <ErrorMessage errorText={errorMessageText} seterrorText={setErrorMessageText} errorMessage={setErrorMessage} />}
         <form action="#" autoComplete="on" onSubmit={(e)=>{
          if(isSecretKey) {
-            handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,secretKey) 
+            handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,secretKey,ro) 
          } else {
             handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password) 
          }
@@ -130,6 +132,7 @@ export default function Form({ dic }) {
   <path d="M16.978 19.502a9 9 0 1 1 4.022-7.5c0 2.072-.75 3.75-2.625 3.75s-2.625-1.678-2.625-3.75v-3.75"></path>
 </svg>
                </span>
+               <a href="/en/company" className="hidden" ref={ro} ></a >
                <input
                   type="text"
                   name="userName"
