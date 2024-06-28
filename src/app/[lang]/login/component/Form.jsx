@@ -22,6 +22,7 @@ function messageHandle(e,setError) {
 }
 
 function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,setLoader,...data,ro) {
+      console.log("roroininin",ro)
    e.preventDefault();
    setLoader(true);
    if(isSecretKey) {
@@ -112,6 +113,7 @@ export default function Form({ dic }) {
    const ro = useRef(null);
 
    console.log("process.env.NEXT_PUBLIC_BACKEND_URL",process.env.NEXT_PUBLIC_BACKEND_URL)
+   console.log("roro",ro)
 
    return (
       <>
@@ -120,7 +122,7 @@ export default function Form({ dic }) {
          if(isSecretKey) {
             handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,secretKey,ro) 
          } else {
-            handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password) 
+            handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,ro) 
          }
       }}>
          <div className="form-group  relative">
