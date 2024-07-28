@@ -11,7 +11,6 @@
   "dependencies": {
     "@cyntler/react-doc-viewer": "^1.16.6",
     "@formatjs/intl-localematcher": "^0.5.4",
-    "@locaop/icon-picker": "^0.4.1",
     "emoji-picker-react": "^4.10.0",
     "html-react-parser": "^5.1.10",
     "intl-tel-input": "^21.2.4",
