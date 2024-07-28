@@ -1,6 +1,7 @@
 "use client";
-import "quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
+// import 'https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css';
 
 
 
@@ -238,7 +239,7 @@ export default function TextEditor({desc,setDesc,phase, setValueDesc}){
          //    return prev;
          // });
 
-         console.log('phase.....',phase)
+         // console.log('phase.....',phase)
          // console.log('valueDesc.....',valueDesc)
          console.log('desc.....',desc)
       }}

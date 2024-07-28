@@ -1,164 +1,215 @@
-
-
-import Link from "next/link";
-import userProfile from "../../../../../../public/project-image/user-profile.jpeg";
+"use client";
+import DropDownModel from "@/app/[lang]/component/DropDownModel";
 import Image from "next/image";
+import profile from "@/public/project-image/user-profile.jpeg";
+import { useState } from "react";
 
-export default function ProfileDropMenu({ dic, lang, user }) {
+
+
+async function deleteSpace(spaceId, referesh, setProgress, setSave, setModel, setReferesh) {
+   setSave(true);
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceId}`, {
+      method:'DELETE',
+      credentials: "include",
+      headers: {
+         "content-type": "application/json",
+         "cache-control": "no-cache",
+      }
+   })
+      .then((res) => {
+         return res.json();
+      })
+      .then((data) => {
+         if (data.status === "fail" || data.status === "error") {
+            // setErrorMessage(true);
+            // setErrorText(data?.message);
+            setSave(false);
+         } else {
+            setModel(false);
+            setProgress(false);
+            setTimeout(()=>{
+               setSave(false);
+               setProgress(true);
+               setReferesh(!referesh);
+            },2000);
+         }
+      })
+      .catch((error) => {
+         console.log(error);
+         setSave(false);
+      });
+}
+
+
+
+export default function ProfileDropMenu({user, setShowProfileMenu,setProfileModel, setThemeModel, userProfile, dic, lang}) {
+
+
    return (
+      <DropDownModel setShowIcon={setShowProfileMenu}>
       <div
-         style={{position: "absolute", inset: "0px 0px auto auto", transform:" translate(0px, 44px)"}}
-         className="z-50"
-         data-popper-reference-hidden="false"
-         data-popper-escaped="false"
-         data-popper-placement="bottom-end"
+         className="h-full m-auto relative"
+         style={{ width: "100%", maxWidth: "100%" }}
       >
-         <ul className="text-dark dark:text-white-dark !py-0 w-[230px] font-semibold dark:text-white-light/90">
-            <li>
-               <div className="flex items-center px-4 py-4">
-                  <Image
-                     className="rounded-md w-10 h-10 object-cover"
-                     src={userProfile}
-                     alt="userProfile"
-                  />
-                  <div className="ltr:pl-4 rtl:pr-4 truncate">
-                     <h4 className="text-base">
-                        {user.company_name}
-                        <span className="text-xs bg-success-light rounded text-success px-1 ltr:ml-2 rtl:ml-2">
-                           Pro
-                        </span>
-                     </h4>
-                     <button
-                        type="button"
-                        className="text-black/60 hover:text-primary dark:text-dark-light/60 dark:hover:text-white"
-                     >
-                          {user.email}
-                     </button>
+         <div
+            className="absolute z-2700 ltr:right-3 rtl:left-3 top-14 box-shadow-profile bg-white border-e8eaed rounded-md min-w-72 w-72 overflow-y-auto flex flex-col pt-2 pb-2"
+            // style={{ top:'53px',left:'10px'}}
+         >
+            <ul>
+
+               <li className="">
+                  <div className="flex items-center py-2 px-4 gap-3">
+                     <div className="w-8 h-8 relative">
+                        <div className="w-8 h-8 rounded-full overflow-hidden">
+                        <Image src={profile} alt={'profile image'} className="w-full" />
+                        </div>
+                        <div className="absolute ">
+
+                        </div>
+                     </div>
+
+                     <div>
+                        <div className="text-sm font-medium mb-0.5 text-2a2e34">Alazy Alhimeari</div>
+                        <div className="text-xs color-600">Online</div>
+                     </div>
+
                   </div>
-               </div>
-            </li>
-            <li>
-               <a className="dark:hover:text-white" href="/users/profile">
-                  <svg
-                     width="18"
-                     height="18"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg"
-                     className="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0"
-                  >
-                     <circle
-                        cx="12"
-                        cy="6"
-                        r="4"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                     ></circle>
-                     <path
-                        opacity="0.5"
-                        d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                     ></path>
-                  </svg>
-                  Profile
-               </a>
-            </li>
-            <li>
-               <a className="dark:hover:text-white" href="/apps/mailbox">
-                  <svg
-                     width="18"
-                     height="18"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg"
-                     className="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0"
-                  >
-                     <path
-                        opacity="0.5"
-                        d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                     ></path>
-                     <path
-                        d="M6 8L8.1589 9.79908C9.99553 11.3296 10.9139 12.0949 12 12.0949C13.0861 12.0949 14.0045 11.3296 15.8411 9.79908L18 8"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                     ></path>
-                  </svg>
-                  Inbox
-               </a>
-            </li>
-            <li>
-               <a className="dark:hover:text-white" href="/auth/boxed-lockscreen">
-                  <svg
-                     width="18"
-                     height="18"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg"
-                     className="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 shrink-0"
-                  >
-                     <path
-                        d="M2 16C2 13.1716 2 11.7574 2.87868 10.8787C3.75736 10 5.17157 10 8 10H16C18.8284 10 20.2426 10 21.1213 10.8787C22 11.7574 22 13.1716 22 16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H8C5.17157 22 3.75736 22 2.87868 21.1213C2 20.2426 2 18.8284 2 16Z"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                     ></path>
-                     <path
-                        opacity="0.5"
-                        d="M6 10V8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8V10"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                     ></path>
-                     <g opacity="0.5">
-                        <path
-                           d="M9 16C9 16.5523 8.55228 17 8 17C7.44772 17 7 16.5523 7 16C7 15.4477 7.44772 15 8 15C8.55228 15 9 15.4477 9 16Z"
-                           fill="currentColor"
-                        ></path>
-                        <path
-                           d="M13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16C11 15.4477 11.4477 15 12 15C12.5523 15 13 15.4477 13 16Z"
-                           fill="currentColor"
-                        ></path>
-                        <path
-                           d="M17 16C17 16.5523 16.5523 17 16 17C15.4477 17 15 16.5523 15 16C15 15.4477 15.4477 15 16 15C16.5523 15 17 15.4477 17 16Z"
-                           fill="currentColor"
-                        ></path>
-                     </g>
-                  </svg>
-                  Lock Screen
-               </a>
-            </li>
-            <li className="border-t border-white-light dark:border-white-light/10">
-               <a className="text-danger !py-3" href="/auth/boxed-signin">
-                  <svg
-                     width="18"
-                     height="18"
-                     viewBox="0 0 24 24"
-                     fill="none"
-                     xmlns="http://www.w3.org/2000/svg"
-                     className="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 rotate-90 shrink-0"
-                  >
-                     <path
-                        opacity="0.5"
-                        d="M17 9.00195C19.175 9.01406 20.3529 9.11051 21.1213 9.8789C22 10.7576 22 12.1718 22 15.0002V16.0002C22 18.8286 22 20.2429 21.1213 21.1215C20.2426 22.0002 18.8284 22.0002 16 22.0002H8C5.17157 22.0002 3.75736 22.0002 2.87868 21.1215C2 20.2429 2 18.8286 2 16.0002L2 15.0002C2 12.1718 2 10.7576 2.87868 9.87889C3.64706 9.11051 4.82497 9.01406 7 9.00195"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                     ></path>
-                     <path
-                        d="M12 15L12 2M12 2L15 5.5M12 2L9 5.5"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                     ></path>
-                  </svg>
-                  Sign Out
-               </a>
-            </li>
-         </ul>
+               </li>
+
+               <div className="w-full my-2 border-bottom-e8eaed" style={{height:'1px'}}></div>
+
+               <li className="border-bottom-e8eaed">
+                  <ul className="pb-2 flex flex-col gap-1.5">
+                     <li className="min-h-3 pe-2 ps-2">
+                        <button
+                           className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded"
+                           onClick={(e)=>{
+                              setProfileModel(true);
+                              setShowProfileMenu(false);
+                           }}
+                        >
+                           <span className="text-656f7d">
+                           <svg width={'1rem'} height={'1rem'} fill="currentColor"                                 stroke="currentColor"
+                                 strokeLinecap="round"
+                                 strokeLinejoin="round"
+                                 strokeWidth="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path fillRule="evenodd" d="M12 1.842a5.558 5.558 0 0 0-1.543 10.9c-1.83.222-3.401.87-4.584 2.036-1.506 1.484-2.268 3.693-2.268 6.575a.728.728 0 1 0 1.457 0c0-2.637.694-4.415 1.833-5.538C8.037 14.69 9.741 14.108 12 14.108c2.259 0 3.963.582 5.105 1.707 1.139 1.123 1.833 2.9 1.833 5.538a.728.728 0 1 0 1.457 0c0-2.882-.762-5.091-2.268-6.575-1.183-1.166-2.753-1.814-4.584-2.037A5.558 5.558 0 0 0 12 1.841ZM7.898 7.4a4.102 4.102 0 1 1 8.204 0 4.102 4.102 0 0 1-8.204 0Z" clipRule="evenodd" />
+</svg>
+                           </span>
+                           <span className="option-style text-2a2e34">
+                              Profile
+                           </span>
+                        </button>
+                     </li>
+                     <li className="min-h-3 pe-2 ps-2">
+                        <button className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded"
+                           onClick={(e)=>{
+                           setThemeModel(true);
+                           setShowProfileMenu(false);
+                        }}
+                        >
+                           <span className="text-656f7d">
+                           <svg width={'1rem'} height={'1rem'} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17 2.5H3V10h14V2.5Z" />
+    <path d="M17.013 6H21.5v8.05l-12 1.55v5.9" />
+</svg>
+
+
+{/* <svg width={34} height={34} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 5v3h14V5H5ZM4 3h16a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm2 9h6a1 1 0 0 1 1 1v3h1v6h-4v-6h1v-2H5a1 1 0 0 1-1-1v-2h2v1Zm11.732 1.732 1.768-1.768 1.768 1.768a2.5 2.5 0 1 1-3.536 0Z" />
+</svg> */}
+
+
+                           </span>
+                           <span className="option-style text-2a2e34">
+                              Themes
+                           </span>
+                        </button>
+                     </li>
+                     <li className="min-h-3 pe-2 ps-2">
+                        <button className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded">
+                           <span className="text-656f7d">
+                           <svg width="1rem" height="1rem" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.296 9.015a3 3 0 1 0-.59 5.97 3 3 0 0 0 .59-5.97v0ZM19.518 12a7.238 7.238 0 0 1-.072.975l2.12 1.662a.507.507 0 0 1 .114.644l-2.005 3.469a.507.507 0 0 1-.615.215l-2.105-.847a.753.753 0 0 0-.711.082 7.703 7.703 0 0 1-1.01.588.747.747 0 0 0-.413.569l-.316 2.244a.519.519 0 0 1-.5.43h-4.01a.52.52 0 0 1-.501-.415l-.315-2.242a.753.753 0 0 0-.422-.573 7.278 7.278 0 0 1-1.006-.59.75.75 0 0 0-.708-.08l-2.105.848a.507.507 0 0 1-.616-.215L2.32 15.295a.506.506 0 0 1 .114-.644l1.792-1.406a.752.752 0 0 0 .28-.66 6.392 6.392 0 0 1 0-1.165.75.75 0 0 0-.284-.654L2.431 9.36a.507.507 0 0 1-.111-.641L4.325 5.25a.507.507 0 0 1 .616-.215l2.105.847a.755.755 0 0 0 .71-.082 7.71 7.71 0 0 1 1.01-.587.747.747 0 0 0 .414-.57L9.495 2.4a.52.52 0 0 1 .5-.43h4.01a.52.52 0 0 1 .502.416l.315 2.241a.753.753 0 0 0 .421.573c.351.17.687.366 1.006.59a.75.75 0 0 0 .709.08l2.104-.848a.507.507 0 0 1 .616.215l2.005 3.469a.506.506 0 0 1-.115.644l-1.791 1.406a.752.752 0 0 0-.284.66c.016.195.026.39.026.585Z"></path>
+</svg>
+                           </span>
+                           <span className="option-style text-2a2e34">
+                              Settings
+                           </span>
+                        </button>
+                     </li>
+                     <li className="min-h-3 pe-2 ps-2">
+                        <button className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded">
+                           <span className="text-656f7d">
+                           <svg width={'1rem'} height={'1rem'} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+</svg>
+                           </span>
+                           <span className="option-style text-2a2e34">
+                              Notification Settings
+                           </span>
+                        </button>
+                     </li>
+                  </ul>
+               </li>
+
+               <li className="border-bottom-e8eaed">
+                  <ul className="pb-2 pt-2 flex flex-col gap-1.5">
+                     <li className="min-h-3 pe-2 ps-2">
+                        <button
+                           className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded"
+                           onClick={(e) => {
+                              // setMessage(
+                              //    "save in Archive"
+                              // );
+
+                           }}
+                        >
+                           <span className="text-656f7d">
+                           <svg width={'1rem'} height={'1rem'} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 6a3.94 3.94 0 0 0-3.934 3.934h2C10.066 8.867 10.934 8 12 8c1.066 0 1.934.867 1.934 1.934 0 .598-.48 1.032-1.216 1.626-.24.188-.47.388-.69.599-.999.997-1.028 2.056-1.028 2.174V15h2v-.633c0-.016.032-.386.44-.793.15-.15.34-.3.535-.458.78-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0 0 12 6Zm-1 10h2v2h-2v-2Z" />
+    <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2Zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8Z" />
+</svg>
+                           </span>
+                           <span className="option-style text-2a2e34">
+                              Help
+                           </span>
+                        </button>
+                     </li>
+                     <li className="min-h-3 pe-2 ps-2">
+                        <button
+                           className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded button-delete"
+                           onClick={(e) => {
+                              
+                           }}
+                        >
+                           <span className="text-inherit">
+                           <svg width={'1rem'} height={'1rem'} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15 12H4m8 3 3-3-3 3Zm3-3-3-3 3 3Z" />
+    <path d="M9 7V5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1v-2" />
+</svg>
+                           </span>
+                           <span className="option-style text-inherit">
+                              Log out
+                           </span>
+                        </button>
+                     </li>
+                  </ul>
+               </li>
+
+               <li className="pe-2 ps-2 pt-2">
+                  <button className="w-full h-8 button-background text-white rounded-md flex items-center justify-center text-sm font-medium">
+                     View Profile
+                  </button>
+               </li>
+            </ul>
+         </div>
       </div>
+   </DropDownModel>
+
+
+
    );
+
 }

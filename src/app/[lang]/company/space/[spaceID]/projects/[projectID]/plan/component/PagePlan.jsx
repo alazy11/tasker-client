@@ -13,7 +13,7 @@ import dynamic from "next/dynamic";
 // import profile from "@/public/project-image/user-profile.jpeg";
 // import Image from "next/image";
 // import Alert from "@/app/[lang]/component/Alert";
-
+import "quill/dist/quill.snow.css";
 import EmptyImg from '@/public/project-image/inbox-tray-empty.1b1560a84c61c1f9.svg';
 // import EmptyPhase from "./EmptyPhase";
 

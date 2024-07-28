@@ -460,9 +460,6 @@ export default function AddPhases({ setModel, spaceID, projectInfo, referesh,set
                            <h2>Description</h2>
                         </div>
                         <div className="flex-1">
-                           {/* <Editor placeholder={"Write description..."} setDesc={setDesc} desc={desc} value={valueDesc} phase={phase} setValueDesc={setValueDesc} onChange={(e)=>{
-                              console.log(e.target.value)
-                           }} /> */}
                            <TextEditor setValueDesc={setValueDesc} phase={phase} setDesc={setDesc} desc={desc} />
                         </div>
                      </div>

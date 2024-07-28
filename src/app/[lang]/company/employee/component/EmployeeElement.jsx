@@ -260,7 +260,7 @@ export default function EmployeeElement({
          {employee?.map((item, index) => {
             return (
                <tr
-                  className={`border-bottom-f0f1f3 hover:bg-gray-100 ${
+                  className={`border-main-bottom ${
                      employeeID === item.user_id && model === true
                         ? "bg-gray-100"
                         : ""
@@ -311,7 +311,7 @@ export default function EmployeeElement({
                   <td className="text-center">
                      <div className="w-full h-full flex items-center justify-center">
                         <button
-                           className="border-0 w-6 back-hover h-6 rounded color-700 bg-transparent flex items-center justify-center"
+                           className="border-0 w-6 back-hover h-6 rounded bg-transparent flex items-center justify-center action-menu-btn"
                            data-employee={item.employee_id}
                            onClick={(e) => {
                               let id = e.currentTarget.dataset.employee;
@@ -321,15 +321,10 @@ export default function EmployeeElement({
                               setModel(true);
                            }}
                         >
-                           <svg
-                              width="90%"
-                              height="100%"
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                           >
-                              <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm-6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+                           <svg width={"1rem"} height={"1rem"} viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M19.2 13.6a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Zm-7.2 0a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Zm-7.2 0a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Z" ></path>
                            </svg>
+
                         </button>
 
                         {model && (
@@ -339,7 +334,7 @@ export default function EmployeeElement({
                                  style={{ width: "100%", maxWidth: "100%" }}
                               >
                                  <div
-                                    className="absolute z-2700 ltr:right-3 rtl:left-3 drop-menu-shadow bg-white rounded-md min-w-40 min-h-80 overflow-y-auto flex flex-col pt-2 pb-2"
+                                    className="absolute z-2700 ltr:right-3 rtl:left-3 drop-menu-shadow bg-white rounded-md min-w-40 overflow-y-auto flex flex-col pt-2 pb-2"
                                     style={{ width: "224px", top: "36%" }}
                                  >
                                     <ul>

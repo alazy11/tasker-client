@@ -1,128 +1,51 @@
-
+"use client";
 
 import profile from '@/public/project-image/user-profile.jpeg';
 import DropDownModel from '@/app/[lang]/component/DropDownModel';
 import Image from 'next/image';
+import { useState,useEffect } from 'react';
 
 
-const members =[{
-   user_id: 4,
-   user_name: 'admin2',
-   public_name: 'dfg',
-   phone_number: '23235',
-   email: 'admin2@admin.com',
-   profile_path: null,
-   job: 'drfgrg',
-   about: null,
-   country: 'Safari',
-   city: null,
-   state: 1,
-   room_ID: 'admin2d82e7ca09c'
-},
-{
-   user_id: 45,
-   user_name: 'admin2',
-   public_name: 'dfthth',
-   phone_number: '23235',
-   email: 'admin2@admin.com',
-   profile_path: null,
-   job: 'drfgrg',
-   about: null,
-   country: 'Safari',
-   city: null,
-   state: 1,
-   room_ID: 'admin2d82e7ca09c'
-},
-{
-   user_id: 54,
-   user_name: 'admin2',
-   public_name: 'adgfjm',
-   phone_number: '23235',
-   email: 'admin2@admin.com',
-   profile_path: null,
-   job: 'drfgrg',
-   about: null,
-   country: 'Safari',
-   city: null,
-   state: 1,
-   room_ID: 'admin2d82e7ca09c'
-},
-{
-   user_id: 4346,
-   user_name: 'admin2',
-   public_name: 'dfhdfhaf',
-   phone_number: '23235',
-   email: 'admin2@admin.com',
-   profile_path: null,
-   job: 'drfgrg',
-   about: null,
-   country: 'Safari',
-   city: null,
-   state: 1,
-   room_ID: 'admin2d82e7ca09c'
-},
-{
-   user_id: 434,
-   user_name: 'admin2',
-   public_name: 'ghkodthe',
-   phone_number: '23235',
-   email: 'admin2@admin.com',
-   profile_path: null,
-   job: 'drfgrg',
-   about: null,
-   country: 'Safari',
-   city: null,
-   state: 1,
-   room_ID: 'admin2d82e7ca09c'
-},
-{
-   user_id: 43456,
-   user_name: 'admin2',
-   public_name: 'dfherh edh',
-   phone_number: '23235',
-   email: 'admin2@admin.com',
-   profile_path: null,
-   job: 'drfgrg',
-   about: null,
-   country: 'Safari',
-   city: null,
-   state: 1,
-   room_ID: 'admin2d82e7ca09c'
-},
-{
-   user_id: 4346,
-   user_name: 'admin2',
-   public_name: 'sdg dh ',
-   phone_number: '23235',
-   email: 'admin2@admin.com',
-   profile_path: null,
-   job: 'drfgrg',
-   about: null,
-   country: 'Safari',
-   city: null,
-   state: 1,
-   room_ID: 'admin2d82e7ca09c'
-},
-{
-   user_id: 4345,
-   user_name: 'admin2',
-   public_name: 'dxfh dsthrth eh',
-   phone_number: '23235',
-   email: 'admin2@admin.com',
-   profile_path: null,
-   job: 'drfgrg',
-   about: null,
-   country: 'Safari',
-   city: null,
-   state: 1,
-   room_ID: 'admin2d82e7ca09c'
-}
+export default function SearchMember({setSearchMember, setMemberID, memberID}) {
 
-];
+
+   const [employee, setEmployees] = useState([]);
+   // const [employeeID, setEmployeeID] = useState("");
+   const [page, setPage] = useState(1);
+   const [recordNumber, setRecordNumber] = useState(10);
 
 
 
-export default function SearchMember({setSearchMember, setMemberID}) {
+   useEffect(() => {
+      fetch(
+         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/employee?page=${page}&recordNumber=${recordNumber}`,
+         {
+            credentials: "include",
+            headers: {
+               "cache-control": "no-cache",
+            },
+         }
+      )
+         .then((res) => {
+            return res.json();
+         })
+         .then((data) => {
+            if (data.status === "fail" || data.status === "error") {
+               // setErrorMessage(true);
+               // setErrorText(data?.message);
+               console.log("data space faild....", data);
+            } else {
+               // setErrorMessage(false);
+               console.log("data space dd....", data);
+               setEmployees([...Object.values(data.data.result)]);
+            }
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+   }, [page]);
+
+
    return (
 
       <DropDownModel setShowIcon={setSearchMember}>
@@ -146,23 +69,29 @@ export default function SearchMember({setSearchMember, setMemberID}) {
             <ul>
 
                {
-                  members.map((member,index)=>{
+                  employee?.map((member,index)=>{
                      return(
                         <li className="w-full pe-2 ps-2 member" key={member.user_id}>
                   <div className="relative pe-2 ps-2 h-11 w-full flex items-center justify-between cursor-pointer rounded-md hover:bg-gray-100" data-member={member.user_id} data-index={index} onClick={(e)=>{
-                     console.log("member",members)
                      console.log("e.target.dataset?.index",)
                      // console.log("e.target.dataset?.member",e.target.dataset?.member)
                      let index = e.currentTarget.dataset?.index;
-                     
-                     setMemberID(prev=>[...prev,members[index]]);
+                     console.log('member......',memberID);
+                     if(memberID.some(item=>{
+                        return item.user_id === employee[index].user_id
+                     })) {
+
+                     } else {
+                        setMemberID(prev=>[...prev,employee[index]]);
+                     }
+
                   }} >
                      <div className='flex items-center flex-1'>
                      <div className={'w-8 h-8 overflow-hidden rounded-full shadow-profile ltr:mr-3 rtl:ml-3'}>
                         <Image src={member.profile_path ?? profile} alt='profile' className="w-8" />
                      </div>
                      <div className=''>
-                        <span className='font-medium text-sm w-36 overflow-hidden text whitespace-nowrap text-ellipsis'>
+                        <span className='font-medium text-sm select-none w-36 overflow-hidden text whitespace-nowrap text-ellipsis'>
                            {member.public_name}
                         </span>
                      </div>

@@ -7,11 +7,12 @@ import profile from "@/public/project-image/user-profile.jpeg";
 import TableSkeleton from "@/app/[lang]/component/TableSkeleton";
 import DropDownModel from "@/app/[lang]/component/DropDownModel";
 import SaveModel from "@/app/[lang]/component/SaveModel";
-// import EditEmployeeJob from "./models/EditEmployeeJob";
 
 
-async function getSpace(projectID, setEmployeeInfo, setModel, setEditModel) {
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${projectID}`, {
+async function getTask(spaceID,projectID,taskID, setTaskInfo, setModel, setEditModel,setProcess) {
+
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/task/${taskID}?spaceID=${spaceID}`,
+   {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -27,11 +28,12 @@ async function getSpace(projectID, setEmployeeInfo, setModel, setEditModel) {
             // setErrorText(data?.message);
          } else {
             console.log("data space information....", data.data);
-            setEmployeeInfo((prev) => {
+            setTaskInfo((prev) => {
                return { ...data.data };
             });
             setModel(false);
             setEditModel(true);
+            setProcess('update')
          }
       })
       .catch((error) => {
@@ -39,54 +41,19 @@ async function getSpace(projectID, setEmployeeInfo, setModel, setEditModel) {
       });
 }
 
-async function setEmployeeInArchive(
-   projectID,
-   setProgress,
-   setSave,
-   setModel
-) {
-   setSave(true);
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/archive/${projectID}`, {
-      credentials: "include",
-      headers: {
-         "content-type": "application/json",
-         "cache-control": "no-cache",
-      },
-   })
-      .then((res) => {
-         return res.json();
-      })
-      .then((data) => {
-         if (data.status === "fail" || data.status === "error") {
-            // setErrorMessage(true);
-            // setErrorText(data?.message);
-            setSave(false);
-         } else {
-            setModel(false);
-            setProgress(false);
-            setTimeout(() => {
-               setSave(false);
-               setProgress(true);
-            }, 2000);
-         }
-      })
-      .catch((error) => {
-         console.log(error);
-         setSave(false);
-      });
-}
 
-async function deleteProject(
+async function deleteTask(
    projectID,
    referesh,
    setProgress,
    setSave,
    setModel,
    setReferesh,
-   spaceID
+   spaceID,
+   taskID
 ) {
    setSave(true);
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}`, {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/task/${taskID}?spaceID=${spaceID}`,{
       method: "DELETE",
       credentials: "include",
       headers: {
@@ -118,6 +85,15 @@ async function deleteProject(
       });
 }
 
+
+function handleDate(date) {
+   // let d = new Date(date).toLocaleDateString();
+   let d = new Date(date).toDateString();
+   return d;
+}
+
+
+
 export default function TasksElement({
    page,
    recordNumber,
@@ -128,22 +104,26 @@ export default function TasksElement({
    projectElement,
    setProjectElement,
    referesh,
-   setReferesh
+   setReferesh,
+   projectID,
+   setTaskModel,
+   setTaskInfo,
+   setProcess
 }) {
-   // const [employee, setProjectElement] = useState([]);
-   const [projectID, setProjectID] = useState("");
+   const [taskID, setTaskID] = useState("");
    const [model, setModel] = useState(false);
-   const [editModel, setEditModel] = useState(false);
-   const [spaceInfo, setEmployeeInfo] = useState({});
    const [progress, setProgress] = useState(true);
    const [save, setSave] = useState(false);
    const [message, setMessage] = useState("");
    const [skeleton, setSkeleton] = useState(true)
+   // const [date, setDate] = useState();
+
 
    useEffect(() => {
+
       setSkeleton(true);
       fetch(
-         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project?spaceID=${spaceID}&page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/task?spaceID=${spaceID}&projectID=${projectID}&page=${page}&recordNumber=${recordNumber}`,
          {
             credentials: "include",
             headers: {
@@ -161,9 +141,8 @@ export default function TasksElement({
                console.log("data space faild....", data);
                setSkeleton(false);
             } else {
-               // setErrorMessage(false);
-               console.log("data space dd....", data);
-               // setProjectElement([...Object.values(data.data)]);
+
+               console.log("data space task....", data.data);
                setProjectElement([...Object.values(data.data.result)]);
                setTotalSpace(data.data.total);
                setSkeleton(false);
@@ -175,22 +154,25 @@ export default function TasksElement({
          });
    }, [page, referesh]);
 
+
    return (
       <>
 
       {
       skeleton ? <TableSkeleton length={6} /> : projectElement.length > 0 ? 
          projectElement?.map((item, index) => {
-            return (
 
+            return (
+               // <>
                <tr
-               className={`border-bottom-f0f1f3 hover:bg-gray-50`}
-               key={item.project_id}
+               className={`border-bottom-f0f1f3 hover:bg-gray-50 cursor-default`}
+               key={item.task_id}
             >
                <td className="text-center">{pageStart + index}</td>
                <td className="">
                   <a
-                     href={`/en/company/space/${spaceID}/projects/${item.project_id}`}
+                     // href={`/en/company/space/${spaceID}/projects/${item.project_id}`}
+                     href={`#`}
                      className="flex font-medium items-center gap-2 max-w-72 text-ellipsis overflow-hidden whitespace-nowrap h-full w-full"
                   >
                      <div className="flex items-center justify-center w-4 h-4 rounded-full relative todo-state">
@@ -233,10 +215,20 @@ export default function TasksElement({
                <td className="">
                   <div
                      className=" h-full w-full"
-                     // title={item.email}
+                     title={handleDate(item.start_date)}
                   >
                      <span className="text-ellipsis overflow-hidden whitespace-nowrap inline-block " style={{maxWidth:"90%"}}>
-                        {item.start_date.replaceAll('-','/')+'-'+item.end_date.replaceAll('-','/')}
+                        {handleDate(item.start_date)}
+                     </span>
+                  </div>
+               </td>
+               <td className="">
+                  <div
+                     className=" h-full w-full"
+                     title={handleDate(item.end_date)}
+                  >
+                     <span className="text-ellipsis overflow-hidden whitespace-nowrap inline-block " style={{maxWidth:"90%"}}>
+                        {handleDate(item.end_date)}
                      </span>
                   </div>
                </td>
@@ -291,10 +283,10 @@ export default function TasksElement({
                   <div className="w-full h-full flex items-center justify-center">
                   <button
                            className="border-0 w-6 back-hover h-6 rounded color-700 bg-transparent flex items-center justify-center"
-                           data-project={item.project_id}
+                           data-task={item.task_id}
                            onClick={(e) => {
-                              let id = e.currentTarget.dataset.project;
-                              setProjectID((prev) => {
+                              let id = e.currentTarget.dataset.task;
+                              setTaskID((prev) => {
                                  return id;
                               });
                               setModel(true);
@@ -311,6 +303,7 @@ export default function TasksElement({
                            </svg>
                         </button>
 
+
                         {model && (
                            <DropDownModel setShowIcon={setModel}>
                               <div
@@ -318,7 +311,7 @@ export default function TasksElement({
                                  style={{ width: "100%", maxWidth: "100%" }}
                               >
                                  <div
-                                    className="absolute z-2700 ltr:right-3 rtl:left-3 drop-menu-shadow bg-white rounded-md min-w-40 min-h-80 overflow-y-auto flex flex-col pt-2 pb-2"
+                                    className="absolute z-2700 ltr:right-3 rtl:left-3 drop-menu-shadow bg-white border-e8eaed rounded-md min-w-40 overflow-y-auto flex flex-col pt-2 pb-2"
                                     style={{ width: "224px", top: "36%" }}
                                  >
                                     <ul>
@@ -328,12 +321,7 @@ export default function TasksElement({
                                                 <button
                                                    className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded"
                                                    onClick={async (e) => {
-                                                      await getSpace(
-                                                         projectID,
-                                                         setEmployeeInfo,
-                                                         setModel,
-                                                         setEditModel
-                                                      );
+                                                      await getTask(spaceID,projectID,taskID, setTaskInfo, setModel, setTaskModel,setProcess);
                                                    }}
                                                 >
                                                    <span className="text-656f7d">
@@ -342,9 +330,9 @@ export default function TasksElement({
                                                          height="1rem"
                                                          fill="none"
                                                          stroke="currentColor"
-                                                         stroke-linecap="round"
-                                                         stroke-linejoin="round"
-                                                         stroke-width="2"
+                                                         strokeLinecap="round"
+                                                         strokeLinejoin="round"
+                                                         strokeWidth="2"
                                                          viewBox="0 0 24 24"
                                                          xmlns="http://www.w3.org/2000/svg"
                                                       >
@@ -352,7 +340,7 @@ export default function TasksElement({
                                                       </svg>
                                                    </span>
                                                    <span className="option-style text-2a2e34">
-                                                      Rejob
+                                                      Edit
                                                    </span>
                                                 </button>
                                              </li>
@@ -364,9 +352,9 @@ export default function TasksElement({
                                                          height="1rem"
                                                          fill="none"
                                                          stroke="currentColor"
-                                                         stroke-linecap="round"
-                                                         stroke-linejoin="round"
-                                                         stroke-width="2"
+                                                         strokeLinecap="round"
+                                                         strokeLinejoin="round"
+                                                         strokeWidth="2"
                                                          viewBox="0 0 24 24"
                                                          xmlns="http://www.w3.org/2000/svg"
                                                       >
@@ -386,9 +374,9 @@ export default function TasksElement({
                                                          height="1rem"
                                                          fill="none"
                                                          stroke="currentColor"
-                                                         stroke-linecap="round"
-                                                         stroke-linejoin="round"
-                                                         stroke-width="2"
+                                                         strokeLinecap="round"
+                                                         strokeLinejoin="round"
+                                                         strokeWidth="2"
                                                          viewBox="0 0 24 24"
                                                          xmlns="http://www.w3.org/2000/svg"
                                                       >
@@ -415,9 +403,9 @@ export default function TasksElement({
                                                          height="1rem"
                                                          fill="none"
                                                          stroke="currentColor"
-                                                         stroke-linecap="round"
-                                                         stroke-linejoin="round"
-                                                         stroke-width="2"
+                                                         strokeLinecap="round"
+                                                         strokeLinejoin="round"
+                                                         strokeWidth="2"
                                                          viewBox="0 0 24 24"
                                                          xmlns="http://www.w3.org/2000/svg"
                                                       >
@@ -448,12 +436,7 @@ export default function TasksElement({
                                                       setMessage(
                                                          "save in Archive"
                                                       );
-                                                      setEmployeeInArchive(
-                                                         projectID,
-                                                         setProgress,
-                                                         setSave,
-                                                         setModel
-                                                      );
+
                                                    }}
                                                 >
                                                    <span className="text-656f7d">
@@ -462,9 +445,9 @@ export default function TasksElement({
                                                          height="1rem"
                                                          fill="none"
                                                          stroke="currentColor"
-                                                         stroke-linecap="round"
-                                                         stroke-linejoin="round"
-                                                         stroke-width="2"
+                                                         strokeLinecap="round"
+                                                         strokeLinejoin="round"
+                                                         strokeWidth="2"
                                                          viewBox="0 0 24 24"
                                                          xmlns="http://www.w3.org/2000/svg"
                                                       >
@@ -483,16 +466,17 @@ export default function TasksElement({
                                                    className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded button-delete"
                                                    onClick={(e) => {
                                                       setMessage(
-                                                         "Fired Employee Successfully"
+                                                         "Delete Task Successfully"
                                                       );
-                                                      deleteProject(
+                                                      deleteTask(
                                                          projectID,
                                                          referesh,
                                                          setProgress,
                                                          setSave,
                                                          setModel,
                                                          setReferesh,
-                                                         spaceID
+                                                         spaceID,
+                                                         taskID
                                                       );
                                                    }}
                                                 >
@@ -502,9 +486,9 @@ export default function TasksElement({
                                                          height="1rem"
                                                          fill="none"
                                                          stroke="currentColor"
-                                                         stroke-linecap="round"
-                                                         stroke-linejoin="round"
-                                                         stroke-width="2"
+                                                         strokeLinecap="round"
+                                                         strokeLinejoin="round"
+                                                         strokeWidth="2"
                                                          viewBox="0 0 24 24"
                                                          xmlns="http://www.w3.org/2000/svg"
                                                       >
@@ -534,7 +518,7 @@ export default function TasksElement({
                   </div>
                </td>
             </tr>
-
+            // </>
             );
 
          }) : ''

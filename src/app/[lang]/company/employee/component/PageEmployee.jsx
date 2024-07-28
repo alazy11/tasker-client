@@ -2,10 +2,10 @@
 
 import EmployeeElement from "./EmployeeElement";
 import { Suspense } from "react";
-import { useState,useTransition } from "react";
+import { useState,useTransition,useContext } from "react";
 import JoinEmployee from "./JoinEmployee";
 import TopMiddleNav from './TopMiddelNav';
-
+import CompanyInformation from "../../component/UserContext";
 
 
 function inputHandler(value, setUser) {
@@ -39,7 +39,7 @@ function inputHandler(value, setUser) {
 
 export default function PageEmployee({ user }) {
 
-   
+   const company = useContext(CompanyInformation)
    const [page, setPage] = useState(1);
    const [recordNumber, setRecordNumber] = useState(10);
    const [totalSpace, setTotalSpace] = useState(0);
@@ -52,6 +52,8 @@ export default function PageEmployee({ user }) {
       // timeoutMs: 1000,
    });
 
+   console.log("comapny information  >>>",company);
+
    return (
        <>
 
@@ -61,7 +63,7 @@ export default function PageEmployee({ user }) {
       <div className='flex items-center justify-between pt-2 pb-2'>
       <ul className='flex items-center gap-1 flex-1'>
          <li>
-            <button className='flex items-center gap-0.5 pt-1 pb-1 pe-2 ps-2 rounded-xl border-e8eaed text-656f7d text-xs font-medium tag active hover:bg-gray-200'>
+            <button className='flex items-center gap-0.5 pt-1 pb-1 pe-2 ps-2 rounded-xl  text-xs font-medium tag active'>
                <span className='w-4 h-4'>
                   <svg width="100%" height="100%" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M11.514 2.126a1 1 0 0 1 .972 0l9 5a1 1 0 0 1 0 1.748l-9 5a1 1 0 0 1-.972 0l-9-5a1 1 0 0 1 0-1.748l9-5ZM5.06 8 12 11.856 18.94 8 12 4.144 5.06 8Z"></path>
@@ -73,7 +75,7 @@ All
             </button>
          </li>
          <li>
-            <button className='flex items-center gap-0.5 pt-1 pb-1 pe-2 ps-2 rounded-xl border-e8eaed text-656f7d text-xs font-medium tag hover:bg-gray-200'>
+            <button className='flex items-center gap-0.5 pt-1 pb-1 pe-2 ps-2 rounded-xl  text-xs font-medium tag'>
                <span className='w-4 h-4'>
                                     <svg width="100%" height="100%" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2a2 2 0 0 1-1.017 1.742c.011.084.017.17.017.258v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9c0-.087.006-.174.017-.258A2 2 0 0 1 2 7V5Zm18 2V5H4v2h16ZM5 9v10h14V9H5Zm3 3a1 1 0 0 1 1-1h6a1 1 0 0 1 0 2H9a1 1 0 0 1-1-1Z"></path>
@@ -91,7 +93,9 @@ Archive
             </button>
          </div>
          <div>
-         <input type="text" className='text-sm w-52 h-8 rounded-md min-w-0 ps-3 pe-3 border-0 box-shadow-search outline-none' placeholder='Search Space By Name...'
+         <input type="text" className='text-sm w-52 h-8 rounded-md bg-transparent min-w-0 ps-3 pe-3 border-0 box-shadow-search outline-none' placeholder='Search Space By Name...'
+
+         style={{color:'var(--cu-content-primary)'}}
          value={member}
          autoComplete="off"
          onChange={(e) => {
@@ -112,7 +116,7 @@ Archive
          <div className={`grow overflow-auto mr-0 scroll-bar relative ${employee ? 'animation-margin-assign' : ''}`}>
             <table className="min-w-800 space-table w-full">
                <thead className="sticky top-0">
-                  <tr className="h-8 back-nav-side text-656f7d text-xs border-bottom-f0f1f3">
+                  <tr className="h-8 back-nav-side top-tr-table text-xs border-main-bottom">
                      <th className="font-medium w-10%">#</th>
                      <th className="font-medium w-10% text-start">PROFILE</th>
                      <th className="font-medium w-1/5 text-start">NAME</th>

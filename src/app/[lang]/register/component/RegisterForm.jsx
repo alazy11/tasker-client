@@ -10,12 +10,10 @@ export default async function RegisterForm({ lang }) {
 
    return (
       <div className="form-container">
-         <span style={{position:"fixed",top:"10px",left:'50%',backgroundColor:'#eee',zIndex:"1000"}}>asdkj dfm;lf</span>
          <div className="inner-form-container">
             <div className="form-wrap">
             <div className="form-title">
                <h1>{dic.register.title}</h1>
-               <p>{dic.register.note}</p>
             </div>
             <div className="form-cont">
                {/* <div className="tap-container">

@@ -10,7 +10,7 @@ export default function TopMiddleNav ({setEmployee}) {
       <div className='pe-4 ps-4 min-h-12 border-bottom-e8eaed flex'>
          <div className='flex items-center flex-grow'>
             <ul className='flex self-stretch gap-1'>
-               <li className='flex items-center'>
+               {/* <li className='flex items-center'>
                   <a href="#" className='relative h-7 w-full rounded-md ps-1.5 pe-1.5 flex top-item items-center gap-1 hover:bg-gray-100 active'>
                      <span className='w-4 h-4 text-656f7d'>
                      <svg width="100%" height="100%" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -24,10 +24,12 @@ export default function TopMiddleNav ({setEmployee}) {
                         Overview
                      </span>
                   </a>
-               </li>
+               </li> */}
 
                <li className='flex items-center'>
-                  <a href="#" className='relative h-7 w-full rounded-md ps-1.5 pe-1.5 flex top-item items-center gap-1 hover:bg-gray-100'>
+                  <a href="#" className='relative h-7 w-full rounded-md ps-1.5 pe-1.5 flex top-item active items-center gap-1 back-search-member'
+                  
+                  >
                      <span className='w-4 h-4 text-656f7d'>
                      <svg width="100%" height="100%" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -38,7 +40,8 @@ export default function TopMiddleNav ({setEmployee}) {
 </svg>
                      </span>
                      
-                     <span className='text-ellipsis whitespace-nowrap text-sm font-medium text-656f7d'>
+                     <span className='text-ellipsis whitespace-nowrap text-sm font-medium text-656f7d'
+                     >
                         Employee
                      </span>
                   </a>
@@ -67,8 +70,8 @@ export default function TopMiddleNav ({setEmployee}) {
                </li>
 
                <li className='flex items-center'>
-                  <button className='relative backgroung-f2f1fe border-0 h-7 w-full rounded-md ps-1.5 pe-1.5 flex items-center gap-1 hover:bg-gray-100'>
-                     <span className='w-4 h-4 color-544dc9'>
+                  <button className='relative border-0 h-7 w-full filter-btn rounded-md ps-1.5 pe-1.5 flex items-center gap-1'>
+                     <span className='w-4 h-4'>
                      <svg width="100%" height="100%" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M21 19H9"></path>
 <path d="M7 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"></path>
@@ -81,7 +84,7 @@ export default function TopMiddleNav ({setEmployee}) {
 <path d="M3 5h4"></path>
 </svg>
                      </span>
-                     <span className='text-ellipsis whitespace-nowrap text-sm font-medium color-544dc9'>
+                     <span className='text-ellipsis whitespace-nowrap text-sm font-medium '>
                         Hide
                      </span>
                   </button>

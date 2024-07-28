@@ -8,6 +8,9 @@ import { useState,useTransition } from "react";
 import TopMiddleNav from './TopMiddleNav';
 import profile from "@/public/project-image/user-profile.jpeg";
 import Image from "next/image";
+import ProjectSetting from "./setting/ProjectSetting";
+import ManagerModel from "../../component/model/ManagerModel";
+
 
 // const SuccessNotification = dynamic(() => import("@/app/[lang]/component/SuccessNotification"));
 
@@ -54,6 +57,16 @@ export default function PageProject({ user,spaceID, projectID }) {
    const [isPending, startTransition] = useTransition({
       // timeoutMs: 1000,
    });
+
+   const [setting, setSetting] = useState(false);
+   const [settingClose,setSettingClose] = useState(false);
+   const [managerModel, setManagerModel] = useState(false);
+   const [manager, setManager] = useState([]);
+   const[top, setTop] = useState("");
+   const[left, setLeft] = useState("");
+
+
+
    const [referesh, setReferesh] = useState(false);
 
 
@@ -61,9 +74,9 @@ export default function PageProject({ user,spaceID, projectID }) {
 <>
 
 
-<TopMiddleNav setEmployee={setProjectModel} projectID={projectID} spaceID={spaceID} >Create Project</TopMiddleNav>
+<TopMiddleNav setEmployee={setProjectModel} setSetting={setSetting}  projectID={projectID} spaceID={spaceID} >Create Project</TopMiddleNav>
 
-<div className='ps-4 pe-4 h-12 w-full'>
+<div className='ps-4 pe-4 h-12 w-full relative overflow-hidden'>
       <div className='flex items-center justify-between pt-2 pb-2'>
       <ul className='flex items-center gap-1 flex-1'>
          <li>
@@ -112,7 +125,7 @@ Archive
       </div>
    </div>
 
-      <div className="relative grow min-h-0 grid grid-container-spaces">
+      <div className="relative grow min-h-0 grid grid-container-spaces overflow-hidden">
          <div className={`grow overflow-auto mr-0 scroll-bar relative`}>
             <table className="min-w-800 space-table w-full">
                <thead className="sticky top-0">
@@ -127,7 +140,8 @@ Archive
                   </tr>
                </thead>
                <tbody>
-                  <Suspense fallback={<p>Loading feed...</p>}>
+
+                  {/* <Suspense fallback={<p>Loading feed...</p>}> */}
                      {/* <ProjectsElement
                         user={user}
                         pageStart={pageStart}
@@ -141,8 +155,8 @@ Archive
                         referesh={referesh}
                         setReferesh={setReferesh}
                      /> */}
-
-                  </Suspense>
+                  {/* </Suspense> */}
+                  
                </tbody>
             </table>
          </div>
@@ -219,11 +233,27 @@ Archive
 {
    // projectModel && <AddProject setModel={setProjectModel} spaceID={spaceID}  referesh={referesh} setReferesh={setReferesh} />
 }
-         
-         
          {
-
-         }
+            setting && <ProjectSetting setSetting={setSetting} setSettingClose={setSettingClose} projectID={projectID} settingClose={settingClose}
+            spaceID={spaceID} 
+            // roomId={roomId}
+            setManagerModel={setManagerModel}
+            setManager={setManager}
+            manager={manager}
+            setTop={setTop} setLeft={setLeft} 
+            />
+}
+         
+{managerModel && (
+            <ManagerModel
+               setManagerModel={setManagerModel}
+               setManager={setManager}
+               manager={manager}
+               spaceID={spaceID}
+               top={top}
+               left={left}
+            />
+         )}
 
       </div>
       </>

@@ -65,6 +65,7 @@ const Folder = ({
    projectID,
    folder,
    levelN,
+   add = true,
    setFID = () => {},
    setFolderPath = () => {},
    setSubChild = () => {},
@@ -74,6 +75,8 @@ const Folder = ({
    setFolderActive = () => {},
    setFolderLeft = () => {},
    setFolderTop = () => {},
+   setFolderName = () => {},
+   setFileModel = () => {},
    folderActive,
    folderOptions
 }) => {
@@ -117,11 +120,13 @@ const Folder = ({
             style={{ color: "#b0bac6" }}
             data-show={false}
             ref={aaa}
-            className={`flex relative ${folder.kind === 'folder' ? (folderActive === folder.folder_id ? "folder-active" : '') : (folderActive === folder.file_id ? "folder-active" : '') }  main items-center min-h-8 cursor-pointer rounded-md hover:bg-gray-100 folder-hover`}
+            className={`flex relative ${folder.kind === 'folder' ? (folderActive === folder.folder_id ? "folder-active" : '') : (folderActive === folder.file_id ? "folder-active" : '') }  main items-center min-h-8 cursor-pointer rounded-md hover:bg-gray-100 ${add && 'folder-hover'}`}
             onContextMenu={(e) => {
                e.preventDefault();
-               setFolderLeft(e.currentTarget.offsetLeft)
-               setFolderTop(e.currentTarget.offsetTop)
+               let left = e.currentTarget.getBoundingClientRect().left;
+               let top = e.currentTarget.getBoundingClientRect().top;
+               setFolderLeft(left)
+               setFolderTop(top)
                setFolderOptions(true);
                if(folder.kind === 'file'){
                   setFolderActive(folder.file_id);
@@ -182,6 +187,8 @@ const Folder = ({
                   ele.push(parent);
                   setFID(folderID);
                   setFolderPath(folder.folder_path);
+                  setFolderName(folder.name);
+                  setFileModel(false);
                }}
             >
                <div>
@@ -285,6 +292,9 @@ const Folder = ({
                            folderOptions={folderOptions}
                            setFolderLeft={setFolderLeft}
                            setFolderTop={setFolderTop}
+                           setFolderName={setFolderName}
+                           setFileModel={setFileModel}
+                           add={add}
                         />
                      ))}
                   </ul>
@@ -310,8 +320,11 @@ export default function FolderTree({
    folderOptions,
    setFolderLeft,
    setFolderTop,
+   setFolderName,
+   setFileModel,
    referesh,
-   setReferesh
+   setReferesh,
+   add
 }) {
    const [folderTreeData, setFolderTreeData] = useState([]);
    const [scroll, setScroll] = useState(0);
@@ -421,6 +434,9 @@ export default function FolderTree({
                         folderOptions={folderOptions}
                         setFolderLeft={setFolderLeft}
                         setFolderTop={setFolderTop}
+                        setFolderName={setFolderName}
+                        setFileModel={setFileModel}
+                        add={add}
                      />
                   ))}
                </ul>

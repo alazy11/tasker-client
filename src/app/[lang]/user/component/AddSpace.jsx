@@ -82,7 +82,7 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
    const [pathIcon, setPathIcon] = useState(null);
    const [activeIcon, setActiveIcon] = useState("");
    const [searchMember, setSearchMember] = useState(false);
-   const [memberID, setMemberID] = useState([user]);
+   const [memberID, setMemberID] = useState([]);
    const [pathIconSpace, setPathIconSpace] = useState(spaceInfo.icon_path || null);
    const [loader, setLoader] = useState(false);
    const [activeModel, setActiveModel] = useState("1");
@@ -370,6 +370,7 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                                  <SearchMember
                                     setMemberID={setMemberID}
                                     setSearchMember={setSearchMember}
+                                    memberID={memberID}
                                  />
                               )}
                            </div>
@@ -377,7 +378,7 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
 
                         <div className="border-d6d9de overflow-auto h-52 w-full p-2 mt-2 rounded-lg scroll-bar">
                            <ul className="flex items-center flex-wrap gap-1">
-                              {memberID.map((member) => {
+                              {memberID?.map((member) => {
                                  return (
                                     <li>
                                        <div className="border-d6d9de flex items-center gap-2.5 w-fit p-1.5 pe-2.5 ps-1.5 rounded-3xl">
@@ -444,8 +445,9 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                                  if (pathIconSpace) {
 
                                     spaceHandler(
-                                       spaceInfo.space_id,
-                                       user.company_id,
+                                       {
+                                       space_id:spaceInfo.space_id,
+                                       company_id:user.company_id,
                                        title,
                                        description,
                                        icon,
@@ -463,31 +465,36 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                                        setDescription,
                                        getSpace,
                                        setReferesh,
-                                       referesh
+                                       referesh,
+                                       memberID
+                                    }
                                     );
                                  }
                               } else {
                                  spaceHandler(
-                                    spaceInfo.space_id,
-                                    user.company_id,
-                                    title,
-                                    description,
-                                    icon,
-                                    textIcon,
-                                    pathIconSpace,
-                                    selectColor,
-                                    setLoader,
-                                    setGetSpace,
-                                    setModel,
-                                    setActiveModel,
-                                    setTextIcon,
-                                    setIcon,
-                                    setTitle,
-                                    setSelectColor,
-                                    setDescription,
-                                    getSpace,
-                                    setReferesh,
-                                    referesh
+                                    {
+                                       space_id:spaceInfo.space_id,
+                                       company_id:user.company_id,
+                                       title,
+                                       description,
+                                       icon,
+                                       textIcon,
+                                       pathIconSpace,
+                                       selectColor,
+                                       setLoader,
+                                       setGetSpace,
+                                       setModel,
+                                       setActiveModel,
+                                       setTextIcon,
+                                       setIcon,
+                                       setTitle,
+                                       setSelectColor,
+                                       setDescription,
+                                       getSpace,
+                                       setReferesh,
+                                       referesh,
+                                       memberID
+                                    }
                                  );
                               }
                            }}

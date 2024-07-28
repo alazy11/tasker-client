@@ -65,7 +65,7 @@ export default function UploadFile({user, spaceID, projectID, folderInfo,fileInf
 
 
    const [loader, setLoader] = useState(false);
-   const [percent, setPercent] = useState('')
+   const [percent, setPercent] = useState('');
    const [editFile, setEditFile] = useState(false);
 
 
@@ -99,7 +99,7 @@ export default function UploadFile({user, spaceID, projectID, folderInfo,fileInf
 
                            }
    
-                        <div className="flex-1 text-start">
+                        <div className="flex-1 text-start max-w-56">
                            <div className="w-5/6 flex items-center">
                            <a href="#" className="flex max-w-full text-2a2e34 transition-colors text-sm link-hover" >
                               <span className="inline-block w-full text-ellipsis overflow-hidden whitespace-nowrap">

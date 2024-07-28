@@ -1,12 +1,14 @@
 "use client";
 
-
-import { useState,useTransition } from "react";
+import { useState,useTransition,useEffect } from "react";
 import TopMiddleNav from "../../component/TopMiddleNav";
 import TasksElement from "./TasksElement";
 import dynamic from "next/dynamic";
+import TaskSetting from "./setting/TaskSetting";
+import ManagerModel from "../../../component/model/ManagerModel";
 
 const AddTask = dynamic(() => import("./AddTask"));
+const Alert = dynamic(() => import("@/app/[lang]/component/Alert"));
 
 
 function inputHandler(value, setUser,spaceID) {
@@ -47,19 +49,106 @@ export default function TaskPage({ user,spaceID,projectID }) {
    const [pageStart, setPageStart] = useState((page - 1) * recordNumber + 1);
    const [pageEnd, setPageEnd] = useState(page * recordNumber);
    const [projectElement, setProjectElement] = useState([]);
-   const [member, setMember] = useState("");
    const [isPending, startTransition] = useTransition({
       // timeoutMs: 1000,
    });
    const [referesh, setReferesh] = useState(false);
+   const [projectInfo, setProjectInfo] = useState({});
+   const [plan, setPlan] = useState(false);
+   const [taskInfo, setTaskInfo] = useState({});
+   const [process, setProcess ] = useState('add');
+   const [folderPublic, setFolderPublic ] = useState('');
+
+   const [setting, setSetting] = useState(false);
+   const [settingClose,setSettingClose] = useState(false);
+   const [managerModel, setManagerModel] = useState(false);
+   const [manager, setManager] = useState([]);
+   const[top, setTop] = useState("");
+   const[left, setLeft] = useState("");
+
+
+   useEffect(() => {
+      const abortController = new AbortController();
+
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}`, {
+         signal: abortController.signal,
+         credentials: "include",
+         headers: {
+            "cache-control": "no-cache",
+         },
+      })
+         .then((res) => {
+            return res.json();
+         })
+         .then((data) => {
+            if (data.status === "fail" || data.status === "error") {
+               // setErrorMessage(true);
+               // setErrorText(data?.message);
+               console.log("data space faild....", data);
+            } else {
+               setProjectInfo(data.data);
+               setPlan(true);
+            }
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+
+      return () => {
+         abortController.abort();
+      };
+   }, [referesh]);
+
+
+
+   useEffect(() => {
+      const abortController = new AbortController();
+
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/public/get`, {
+         signal: abortController.signal,
+         credentials: "include",
+         headers: {
+            "cache-control": "no-cache",
+         },
+      })
+         .then((res) => {
+            return res.json();
+         })
+         .then((data) => {
+            if (data.status === "fail" || data.status === "error") {
+               // setErrorMessage(true);
+               // setErrorText(data?.message);
+               console.log("data space faild....", data);
+            } else {
+               setFolderPublic(data.data.folder_path);
+            }
+         })
+         .catch((error) => {
+            console.log(error);
+         });
+
+      return () => {
+         abortController.abort();
+      };
+   }, [referesh]);
+
+
+
 
    return (
 
       <>
+
+      {
+         plan && (!projectInfo.assgin_phase ? <Alert type={'warning'} message={"you Don't Add Phases Information yet, Team Member Can't Access this Project Before You Add Information.  "} /> : '')
+      }
+
          <TopMiddleNav
             setEmployee={setTaskModel}
             projectID={projectID}
             spaceID={spaceID}
+            active = {!plan}
+            setSetting={setSetting} 
          >
             Add Task
          </TopMiddleNav>
@@ -122,13 +211,14 @@ Archive
 
 <div className="relative grow min-h-0 grid grid-container-spaces">
          <div className={`grow overflow-auto mr-0 scroll-bar relative`}>
-            <table className="min-w-800 space-table w-full">
-               <thead className="sticky top-0">
+            <table className="min-w-800 space-table w-full" style={{minWidth:'940px'}}>
+               <thead className="sticky top-0 z-10">
                   <tr className="h-8 back-nav-side text-656f7d text-xs border-bottom-f0f1f3">
                      <th className="font-medium w-5%">#</th>
                      <th className="font-medium w-30% text-start">TITLE</th>
-                     <th className="font-medium w-1/5 text-start">MANAGER</th>
-                     <th className="font-medium w-10% text-start">DATE</th>
+                     <th className="font-medium w-10% text-start">ASSIGN</th>
+                     <th className="font-medium w-10% text-start">START DATE</th>
+                     <th className="font-medium w-10% text-start">END DATE</th>
                      <th className="font-medium w-10% text-start">DESCRIPTION</th>
                      <th className="font-medium w-10% text-start">STATE</th>
                      <th className="font-medium w-10% text-start">PRIORITY</th>
@@ -149,6 +239,10 @@ Archive
                         setProjectElement={setProjectElement}
                         referesh={referesh}
                         setReferesh={setReferesh}
+                        projectID={projectID}
+                        setTaskModel={setTaskModel}
+                        setTaskInfo={setTaskInfo}
+                        setProcess = {setProcess}
                      />
 
                   {/* </Suspense> */}
@@ -226,17 +320,33 @@ Archive
          </div>
 
 {
-   taskModel && <AddTask setModel={setTaskModel} spaceID={spaceID} projectID={projectID}  referesh={referesh} setReferesh={setReferesh} />
+   taskModel && <AddTask setModel={setTaskModel} folderPublic={folderPublic} process={process} setTaskInfo={setTaskInfo} taskInfo={taskInfo} spaceID={spaceID} projectID={projectID}  referesh={referesh} setReferesh={setReferesh} />
 }
          
-         
-         {
-
-         }
 
       </div>
 
+      {
+            setting && <TaskSetting setSetting={setSetting} setSettingClose={setSettingClose} projectID={projectID} settingClose={settingClose}
+            spaceID={spaceID} 
+            // roomId={roomId}
+            setManagerModel={setManagerModel}
+            setManager={setManager}
+            manager={manager}
+            setTop={setTop} setLeft={setLeft} 
+            />
+}
 
+{managerModel && (
+            <ManagerModel
+               setManagerModel={setManagerModel}
+               setManager={setManager}
+               manager={manager}
+               spaceID={spaceID}
+               top={top}
+               left={left}
+            />
+         )}
 
       </>
 

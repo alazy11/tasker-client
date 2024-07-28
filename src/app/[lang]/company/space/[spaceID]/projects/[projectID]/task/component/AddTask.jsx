@@ -10,11 +10,13 @@ import TextEditor from "@/app/[lang]/component/TextEditor";
 
 import profile from "@/public/project-image/user-profile.jpeg";
 import Image from "next/image";
+import FileBox from "./FileBox";
 
 // const SpaceModel = dynamic(() => import("./model/SpacesModel"));
 const ManagerModel = dynamic(() => import("./model/ManagerModel"));
 const PriorityModel = dynamic(() => import("./model/PriorityModel"));
 const TagModel = dynamic(() => import("./model/TagModel"));
+const FileModel = dynamic(() => import("./model/FileModel"));
 const SuccessNotification = dynamic(() => import("@/app/[lang]/component/SuccessNotification"));
 
 
@@ -31,10 +33,11 @@ const SuccessNotification = dynamic(() => import("@/app/[lang]/component/Success
 // priority = ?,
 
 
-function createProject({projectID,title,state,manager,priority,selectedTags,phases,startDate,endDate,desc,requirements,setLoader,setNotification,setModel,spaceID,referesh,setReferesh }) {
+function createTask({projectID,title,state,manager,priority,selectedTags,phases,startDate,endDate,desc,folderPath,setLoader,setNotification,setModel,spaceID,referesh,setReferesh,attachment,downloadPath }) {
    setLoader(true)
    const task = {
-      projectID,spaceID,title,state,manager,priority,selectedTags,phases,startDate,endDate,desc,requirements
+      projectID,spaceID,title,state,manager,priority,selectedTags,phases,startDate,endDate,desc,folderPath,
+      attachment,downloadPath
    }
 
 
@@ -77,70 +80,105 @@ function createProject({projectID,title,state,manager,priority,selectedTags,phas
 }
 
 
+function updateTask({projectID,title,state,manager,priority,selectedTags,phases,startDate,endDate,desc,folderPath,taskID,setLoader,setNotification,setModel,spaceID,referesh,setReferesh,setTaskInfo }) {
+   setLoader(true)
+   const task = {
+      projectID,spaceID,title,state,manager,priority,selectedTags,phases,startDate,endDate,desc,folderPath
+   }
 
 
-export default function AddTask({ setModel, spaceID, referesh,setReferesh,projectID }) {
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/task/${taskID}`,
+   {
+      method:'PUT',
+      credentials: "include",
+      headers: {
+         "content-type": "application/json",
+         "cache-control": "no-cache",
+      },
+      body:JSON.stringify({...task})
+   })
+      .then((res) => {
+         return res.json();
+      })
+      .then((data) => {
+         if (data.status === "fail" || data.status === "error") {
+            // setErrorMessage(true);
+            // setErrorText(data?.message);
+            console.log("data space faild....", data);
+            setLoader(false)
+         } else {
+            // setErrorMessage(false);
+            console.log("data project dd....", data.data);
+            setLoader(false);
+            setNotification(true);
+            setTaskInfo({});
+            setTimeout(() => {
+               setModel(false);
+               setReferesh(!referesh)
+            }, 1500);
+            // setSpace(data.data);
+         }
+      })
+      .catch((error) => {
+         console.log(error);
+         setLoader(false)
+      });
+
+}
+
+function handleDate(date) {
+   let day = new Date(date).getDate().toString();
+   let month = new Date(date).getMonth().toString();
+   let year = new Date(date).getFullYear();
+   return `${year}-${month.length < 2 ? '0'+month : month}-${day.length < 2 ? '0'+day : day}`;
+}
+
+
+export default function AddTask({ setModel, spaceID,taskInfo = {}, referesh,setReferesh,projectID,process,setTaskInfo,folderPublic }) {
    const [loader, setLoader] = useState(false);
    const date = useRef(null);
-   const [activeModel, setActiveModel] = useState("1");
-   // const [spaceModel, setSpaceModel] = useState(false);
    const [managerModel, setManagerModel] = useState(false);
    const [priorityModel, setPriorityModel] = useState(false);
    const [tagModel, setTagModel] = useState(false);
    const [space_id, setSpace_id] = useState(spaceID);
-   const [title, setTitle] = useState('');
+   const [title, setTitle] = useState(taskInfo.title || '');
    const [state, setState] = useState('todo');
-   const [manager, setManager] = useState([]);
-   const [priority, setPriority] = useState("normal");
+   const [manager, setManager] = useState((Object.values(taskInfo).length > 0 ? [{user_id:taskInfo.user_id,public_name:taskInfo.public_name,profile_path:taskInfo.profile_path}] : null) || []);
+   const [priority, setPriority] = useState(taskInfo.priority || "normal");
+   const [fileModel, setFileModel] = useState(false);
    const [selectedTags, setSelectedTags] = useState([]);
-   const [phases, setPhases] = useState("");
-   const [requirements, setRequirements] = useState("file");
-   const [startDate, setStartDate] = useState("");
-   const [endDate, setEndDate] = useState("");
-   const [desc, setDesc] = useState('');
-   const [notification, setNotification] = useState(false)
+   const [phases, setPhases] = useState("27");
+   const [startDate, setStartDate] = useState((taskInfo.start_date && handleDate(taskInfo.start_date)) || "");
+   const [endDate, setEndDate] = useState((taskInfo.end_date && handleDate(taskInfo.end_date)) || "");
+   const [desc, setDesc] = useState(taskInfo.description || '');
+   const [folderID, setFolderID] = useState(null);
+   const [folderPath, setFolderPath] = useState(taskInfo.folder_path || folderPublic);
+   const [downloadPath, setDownloadPath] = useState(null);
+   const [folderName, setFolderName] = useState('');
+   const [notification, setNotification] = useState(false);
+   const [error, setError] = useState({
+      title:'',
+      assign:'',
+      startDate:'',
+      endDate:'',
+      desc:''
+   });
+   const[attachment,setAttachment] = useState('')
 
-   // useEffect(() => {
-   //    const abortController = new AbortController();
+   useEffect(()=>{
 
-   //    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}`, {
-   //       signal: abortController.signal,
-   //       credentials: "include",
-   //       headers: {
-   //          "cache-control": "no-cache",
-   //       },
-   //    })
-   //       .then((res) => {
-   //          return res.json();
-   //       })
-   //       .then((data) => {
-   //          if (data.status === "fail" || data.status === "error") {
-   //             // setErrorMessage(true);
-   //             // setErrorText(data?.message);
-   //             console.log("data space faild....", data);
-   //          } else {
-   //             // setErrorMessage(false);
-   //             console.log("data space dd....", data);
-   //             setSpace(data.data);
-   //          }
-   //       })
-   //       .catch((error) => {
-   //          console.log(error);
-   //       });
+      console.log("attachment",attachment)
 
-   //    return () => {
-   //       abortController.abort();
-   //    };
-   // }, []);
+   },[attachment])
 
-   // useEffect(()=>{
-   //    console.log("desc",desc)
-   // },[desc]);
+   // console.log("projectID",projectID)
+   // console.log("spaceID",spaceID)
+
 
    return (
       <>
          <ModelOverlay showModel={setModel}>
-            <div className="project-model contain-content">
+            <div className="project-model contain-content overflow-hidden">
                <div className="grid rounded-xl bg-white w-full h-full relative overflow-hidden">
                   <div className="flex items-center justify-between h-12 ltr:pl-6 rtl:pr-6 ltr:pr-2 rtl:pl-2 border-bottom-e8eaed">
                      <ul className="flex items-center gap-6 h-full w-full">
@@ -160,7 +198,10 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                         </li>
                      </ul>
                      <div>
-                        <button className="w-8 h-8 p-1.5 rounded-md hover:bg-gray-100 ">
+                        <button className="w-8 h-8 p-1.5 rounded-md hover:bg-gray-100" onClick={(e)=>{
+                           setModel(false)
+                           setTaskInfo({})
+                        }}>
                            <span
                               className="flex items-center justify-center w-full h-full"
                               style={{ color: "#656f7d" }}
@@ -188,14 +229,13 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                activeModel == 1 
                ? */}
 
-                  <div className="grid grid-cols-2" autoComplete="off">
-                     <div className="border-right-e8eaed flex flex-col ">
+                  <div className="grid grid-cols-2 overflow-hidden" autoComplete="off">
+                     <div className="border-right-e8eaed flex flex-col overflow-hidden">
                         <div className="border-bottom-e8eaed min-h-12 flex items-center p-2 ltr:pl-3 rtl:pr-3 text-xl font-medium leading-6  text-2a2e34 ">
                            <h2>Details</h2>
                         </div>
                         <div
                            className="w-full flex-1 overflow-auto scroll-bar"
-                           style={{ maxHeight: "368px" }}
                         >
                            <div className="width-pro min-h-full h-auto m-auto p pt-6 pb-12 ">
                               <div className="w-full min-h-12 mb-3">
@@ -207,8 +247,8 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                                  <textarea
                                     name="title"
                                     value={title}
-                                    placeholder="Project Title..."
-                                    className="text-3xl font-bold outline-0 outline-none leading-5 w-full min-h-9"
+                                    placeholder="Task Title..."
+                                    className={`text-3xl font-bold outline-0 outline-none leading-5 w-full min-h-9 ${error.title.length > 0 ? 'border-b border-solid border-b-red-700' : ''}`}
                                     // required
                                     onChange={(e)=>{
                                        setTitle(e.target.value)
@@ -291,12 +331,12 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                                           </svg>
                                        </span>
                                        <p className="text-sm leading-4 font-normal color-600">
-                                          Manager
+                                          Assign
                                        </p>
                                     </div>
 
                                     <div>
-                                       <div className="w-full flex items-center text-sm font-normal min-h-9 color-700 rounded-md pl-1.5 pr-1.5 select-none hover:bg-gray-50">
+                                       <div className={`w-full flex items-center text-sm font-normal min-h-9 color-700 rounded-md pl-1.5 pr-1.5 select-none hover:bg-gray-50 ${error.assign.length > 0 ? 'border-b border-solid border-b-red-700' : ''}`}>
                                           {manager.length > 0 ? (
                                              <div className="border-d6d9de flex items-center gap-2.5 w-fit p-1 pe-2.5 ps-1.5 rounded-3xl">
                                                 <div className="h-6 w-6 rounded-full overflow-hidden">
@@ -359,7 +399,7 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                                           </p>
                                        </div>
 
-                                       <div className="flex items-center">
+                                       <div className={`flex items-center ${error.startDate.length > 0 ? 'border-b border-solid border-b-red-700' : ''}`}>
                                           <input
                                              type="date"
                                              ref={date}
@@ -367,6 +407,7 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                                              id="start"
                                              className=""
                                              value={startDate}
+                                             // value={'1999-09-23'}
                                              onChange={(e) => {
                                                 setStartDate(e.target.value);
                                              }}
@@ -407,7 +448,7 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                                           </p>
                                        </div>
 
-                                       <div className="flex items-center">
+                                       <div className={`flex items-center ${error.endDate.length > 0 ? 'border-b border-solid border-b-red-700' : ''}`}>
                                           <input
                                              type="date"
                                              ref={date}
@@ -590,72 +631,58 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                                  </li>
 
 
-                                 <li className="grid grid-project gap-1">
-                                       <div className="grid gap-2 label items-center min-h-9">
-                                          <span className=" w-4 h-4 flex items-center justify-center color-600">
-                                             <svg
-                                                width={"100%"}
-                                                height={"100%"}
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                             >
-                                                <rect
-                                                   width={18}
-                                                   height={18}
-                                                   x={3}
-                                                   y={4}
-                                                   rx={2}
-                                                   ry={2}
-                                                />
-                                                <path d="M16 2v4" />
-                                                <path d="M8 2v4" />
-                                                <path d="M3 10h18" />
+                                 <li
+                                    className="grid grid-project gap-1 cursor-pointer"
+                                    onClick={(e) => {
+                                       // setPriorityModel(true);
+                                       setFileModel(true);
+                                       // setFilePath()
+                                    }}
+                                 >
+                                    <div className="grid gap-2 label items-center min-h-9">
+                                       <span className=" w-4 h-4 flex items-center justify-center color-600">
+                                             <svg 
+                                                width={"1rem"}
+                                                height={"1rem"}
+                                                className="block"
+                                             viewBox="0 0 24 24" fill="currentColor" >
+                                                <path  fill-rule="evenodd" d="M14.25 4a3.75 3.75 0 0 0-3.75 3.75V14a1.5 1.5 0 0 0 3 0V8a1 1 0 1 1 2 0v6a3.5 3.5 0 1 1-7 0V7.75a5.75 5.75 0 0 1 11.5 0V14a8 8 0 1 1-16 0V8a1 1 0 0 1 2 0v6a6 6 0 0 0 12 0V7.75A3.75 3.75 0 0 0 14.25 4Z" clip-rule="evenodd"></path>
                                              </svg>
-                                          </span>
-                                          <p className="text-sm leading-4 font-normal color-600">
-                                             Requirements 
-                                          </p>
-                                       </div>
+                                       </span>
+                                       <p className="text-sm leading-4 font-normal color-600">
+                                          Upload Path
+                                       </p>
+                                    </div>
 
-                                       <div className="flex items-center gap-2">
-                                          <div className="flex items-center gap-1">
-                                             <input type="radio" name="file" id="file" checked onChange={(e)=>{
-                                                if(e.checked) {
-                                                   setRequirements('file')
-                                                }
-                                             }} />
-                                          <label htmlFor="file" className="m-0 font-normal cursor-pointer">upload files</label>
-                                          </div>
-
-                                          <div className="flex items-center gap-1 ">
-                                          <input type="radio" name="file" id="link" checked onChange={(e)=>{
-                                                if(e.checked) {
-                                                   setRequirements('link')
-                                                }
-                                             }} />
-                                          <label htmlFor="link" className="m-0 font-normal cursor-pointer">add link</label>
-                                          </div>
+                                    <div>
+                                       <div className="w-full flex items-center text-sm font-normal min-h-9 color-700 rounded-md pl-1.5 pr-1.5 select-none hover:bg-gray-50">
+                                          {
+                                             <div className="text-sm font-normal capitalize leading-5 flex items-center gap-2 w-full border-none rounded-md text-2a2e34">
+                                                {folderPath.substring(folderPath.indexOf(`${projectID}`) + projectID.length) || '\\public'}
+                                             </div>
+                                          }
                                        </div>
-                                    </li>
+                                    </div>
+                                 </li>
+
 
                               </ul>
 
-                              {/* <div className="flex items-center justify-between z-10 pt-4 pb-4 bg-white "></div> */}
+                              <FileBox spaceID={spaceID} projectID={projectID}
+                              setAttachment={setAttachment}
+                              setDownloadPath={setDownloadPath}
+                              downloadPath={downloadPath}
+                              />
 
                            </div>
                         </div>
                      </div>
 
-                     <div className="flex flex-col">
+                     <div className="flex flex-col overflow-hidden">
                         <div className="border-bottom-e8eaed min-h-12 flex items-center p-2 ltr:pl-3 rtl:pr-3 text-xl font-medium leading-6  text-2a2e34 ">
                            <h2>Description</h2>
                         </div>
-                        <div className="flex-1 editor-max">
+                        <div className="flex-1 editor-task overflow-hidden">
                            <TextEditor setDesc={setDesc} desc={desc} />
                         </div>
                      </div>
@@ -665,7 +692,8 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                      <button
                         className="text-sm font-medium h-8 pl-3 pr-3 rounded-md flex items-center justify-center border-d6d9de hover:bg-zinc-100 bg-white color-700"
                         onClick={(e) => {
-                           setActiveModel("1");
+                           setModel(false);
+                           setTaskInfo({})
                         }}
                      >
                         Cancel
@@ -678,15 +706,15 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                               viewBox="0 0 24 24"
                            >
                               <circle
-                                 class="opacity-25"
+                                 className="opacity-25"
                                  cx="12"
                                  cy="12"
                                  r="10"
                                  stroke="currentColor"
-                                 stroke-width="4"
+                                 strokeWidth="4"
                               ></circle>
                               <path
-                                 class="opacity-75"
+                                 className="opacity-75"
                                  fill="currentColor"
                                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                               ></path>
@@ -698,7 +726,10 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                            disabled={(manager.length > 0) & (title.trim() !== '') & (startDate.trim() !== '') & (endDate.trim() !== '') & (desc.trim() !== '') ? false : true }
                            className="text-sm relative disabled:cursor-not-allowed disabled:before:absolute disabled:before:w-full disabled:before:h-full disabled:before:top-0 disabled:before:left-0 disabled:before:z-50 disabled:before:bg-gray-50/20 font-medium h-8 pl-3 pr-3 rounded-md flex items-center justify-center border-transparent button-background text-white"
                            onClick={(e) => {
-                              createProject({space_id,projectID,title,state,manager:manager[0].user_id,priority,selectedTags,phases,startDate,endDate,desc,requirements,setNotification,setLoader,setModel,spaceID,referesh,setReferesh });
+                              if(process === 'add')
+                              createTask({space_id,projectID,title,state,manager:manager[0].user_id,priority,selectedTags,phases,startDate,endDate,desc,folderPath,setNotification,setLoader,setModel,spaceID,referesh,setReferesh,attachment,downloadPath });
+                              else
+                              updateTask({space_id,projectID,title,state,manager:manager[0].user_id,priority,selectedTags,phases,startDate,endDate,desc,folderPath,taskID:taskInfo.task_id,setNotification,setLoader,setModel,spaceID,referesh,setReferesh });
                            }}
                         >
                            Continue
@@ -739,6 +770,17 @@ export default function AddTask({ setModel, spaceID, referesh,setReferesh,projec
                setSelectedTags={setSelectedTags}
                spaceID={spaceID}
                projectID={projectID}
+            />
+         )}
+
+         {fileModel && (
+            <FileModel
+               setFileModel={setFileModel}
+               spaceID={spaceID}
+               projectID={projectID}
+               setFolderID={setFolderID}
+               setFolderPath={setFolderPath}
+               setFolderName={setFolderName}
             />
          )}
 

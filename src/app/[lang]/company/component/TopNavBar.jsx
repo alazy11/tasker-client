@@ -1,23 +1,71 @@
 "use client";
 
-
 import Image from "next/image";
 import logo from '../../../../../public/project-image/logo.svg';
 import languageIcon from '../../../../../public/project-image/EN.svg';
 import userProfile from '../../../../../public/project-image/user-profile.jpeg';
-import { useState } from "react";
-import ProfileDropMenu from './drop_menu/ProfileDropMenu';
+import { useState,useEffect } from "react";
+import dynamic from "next/dynamic";
+import socket from "@/app/socket";
+import RecordScreen from "./record-screen/RecordScreen";
+
+const Profile = dynamic(()=> import("./profile/Profile"));
+const Theme = dynamic(()=> import("./profile/Theme"));
+const ProfileDropMenu = dynamic(()=> import("./drop_menu/ProfileDropMenu"));
+const NoteList = dynamic(()=> import("./note/NoteList"));
 
 
 
 export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverlay, showOverlay,user}) {
 
    const [showProfileMenu, setShowProfileMenu] = useState(false);
+   const [profileModel, setProfileModel] = useState(false);
+   const [themeModel, setThemeModel] = useState(false);
+   const [noteModel, setNoteModel] = useState(false);
+   const [isConnected, setIsConnected] = useState(false);
+   const [transport, setTransport] = useState("N/A");
+
+   useEffect(() => {
+      socket.connect();
+  
+      if (socket.connected) {
+        onConnect();
+      }
+  
+      function onConnect() {
+        setIsConnected(true);
+        setTransport(socket.io.engine.transport.name);
+  
+        socket.io.engine.on("upgrade", (transport) => {
+          setTransport(transport.name);
+        });
+      }
+  
+      function onDisconnect() {
+        setIsConnected(false);
+        setTransport("N/A");
+      }
+  
+      socket.on("connect", onConnect);
+      socket.on("disconnect", onDisconnect);
+  
+      socket.on("new order",(ms)=>{
+        console.log('server.....',ms)
+      })
+  
+      return () => {
+        socket.off("connect", onConnect);
+        socket.off("disconnect", onDisconnect);
+      };
+    }, []);
+
+
 
    return (
-      <header className="z-40 ">
+      <>
+      <header className="z-40 back-nav">
          <div className="back-nav h-12 flex items-center">
-            <div className="relative flex w-full items-center px-2  dark:bg-black">
+            <div className="relative flex w-full items-center px-2">
                <div className="horizontal-logo flex justify-between items-center ltr:mr-2 rtl:ml-2">
                   <a className="main-logo flex items-center shrink-0" href="/">
                      <div>
@@ -32,6 +80,35 @@ export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverl
                         VRISTO
                      </span>
                   </a>
+
+                  <div className="flex items-center px-3 lg:hidden">
+            <button type="button" className="collapse-icon w-8 h-8  text-white rounded-md flex items-center btn-top-nav dark:text-white-light" onClick={(e)=>{
+                        if(showMenu === '') {
+                           setShowMenu('toggle-sidebar');
+                        } else {
+                           setShowMenu('');
+                        }
+                        if(showOverlay === '') {
+                           setShowOverlay('hidden')
+                        } else {
+                           setShowOverlay('')
+                        }
+                     }} >
+            {/* <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="m-auto rotate-270">
+            <path d="M19 11L12 17L5 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+               </path><path opacity="0.5" d="M19 7L12 13L5 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+               
+               </svg> */}
+
+               <svg width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}  className="m-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M17 10H3" />
+  <path d="M21 6H3" />
+  <path d="M21 14H3" />
+  <path d="M17 18H3" />
+</svg>
+
+               </button>
+            </div>
 
                </div>
 
@@ -113,6 +190,18 @@ export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverl
                      </button>
                   </div>
 
+                  <div>
+                     <button className="ai-button flex items-center justify-center">
+                        {/* <div>
+                        <svg width={18} height={18} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />
+    <path d="M8 12h8" />
+    <path d="M12 16V8" />
+</svg>
+                        </div> */}
+Ask AI
+                     </button>
+                  </div>
 
                   
                   <div>
@@ -134,7 +223,8 @@ New
                   </div>
 
                   <div>
-                     <button className="flex items-center p-2 rounded-full bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
+                  <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
+                     >
                      <svg width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M15 17H9v1a3 3 0 1 0 6 0v-1Z"/>
     <path d="M21 6a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" fill="#ff1717" stroke="#ff1717"  />
@@ -144,40 +234,23 @@ New
                      </button>
                   </div>
                   <div>
-                     <button className="flex items-center p-2 rounded-full bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
+                  <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
+                     onClick={(e)=>{
+                        setNoteModel(true)
+                     }}>
                      <svg width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M15.5 4H18a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2.5" />
     <path d="M8.621 3.515A2 2 0 0 1 10.561 2h2.877a2 2 0 0 1 1.94 1.515L16 6H8l.621-2.485z" />
     <path d="M9 12h6" />
     <path d="M9 16h6" />
 </svg>
-
-
                      </button>
                   </div>
-                  <div>
-                     <button className="flex items-center p-2 rounded-full bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
-                     {/* <svg width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.118 12 22 7.333v9.334L16.118 12Zm0 0V7.333A2.343 2.343 0 0 0 13.765 5H4.353A2.343 2.343 0 0 0 2 7.333v9.334A2.343 2.343 0 0 0 4.353 19h9.412c1.3 0 2.353-1.045 2.353-2.333V12Z" />
-</svg> */}
-
-
-{/* <svg width={20} height={20} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M21 7.15a1.7 1.7 0 0 0-1.85.3l-2.15 2V8a3 3 0 0 0-3-3H5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h9a3 3 0 0 0 3-3v-1.45l2.16 2a1.74 1.74 0 0 0 1.16.45c.238 0 .473-.052.69-.15a1.6 1.6 0 0 0 1-1.48V8.63A1.6 1.6 0 0 0 21 7.15ZM15 16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v8Zm5-1.4L17.19 12 20 9.4v5.2Z" />
-</svg> */}
-
-<svg width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="m23 7-7 5 7 5V7z" />
-    <rect width={15} height={14} x={1} y={5} rx={2} ry={2} />
-</svg>
-
-
-                     </button>
-                  </div>
+                  
+                  <RecordScreen />
                   <div className="dropdown shrink-0">
-                     <button
+                  <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
                         type="button"
-                        className="block p-2 rounded-full bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
                      >
 <svg width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 5a8 8 0 1 0 0 16 8 8 0 1 0 0-16z" />
@@ -197,9 +270,8 @@ New
                      ></div>
                   </div>
                   <div className="dropdown shrink-0">
-                     <button
+                  <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
                         type="button"
-                        className="block p-2 rounded-full bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
                      >
                         <svg width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M4 4v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.342a2 2 0 0 0-.602-1.43l-4.44-4.342A2 2 0 0 0 13.56 2H6a2 2 0 0 0-2 2z" />
@@ -217,9 +289,8 @@ New
                      ></div>
                   </div>
                   <div className="dropdown shrink-0">
-                     <button
+                  <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
                         type="button"
-                        className="relative block p-2 rounded-full bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60"
                      >
                         <span>
                         <svg width={20} height={20} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -249,13 +320,26 @@ New
                            alt="userProfile"
                         />
                      </button>
-                     {
-                     showProfileMenu && <ProfileDropMenu user={user} userProfile={userProfile} dic={dic} lang={lang} />
-                     }
                   </div>
                </div>
             </div>
          </div>
       </header>
+      
+      {
+      showProfileMenu && <ProfileDropMenu user={user} setShowProfileMenu={setShowProfileMenu} setProfileModel={setProfileModel} setThemeModel={setThemeModel} userProfile={userProfile}  dic={dic} lang={lang} />
+      }
+
+      {
+      profileModel && <Profile user={user} setProfileModel={setProfileModel} userProfile={userProfile} dic={dic} lang={lang} />
+      }
+      {
+      themeModel && <Theme user={user} setThemeModel={setThemeModel} dic={dic} lang={lang} />
+      }
+      {
+      noteModel && <NoteList user={user} setNoteModel={setNoteModel} dic={dic} lang={lang} />
+      }
+
+      </>
    );
 }

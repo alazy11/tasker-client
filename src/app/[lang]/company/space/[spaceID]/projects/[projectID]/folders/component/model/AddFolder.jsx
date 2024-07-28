@@ -73,7 +73,7 @@ export default function AddFolder({setModel, user, spaceID, projectID}) {
                <div className="p-6 flex-1 flex flex-col">
                <div className="flex items-center justify-between">
                         <h2 className="text-lg font-semibold leading-6 text-2a2e34">
-                           Create Space
+                           Create Folder
                         </h2>
                         <button
                            className="p-1 flex items-center justify-center bg-transparent rounded-md hover:bg-gray-100"

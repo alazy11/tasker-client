@@ -74,7 +74,7 @@ export const config = {
    matcher: [
       // Skip all internal paths (_next)
       // "/((?!_next).*)",
-      '/((?!api|en/login|en/register|ar/login|ar/register|favicon.ico|_next/static|_next/image|.*\\.png$).*)',
+      '/((?!api|en/login|en/register|ar/login|ar/register|favicon.ico|manifest.json|manifest.webmanifest|_next/static|_next/image|.*\\.png$).*)',
       // Optional: only run on root (/) URL
       // '/([lang]/*)'
    ],

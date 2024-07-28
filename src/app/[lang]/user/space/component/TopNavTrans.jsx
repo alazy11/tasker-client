@@ -4,7 +4,7 @@ import { useState } from "react";
 import AddSpace from "../../component/AddSpace";
 
 
-function spaceHandler(
+function spaceHandler({
    space_id,
    company_id,
    title,
@@ -24,7 +24,7 @@ function spaceHandler(
    setDescription,
    getSpace,
    setReferesh,
-   referesh
+   referesh}
 ) {
    setLoader(true);
    const space = {
@@ -37,7 +37,7 @@ function spaceHandler(
       selectColor: selectColor
    };
 
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space`, {
+   fetch("http://localhost:4040/en/company/space", {
       method: "post",
       credentials: "include",
       headers: {
@@ -78,6 +78,7 @@ function spaceHandler(
 export default function TopNavTrans({user}) {
 
    const [model, setModel] = useState(false);
+
 
    return(
       <div>

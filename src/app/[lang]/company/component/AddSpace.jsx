@@ -108,9 +108,10 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
 
       <ModelOverlay showModel={setModel}>
                <div
-                  className={`bg-white w-480px h-auto flex flex-col rounded-xl overflow-hidden relative z-2000  ${
+                  className={`bg-white w-480px h-auto flex flex-col space-add-container rounded-xl overflow-hidden relative z-2000  ${
                      activeModel === "1" ? "" : "hidden"
-                  }`}
+                  }`
+               }
                >
                   <div className="p-6">
                      <div className="flex items-center justify-between">
@@ -118,7 +119,7 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                            Create Space
                         </h2>
                         <button
-                           className="p-2 flex items-center justify-center bg-transparent rounded-md hover:bg-gray-100"
+                           className="p-2 flex items-center justify-center bg-transparent rounded-md close-add-space"
                            style={{ width: "26.67px", height: "26.67px" }}
                            onClick={(e) => {
                               setDescription('');
@@ -130,28 +131,23 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                               setModel(false);
                            }}
                         >
-                           <svg
-                              width="26.67"
-                              height="26.67"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                           >
-                              <path d="m5 5 14 14M5 19 19 5"></path>
-                           </svg>
+                           <span className="w-full h-full flex items-center justify-center" style={{stroke: "#979797"}}>
+ <svg width="1rem"
+                              height="1rem" viewBox="0 0 24 24"><g fill="none" fillRule="evenodd" strokeLinecap="round" strokeWidth="2.5"><path d="m2 2 20 20M22 2 2 22">
+                                 </path></g></svg>
+
+                           </span>
+
+                          
                         </button>
                      </div>
-                     <p className="text-sm leading-6	font-normal text-656f7d w-95% overflow-hidden text-ellipsis">
+                     <p className="text-sm leading-6	font-normal w-95% overflow-hidden text-ellipsis" style={{color:"var(--cu-content-tertiary)"}}>
                         A Space represents teams, departments, or groups, each
                         with its own Projects, workflows, and settings.
                      </p>
 
                      <div className="mt-5	">
-                        <h3 className="text-sm font-medium text-start leading-5 text-gray-600 after:content-['*'] after:ml-0.5 after:text-red-500">
+                        <h3 className="text-sm font-medium text-start leading-5 after:content-['*'] after:ml-0.5 after:text-red-500" style={{color:"var(--cu-content-secondary)"}}>
                            icon & name{" "}
                         </h3>
                         <div className="mt-2 flex items-center gap-3	">
@@ -227,10 +223,10 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
 
                      <div className="mt-8">
                         <div className="mb-2 text-start">
-                           <span className="text-sm font-medium leading-5 text-gray-600">
+                           <span className="text-sm font-medium leading-5" style={{color:"var(--cu-content-secondary)"}}>
                               Description{" "}
                            </span>
-                           <span className="text-xs leading-3 color-600">
+                           <span className="text-xs leading-3" style={{color:"var(--cu-content-tertiary)"}}>
                               (optional)
                            </span>
                         </div>
@@ -250,13 +246,14 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                         </div>
                      </div>
                   </div>
-                  <div className="p-4 border-top-e9ebf0 flex items-center justify-between bg-gray-50">
+                  <div className="p-4 border-t border-solid flex items-center justify-between space-add-container_footer" >
                      <span>use kmkvf</span>
                      <button
                         className={`text-sm font-medium h-8 pl-3 pr-3 rounded-md flex items-center justify-center border-transparent button-background text-white ${
                            title === "" ? "button-color-disable" : ""
                         } `}
                         disabled={title === "" ? true : false}
+                        style={{backgroundColor:"var(--cu-background-primary)"}}
                         onClick={(e) => {
                            setActiveModel("2");
                         }}
@@ -267,50 +264,46 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                </div>
 
                <div
-                  className={`bg-white w-480px h-auto flex flex-col rounded-xl overflow-hidden relative z-2000  ${
+                  className={` w-480px h-auto flex flex-col rounded-xl overflow-hidden relative z-2000 space-add-container ${
                      activeModel === "2" ? "" : "hidden"
                   }`}
                >
                   <div className="p-6">
                      <div className="flex items-center justify-between">
-                        <h2 className="text-lg font-semibold leading-6 text-2a2e34">
+                        <h2 className="text-lg font-semibold leading-6 text-2a2e34" >
                            Add Members to Space
                         </h2>
                         <button
-                           className="p-2 flex items-center justify-center bg-transparent rounded-md hover:bg-gray-100"
+                           className="p-2 flex items-center justify-center bg-transparent rounded-md close-add-space"
                            style={{ width: "26.67px", height: "26.67px" }}
                            onClick={(e) => {
-                                 setDescription('');
-                                 setTextIcon('M');
-                                 setIcon(null);
-                                 setTitle('');
-                                 setSelectColor('');
-                                 setActiveModel('1');
-                                 setModel(false);
+                              setDescription('');
+                              setTextIcon('M');
+                              setIcon(null);
+                              setTitle('');
+                              setSelectColor('');
+                              setActiveModel('1');
+                              setModel(false);
                            }}
                         >
-                           <svg
-                              width="28"
-                              height="28"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                           >
-                              <path d="m5 5 14 14M5 19 19 5"></path>
-                           </svg>
+                           <span className="w-full h-full flex items-center justify-center" style={{stroke: "#979797"}}>
+ <svg width="1rem"
+                              height="1rem" viewBox="0 0 24 24"><g fill="none" fillRule="evenodd" strokeLinecap="round" strokeWidth="2.5"><path d="m2 2 20 20M22 2 2 22">
+                                 </path></g></svg>
+
+                           </span>
+
+                          
                         </button>
+
                      </div>
-                     <p className="text-sm leading-6	font-normal text-656f7d w-95% overflow-hidden text-ellipsis">
+                     <p className="text-sm leading-6	font-normal w-95% overflow-hidden text-ellipsis" style={{color:"var(--cu-content-tertiary)"}}>
                         You can Add members right now or later.
                      </p>
 
                      <div className="mt-5	">
                         <div className="flex items-center w-full justify-between">
-                           <h3 className="text-sm font-medium leading-5 text-gray-600">
+                           <h3 className="text-sm font-medium leading-5" style={{color:"var(--cu-content-secondary)"}}>
                               Members
                            </h3>
 
@@ -393,7 +386,9 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                                              />
                                           </div>
 
-                                          <div className="text-sm font-semibold text-gray-600">
+                                          <div className="text-sm font-semibold"
+                                          style={{color:" var(--cu-content-default)"}}
+                                          >
                                              <span>{member.public_name}</span>
                                           </div>
                                        </div>
@@ -404,7 +399,7 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                         </div>
                      </div>
                   </div>
-                  <div className="p-4 border-top-e9ebf0 flex items-center justify-between bg-gray-50">
+                  <div className="p-4 border-t border-solid flex items-center justify-between space-add-container_footer">
                      <button
                         className="text-sm font-medium h-8 pl-3 pr-3 rounded-md flex items-center justify-center border-d6d9de hover:bg-zinc-100 bg-white color-700"
                         onClick={(e) => {
@@ -438,7 +433,8 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                         </button>
                      ) : (
                         <button
-                           className="text-sm font-medium h-8 pl-3 pr-3 rounded-md flex items-center justify-center border-transparent button-background text-white"
+                           className="text-sm font-medium h-8 pl-3 pr-3 rounded-md flex items-center justify-center border-transparent text-white"
+                           style={{backgroundColor:"var(--cu-background-primary)"}}
                            onClick={(e) => {
                               if (pathIcon) {
                                  uploadImage(pathIcon, setPathIconSpace);

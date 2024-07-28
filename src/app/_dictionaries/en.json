@@ -1,7 +1,7 @@
 {
    "login": {
       "title":"SIGN IN",
-      "note": "Check the Option below to Login As a COMPANY",
+      "note": "Check the option below to login as a Company",
       "field1":{
          "title":"User Name",
          "placeholder":"Enter Your User Name"
@@ -24,7 +24,6 @@
 
    "register": {
       "title":"SIGN UP",
-      "note": "Check the Option below to Login As a COMPANY",
       "username":{
          "title":"User Name",
          "placeholder":"Enter User Name"

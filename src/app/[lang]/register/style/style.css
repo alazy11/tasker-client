@@ -2,50 +2,97 @@
 .main-container {
    width: 100%;
    min-height: 100vh;
+   background-color: #fafbfc;
 }
 
-.inner-container {
+.register-container-page .login-page-new__main-bg {
+   position: absolute;
+   height: calc(100% - 17vh);
+   width: 100%;
+   top: 17vh;
+   left: 0;
+   overflow: hidden;
+   pointer-events: none;
+   background: url("../../../../../public/project-image/login__bg.svg") center 10px no-repeat;
+     background-size: auto;
+   background-size: cover;
+ }
+
+ .register-container-page .login-page-new__main-bg::before {
+   content: "";
+   display: block;
+   position: absolute;
+   width: 200%;
+   height: 300%;
+   top: -100%;
+   left: -50%;
+   background: url("../../../../../public/project-image/login__bg-dots.svg");
+   transform: rotate(-28deg);
+ }
+
+ .register-container-page .login-page-new__main-bg::after {
+   content: "";
+   display: block;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   background: url('../../../../../public/project-image/login__bg-top.svg') center top no-repeat;
+     background-size: auto;
+   background-size: 100%;
+ }
+
+ .register-container-page .inner-container {
    width: 100%;
    min-height: 100vh;
-   background-image: url('../../../../../public/image/background-login.png');
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
    display: flex;
   justify-content: center;
   align-items: center;
   padding-block: 30px;
 }
 
-.form-container {
+.register-container-page  .form-container {
    border-radius: .375rem;
    max-width: 870px;
    width: 85%;
-   background-image: linear-gradient(45deg,#fff9f9,#fff0 25%,#fff0 75%,#fff9f9);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
 }
 @media (max-width:500px) {
-   .form-container {
+   .register-container-page .form-container {
       width: 95%;
    }
 }
-.inner-form-container {
+.register-container-page .inner-form-container {
    display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 1.5rem;
-   background-color: #fff9;
-   border-radius: .375rem;
    color: rgb(14 23 38/1);
-   backdrop-filter: blur(16px);
+   width: 660px !important;
+  background: #fff;
+  box-shadow: 0 24px 64px #26214a1a;
+  border-radius: 12px;
+  padding: 30px 60px;
 }
-.form-wrap {
+
+@media (max-width:568px) {
+   .register-container-page .inner-form-container {
+     padding: 30px 25px;
+   }
+}
+
+
+.register-container-page .form-wrap {
    max-width: 440px;
    width: 100%;
    --tw-text-opacity: 1;
   color: rgb(136 142 168/var(--tw-text-opacity));
 }
-.form-title {
+.register-container-page .form-title {
    margin-bottom: 2.5rem;
 }
 .form-title h1{
@@ -63,7 +110,7 @@
 .form-title p{
    color:rgb(136 142 168/1);
    line-height: 1.5;
-   font-weight: 700;
+   font-weight: 600;
    font-size: 1rem;
 }
 .form-tap-container {
@@ -83,7 +130,7 @@ form,.first,.secret-field{
    flex-direction: column;
    /* gap: 10px; */
 }
-.company-form {
+.register-container-page .company-form {
    display: grid;
    grid-template-columns: 100% 100%;
 }

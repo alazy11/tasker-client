@@ -111,7 +111,7 @@ Archive
       <div className="relative grow min-h-0 grid grid-container-spaces">
          <div className={`grow overflow-auto mr-0 scroll-bar relative ${employee ? 'animation-margin-assign' : ''}`}>
             <table className="min-w-800 space-table w-full">
-               <thead className="sticky top-0">
+               <thead className="sticky top-0 z-10">
                   <tr className="h-8 back-nav-side text-656f7d text-xs border-bottom-f0f1f3">
                      <th className="font-medium w-10%">#</th>
                      <th className="font-medium w-10% text-start">PROFILE</th>

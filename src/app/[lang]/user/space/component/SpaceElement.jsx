@@ -26,7 +26,7 @@ setActiveModel){
 
 
 
-function spaceHandler(
+function spaceHandler({
    space_id,
    company_id,
    title,
@@ -47,6 +47,7 @@ function spaceHandler(
    getSpace,
    setReferesh,
    referesh
+}
 ) {
    setLoader(true);
    const space = {
@@ -60,7 +61,7 @@ function spaceHandler(
       selectColor: selectColor
    };
 
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space`, {
+   fetch("http://localhost:4040/en/company/space", {
       method: "put",
       credentials: "include",
       headers: {
@@ -100,7 +101,7 @@ function spaceHandler(
 
 
 async function getSpace(spaceId,setSpaceInfo,setModel,setEditModel) {
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceId}`, {
+   fetch(`http://localhost:4040/en/company/space/${spaceId}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -131,7 +132,7 @@ async function getSpace(spaceId,setSpaceInfo,setModel,setEditModel) {
 
 async function setSpaceInArchive(spaceId, setProgress, setSave, setModel) {
    setSave(true);
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/archive/${spaceId}`, {
+   fetch(`http://localhost:4040/en/company/space/archive/${spaceId}`, {
       credentials: "include",
       headers: {
          "content-type": "application/json",
@@ -163,7 +164,7 @@ async function setSpaceInArchive(spaceId, setProgress, setSave, setModel) {
 
 async function deleteSpace(spaceId, referesh, setProgress, setSave, setModel, setReferesh) {
    setSave(true);
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceId}`, {
+   fetch(`http://localhost:4040/en/company/space/${spaceId}`, {
       method:'DELETE',
       credentials: "include",
       headers: {
@@ -212,7 +213,10 @@ export default function SpaceElement({page, recordNumber, setTotalSpace,pageEnd,
 
    useEffect(()=>{
 
-      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space?page=${page}&recordNumber=${recordNumber}`, {
+      const abortController = new AbortController();
+
+      fetch(`http://localhost:4040/en/company/space?page=${page}&recordNumber=${recordNumber}`, {
+         signal: abortController.signal,
          credentials: "include",
          headers: {
             "cache-control": "no-cache",
@@ -228,7 +232,7 @@ export default function SpaceElement({page, recordNumber, setTotalSpace,pageEnd,
                console.log("data space faild....", data);
             } else {
                // setErrorMessage(false);
-               console.log("data space dd....", data);
+               console.log("data space running....", data);
                // setSpaces([...Object.values(data.data)]);
                setSpaces([...Object.values(data.data.result)]);
                setTotalSpace(data.data.total);
@@ -239,6 +243,10 @@ export default function SpaceElement({page, recordNumber, setTotalSpace,pageEnd,
             console.log(error);
          });
 
+         return () => {
+            abortController.abort();
+         };
+         
    },[page,referesh]);
 
 

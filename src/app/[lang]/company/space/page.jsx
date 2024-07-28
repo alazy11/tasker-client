@@ -1,77 +1,13 @@
 
-import TopInlineNav from '@/app/[lang]/company/component/TopInlineNav'
-import TopNavTrans from './component/TopNavTrans';
-import PageSpace from './component/PageSpace';
+// import TopInlineNav from '@/app/[lang]/company/component/TopInlineNav'
+// import TopNavTrans from './component/TopNavTrans';
+// import PageSpace from './component/PageSpace';
 // import {getCompany} from '@/_util/userHandler';
-// import { cookies } from 'next/headers';
 
+import SpacePage from './SpaceContainer';
 
-
-async function getCompany() {
-   let user;
-   try {
-   //   const cookiesData = cookies().get('token').value;
-     const res = await fetch(`${process.env.BACKEND_URL}/en/company`, {
-       credentials: 'include',
-       headers: {
-         // authorization: `Bearer ${cookiesData}`,
-         'cache-control': 'no-store',
-       },
-     });
-     const data = await res.json();
-     user = data.data;
-   } catch (err) {
-     console.log(err);
-   }
- 
-   return user;
- 
- }
-
-
-
-
-
-export default async function Space() {
-
-
-   let user = await getCompany()
-
-
+export default function Space() {
    return(
-      <>
-         <TopInlineNav>
-      <div>
-      <a href="#" className="flex items-center h-6 px-1 rounded hover:bg-gray-100" >
-         <span className="whitespace-nowrap overflow-hidden text-ellipsis text-sm leading-4 font-normal">
-         Dashboard
-         </span>
-      </a>
-   </div>
-   <span className="text-sm leading-4 font-normal w-3 text-center">
-      /
-   </span>
-   <div>
-      <a href="#" className="flex items-center h-6 px-1 rounded hover:bg-gray-100" >
-         <span className="whitespace-nowrap overflow-hidden text-ellipsis text-sm leading-4 font-normal ">
-         Dashboard
-         </span>
-      </a>
-   </div>
-   <span className="text-sm leading-4 font-normal w-3  text-center">
-      /
-   </span>
-   <div>
-      <a href="#" className="flex items-center h-6 px-1 rounded hover:bg-gray-100" >
-         <span className="whitespace-nowrap overflow-hidden text-ellipsis text-sm leading-4 font-normal">
-         Dashboard
-         </span>
-      </a>
-   </div>
-      </TopInlineNav>
-
-      <TopNavTrans user={user} />
-      <PageSpace user={user} />
-      </>
+      <SpacePage />
    )
 }

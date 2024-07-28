@@ -7,8 +7,9 @@ export default async function LoginForm({ lang }) {
    const dic = await getDictionary(lang);
 
    return (
-      <div className="form-container">
+      <div className="form-container relative">
          <div className="inner-form-container">
+
             <div className="form-wrap">
             <div className="form-title">
                <h1>{dic.login.title}</h1>

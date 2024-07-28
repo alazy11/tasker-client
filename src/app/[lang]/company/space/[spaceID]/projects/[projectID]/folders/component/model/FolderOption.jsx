@@ -121,7 +121,7 @@ export default function FolderOption({setFolderOptions, folderInfo, folderLeft, 
       >
       {/* drop-menu-shadow  */}
       {/* <div ref={refr} className="absolute z-2700 shadow-xl bg-white border-e8eaed rounded-lg min-w-44 pt-2 pb-2 overflow-y-auto flex flex-col" style={{ top:(folderTop - refr.current.height)+'px',left:(folderLeft - refr.current.width)+'px'}}> */}
-      <div ref={refr} className="absolute z-2700 shadow-xl bg-white border-e8eaed rounded-lg min-w-44 w-52 pt-2 pb-2 overflow-y-auto flex flex-col" style={{ top:folderTop+'px',left:folderLeft+'px'}}>
+      <div ref={refr} className="absolute z-2700 shadow-xl bg-white border-e8eaed rounded-lg min-w-44 w-52 pt-2 pb-2 overflow-y-auto flex flex-col" style={{ top:(folderTop - 200)+'px',left:(folderLeft + 207)+'px'}}>
          <div className='py-2 ps-4 pe-3'>
             <div className='flex items-center max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-xs font-semibold uppercase color-600' style={{letterSpacing:'.05em', fontSize:'11px'}}>
             {/* Attachment */}
@@ -131,9 +131,7 @@ export default function FolderOption({setFolderOptions, folderInfo, folderLeft, 
             </div>
          </div>
          <ul>
-         {
-         console.log('hhhh',refr.current)
-         }
+
             <li className='ps-2 pe-2'>
                <button className={`text-sm font-normal leading-5 flex items-center hover:back-gray200 gap-3 w-full p-2 border-none rounded-md text-2a2e34 `} onClick={(e)=>{
                   setRename(true)

@@ -3,13 +3,11 @@ import { cookies } from 'next/headers';
 
 export async function getCompany() {
 
-   let cookiesData = cookies().get('token').value;
-
    return new Promise((resolve,reject)=>{
-      fetch(`${process.env.BACKEND_URL}/en/company`,{
-         credentials: 'include',
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company?sender=company`,{
+         // credentials: 'include',
          headers:{
-            "authorization":`Bearer ${cookiesData}`,
+            "authorization":`Bearer ${cookies().get('token').value}`,
             "cache-control":"no-store",
          }
       }).then(res=>{
@@ -27,19 +25,17 @@ export async function getCompany() {
 
 export async function getUser() {
 
-   let cookiesData = cookies().get('token').value;
-
    return new Promise((resolve,reject)=>{
-      fetch(`${process.env.BACKEND_URL}/en/user`,{
-         credentials: 'include',
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/user`,{
+         // credentials: 'include',
          headers:{
-            "authorization":`Bearer ${cookiesData}`,
+            "authorization":`Bearer ${cookies().get('token').value}`,
             "cache-control":"no-store",
          }
       }).then(res=>{
          return res.json();
       }).then(data=>{
-         console.log(data);
+         // console.log(data);
          return resolve(data.data)
       }).catch(err=>{
          return reject(err);

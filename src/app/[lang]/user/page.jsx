@@ -3,7 +3,7 @@ import Connection from './component/Connection';
 
 
 
-export default function Company() {
+export default function User() {
    return(
       <div>
       <p>heloo</p>

@@ -51,7 +51,10 @@ export default function SearchMember({setSearchMember, setMemberID, memberID}) {
       <DropDownModel setShowIcon={setSearchMember}>
       <div className='h-full m-auto relative' style={{width:'480px', maxWidth:'100%' }}>
 
-      <div className="absolute z-2700 ltr:right-6 rtl:left-6 md:rtl:-left-32 md:ltr:-right-32  drop-menu-shadow bg-white rounded-md w-72 min-w-40 min-h-80 overflow-y-auto flex flex-col" style={{ height:"344px", maxHeight:" calc(100vh - 20px)", top:'36%'}}>
+      <div className="absolute z-2700 ltr:right-6 rtl:left-6 md:rtl:-left-32 md:ltr:-right-32  drop-menu-shadow rounded-md w-72 min-w-40 min-h-80 overflow-y-auto flex flex-col" style={{ height:"344px", maxHeight:" calc(100vh - 20px)", top:'36%',
+background: "var(--cu-background-menu)",
+color: "var(--cu-content-default)"
+      }}>
          
          <div>
             <div className="w-full flex items-center relative">
@@ -72,7 +75,7 @@ export default function SearchMember({setSearchMember, setMemberID, memberID}) {
                   employee?.map((member,index)=>{
                      return(
                         <li className="w-full pe-2 ps-2 member" key={member.user_id}>
-                  <div className="relative pe-2 ps-2 h-11 w-full flex items-center justify-between cursor-pointer rounded-md hover:bg-gray-100" data-member={member.user_id} data-index={index} onClick={(e)=>{
+                  <div className="relative pe-2 ps-2 h-11 w-full flex items-center justify-between cursor-pointer rounded-md back-search-member" data-member={member.user_id} data-index={index} onClick={(e)=>{
                      console.log("e.target.dataset?.index",)
                      // console.log("e.target.dataset?.member",e.target.dataset?.member)
                      let index = e.currentTarget.dataset?.index;
@@ -91,12 +94,12 @@ export default function SearchMember({setSearchMember, setMemberID, memberID}) {
                         <Image src={member.profile_path ?? profile} alt='profile' className="w-8" />
                      </div>
                      <div className=''>
-                        <span className='font-medium text-sm select-none w-36 overflow-hidden text whitespace-nowrap text-ellipsis'>
+                        <span className='font-medium text-sm select-none w-36 overflow-hidden text-inherit whitespace-nowrap text-ellipsis'>
                            {member.public_name}
                         </span>
                      </div>
                      </div>
-                     <button className='relative ltr:left-0 rtl:right-0 border-d6d9de color-700 font-medium button-shadow h-6 pe-2 ps-2 rounded text-xs bg-white hover:bg-transparent hidden' data-member={member.user_id}>
+                     <button className='relative ltr:left-0 rtl:right-0 font-medium button-shadow h-6 pe-2 ps-2 rounded text-xs profile-btn hover:bg-transparent hidden' data-member={member.user_id}>
                         Profile
                      </button>
                   </div>

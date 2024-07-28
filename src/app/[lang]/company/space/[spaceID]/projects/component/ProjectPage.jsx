@@ -116,12 +116,13 @@ Archive
       <div className="relative grow min-h-0 grid grid-container-spaces">
          <div className={`grow overflow-auto mr-0 scroll-bar relative`}>
             <table className="min-w-800 space-table w-full">
-               <thead className="sticky top-0">
+               <thead className="sticky top-0 z-10">
                   <tr className="h-8 back-nav-side text-656f7d text-xs border-bottom-f0f1f3">
                      <th className="font-medium w-5%">#</th>
                      <th className="font-medium w-30% text-start">TITLE</th>
-                     <th className="font-medium w-1/5 text-start">MANAGER</th>
-                     <th className="font-medium w-10% text-start">DATE</th>
+                     <th className="font-medium w-10% text-start">MANAGER</th>
+                     <th className="font-medium w-10% text-start">START DATE</th>
+                     <th className="font-medium w-10% text-start">END DATE</th>
                      <th className="font-medium w-10% text-start">DESCRIPTION</th>
                      <th className="font-medium w-10% text-start">STATE</th>
                      <th className="font-medium w-10% text-start">PRIORITY</th>

@@ -1,9 +1,10 @@
 "use client";
-import { useState, useRef} from "react";
+import { useRef, useState} from "react";
 import ErrorMessage from "./ErrorMessage";
 import { useRouter } from "next/navigation";
 import LoaderBtn from './LoaderBtn';
 import '../style/loader.css'
+import Link from "next/link";
 
 function messageHandle(e,setError) {
    let viledity = e.target.validity.valid;
@@ -21,8 +22,7 @@ function messageHandle(e,setError) {
    }
 }
 
-function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,setLoader,...data,ro) {
-      console.log("roroininin",ro)
+function handleFormSubmition(e,link,isSecretKey,setErrorMessage,setErrorText,router,setLoader,...data) {
    e.preventDefault();
    setLoader(true);
    if(isSecretKey) {
@@ -31,6 +31,7 @@ function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,s
          password:data[1],
          secretKey:data[2],
       };
+      // fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/company`,{
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/company`,{
          method:"post",
       credentials: 'include',
@@ -50,12 +51,19 @@ function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,s
             setErrorMessage(false);
             // socket.connect();
             // socket.emit('user',data.data);
+
+            let link = document.createElement('a');
+            link.href = '/en/company';
+            link.click();
+
             // router.push('/en/company');
-            ro.current.click();
-            console.log(data)
+            // console.log(data)
          }
       }).catch(err=>{
          console.log(err);
+         console.log('company err');
+         setErrorMessage(true);
+         setErrorText(err);
          setLoader(false);
       })
    } else {
@@ -63,6 +71,7 @@ function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,s
          userName:data[0],
          password:data[1],
       };
+      // fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/user`,{
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/user`,{
          method:"post",
       credentials: 'include',
@@ -84,13 +93,18 @@ function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,s
             } else {
                // socket.connect();
                // socket.emit('user',data.data);
-               router.push('/en/user');
+               link.current.click();
+               console.log("link",link.current)
+               // router.push('/en/user');
             }
             setErrorMessage(false);
             console.log(data);
          }
       }).catch(err=>{
          console.log(err);
+         console.log('user err');
+         setErrorMessage(true);
+         setErrorText(err);
          setLoader(false);
       })
    }
@@ -110,23 +124,24 @@ export default function Form({ dic }) {
    const [loader,setLoader] = useState(false);
    const [showPassword, setShowPassword] = useState(false);
    const router = useRouter();
-   const ro = useRef(null);
 
-   console.log("process.env.NEXT_PUBLIC_BACKEND_URL",process.env.NEXT_PUBLIC_BACKEND_URL)
-   console.log("roro",ro)
+   let link = useRef();
 
    return (
       <>
         {errorMessage && <ErrorMessage errorText={errorMessageText} seterrorText={setErrorMessageText} errorMessage={setErrorMessage} />}
         <form action="#" autoComplete="on" onSubmit={(e)=>{
          if(isSecretKey) {
-            handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,secretKey,ro) 
+            handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,secretKey) 
          } else {
-            handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,ro) 
+
+            handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password) 
          }
       }}>
          <div className="form-group  relative">
             <label htmlFor="userName">{dic.login.field1.title}</label>
+
+            <a href="/en/user" ref={link}></a>
             <div className="field-group">
                <span>
                <svg width="22" height="22" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +149,6 @@ export default function Form({ dic }) {
   <path d="M16.978 19.502a9 9 0 1 1 4.022-7.5c0 2.072-.75 3.75-2.625 3.75s-2.625-1.678-2.625-3.75v-3.75"></path>
 </svg>
                </span>
-               <a href="/en/company" className="hidden" ref={ro} ></a >
                <input
                   type="text"
                   name="userName"
@@ -221,8 +235,13 @@ export default function Form({ dic }) {
 
 
             </div>
-            <span id="password-error-ms"  className="error-message">
+            <span id="password-error-ms"  className="error-message error-message-pass">
                {passwordError}
+            </span>
+            <span className="w-full text-end block text-sm">
+               <Link href="#" className="register-link">
+               Forget Password?
+               </Link>
             </span>
          </div>
 
@@ -293,7 +312,20 @@ export default function Form({ dic }) {
          <div className="form-group  relative">
             {loader ? 
             <LoaderBtn /> : 
-            <button type="submit" className="btn btn-primary btn-lg">SIGN IN</button>  
+            <button type="submit" className="btn btn-primary btn-lg" onClick={(e)=>{
+
+               e.preventDefault()
+
+               console.log("handleFormSubmition",userName)
+
+               if(isSecretKey) {
+                  handleFormSubmition(e,link,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,secretKey) 
+               } else {
+      
+                  handleFormSubmition(e,link,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password) 
+               }
+
+            }} >SIGN IN</button>  
             }
          </div>
       </form>

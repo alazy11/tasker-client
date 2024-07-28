@@ -10,7 +10,7 @@ const AddFolder = dynamic(() => import("./model/AddFolder"));
 const AddFile = dynamic(() => import("./model/AddFile"));
 const FolderOption = dynamic(() => import("./model/FolderOption"));
 const SuccessNotification = dynamic(() => import("@/app/[lang]/component/SuccessNotification"));
-
+import FileViewer from "@/app/[lang]/user/component/file/FileViewer";
 
 export default function PageFolder({ user, spaceID, projectID }) {
 
@@ -26,7 +26,8 @@ export default function PageFolder({ user, spaceID, projectID }) {
    const [folderTop, setFolderTop] = useState('0px');
    const [notification, setNotification] = useState(false)
    const [message, setMessage] = useState('')
-
+   const [url, setUrl] = useState('');
+   const [viewer, setViewer] = useState(false);
 
    return(
       <>
@@ -93,6 +94,8 @@ export default function PageFolder({ user, spaceID, projectID }) {
                                  {
                               subChild?.map((item,index)=>{
 
+                                 console.log("item",item)
+
                                  return (
 
                                     <>
@@ -113,7 +116,17 @@ export default function PageFolder({ user, spaceID, projectID }) {
                                        <div className=" overflow-hidden">
                                           <h3>
                                              <div className="react-directory-truncate">
-                                                <a href="#" className="text-2a2e34 link">{item.name}</a>
+                                                <button href="#" className="text-2a2e34 border-0 link"
+                                                data-filename = {item.name}
+                                                data-filepath = {item.file_path}
+                                                onClick={(e)=>{
+                                                   let fileName = e.currentTarget.dataset.filename;
+                                                   let filepath = e.currentTarget.dataset.filepath.substr(filepath.indexOf('uploads')).split("\\").join('/');
+                                                   // console.log(filepath.substr(filepath.indexOf('uploads')).split("\\").join('/'))
+                                                   setUrl(`${process.env.NEXT_PUBLIC_BACKEND_URL}/${filepath}`);
+                                                   setViewer(true);
+                                                }}
+                                                >{item.name}</button>
                                              </div>
                                           </h3>
                                        </div>
@@ -177,6 +190,10 @@ export default function PageFolder({ user, spaceID, projectID }) {
          
          {
             notification && <SuccessNotification setNotification={setNotification} >{message}</SuccessNotification>
+         }
+
+         {
+            viewer && <FileViewer url={url} setViewer={setViewer} />
          }
 
       </>

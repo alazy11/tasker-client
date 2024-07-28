@@ -6,28 +6,7 @@ import SideNavBar from './SideNavBar';
 import { useState } from 'react';
 // import TopInlineNav from './TopInlineNav';
 
-
-async function getCompany() {
-   let user;
-   try {
-   //   const cookiesData = cookies().get('token').value;
-     const res = await fetch('http://localhost:4040/en/company', {
-       credentials: 'include',
-       headers: {
-         // authorization: `Bearer ${cookiesData}`,
-         'cache-control': 'no-store',
-       },
-     });
-     const data = await res.json();
-     user = data.data;
-   } catch (err) {
-     console.log(err);
-   }
- 
-   return user;
- 
- }
-
+import CompanyInformation, { CompanyProvider } from './UserContext';
 
 export default function MainContainer({ children,lang,dic,user }) {
 
@@ -37,6 +16,7 @@ export default function MainContainer({ children,lang,dic,user }) {
    const [showOverlay, setShowOverlay] = useState('hidden');
 
    return (
+      <CompanyProvider>
       <div className={` vertical ${showMenu} flex flex-col min-h-svh ` + "full ltr main-section antialiased relative text-sm font-normal"}>
          <div className={`overlay  fixed inset-0 bg-[black]/60 z-50 lg:hidden ${showOverlay}`} onClick={(e)=>{
 
@@ -56,7 +36,7 @@ if(showOverlay === '') {
          <TopNavBar  lang={lang} dic={dic} setShowMenu={setShowMenu} user={user} showMenu={showMenu} setShowOverlay={setShowOverlay} showOverlay={showOverlay}  />
          <div className='navbar-sticky text-black dark:text-white-dark'>
          <SideNavBar lang={lang} dic={dic} user={user} setShowMenu={setShowMenu} showMenu={showMenu} setShowOverlay={setShowOverlay} showOverlay={showOverlay} />
-         <div className={`main-company-container bg-white ltr:ml-260 rtl:mr-260 h-full overflow-auto`}>
+         <div className={`main-company-container bg-white dark:bg-gray-950 h-full overflow-auto`}>
          <div className=" animate__animated flex flex-col h-full">
          {/* <TopInlineNav /> */}
          <main className='main-content-style text-black h-full'>
@@ -67,5 +47,7 @@ if(showOverlay === '') {
       </div>
       </div>
       </div>
+      </CompanyProvider>
+
    );
 }

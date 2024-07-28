@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import AddSpace from "../../component/AddSpace";
+import Link from "next/link";
 
-
-function spaceHandler(
+function spaceHandler({
    space_id,
    company_id,
    title,
@@ -24,7 +24,7 @@ function spaceHandler(
    setDescription,
    getSpace,
    setReferesh,
-   referesh
+   referesh}
 ) {
    setLoader(true);
    const space = {
@@ -79,6 +79,7 @@ export default function TopNavTrans({user}) {
 
    const [model, setModel] = useState(false);
 
+
    return(
       <div>
       <div className='pe-4 ps-4 min-h-12 border-bottom-e8eaed flex'>
@@ -86,7 +87,7 @@ export default function TopNavTrans({user}) {
             <ul className='flex self-stretch gap-1'>
 
                <li className='flex items-center'>
-                  <a href="#" className='relative h-7 w-full rounded-md ps-1.5 pe-1.5 flex top-item items-center gap-1 hover:bg-gray-100 active'>
+                  <Link href="#" className='relative h-7 w-full rounded-md ps-1.5 pe-1.5 flex top-item items-center gap-1 hover:bg-gray-100 active'>
                      <span className='w-4 h-4 text-656f7d'>
                      <svg width="100%" height="100%" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M3 3h7v9H3z"></path>
@@ -98,11 +99,11 @@ export default function TopNavTrans({user}) {
                      <span className='text-ellipsis whitespace-nowrap text-sm font-medium text-656f7d'>
                         Overview
                      </span>
-                  </a>
+                  </Link>
                </li>
 
                <li className='flex items-center'>
-                  <a href="#" className='relative h-7 w-full rounded-md ps-1.5 pe-1.5 flex top-item items-center gap-1 hover:bg-gray-100'>
+                  <Link href="#" className='relative h-7 w-full rounded-md ps-1.5 pe-1.5 flex top-item items-center gap-1 hover:bg-gray-100'>
                      <span className='w-4 h-4 text-656f7d'>
                      <svg width="100%" height="100%" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 6h13"></path>
@@ -116,7 +117,7 @@ export default function TopNavTrans({user}) {
                      <span className='text-ellipsis whitespace-nowrap text-sm font-medium text-656f7d'>
                         Spaces
                      </span>
-                  </a>
+                  </Link>
                </li>
 
             </ul>
@@ -195,7 +196,7 @@ export default function TopNavTrans({user}) {
 
                   {
                      model &&
-                     <AddSpace user={user} spaceHandler={spaceHandler} setModel={setModel} spaceInfo={{}} />
+                     <LinkddSpace user={user} spaceHandler={spaceHandler} setModel={setModel} spaceInfo={{}} />
                   }
 
                </li>

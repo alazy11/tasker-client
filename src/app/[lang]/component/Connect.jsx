@@ -1,51 +1,51 @@
 
-"use client";
-import { useEffect, useState } from "react";
-import socket from "../../MainSocket";
+// "use client";
+// import { useEffect, useState } from "react";
+// import socket from "../../MainSocket";
 
-export default function Home() {
-  const [isConnected, setIsConnected] = useState(false);
-  const [transport, setTransport] = useState("N/A");
+// export default function Home() {
+//   const [isConnected, setIsConnected] = useState(false);
+//   const [transport, setTransport] = useState("N/A");
 
-  useEffect(() => {
-    socket.connect();
+//   useEffect(() => {
+//     socket.connect();
 
-    if (socket.connected) {
-      onConnect();
-    }
+//     if (socket.connected) {
+//       onConnect();
+//     }
 
-    function onConnect() {
-      setIsConnected(true);
-      setTransport(socket.io.engine.transport.name);
+//     function onConnect() {
+//       setIsConnected(true);
+//       setTransport(socket.io.engine.transport.name);
 
-      socket.io.engine.on("upgrade", (transport) => {
-        setTransport(transport.name);
-      });
-    }
+//       socket.io.engine.on("upgrade", (transport) => {
+//         setTransport(transport.name);
+//       });
+//     }
 
-    function onDisconnect() {
-      setIsConnected(false);
-      setTransport("N/A");
-    }
+//     function onDisconnect() {
+//       setIsConnected(false);
+//       setTransport("N/A");
+//     }
 
-    socket.on("connect", onConnect);
-    socket.on("disconnect", onDisconnect);
+//     socket.on("connect", onConnect);
+//     socket.on("disconnect", onDisconnect);
 
-    socket.on("new order",(ms)=>{
-      console.log('server.....',ms)
-    })
+//     socket.on("new order",(ms)=>{
+//       console.log('server.....',ms)
+//     })
 
-    return () => {
-      socket.off("connect", onConnect);
-      socket.off("disconnect", onDisconnect);
-    };
-  }, []);
+//     return () => {
+//       socket.off("connect", onConnect);
+//       socket.off("disconnect", onDisconnect);
+//     };
+//   }, []);
 
-  return (
-    // <div>
-    //   <p>Status: { isConnected ? "connected" : "disconnected" }</p>
-    //   <p>Transport: { transport }</p>
-    // </div>
-    <></>
-  );
-}
+//   return (
+//     // <div>
+//     //   <p>Status: { isConnected ? "connected" : "disconnected" }</p>
+//     //   <p>Transport: { transport }</p>
+//     // </div>
+//     <></>
+//   );
+// }

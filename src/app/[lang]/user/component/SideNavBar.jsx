@@ -1,19 +1,47 @@
 "use client";
 
-import Link from "next/link";
+// import Link from "next/link";
+import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import logo from '../../../../../public/project-image/logo.svg';
 import { usePathname } from 'next/navigation'
 import Space from './Space';
-
+import socket from "@/app/MainSocket";
+import SuccessNotification from "../../component/SuccessNotification";
 
 export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOverlay, showOverlay,user}) {
 
    const pathname = usePathname()
+   const [notification,setNotification] = useState(false);
+   const [message, setMessage] = useState('');
+
+   useEffect(()=>{
+
+      socket.on('accept join',(msg)=>{
+
+         setMessage(msg);
+         setNotification(true);
+         setTimeout(() => {
+            setNotification(false);
+         }, 5000);
+      });
+
+      socket.on("reject join",(msg)=>{
+
+         setMessage(msg);
+         setNotification(true);
+         setTimeout(() => {
+            setNotification(false);
+         }, 5000);
+      });
+
+   },[socket])
+
 
    return (
-      <div className="fixed side-height z-50">
-         <nav className="sidebar border-right-e9ebf0  h-full top-0 bottom-0 w-[260px] z-50 transition-all duration-300 ">
+      <>
+      <div className="fixed sidebar side-height z-50">
+         <nav className="border-right-e9ebf0  h-full top-0 bottom-0 w-[260px] z-50 transition-all duration-300 ">
             <div className="back-nav-side pb-6 dark:bg-black h-full flex flex-col">
                <div className="flex justify-between items-center p-2 border-bottom-e9ebf0">
                   <a
@@ -59,17 +87,17 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                         <path
                            d="M19 11L12 17L5 11"
                            stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
+                           strokeWidth="1.5"
+                           strokeLinecap="round"
+                           strokeLinejoin="round"
                         ></path>
                         <path
                            opacity="0.5"
                            d="M19 7L12 13L5 7"
                            stroke="currentColor"
-                           stroke-width="1.5"
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
+                           strokeWidth="1.5"
+                           strokeLinecap="round"
+                           strokeLinejoin="round"
                         ></path>
                      </svg>
                   </button>
@@ -77,12 +105,12 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                <div className="scrollbar-container relative scroll-bar overflow-y-auto ps--active-y">
                   <ul className="relative font-normal space-y-0.5 p-2 flex flex-col gap-y-0.5 border-bottom-e9ebf0">
                      <li className="nav-item">
-                        <a href="/en/company"
+                        <a href="/en/user"
                            type="button"
-                           className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200 ${pathname === '/en/company' ? 'active' : ''}`}
+                           className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200 ${pathname === '/en/user' ? 'active' : ''}`}
                         >
                            <span className="text-gray-600">
-                           <svg _ngcontent-ng-c2501398817="" className="h-5 w-5 text-xl" id="cu3-icon-sidebarHome" viewBox="0 0 24 24" fill="currentColor" style={{color: "inherit"}}><path _ngcontent-ng-c2501398817="" fill-rule="evenodd" d="M10.397 3.095a2.83 2.83 0 0 1 3.206 0l6 4.125a2.83 2.83 0 0 1 1.227 2.332V18A2.83 2.83 0 0 1 18 20.83H6A2.83 2.83 0 0 1 3.17 18V9.552A2.83 2.83 0 0 1 4.397 7.22l6-4.125Zm2.266 1.368a1.17 1.17 0 0 0-1.326 0l-6 4.125a1.17 1.17 0 0 0-.507.964V18c0 .646.524 1.17 1.17 1.17h2.17V16a3.83 3.83 0 0 1 7.66 0v3.17H18A1.17 1.17 0 0 0 19.17 18V9.552c0-.385-.19-.746-.507-.964l-6-4.125ZM14.17 19.17V16a2.17 2.17 0 0 0-4.34 0v3.17h4.34Z" clip-rule="evenodd" style={{color: "inherit"}}></path></svg>
+                           <svg _ngcontent-ng-c2501398817="" className="h-5 w-5 text-xl" id="cu3-icon-sidebarHome" viewBox="0 0 24 24" fill="currentColor" style={{color: "inherit"}}><path _ngcontent-ng-c2501398817="" fillRule="evenodd" d="M10.397 3.095a2.83 2.83 0 0 1 3.206 0l6 4.125a2.83 2.83 0 0 1 1.227 2.332V18A2.83 2.83 0 0 1 18 20.83H6A2.83 2.83 0 0 1 3.17 18V9.552A2.83 2.83 0 0 1 4.397 7.22l6-4.125Zm2.266 1.368a1.17 1.17 0 0 0-1.326 0l-6 4.125a1.17 1.17 0 0 0-.507.964V18c0 .646.524 1.17 1.17 1.17h2.17V16a3.83 3.83 0 0 1 7.66 0v3.17H18A1.17 1.17 0 0 0 19.17 18V9.552c0-.385-.19-.746-.507-.964l-6-4.125ZM14.17 19.17V16a2.17 2.17 0 0 0-4.34 0v3.17h4.34Z" clipRule="evenodd" style={{color: "inherit"}}></path></svg>
                            </span>
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm dark:text-[#506690] dark:group-hover:text-white-dark">
                                  Home
@@ -90,35 +118,36 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                         </a>
                      </li>
                      <li className="nav-item">
-                        <a href="/en/company/employee"
+                        <a href="/en/user/inbox"
                            type="button"
-                           className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200 ${pathname === '/en/company/employee' ? 'active' : ''}`}
+                           className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200 ${pathname === '/en/user/inbox' ? 'active' : ''}`}
                         >
-                           <span className="text-gray-600">
-                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-xl" viewBox="0 0 24 24">
-    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
-        <path d="M21 19.75c0-2.09-1.67-5.068-4-5.727m-2 5.727c0-2.651-2.686-6-6-6s-6 3.349-6 6"/>
-        <circle cx="9" cy="7.25" r="3"/>
-        <path d="M15 10.25a3 3 0 1 0 0-6"/>
-    </g>
-</svg>
+                           <span className="text-gray-600 flex items-center justify-center w-5 h-5">
+                           <svg width={'100%'} height={'100%'} className="block" viewBox="0 0 24 24" fill="currentColor" >
+                              <path _ngcontent-ng-c2539684577="" fill-rule="evenodd" d="M5.703 5.596A2.83 2.83 0 0 1 8.161 4.17h7.678a2.83 2.83 0 0 1 2.457 1.426l3.425 5.992a.83.83 0 0 1 .109.412v5A2.83 2.83 0 0 1 19 19.83H5A2.83 2.83 0 0 1 2.17 17v-5a.83.83 0 0 1 .11-.412l3.423-5.992Zm2.458.234c-.42 0-.808.225-1.016.59L4.43 11.17H8a.83.83 0 0 1 .587.243l1.757 1.757h3.312l1.757-1.757A.83.83 0 0 1 16 11.17h3.57l-2.715-4.75a1.17 1.17 0 0 0-1.016-.59H8.161Zm12.009 7h-3.826l-1.757 1.757a.83.83 0 0 1-.587.243h-4a.83.83 0 0 1-.587-.243L7.656 12.83H3.83V17c0 .646.524 1.17 1.17 1.17h14A1.17 1.17 0 0 0 20.17 17v-4.17Z" clip-rule="evenodd"></path>
+                           </svg>
                            </span>
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm dark:text-[#506690] dark:group-hover:text-white-dark">
-                                 Employees
+                                 Inbox
                               </span>
+
+                              <div className="flex justify-end me-1">
+                                 <div className="px-1.5 text-xs font-semibold text-white not-span-red">
+                                    23
+                                 </div>
+                              </div>
+
                         </a>
                      </li>
                      <li className="nav-item">
-                        <a href="#"
-                           type="button"
-                           className=" nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200"
-                        >
-                           <span className="text-gray-600">
-
-                           <svg className="h-5 w-5 text-xl" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <path d="M4 20h16a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H3v13a1 1 0 0 0 1 1Z" />
- <path d="m12 6-1.707-1.707A1 1 0 0 0 9.586 4H4a1 1 0 0 0-1 1v1" />
-</svg>
+                     <a href="/en/user/project"
+                        type="button"
+                        className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200 ${pathname === '/en/user/project' ? 'active' : ''}`}
+                     >
+                           <span className="text-gray-600 flex items-center justify-center w-5 h-5">
+                           <svg width={'100%'} height={'100%'} className="block" viewBox="0 0 24 24" fill="currentColor" >
+                              <path  fill-rule="evenodd" d="M3.83 17c0 .646.524 1.17 1.17 1.17h14A1.17 1.17 0 0 0 20.17 17v-7A1.17 1.17 0 0 0 19 8.83H3.83V17Zm0-9.83h10.166L13 6.173a1.17 1.17 0 0 0-.828-.343H5A1.17 1.17 0 0 0 3.83 7v.17Zm12.514 0L14.173 5a2.83 2.83 0 0 0-2.002-.829H5A2.83 2.83 0 0 0 2.17 7v10A2.83 2.83 0 0 0 5 19.83h14A2.83 2.83 0 0 0 21.83 17v-7A2.83 2.83 0 0 0 19 7.17h-2.656Z" clip-rule="evenodd"></path>
+                           </svg>
                         
                            </span>
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm dark:text-[#506690] dark:group-hover:text-white-dark">
@@ -127,46 +156,34 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                         </a>
                      </li>
                      <li className="nav-item">
-                        <a href="#"
-                           type="button"
-                           className=" nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200"
-                        >
-                           <span className="text-gray-600">
-                           <svg className="h-5 w-5 text-xl" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-</svg>        
-                           </span>
+                     <a href="/en/user/tasks"
+                        type="button"
+                        className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200 ${pathname === '/en/user/tasks' ? 'active' : ''}`}
+                     >
+                           <span className="text-gray-600 flex items-center justify-center w-5 h-5">
+                           {/* <svg width={'100%'} height={'100%'} className="block" viewBox="0 0 24 24" fill="currentColor" >
+   <path  fill-rule="evenodd" d="M6 6h12a2 2 0 0 1 1.75 1.031.997.997 0 0 0-.35.169L12 12.75 4.6 7.2a.997.997 0 0 0-.35-.169A2 2 0 0 1 6 6ZM4 9.25V16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.25l-7.4 5.55a1 1 0 0 1-1.2 0L4 9.25ZM2 8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8Z" clip-rule="evenodd"></path>
+</svg> */}
+
+<svg width={'100%'} height={'100%'} className="block" viewBox="0 0 18 18" fill="currentColor" >
+<path fill-rule="evenodd" stroke="transparent" d="M5.333 4a2.667 2.667 0 1 1 4.604 1.833A3.999 3.999 0 0 1 12 9.333v.084a2.668 2.668 0 1 1-1.333 0v-.084a2.667 2.667 0 0 0-5.334 0v.084a2.668 2.668 0 1 1-1.333 0v-.084c0-1.506.833-2.818 2.063-3.5A2.658 2.658 0 0 1 5.333 4zm-.666 6.667a1.333 1.333 0 1 0 0 2.666 1.333 1.333 0 0 0 0-2.666zm6.666 0a1.333 1.333 0 1 0 0 2.666 1.333 1.333 0 0 0 0-2.666zM8 2.667a1.333 1.333 0 1 0 0 2.666 1.333 1.333 0 0 0 0-2.666z" clip-rule="evenodd"></path>
+</svg>
+
+</span>
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm dark:text-[#506690] dark:group-hover:text-white-dark">
-                                 Notifications
+                                 Tasks
                               </span>
                         </a>
                      </li>
                      <li className="nav-item">
-                        <a href="#"
-                           type="button"
-                           className=" nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200"
-                        >
-                           <span className="text-gray-600">
-                           <svg className="h-5 w-5 text-xl" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
- <path d="m22 6-10 7L2 6" />
-</svg>                           </span>
-                              <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm dark:text-[#506690] dark:group-hover:text-white-dark">
-                                 Email
-                              </span>
-                        </a>
-                     </li>
-                     <li className="nav-item">
-                        <a href="/en/user/join"
-                           type="button"
-                           className=" nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200"
-                        >
-                           <span className="text-gray-600">
-                           <svg className="h-5 w-5 text-xl" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 12h-6l-2 3h-4l-2-3H2" />
-  <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
-</svg>              
+                     <a href="/en/user/join"
+                        type="button"
+                        className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200 ${pathname === '/en/user/join' ? 'active' : ''}`}
+                     >
+                          <span className="text-gray-600 flex items-center justify-center w-5 h-5">
+                          <svg width={'100%'} height={'100%'} className="block" viewBox="0 0 24 24" fill="currentColor" >
+   <path  fill-rule="evenodd" d="M2 8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8Zm4-2a2 2 0 0 0-2 2v1h16V8a2 2 0 0 0-2-2H6Zm14 5H4v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5ZM6 15a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1Z" clip-rule="evenodd"></path>
+</svg>
                            </span>
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm dark:text-[#506690] dark:group-hover:text-white-dark">
                                  Employment applications
@@ -174,15 +191,15 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                         </a>
                      </li>
                      <li className="nav-item">
-                        <a href="#"
+                        <a href="/en/user/clip"
                            type="button"
-                           className=" nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200"
+                           className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200 ${pathname === '/en/user/clip' ? 'active' : ''}`}
                         >
-                           <span className="text-gray-600">
-                           <svg className="h-5 w-5 text-xl" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="m23 7-7 5 7 5V7z" />
-  <rect width={15} height={14} x={1} y={5} rx={2} ry={2} />
-</svg>                         
+                          <span className="text-gray-600 flex items-center justify-center w-5 h-5">
+                          <svg width={'100%'} height={'100%'} className="block" viewBox="0 0 24 24" fill="currentColor" >
+   <path  fill-rule="evenodd" d="M5.55 5.163a3.264 3.264 0 0 0-1.023.364c-.29.171-.829.71-1 1a3.175 3.175 0 0 0-.366 1.057c-.053.373-.053 9.059 0 9.432.093.639.341 1.124.82 1.603.486.486.983.737 1.628.821.385.05 8.997.05 9.382 0 .38-.055.747-.179 1.082-.367.29-.171.829-.71 1-1 .303-.516.405-1.002.406-1.942l.001-.609 1.53.761c1.719.855 1.822.89 2.355.802a1.67 1.67 0 0 0 .977-.502c.269-.271.429-.57.495-.925.059-.321.059-6.395 0-6.716a1.719 1.719 0 0 0-.495-.925 1.69 1.69 0 0 0-.972-.504c-.527-.09-.64-.051-2.36.804l-1.53.761-.001-.609c-.001-.94-.103-1.426-.406-1.942-.171-.29-.71-.829-1-1a3.175 3.175 0 0 0-1.057-.366c-.339-.048-9.131-.047-9.466.002Zm9.46 1.797c.27.101.527.358.631.633.077.202.079.324.079 4.707s-.002 4.505-.079 4.707a1.153 1.153 0 0 1-.631.633c-.208.078-.318.08-4.71.08s-4.502-.002-4.71-.08a1.153 1.153 0 0 1-.631-.633c-.077-.202-.079-.324-.079-4.706 0-4.393.002-4.503.08-4.711a1.17 1.17 0 0 1 .623-.629c.19-.075.351-.077 4.705-.079 4.406-.002 4.514 0 4.722.078Zm6.11 5.34c0 1.683-.009 3.06-.02 3.06-.011 0-.83-.405-1.82-.9l-1.8-.9v-2.52l1.79-.898c.603-.307 1.21-.607 1.82-.9.017-.001.03 1.375.03 3.058Z" clip-rule="evenodd"></path>
+</svg>
+
 </span>
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm dark:text-[#506690] dark:group-hover:text-white-dark">
                                  Clips
@@ -190,31 +207,33 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                         </a>
                      </li>
 
-                     <li className="nav-item">
+                     {/* <li className="nav-item">
                         <a href="#"
                            type="button"
-                           className=" nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200"
-                        >
-                           <span className="text-gray-600">
-                           <svg className="h-5 w-5 text-xl" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-  <rect width={8} height={4} x={8} y={2} rx={1} ry={1} />
-</svg>                           </span>
+                           className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200 ${pathname === '/en/user/clip' ? 'active' : ''}`}
+                           >
+                          <span className="text-gray-600 flex items-center justify-center w-5 h-5">
+                          <svg width={'100%'} height={'100%'} className="block" viewBox="0 0 24 24" fill="currentColor" >
+   <path  fill-rule="evenodd" d="M7 3.83A1.17 1.17 0 0 0 5.83 5v14c0 .646.524 1.17 1.17 1.17h10A1.17 1.17 0 0 0 18.17 19V8.828c0-.31-.123-.608-.343-.827L14 4.173a1.17 1.17 0 0 0-.828-.343H7ZM4.17 5A2.83 2.83 0 0 1 7 2.17h6.171c.751 0 1.47.298 2.002.829L19 6.827c.53.531.829 1.25.829 2.001V19A2.83 2.83 0 0 1 17 21.83H7A2.83 2.83 0 0 1 4.17 19V5Zm4 4A.83.83 0 0 1 9 8.17h3a.83.83 0 0 1 0 1.66H9A.83.83 0 0 1 8.17 9Zm0 4a.83.83 0 0 1 .83-.83h6a.83.83 0 1 1 0 1.66H9a.83.83 0 0 1-.83-.83Zm0 4a.83.83 0 0 1 .83-.83h6a.83.83 0 1 1 0 1.66H9a.83.83 0 0 1-.83-.83Z" clip-rule="evenodd"></path>
+</svg>
+</span>
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm dark:text-[#506690] dark:group-hover:text-white-dark">
-                                 Notepade
+                                 Docs
                               </span>
                         </a>
-                     </li>
+                     </li> */}
 
                      <li className="nav-item">
                         <a href="#"
                            type="button"
                            className=" nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 hover:bg-gray-200"
                         >
-                           <span className="text-gray-600">
-                           <svg className="h-5 w-5 text-xl" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-</svg>                           </span>
+                          <span className="text-gray-600 flex items-center justify-center w-5 h-5">
+                          <svg width={'100%'} height={'100%'} className="block" viewBox="0 0 24 24" fill="currentColor" >
+   <path fill-rule="evenodd" d="M4 12a8 8 0 0 0 8 8 7.96 7.96 0 0 0 3.53-.819 2.1 2.1 0 0 1 1.29-.185c.92.16 1.84.328 2.657.481a223.22 223.22 0 0 1-.481-2.657 2.1 2.1 0 0 1 .185-1.29A7.96 7.96 0 0 0 20 12a8 8 0 1 0-16 0Zm17.589 7.88c-.186-.977-.411-2.19-.623-3.403a.1.1 0 0 1 .01-.062A9.96 9.96 0 0 0 22 12c0-5.523-4.477-10-10-10S2 6.477 2 12s4.477 10 10 10a9.96 9.96 0 0 0 4.415-1.025.1.1 0 0 1 .062-.009c1.214.212 2.426.437 3.404.623l.109.02a274.083 274.083 0 0 1 1.864.362.1.1 0 0 0 .117-.117l-.047-.236c-.069-.352-.18-.925-.315-1.628l-.02-.11Z" clip-rule="evenodd"></path>
+</svg>
+
+</span>
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm dark:text-[#506690] dark:group-hover:text-white-dark">
                                  Contacts
                               </span>
@@ -223,11 +242,19 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                      
                   </ul>
 
-                  {/* <Space user={user} /> */}
+                  <Suspense fallback={<div>loading.....</div>}>
+                  <Space user={user} />
+                  </Suspense>
                   
                </div>
             </div>
          </nav>
       </div>
+
+{
+   notification && <SuccessNotification setNotification={setNotification} >{message}</SuccessNotification>
+}
+
+      </>
    );
 }

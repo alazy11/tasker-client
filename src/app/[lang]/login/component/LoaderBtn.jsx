@@ -5,7 +5,7 @@
 export default function LoaderBtn() {
    return (
       <button type="button" className="btn btn-primary btn-lg log">
-<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="inline-block h-5 w-5 shrink-0 animate-[spin_2s_linear_infinite] align-middle ltr:mr-2 rtl:ml-2">
+<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" className="inline-block h-5 w-5 shrink-0 animate-[spin_2s_linear_infinite] align-middle ltr:mr-2 rtl:ml-2">
                                                     <line x1="12" y1="2" x2="12" y2="6"></line>
                                                     <line x1="12" y1="18" x2="12" y2="22"></line>
                                                     <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>

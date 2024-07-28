@@ -5,7 +5,6 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
-/.eslintrc.json
 
 # testing
 /coverage
@@ -35,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# next-video
+videoPlayer/*
+!videoPlayer/*.json
+!videoPlayer/*.js
+!videoPlayer/*.ts
+public/_next-video

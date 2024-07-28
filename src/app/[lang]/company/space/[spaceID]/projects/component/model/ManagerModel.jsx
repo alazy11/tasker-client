@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useState,useEffect } from 'react';
 
 
-export default function ManagerModel({setManagerModel, setManager, manager}) {
+export default function ManagerModel({setManagerModel, setManager, manager,spaceID,top="36%",left=''}) {
 
 
    const [employee, setEmployees] = useState([]);
@@ -20,7 +20,7 @@ export default function ManagerModel({setManagerModel, setManager, manager}) {
       const abortController = new AbortController();
 
       fetch(
-         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/employee?page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/members?page=${page}&recordNumber=${recordNumber}`,
          {
             signal: abortController.signal,
             credentials: "include",
@@ -60,9 +60,9 @@ export default function ManagerModel({setManagerModel, setManager, manager}) {
    return (
 
       <DropDownModel setShowIcon={setManagerModel}>
-      <div className='h-full m-auto relative' style={{width:'480px', maxWidth:'100%' }}>
+      <div className='h-full m-auto relative w-full'>
 
-      <div className="absolute z-2700 shadow-xl bg-white rounded-md w-72 min-w-40 min-h-80 overflow-y-auto flex flex-col" style={{ height:"344px", maxHeight:" calc(100vh - 20px)", top:'36%'}}>
+      <div className="absolute z-2700 shadow-xl bg-white rounded-md w-72 min-w-40 min-h-80 overflow-y-auto flex flex-col" style={{ height:"344px", maxHeight:" calc(100vh - 20px)", top:top,left:left}}>
          
          <div>
             <div className="w-full flex items-center relative">

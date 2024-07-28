@@ -4,10 +4,12 @@ import Cookies from 'js-cookie';
 // import { useRouter } from "next/navigation";
 
 const cookieValue = Cookies.get('roomId');
+const type = Cookies.get('type');
 let socket;
 
 
 console.log('tttokcompany',cookieValue);
+console.log('cookies type',type);
 
 // if(!cookieValue) {
 //    fetch('${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company',{
@@ -65,12 +67,13 @@ console.log('tttokcompany',cookieValue);
 
 
 // } else {
-//    // const socket = io('${process.env.NEXT_PUBLIC_BACKEND_URL}',{
 socket = io(`${process.env.NEXT_PUBLIC_BACKEND_URL}`,{
+// socket = io('http://192.60.2.8:4040',{
    withCredentials: true,
-   autoConnect: false,
+   // autoConnect: false,
    auth: {
       'roomId':cookieValue,
+      'type':type
    }
 });
 

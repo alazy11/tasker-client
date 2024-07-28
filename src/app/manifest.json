@@ -1,0 +1,17 @@
+{
+  "name": "Tasker",
+  "short_name": "NEXT",
+  "description": "My Next JS app with support for PWA",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": ".",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000"
+}

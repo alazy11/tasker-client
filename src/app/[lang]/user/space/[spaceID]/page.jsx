@@ -1,6 +1,29 @@
 
-export default function SpaceID() {
+import TopMiddleNav from './component/TopMiddleNav';
+import TopInlineNav from '@/app/[lang]/company/component/TopInlineNav'
+
+
+export default function SpaceID({params}) {
+
+   let spaceID = params.spaceID;
+
    return (
+      <>
+
+<TopInlineNav link={
+   [
+      {
+         link:`/en/user/space`,
+         name:"space"
+      },
+      {
+         link:`/en/user/space/${spaceID}`,
+         name:spaceID
+      }
+   ]
+} />
+
+      <TopMiddleNav spaceID={spaceID} >Overview</TopMiddleNav>
       <div className='ps-4 pe-4 h-12 w-full'>
       <div className='flex items-center justify-between pt-2 pb-2'>
       <ul className='flex items-center gap-1 flex-1'>
@@ -41,5 +64,6 @@ Archive
       </div>
    </div>
    
+   </>
    );
 }

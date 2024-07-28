@@ -42,7 +42,7 @@ export default function PageSpace({user}) {
                </thead>
                <tbody>
                <Suspense fallback={<p>Loading feed...</p>}>
-                 <SpaceElement user={user} pageStart={pageStart} pageEnd={pageEnd} page={page} recordNumber={recordNumber} setTotalSpace={setTotalSpace} />
+                  <SpaceElement user={user} pageStart={pageStart} pageEnd={pageEnd} page={page} recordNumber={recordNumber} setTotalSpace={setTotalSpace} />
                </Suspense>
                </tbody>
             </table>

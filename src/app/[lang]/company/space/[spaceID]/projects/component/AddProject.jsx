@@ -8,12 +8,17 @@ import TextEditor from "@/app/[lang]/component/TextEditor";
 
 import profile from "@/public/project-image/user-profile.jpeg";
 import Image from "next/image";
+import DatePicker from "./model/Date";// theme css file
+
 
 const SpaceModel = dynamic(() => import("./model/SpacesModel"));
 const ManagerModel = dynamic(() => import("./model/ManagerModel"));
 const PriorityModel = dynamic(() => import("./model/PriorityModel"));
 const TagModel = dynamic(() => import("./model/TagModel"));
 const SuccessNotification = dynamic(() => import("@/app/[lang]/component/SuccessNotification"));
+
+
+
 
 
 function createProject({space_id,title,state,manager,priority,selectedTags,phases,startDate,endDate,desc,setLoader,setNotification,setModel,spaceID,referesh,setReferesh }) {
@@ -82,7 +87,8 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
    const [startDate, setStartDate] = useState("");
    const [endDate, setEndDate] = useState("");
    const [desc, setDesc] = useState('');
-   const [notification, setNotification] = useState(false)
+   const [notification, setNotification] = useState(false);
+   const [dateModel, setDateModel] = useState(false);
 
 
    useEffect(() => {
@@ -125,27 +131,18 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
    return (
       <>
          <ModelOverlay showModel={setModel}>
-            <div className="project-model contain-content">
+            <div className="project-model contain-content overflow-hidden">
                <div className="grid rounded-xl bg-white w-full h-full relative overflow-hidden">
                   <div className="flex items-center justify-between h-12 ltr:pl-6 rtl:pr-6 ltr:pr-2 rtl:pl-2 border-bottom-e8eaed">
                      <ul className="flex items-center gap-6 h-full w-full">
-                        <li className="top-item-project text-sm font-medium leading-4 self-stretch flex items-center relative ">
-                           <span>Task</span>
-                        </li>
-                        <li className="text-656f7d text-sm font-medium leading-4 self-stretch flex items-center relative ">
-                           <span>Docs</span>
-                        </li>
-                        <li className="text-656f7d text-sm font-medium leading-4 self-stretch flex items-center relative ">
-                           {" "}
-                           <span>Plan</span>
-                        </li>
-                        <li className="text-656f7d text-sm font-medium leading-4 self-stretch flex items-center relative ">
-                           {" "}
-                           <span>Events</span>
+                        <li className="top-item-project select-none cursor-default text-base font-medium leading-4 self-stretch flex items-center relative ">
+                           <span>Create new project</span>
                         </li>
                      </ul>
                      <div>
-                        <button className="w-8 h-8 p-1.5 rounded-md hover:bg-gray-100 ">
+                        <button className="w-8 h-8 p-1.5 rounded-md hover:bg-gray-100 " onClick={(e)=>{
+                           setModel(false)
+                        }}>
                            <span
                               className="flex items-center justify-center w-full h-full"
                               style={{ color: "#656f7d" }}
@@ -173,14 +170,13 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                activeModel == 1 
                ? */}
 
-                  <div className="grid grid-cols-2" autoComplete="off">
-                     <div className="border-right-e8eaed flex flex-col ">
+                  <div className="grid grid-cols-2 overflow-hidden" autoComplete="off">
+                     <div className="border-right-e8eaed flex flex-col overflow-hidden">
                         <div className="border-bottom-e8eaed min-h-12 flex items-center p-2 ltr:pl-3 rtl:pr-3 text-xl font-medium leading-6  text-2a2e34 ">
                            <h2>Details</h2>
                         </div>
                         <div
                            className="w-full flex-1 overflow-auto scroll-bar"
-                           style={{ maxHeight: "368px" }}
                         >
                            <div className="width-pro min-h-full h-auto m-auto p pt-6 pb-12 ">
                               <div className="w-full min-h-12 mb-3">
@@ -193,7 +189,7 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                                     name="title"
                                     value={title}
                                     placeholder="Project Title..."
-                                    className="text-3xl font-bold leading-5 w-full min-h-9"
+                                    className="text-3xl font-bold outline-0 leading-5 w-full min-h-9"
                                     // required
                                     onChange={(e)=>{
                                        setTitle(e.target.value)
@@ -592,9 +588,12 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                                                 <path d="M3 10h18" />
                                              </svg>
                                           </span>
-                                          <p className="text-sm leading-4 font-normal color-600">
+                                          <p className="text-sm leading-4 font-normal color-600" onClick={()=>{
+                                             setDateModel(true);
+                                          }}>
                                              Date
                                           </p>
+
                                        </div>
 
                                        <div className="flex items-center gap-1">
@@ -637,11 +636,11 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                         </div>
                      </div>
 
-                     <div className="flex flex-col">
+                     <div className="flex flex-col overflow-hidden">
                         <div className="border-bottom-e8eaed min-h-12 flex items-center p-2 ltr:pl-3 rtl:pr-3 text-xl font-medium leading-6  text-2a2e34 ">
                            <h2>Description</h2>
                         </div>
-                        <div className="flex-1">
+                        <div className="flex-1 editor-task overflow-hidden">
                            {/* <Editor placeholder={"Write description..."} setDesc={setDesc} onChange={(e)=>{
                               console.log(e.target.value)
                            }} /> */}
@@ -710,6 +709,7 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                setManagerModel={setManagerModel}
                setManager={setManager}
                manager={manager}
+               spaceID={spaceID}
             />
          )}
          {priorityModel && (
@@ -727,6 +727,11 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                spaceID={spaceID}
             />
          )}
+         
+         {
+            dateModel && <DatePicker setDate={setDateModel} />
+         }
+
 
          {
             notification && <SuccessNotification setNotification={setNotification} >project <strong> {title} </strong> has been created Successfully. </SuccessNotification>

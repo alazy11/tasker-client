@@ -1,39 +1,23 @@
-import PageEmployee from './component/PageEmployee';
-// import { getCompany } from '@/_util/userHandler';
+// "use client";
+
+// import { useState } from "react";
+import PageEmployee from './component/PageEmployee'
 // import { cookies } from 'next/headers';
-
-
-async function getCompany() {
-  let user;
-  try {
-    // const cookiesData = cookies().get('token').value;
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company`, {
-      credentials: 'include',
-      headers: {
-        // authorization: `Bearer ${cookiesData}`,
-        'cache-control': 'no-store',
-      },
-    });
-    const data = await res.json();
-    user = data.data;
-  } catch (err) {
-    console.log(err);
-  }
-
-  return user;
-
-}
-
+import {getCompany} from '@/_util/userHandler';
 
 
 export default async function Employee() {
 
-   let user = await getCompany()
+   let user;
+   try{
+      user = await getCompany();
+   }catch (err) {
+      console.log(err)
+   }
 
-  return (
-    <>
-      <PageEmployee user={user} />
-    </>
-  );
+   return (
+      <>
+   <PageEmployee user={user} />
+      </>
+   );
 }
-
