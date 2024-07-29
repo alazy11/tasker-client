@@ -15,7 +15,7 @@ function createNote(desc,title,setNotesModel,setDesc) {
        },
        body:JSON.stringify({
           desc,
-          date:new Date(),
+          date:new Date().toUTCString(),
           title
        })
     })
