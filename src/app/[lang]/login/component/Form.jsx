@@ -31,7 +31,6 @@ function handleFormSubmition(e,link,isSecretKey,setErrorMessage,setErrorText,rou
          password:data[1],
          secretKey:data[2],
       };
-      // fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/company`,{
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/company`,{
          method:"post",
       credentials: 'include',
@@ -71,7 +70,6 @@ function handleFormSubmition(e,link,isSecretKey,setErrorMessage,setErrorText,rou
          userName:data[0],
          password:data[1],
       };
-      // fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/user`,{
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/login/user`,{
          method:"post",
       credentials: 'include',
