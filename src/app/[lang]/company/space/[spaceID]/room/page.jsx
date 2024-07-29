@@ -1,5 +1,4 @@
 
-import TopMiddleNav from './component/TopMiddleNav';
 import TopInlineNav from '@/app/[lang]/company/component/TopInlineNav'
 
 export default function SpaceID({params}) {
@@ -24,7 +23,7 @@ export default function SpaceID({params}) {
    ]
 } />
 
-      <TopMiddleNav spaceID={spaceID} >Overview</TopMiddleNav>
+     
       <div className='ps-4 pe-4 h-12 w-full'>
       <div className='flex items-center justify-between pt-2 pb-2'>
       <ul className='flex items-center gap-1 flex-1'>

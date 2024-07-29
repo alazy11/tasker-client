@@ -1,4 +1,4 @@
-import Home from './component/connect.jsx';
+// import Home from './component/connect.jsx';
 
 
 export default function HomePage() {
