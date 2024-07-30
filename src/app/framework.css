@@ -140,7 +140,7 @@ body {
 }
 
 .ai-button::before {
-  background: url('http://localhost:3000/public/project-image/AI-default.51bec1607029ffbd.svg') 7px center / 16px 16px no-repeat;
+  background: url('https://www.tasker-tool.com/public/project-image/AI-default.51bec1607029ffbd.svg') 7px center / 16px 16px no-repeat;
   content: "";
   height: 100%;
   left: 0;
