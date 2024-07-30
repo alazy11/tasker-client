@@ -65,7 +65,7 @@ export function middleware(request) {
       console.log('a12');
       // request.nextUrl.pathname = `${lang}/login`;
       // return NextResponse.redirect(request.nextUrl);
-      // return NextResponse.redirect(new URL(`${lang}/login`,request.nextUrl.origin));
+      return NextResponse.redirect(new URL(`${lang}/login`,request.nextUrl.origin));
       // return;
    }
 }
