@@ -16,7 +16,7 @@ fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/save`, {
     },
     body:JSON.stringify({
        path,
-       date:new Date(),
+       date:`${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()} ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
        title
     })
  })
@@ -372,7 +372,7 @@ export default function RecordScreen() {
 
         {
             model &&
-                <div _nghost-ng-c3720892492="">
+                <div _nghost-ng-c3720892492="" className="z-1000">
                 <div _nghost-ng-c1738963587="">
                     <div className="content-clip">
                         <div className="cu3-toast">
@@ -382,9 +382,16 @@ export default function RecordScreen() {
                         </div>
         
                         <div className="main-content-clip-title">
-                            <div>
+                            {
+                                loader ?
+                                <div>
                             Clip Uploading ({percent}%)
-                            </div>
+                            </div>:
+                             <div>
+                             Clip Processing...
+                             </div>
+                            }
+
                         </div>
         
                         <button className="btn-normal" onClick={(e)=>{
