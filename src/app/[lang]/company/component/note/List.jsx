@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import notepad from '@/public/project-image/notepad.svg';
 import ListElement from "./ListElement";
-
+import Loading from "@/app/[lang]/component/Loading";
 
 
 function deleteNote(note_id,refresh, setRefresh) {
@@ -47,6 +47,7 @@ export default function List({setNotesModel,setNote}) {
     const [refresh, setRefresh] = useState(false);
     const [notes, setNotes] = useState([]);
     const [search, setSearch] = useState(false);
+    const [loader, setLoader] = useState(true);
 
 
     useEffect(()=>{
@@ -71,6 +72,7 @@ export default function List({setNotesModel,setNote}) {
                  console.log("data project dd....", data.data);
                  // setRefresh(!refresh)
                  setNotes(data.data)
+                 setLoader(false);
               }
            })
            .catch((error) => {
@@ -158,6 +160,7 @@ export default function List({setNotesModel,setNote}) {
         <div className="grow flex flex-col overflow-hidden">
 
         {
+         loader ? <Loading styleClass={"w-full h-full flex items-center justify-center"} /> :
            notes.length <= 0 ? 
 
            <div className="grow p-2 overflow-y-auto overflow-x-hidden flex flex-col justify-center items-center scroll-bar">

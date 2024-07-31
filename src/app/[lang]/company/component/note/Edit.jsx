@@ -5,7 +5,8 @@ import TextEditor from "@/app/[lang]/component/TextEditor";
 import { useEffect, useState } from "react";
 
 
-function createNote(desc,title,setNotesModel,setDesc,note_id) {
+function createNote(desc,title,setNotesModel,setDesc,note_id,setLoader) {
+   setLoader(true)
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/note`, {
        method:'PUT',
        credentials: "include",
@@ -34,7 +35,7 @@ function createNote(desc,title,setNotesModel,setDesc,note_id) {
              console.log("data project dd....", data.data);
              setNotesModel("list")
              setDesc('');
-             // setLoader(false);
+             setLoader(false);
              // setNotification(true);
              // setTimeout(() => {
              //    setModel(false);
@@ -45,7 +46,7 @@ function createNote(desc,title,setNotesModel,setDesc,note_id) {
        })
        .catch((error) => {
           console.log(error);
-          // setLoader(false)
+          setLoader(false)
        });
  }
 
@@ -54,8 +55,7 @@ export default function EditNote({setNotesModel,note}) {
 
     const [desc, setDesc] = useState(note.content);
     const [title, setTitle] = useState(note.title);
-
-
+    const [loader, setLoader] = useState(false);
 
     return (
 
@@ -112,9 +112,33 @@ export default function EditNote({setNotesModel,note}) {
            </button>
 
            <button className="btn-normal save-note"onClick={(e)=>{
-              createNote(desc,title,setNotesModel,setDesc,note.note_id);
+              createNote(desc,title,setNotesModel,setDesc,note.note_id,setLoader);
            }} >
-              save
+             {loader ? 
+             <>
+               <svg
+              class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+           >
+              <circle
+                 class="opacity-25"
+                 cx="12"
+                 cy="12"
+                 r="10"
+                 stroke="currentColor"
+                 stroke-width="4"
+              ></circle>
+              <path
+                 class="opacity-75"
+                 fill="currentColor"
+                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+           </svg>
+           Processing...
+             </> :
+             "Save"
+            }
            </button>
 
         </div>

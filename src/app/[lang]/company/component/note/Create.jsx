@@ -3,9 +3,10 @@
 "use client";
 import TextEditor from "@/app/[lang]/component/TextEditor";
 import { useEffect, useState } from "react";
+import handleDateFormat from "@/_util/handleDateFormat";
 
-
-function createNote(desc,title,setNotesModel,setDesc) {
+function createNote(desc,title,setNotesModel,setDesc,setLoader) {
+   setLoader(true)
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/note`, {
        method:'POST',
        credentials: "include",
@@ -15,7 +16,7 @@ function createNote(desc,title,setNotesModel,setDesc) {
        },
        body:JSON.stringify({
           desc,
-          date:`${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()} ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+          date:handleDateFormat(),
           title
        })
     })
@@ -33,7 +34,7 @@ function createNote(desc,title,setNotesModel,setDesc) {
              console.log("data project dd....", data.data);
              setNotesModel("list")
              setDesc('');
-             // setLoader(false);
+             setLoader(false);
              // setNotification(true);
              // setTimeout(() => {
              //    setModel(false);
@@ -44,7 +45,7 @@ function createNote(desc,title,setNotesModel,setDesc) {
        })
        .catch((error) => {
           console.log(error);
-          // setLoader(false)
+          setLoader(false)
        });
  }
 
@@ -53,8 +54,7 @@ export default function Create({setNotesModel}) {
 
     const [desc, setDesc] = useState('');
     const [title, setTitle] = useState('Write Title');
-
-
+    const [loader, setLoader] = useState(false);
 
     return (
 
@@ -109,9 +109,33 @@ export default function Create({setNotesModel}) {
            </button>
 
            <button className="btn-normal save-note"onClick={(e)=>{
-              createNote(desc,title,setNotesModel,setDesc);
+              createNote(desc,title,setNotesModel,setDesc,setLoader);
            }} >
-              create
+             {loader ? 
+             <>
+               <svg
+              class="motion-reduce:hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+           >
+              <circle
+                 class="opacity-25"
+                 cx="12"
+                 cy="12"
+                 r="10"
+                 stroke="currentColor"
+                 stroke-width="4"
+              ></circle>
+              <path
+                 class="opacity-75"
+                 fill="currentColor"
+                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+           </svg>
+           Processing...
+             </> :
+             "create"
+            }
            </button>
 
         </div>

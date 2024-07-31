@@ -3,9 +3,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import handleDateFormat from "@/_util/handleDateFormat";
+
 
 function saveClip(path,title) {
-
 
 fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/save`, {
     method:'POST',
@@ -16,7 +17,7 @@ fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/save`, {
     },
     body:JSON.stringify({
        path,
-       date:`${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()} ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+       date:handleDateFormat(),
        title
     })
  })
