@@ -4,7 +4,7 @@ import profile from '@/public/project-image/user-profile.jpeg';
 import DropDownModel from '@/app/[lang]/component/DropDownModel';
 import Image from 'next/image';
 import { useState,useEffect } from 'react';
-
+import Loading from '@/app/[lang]/component/Loading';
 
 export default function ManagerModel({setManagerModel, setManager, manager,spaceID,top="36%",left=''}) {
 
@@ -13,6 +13,7 @@ export default function ManagerModel({setManagerModel, setManager, manager,space
    const [page, setPage] = useState(1);
    const [recordNumber, setRecordNumber] = useState(10);
    const [loader,setLoader] = useState(false);
+   const [firstLoader,setFirstLoader] = useState(true);
    const [total, setTotal] = useState('')
 
    useEffect(() => {
@@ -44,6 +45,7 @@ export default function ManagerModel({setManagerModel, setManager, manager,space
                setEmployees(prev => [...prev,...Object.values(data.data.result)]);
                setTotal(data.data.total)
                setLoader(false);
+               setFirstLoader(false);
             }
          })
          .catch((error) => {
@@ -88,8 +90,10 @@ export default function ManagerModel({setManagerModel, setManager, manager,space
                setPage(prev => prev+1)
             }
          }}>
-            <ul>
+            {
+               firstLoader ? <Loading styleClass={"w-full h-full flex items-center justify-center"} /> :
 
+               <ul>
                {
                   employee?.map((member,index)=>{
                      return(
@@ -128,6 +132,9 @@ export default function ManagerModel({setManagerModel, setManager, manager,space
                   })
                }
             </ul>
+
+            }
+
          </div>
 
       </div>

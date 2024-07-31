@@ -4,7 +4,7 @@ import profile from '@/public/project-image/user-profile.jpeg';
 import DropDownModel from '@/app/[lang]/component/DropDownModel';
 import Image from 'next/image';
 import { useState,useEffect } from 'react';
-
+import Loading from '@/app/[lang]/component/Loading';
 
 export default function SearchMember({setSearchMember, setMemberID, memberID}) {
 
@@ -13,7 +13,7 @@ export default function SearchMember({setSearchMember, setMemberID, memberID}) {
    // const [employeeID, setEmployeeID] = useState("");
    const [page, setPage] = useState(1);
    const [recordNumber, setRecordNumber] = useState(10);
-
+   const [firstLoader,setFirstLoader] = useState(true);
 
 
    useEffect(() => {
@@ -38,6 +38,7 @@ export default function SearchMember({setSearchMember, setMemberID, memberID}) {
                // setErrorMessage(false);
                console.log("data space dd....", data);
                setEmployees([...Object.values(data.data.result)]);
+               setFirstLoader(false);
             }
          })
          .catch((error) => {
@@ -69,8 +70,9 @@ color: "var(--cu-content-default)"
          </div>
 
          <div className="overflow-auto flex-1 pt-1.5 pb-1.5 scroll-bar">
+         {
+               firstLoader ? <Loading styleClass={"w-full h-full flex items-center justify-center"} /> :
             <ul>
-
                {
                   employee?.map((member,index)=>{
                      return(
@@ -108,6 +110,7 @@ color: "var(--cu-content-default)"
                   })
                }
             </ul>
+         }
          </div>
 
       </div>

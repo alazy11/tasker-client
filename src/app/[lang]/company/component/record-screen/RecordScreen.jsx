@@ -92,7 +92,7 @@ const HandleUploadFile = (selectedFile,setLoader,setPercent,setModel) => {
 
 
 
-async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord,setLoader,setPercent,setModel) {
+async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord,setLoader,setPercent,setModel,setDownload,setFileName) {
 
     let count;
 
@@ -165,10 +165,8 @@ async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord
                     HandleUploadFile(myFile,setLoader,setPercent,setModel);
 
                     let url = URL.createObjectURL(blob);
-                    let a = document.createElement('a')
-                    a.href = url
-                    a.download = filename
-                    a.click()
+                    setFileName(filename);
+                    setDownload(url);
                 }
                 // setStartRecord(false)
           })
@@ -258,6 +256,8 @@ export default function RecordScreen() {
     const [loader, setLoader] = useState(false);
     const [model, setModel] = useState(false);
     const [percent, setPercent] = useState('');
+    const [fileName, setFileName] = useState('');
+    const [download, setDownload] = useState('');
 
 
     useEffect(()=>{
@@ -288,7 +288,7 @@ export default function RecordScreen() {
             <div>
             <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
             onClick={(e)=>{
-                start(setStartRecord,setRecorder,cancelRecord,setCountTimeRecord,setLoader,setPercent,setModel)
+                start(setStartRecord,setRecorder,cancelRecord,setCountTimeRecord,setLoader,setPercent,setModel,setDownload,setFileName)
             }}>
     
     <svg width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -408,7 +408,12 @@ export default function RecordScreen() {
                     </div>
         
                     <div className="w-full cu3-button-group">
-                        <button className="btn-normal cu3-button-group_btn">
+                        <button className="btn-normal cu3-button-group_btn" onClick={(e)=>{
+                            let a = document.createElement('a');
+                            a.href = download;
+                            a.download = fileName;
+                            a.click();
+                        }}>
                             Download
                         </button>
                     </div>
