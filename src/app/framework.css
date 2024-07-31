@@ -378,7 +378,7 @@ body {
   border-radius: 100%;
   display: inline-block;
   animation: btn-bouncedelay 1.4s infinite ease-in-out both;
-  background-color: var(--theme-main-color);
+  background-color: var(--cu-background-primary);
 }
 
 .cu-btn__spinner_loader .cu-btn__bounce1 {
