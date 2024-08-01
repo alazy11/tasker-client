@@ -65,9 +65,10 @@ export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverl
       <>
       <header className="z-40 back-nav">
          <div className="back-nav h-12 flex items-center">
-            <div className="relative flex w-full items-center px-2">
-               <div className="horizontal-logo flex justify-between items-center ltr:mr-2 rtl:ml-2">
-                  <a className="main-logo flex items-center shrink-0" href="/">
+            <div className="relative flex w-full items-center px-2 justify-between">
+
+               <div className="horizontal-logo flex items-center flex-1 ltr:mr-2 rtl:ml-2">
+                  <a className="main-logo flex items-center shrink-0" href="/en/company">
                      <div>
                      <Image
                         className="w-6 inline"
@@ -76,12 +77,12 @@ export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverl
                      />
                      </div>
 
-                     <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5 text-white font-semibold  align-middle hidden md:inline dark:text-white-light transition-all duration-300">
+                     {/* <span className="text-2xl ltr:ml-1.5 rtl:mr-1.5 text-white font-semibold  align-middle hidden md:inline dark:text-white-light transition-all duration-300">
                         VRISTO
-                     </span>
+                     </span> */}
                   </a>
 
-                  <div className="flex items-center px-3 lg:hidden">
+                  <div className="hidden items-center ps-3 lg:flex">
             <button type="button" className="collapse-icon w-8 h-8  text-white rounded-md flex items-center btn-top-nav dark:text-white-light" onClick={(e)=>{
                         if(showMenu === '') {
                            setShowMenu('toggle-sidebar');
@@ -100,7 +101,7 @@ export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverl
                
                </svg> */}
 
-               <svg width="20" height="20" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}  className="m-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+               <svg width="23" height="23" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}  className="m-auto" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
   <path d="M17 10H3" />
   <path d="M21 6H3" />
   <path d="M21 14H3" />
@@ -114,97 +115,47 @@ export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverl
 
 
 
-               <div className="sm:flex-1 ltr:sm:ml-0 ltr:ml-auto sm:rtl:mr-0 rtl:mr-auto flex items-center space-x-1.5 lg:space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
-                  <div className="sm:ltr:mr-auto sm:rtl:ml-auto">
-                     <form className="false sm:relative absolute inset-x-0 sm:top-0 top-1/2 sm:translate-y-0 -translate-y-1/2 sm:mx-0 mx-4 z-10 hidden sm:block">
-                        <div className="relative">
-                           <input
-                              type="text"
-                              className="form-input ltr:pl-9 rtl:pr-9 ltr:sm:pr-4 rtl:sm:pl-4 ltr:pr-9 rtl:pl-9 pb-1 peer sm:bg-transparent bg-gray-100 placeholder:tracking-widest"
-                              placeholder="Search..."
-                           />
-                           <button
-                              type="button"
-                              className="absolute w-9 h-9 inset-0 ltr:right-auto rtl:left-auto appearance-none peer-focus:text-primary"
-                           >
-                              <svg
-                                 width="16"
-                                 height="16"
-                                 viewBox="0 0 24 24"
-                                 fill="none"
-                                 xmlns="http://www.w3.org/2000/svg"
-                                 className="mx-auto"
-                              >
-                                 <circle
-                                    cx="11.5"
-                                    cy="11.5"
-                                    r="9.5"
-                                    stroke="currentColor"
-                                    strokeWidth="1.5"
-                                    opacity="0.5"
-                                 ></circle>
-                                 <path
-                                    d="M18.5 18.5L22 22"
-                                    stroke="currentColor"
-                                    strokeWidth="1.5"
-                                    strokeLinecap="round"
-                                 ></path>
-                              </svg>
-                           </button>
-                           <button
-                              type="button"
-                              className="hover:opacity-80 sm:hidden block absolute top-1/2 -translate-y-1/2 ltr:right-2 rtl:left-2"
-                           >
-                              <svg
-                                 width="20"
-                                 height="20"
-                                 viewBox="0 0 24 24"
-                                 fill="none"
-                                 xmlns="http://www.w3.org/2000/svg"
-                              >
-                                 <circle
-                                    opacity="0.5"
-                                    cx="12"
-                                    cy="12"
-                                    r="10"
-                                    stroke="currentColor"
-                                    strokeWidth="1.5"
-                                 ></circle>
-                                 <path
-                                    d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5"
-                                    stroke="currentColor"
-                                    strokeWidth="1.5"
-                                    strokeLinecap="round"
-                                 ></path>
-                              </svg>
-                           </button>
-                        </div>
-                     </form>
-                     <button
-                        type="button"
-                        className="search_btn sm:hidden p-2 rounded-full bg-transparent text-white  dark:bg-dark/40 hover:bg-white-light/90 dark:hover:bg-dark/60"
-                     >
-<svg width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16.118 12 22 7.333v9.334L16.118 12Zm0 0V7.333A2.343 2.343 0 0 0 13.765 5H4.353A2.343 2.343 0 0 0 2 7.333v9.334A2.343 2.343 0 0 0 4.353 19h9.412c1.3 0 2.353-1.045 2.353-2.333V12Z" />
-</svg>
-                     </button>
-                  </div>
+               <div className="flex w-1/4 search-top-nav">
 
-                  <div>
-                     <button className="ai-button flex items-center justify-center">
-                        {/* <div>
-                        <svg width={18} height={18} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />
-    <path d="M8 12h8" />
-    <path d="M12 16V8" />
-</svg>
-                        </div> */}
-Ask AI
-                     </button>
-                  </div>
+<button className="flex items-center w-full h-8 relative border border-solid border-transparent rounded-ss-md rounded-es-md justify-start ps-2 search-modal-toggle__search-button">
+   <div _nghost-ng-c4133689536="" className="leading-icon">
+   <svg viewBox="0 0 24 24" width={"1rem"} height={"1rem"} fill="currentColor" className="block">
+      <path fillRule="evenodd" d="M15.59 15.924a6.889 6.889 0 1 1 .334-.334 1.002 1.002 0 0 0-.334.334Zm.837 1.918a8.889 8.889 0 1 1 1.414-1.414l3.755 3.754a1 1 0 0 1-1.414 1.414l-3.755-3.754Z" clipRule="evenodd"></path>
+   </svg>
+   </div>
 
+   <span _ngcontent-ng-c2871122969="">
+   Search...
+   </span>
+
+</button>
+
+<div className="search-modal-toggle__separator"></div>
+
+   <button className="ai-button 
+   flex items-center w-full h-8 relative border border-solid border-transparent flex-1 rounded-se-md rounded-ee-md justify-center
+   ">
+      <div _nghost-ng-c4133689536="" className="text-base me-1 ai-button__icon">
+      <svg viewBox="0 0 24 24" fill="none"  width={"1rem"} height={"1rem"} className="block">
+         <path fill="currentColor" fillRule="evenodd" d="M16.36 1.613c-.236-.817-1.484-.817-1.721 0l-.336 1.158c-.723 2.496-1.711 4.445-4.397 5.117L8.66 8.2a.815.815 0 0 0 0 1.6l1.246.312c2.686.672 3.674 2.621 4.397 5.117l.336 1.158c.237.817 1.485.817 1.722 0l.336-1.158c.723-2.496 1.711-4.445 4.397-5.117L22.34 9.8a.815.815 0 0 0 0-1.6l-1.246-.312c-2.686-.672-3.675-2.621-4.397-5.117l-.336-1.158ZM6.017 13.383c-.143-.51-.892-.51-1.034 0l-.201.724c-.434 1.56-1.027 2.778-2.638 3.198l-.748.195a.514.514 0 0 0 0 1l.748.195c1.611.42 2.204 1.638 2.638 3.198l.201.724c.142.51.891.51 1.034 0l.201-.724c.434-1.56 1.027-2.778 2.638-3.198l.748-.195a.514.514 0 0 0 0-1l-.748-.195c-1.611-.42-2.204-1.638-2.638-3.198l-.201-.724Z" clipRule="evenodd"></path>
+      </svg>
+      </div>
+
+      <div _nghost-ng-c4133689536="" className="text-base me-1 ai-button__icon-default">
+      <svg viewBox="0 0 24 24" fill="none"  width={"1rem"} height={"1rem"} className="block">
+      <path fill="url('#cu3-icon-aiDefault-paint0_linear_11031_666')" fillRule="evenodd" d="M10.906 1.076c-.157-.545-.99-.545-1.148 0l-.223.772c-.482 1.664-1.141 2.963-2.931 3.41l-.831.209a.543.543 0 0 0 0 1.067l.83.207c1.79.448 2.45 1.748 2.932 3.411l.223.772c.158.545.99.545 1.149 0l.223-.772c.482-1.663 1.141-2.963 2.931-3.41l.831-.208a.543.543 0 0 0 0-1.067l-.83-.208c-1.79-.448-2.45-1.747-2.932-3.41l-.224-.773Z"></path>
+      </svg>
+      </div>
+AI
+   </button>
+</div>
+
+
+
+               {/* <div className="ltr:sm:ml-0 ltr:ml-auto sm:rtl:mr-0 rtl:mr-auto ms-1 flex items-center space-x-1.5 lg:space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]"> */}
+               <div className=" ms-2 flex items-center space-x-1.5 lg:space-x-2 rtl:space-x-reverse dark:text-[#d0d2d6]">
                   
-                  <div>
+                  {/* <div>
                      <button className="flex items-center p-2 gap-1 font-medium rounded-full bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60">
                         <div>
                         <svg width={18} height={18} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -215,12 +166,12 @@ Ask AI
                         </div>
 New
                      </button>
-                  </div>
+                  </div> */}
 
-
+{/* 
                   <div className="nav-seperate ">
 
-                  </div>
+                  </div> */}
 
                   <div>
                   <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
@@ -248,7 +199,7 @@ New
                   </div>
                   
                   <RecordScreen />
-                  <div className="dropdown shrink-0">
+                  {/* <div className="dropdown shrink-0">
                   <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
                         type="button"
                      >
@@ -268,8 +219,10 @@ New
                         data-popper-escaped="false"
                         data-popper-placement="bottom-end"
                      ></div>
-                  </div>
-                  <div className="dropdown shrink-0">
+                  </div> */}
+
+
+                  {/* <div className="dropdown shrink-0">
                   <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
                         type="button"
                      >
@@ -309,7 +262,9 @@ New
                         data-popper-escaped="false"
                         data-popper-placement="bottom-end"
                      ></div>
-                  </div>
+                  </div> */}
+
+
                   <div className="dropdown shrink-0 flex">
                      <button type="button" className="relative group block"  onClick={(e)=>{
                      setShowProfileMenu(!showProfileMenu)

@@ -60,7 +60,7 @@ export default function ClipPage({clipID}) {
                                     {/* <div className="cu-video__container"> */}
                                 <ReactPlayer
                                 
-                                controls url={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${clip?.path?.substr(clip?.path?.indexOf('uploads')).split("\\").join('/')}/${clip?.title}`} className="w-full h-auto" preload="auto" playsInline="true"
+                                controls url={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${clip?.path?.substr(clip?.path?.indexOf('uploads')).split("\\").join('/')}`} className="w-full h-auto" preload="auto" playsInline="true"
                                 />
                                     {/* </div> */}
                                 </div>

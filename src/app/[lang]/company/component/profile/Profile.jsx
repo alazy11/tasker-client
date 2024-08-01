@@ -23,9 +23,14 @@ export default function Profile({user,setProfileModel, userProfile, dic, lang}) 
          style={{width:'100%', maxWidth:"700px"}}
       >
          <div
-            className="h-full w-full bg-white border-solid border-t-4 border-top-color-7f77f1 profile-sidebar side-animation  overflow-y-auto flex flex-col pt-2 pb-2"
+            className="h-full w-full bg-white border-solid relative border-t-4 border-top-color-7f77f1 profile-sidebar side-animation  overflow-y-auto flex flex-col pt-2 pb-2"
             // style={{ top:'53px',left:'10px'}}
          >
+            <div className="close-profile-btn absolute w-9 h-9 p-2.5 top-1 left-auto right-1 cursor-pointer" style={{stroke:"#979797"}} onClick={(e)=>{
+               setProfileModel(false)
+            }}>
+            <svg className="w-full h-full block" viewBox="0 0 24 24"><g fill="none" fillRule="evenodd" strokeLinecap="round" strokeWidth="2.5"><path d="m2 2 20 20M22 2 2 22"></path></g></svg>
+            </div>
 
             <div className="h-full w-full flex flex-col">
 

@@ -181,8 +181,8 @@ export default function ProfileDropMenu({user, setShowProfileMenu,setProfileMode
                   </ul>
                </li>
 
-               <li className="border-bottom-e8eaed">
-                  <ul className="pb-2 pt-2 flex flex-col gap-1.5">
+               <li className="">
+                  <ul className="pt-2 flex flex-col gap-1.5">
                      <li className="min-h-3 pe-2 ps-2">
                         <button
                            className="p-2 flex items-center w-full gap-3 menu-style_item rounded"
@@ -224,12 +224,12 @@ export default function ProfileDropMenu({user, setShowProfileMenu,setProfileMode
                      </li>
                   </ul>
                </li>
-
+{/* 
                <li className="pe-2 ps-2 pt-2">
                   <button className="w-full h-8 button-background text-white rounded-md flex items-center justify-center text-sm font-medium">
                      View Profile
                   </button>
-               </li>
+               </li> */}
             </ul>
          </div>
       </div>

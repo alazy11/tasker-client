@@ -18,7 +18,7 @@ export default function MainContainer({ children,lang,dic,user }) {
    return (
       <CompanyProvider>
       <div className={` vertical ${showMenu} flex flex-col min-h-svh ` + "full ltr main-section antialiased relative text-sm font-normal"}>
-         <div className={`overlay  fixed inset-0 bg-[black]/60 z-50 lg:hidden ${showOverlay}`} onClick={(e)=>{
+         <div className={`overlay fixed inset-0 bg-[black]/60 z-50  ${showOverlay}`} onClick={(e)=>{
 
 if(showMenu === '') {
    setShowMenu('toggle-sidebar');

@@ -51,7 +51,7 @@ export default function ClipPage() {
 
                     <div>
                         <div _nghost-ng-c1451680631="">
-                            <div className="flex">
+                            <div className="flex sm:hidden">
                                 <button className="btn-normal tab active">
                                     <span className="tab-btn-span">
                                     My Clips 
@@ -60,13 +60,17 @@ export default function ClipPage() {
                             </div>
 
 
-                            <div className="advanced-controls">
+                            <div className="advanced-controls sm:w-full">
 
-                                <div>
+                                <div className="sm:flex-1">
                                     <div className="cu-dropdown__toggle">
                                         <button className="btn-normal" _nghost-ng-c1675173623="">
+                                            <span className="sm:">
                                             Sort: Date created 
-
+                                            </span>
+                                            <span className="hidden sm:inline-block">
+                                            Sort
+                                            </span>
                                             <div _nghost-ng-c4133689536="" className="cu3-icon">
                                             <svg width={"1rem"} height={"1rem"} className="block" viewBox="0 0 24 24" fill="currentColor" >
                                                 <path  fill-rule="evenodd" d="M12 17a1 1 0 0 1-.707-.293l-6-6a1 1 0 0 1 1.414-1.414L12 14.586l5.293-5.293a1 1 0 1 1 1.414 1.414l-6 6A1 1 0 0 1 12 17Z" clip-rule="evenodd"></path>
@@ -83,7 +87,9 @@ export default function ClipPage() {
                                             <path  fill-rule="evenodd" d="M15.59 15.924a6.889 6.889 0 1 1 .334-.334 1.002 1.002 0 0 0-.334.334Zm.837 1.918a8.889 8.889 0 1 1 1.414-1.414l3.755 3.754a1 1 0 0 1-1.414 1.414l-3.755-3.754Z" clip-rule="evenodd"></path>
                                             </svg>
                                             </div>
-                                    Search
+                                            <span className="">
+                                                Search
+                                            </span>
                                 </button>
 
 

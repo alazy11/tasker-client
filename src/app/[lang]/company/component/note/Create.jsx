@@ -49,7 +49,7 @@ function createNote(desc,title,setNotesModel,setDesc,setLoader) {
        });
  }
 
-export default function Create({setNotesModel}) {
+export default function Create({setNotesModel,setNoteModel}) {
 
 
     const [desc, setDesc] = useState('');
@@ -83,7 +83,9 @@ export default function Create({setNotesModel}) {
                   </div>
                </div>
 
-               <button className="w-7 h-7 rounded-md items-center justify-center flex text-2a2e34 border-0 btn-search-note">
+               <button className="w-7 h-7 rounded-md items-center justify-center flex text-2a2e34 border-0 btn-search-note" onClick={(e)=>{
+setNoteModel(false)
+               }}>
                      <div className="w-4 h-4 flex items-center justify-center text-2a2e34">
                      <svg width={'1rem'} height={'1rem'} className="block" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
   <path d="M4 20 20 4" />

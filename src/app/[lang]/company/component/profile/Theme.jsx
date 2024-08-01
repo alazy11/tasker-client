@@ -1,8 +1,12 @@
 "use client";
 import DropDownModel from "@/app/[lang]/component/DropDownModel";
+import { useState } from "react";
 
 
 export default function Theme({user,setThemeModel, dic, lang}) {
+
+
+   const [selectedTheme,setSelectedTheme] = useState('Purple')
 
    return (
       <DropDownModel setShowIcon={setThemeModel}>
@@ -34,7 +38,7 @@ export default function Theme({user,setThemeModel, dic, lang}) {
                   >Customize your Workspace by changing the appearance and theme color.</p>
                </div>
 
-               <div className=" mx-5 my-4">
+               <div className="mt-4 mb-5">
                   <div className="grid grid-cols-2 p-0.5 rounded-md isolate relative"
                   style={{backgroundColor:" var(--cu-background-on-main)"}}
                   >
@@ -75,6 +79,235 @@ export default function Theme({user,setThemeModel, dic, lang}) {
                      </button>
                   </div>
                </div>
+
+               <div className="theme-label">
+                  Tasker theme 
+               </div>
+
+               <fieldset className="theme-section">
+
+                  <div className={`theme-selection-button ${selectedTheme === "Purple" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-purple" : document.body.className = "cu-purple";
+                     setSelectedTheme('Purple')
+                  }}>
+
+                     <input type="radio" name="theme" id="color-#7f77f1" className="cdk-visually-hidden" />
+                     <div className="theme-color-square" 
+                     style={{backgroundColor: "rgb(127, 119, 241)"}}
+                     >
+                        <div _nghost-ng-c4133689536="" className="theme-color-icon">
+                        <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+                           <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+                        </svg>
+                        </div>
+                     </div>
+                     
+                     <label htmlFor="color-#7f77f1" className="theme-color-label">
+                        Purple
+                     </label>
+               
+                  </div>
+
+                  <div className={`theme-selection-button ${selectedTheme === "Blue" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-azureBlue" : document.body.className = "cu-azureBlue";
+                     setSelectedTheme('Blue')
+                  }}>
+
+                     <input type="radio" name="theme" id="color-#1090e0" className="cdk-visually-hidden" />
+                     <div className="theme-color-square" 
+                     style={{backgroundColor: "rgb(16, 144, 224)"}}
+                     >
+                        <div _nghost-ng-c4133689536="" className="theme-color-icon">
+                        <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+                           <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+                        </svg>
+                        </div>
+                     </div>
+               
+                     <label htmlFor="color-#1090e0" className="theme-color-label">
+                        Blue
+                        </label>
+
+                  </div>
+
+                  <div className={`theme-selection-button ${selectedTheme === "Pink" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-pink" : document.body.className = "cu-pink";
+                     setSelectedTheme('Pink')
+                  }}>
+
+                     <input type="radio" name="theme" id="color-#ee5e99" className="cdk-visually-hidden" />
+                     <div className="theme-color-square" 
+                     style={{backgroundColor: "rgb(238, 94, 153)"}}
+                     >
+                        <div _nghost-ng-c4133689536="" className="theme-color-icon">
+                        <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+                           <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+                        </svg>
+                        </div>
+                     </div>
+               
+                     <label htmlFor="color-#ee5e99" className="theme-color-label">
+                        Pink
+                        </label>
+                  </div>
+
+                  <div className={`theme-selection-button ${selectedTheme === "Violet" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-violet" : document.body.className = "cu-violet";
+                     setSelectedTheme('Violet')
+                  }}>
+
+<input type="radio" name="theme" id="color-#b660e0" className="cdk-visually-hidden" />
+<div className="theme-color-square" 
+style={{backgroundColor: "rgb(182, 96, 224)"}}
+>
+   <div _nghost-ng-c4133689536="" className="theme-color-icon">
+   <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+      <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+   </svg>
+   </div>
+
+</div>
+
+<label htmlFor="color-#b660e0" className="theme-color-label">
+   Violet
+   </label>
+
+</div>
+
+<div className={`theme-selection-button ${selectedTheme === "Indigo" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-neonBlue" : document.body.className = "cu-neonBlue";
+                     setSelectedTheme('Indigo')
+                  }}>
+
+<input type="radio" name="theme" id="color-#6985ff" className="cdk-visually-hidden" />
+<div className="theme-color-square" 
+style={{backgroundColor: "rgb(105, 133, 255)"}}
+>
+   <div _nghost-ng-c4133689536="" className="theme-color-icon">
+   <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+      <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+   </svg>
+   </div>
+</div>
+<label htmlFor="color-#6985ff" className="theme-color-label">
+   Indigo
+   </label>
+</div>
+
+<div className={`theme-selection-button ${selectedTheme === "Orange" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-orange" : document.body.className = "cu-orange";
+                     setSelectedTheme('Orange')
+                  }}>
+
+<input type="radio" name="theme" id="color-#e16b16" className="cdk-visually-hidden" />
+<div className="theme-color-square" 
+style={{backgroundColor: "rgb(225, 107, 22)"}}
+>
+   <div _nghost-ng-c4133689536="" className="theme-color-icon">
+   <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+      <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+   </svg>
+   </div>
+
+</div>
+
+<label htmlFor="color-#e16b16" className="theme-color-label">
+   Orange
+   </label>
+
+</div>
+
+<div className={`theme-selection-button ${selectedTheme === "Teal" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-teal" : document.body.className = "cu-teal";
+                     setSelectedTheme('Teal')
+                  }}>
+
+<input type="radio" name="theme" id="color-#0f9d9f" className="cdk-visually-hidden" />
+<div className="theme-color-square" 
+style={{backgroundColor: "rgb(15, 157, 159)"}}
+>
+   <div _nghost-ng-c4133689536="" className="theme-color-icon">
+   <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+      <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+   </svg>
+   </div>
+</div>
+
+<label htmlFor="color-#0f9d9f" className="theme-color-label">
+   Teal
+   </label>
+
+</div>
+
+<div className={`theme-selection-button ${selectedTheme === "Bronze" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-brown" : document.body.className = "cu-brown";
+                     setSelectedTheme('Bronze')
+                  }}>
+
+<input type="radio" name="theme" id="color-#aa8d80" className="cdk-visually-hidden" />
+<div className="theme-color-square" 
+style={{backgroundColor: "rgb(170, 141, 128)"}}
+>
+   <div _nghost-ng-c4133689536="" className="theme-color-icon">
+   <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+      <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+   </svg>
+   </div>
+
+</div>
+
+<label htmlFor="color-#aa8d80" className="theme-color-label">
+   Bronze
+   </label>
+
+</div>
+
+<div className={`theme-selection-button ${selectedTheme === "Black" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-black" : document.body.className = "cu-black";
+                     setSelectedTheme('Black')
+                  }}>
+
+<input type="radio" name="theme" id="color-#595d66" className="cdk-visually-hidden" />
+<div className="theme-color-square" 
+style={{backgroundColor: "rgb(89, 93, 102)"}}
+>
+   <div _nghost-ng-c4133689536="" className="theme-color-icon">
+   <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+      <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+   </svg>
+   </div>
+
+</div>
+
+<label htmlFor="color-#595d66" className="theme-color-label">
+   Black
+   </label>
+
+</div>
+
+<div className={`theme-selection-button ${selectedTheme === "Mint" && 'selected'}`} onClick={()=>{
+                     document.body.classList.contains("dark-theme") ? document.body.className = "dark-theme cu-mint" : document.body.className = "cu-mint";
+                     setSelectedTheme('Mint')
+                  }}>
+
+<input type="radio" name="theme" id="color-#3db88b" className="cdk-visually-hidden" />
+<div className="theme-color-square" 
+style={{backgroundColor: "rgb(61, 184, 139)"}}
+>
+   <div _nghost-ng-c4133689536="" className="theme-color-icon">
+   <svg  className="w-full h-full block" viewBox="0 0 24 24" fill="none">
+      <path  fill="currentColor" fillRule="evenodd" d="M20.644 5.353c.475.47.475 1.232 0 1.702L9.94 17.647c-.475.47-1.245.47-1.72 0l-4.865-4.814a1.195 1.195 0 0 1 0-1.703 1.225 1.225 0 0 1 1.72 0l4.005 3.964 9.843-9.741a1.225 1.225 0 0 1 1.72 0Z" clipRule="evenodd"></path>
+   </svg>
+   </div>
+</div>
+
+<label htmlFor="color-#3db88b" className="theme-color-label">
+   Mint
+   </label>
+
+</div>
+
+               </fieldset>
 
             </div>
          </div>

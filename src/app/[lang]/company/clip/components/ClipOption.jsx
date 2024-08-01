@@ -2,22 +2,15 @@
 
 import DropDownModel from '@/app/[lang]/component/DropDownModel';
 import { useRef, useState } from 'react';
-import Rename from './Rename';
 
 
 
 
-function handelDelete({user, spaceID, projectID, folderInfo,setNotification,setMessage,setReferesh,referesh,setFolderOptions}) {
+function handelDelete(clip,clipName,setClipOpt) {
 
-   let name = folderInfo.name;
    let url= '';
-   console.log("folderInfo",name);
 
-   if(folderInfo.kind === 'file') {
-      url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/file`;
-   } else {
-      url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}`;
-   }
+   url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/${clip.clip_id}`;
 
    fetch(url, {
       method:'DELETE',
@@ -26,7 +19,7 @@ function handelDelete({user, spaceID, projectID, folderInfo,setNotification,setM
          "content-type": "application/json",
          "cache-control": "no-cache",
       },
-      body:JSON.stringify(folderInfo)
+      body:JSON.stringify({clip_path:clip.path})
       })
          .then((res) => {
             return res.json();
@@ -41,7 +34,7 @@ function handelDelete({user, spaceID, projectID, folderInfo,setNotification,setM
                setFolderOptions(false);
                setMessage(`the ${folderInfo.kind} ${name} has been deleted Successfully.`)
                setNotification(true);
-               setReferesh(!referesh)
+               setReferesh(!referesh);
             }
          })
          .catch((error) => {
@@ -51,19 +44,13 @@ function handelDelete({user, spaceID, projectID, folderInfo,setNotification,setM
 }
 
 
-function handelDownload({user, spaceID, projectID, folderInfo,setNotification,setMessage,setFolderOptions}) {
+function handelDownload(clip,clipName,setClipOpt) {
 
-   let {folder_path,name} = folderInfo;
+   console.log(clip.path);
    let url= '';
-
-   if(folderInfo.kind === 'file') {
-      url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download/file?file=${JSON.stringify({folder_path,name})}`;
-   } else {
-      url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder/${folderInfo.folder_id}/download?folder=${JSON.stringify({folder_path,name})}`;
-   }
-
+      url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/${clip.clip_id}/download?clip=${JSON.stringify({clip_path:clip.path,name:clipName})}`;
    window.location.href = url;
-
+   setClipOpt(false)
 }
 
 
@@ -102,35 +89,27 @@ function handelCopy({user, spaceID, projectID, folderInfo,setCopy}) {
 
 
 
-export default function ClipOption({setFolderOptions, folderInfo, folderLeft, folderTop,user, spaceID, projectID, setNotification,setMessage,setReferesh,referesh }) {
+export default function ClipOption({setClipOpt, clip, clipName, left, top,setRename}) {
 
    // const [priority, setpriority] = useState('normal');
    const refr = useRef(null);
-   const [rename, setRename] = useState(false);
    const [copy, setCopy] = useState(false)
 
    return (
       <>
-      <DropDownModel setShowIcon={setFolderOptions}>
+      <DropDownModel setShowIcon={setClipOpt}>
       <div className='h-full m-auto relative w-full' 
       // style={{width:'480px', maxWidth:'100%' }}
       >
       {/* drop-menu-shadow  */}
       {/* <div ref={refr} className="absolute z-2700 shadow-xl bg-white border-e8eaed rounded-lg min-w-44 pt-2 pb-2 overflow-y-auto flex flex-col" style={{ top:(folderTop - refr.current.height)+'px',left:(folderLeft - refr.current.width)+'px'}}> */}
-      <div ref={refr} className="absolute z-2700 shadow-xl bg-white border-e8eaed rounded-lg min-w-44 w-52 pt-2 pb-2 overflow-y-auto flex flex-col" style={{ top:folderTop+'px',left:folderLeft+'px'}}>
-         <div className='py-2 ps-4 pe-3'>
-            <div className='flex items-center max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-xs font-semibold uppercase color-600' style={{letterSpacing:'.05em', fontSize:'11px'}}>
-            {/* Attachment */}
-            <div>
-            {folderInfo.name}
-            </div>
-            </div>
-         </div>
+      <div ref={refr} className="absolute z-2700 shadow-xl bg-white border-e8eaed rounded-lg min-w-44 w-48 pt-2 pb-2 overflow-y-auto drop-down-animation flex flex-col" style={{ top:top+40+'px',left:left -165+'px'}}>
          <ul>
 
             <li className='ps-2 pe-2'>
-               <button className={`text-sm font-normal leading-5 flex items-center hover:back-gray200 gap-3 w-full p-2 border-none rounded-md text-2a2e34 `} onClick={(e)=>{
-                  setRename(true)
+               <button className={`text-sm font-normal leading-5 flex items-center hover:back-gray200 gap-3 w-full min-h-8 p-1.5 border-none rounded-md text-2a2e34 `} onClick={(e)=>{
+                  setRename(true);
+                  setClipOpt(false)
                }}>
                   <span className="text-656f7d">
                                                       <svg
@@ -151,37 +130,8 @@ export default function ClipOption({setFolderOptions, folderInfo, folderLeft, fo
                </button>
             </li>
             <li className='ps-2 pe-2'>
-               <button className={`text-sm font-normal leading-5 flex items-center hover:back-gray200 gap-3 w-full p-2 border-none rounded-md text-2a2e34 `} onClick={(e)=>{
-                  handelCopy({user, spaceID, projectID, folderInfo,setCopy}) 
-               }}>
-                  <span className="text-656f7d">
-
-                     {
-                        copy ? <svg                         width="1rem"
-                        height="1rem" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 6 9 17l-5-5" />
-</svg>
-:
-<svg 
-width="1rem"
-height="1rem"
-fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M18 2a3 3 0 1 0 0 6 3 3 0 1 0 0-6z" />
-<path d="M6 9a3 3 0 1 0 0 6 3 3 0 1 0 0-6z" />
-<path d="M18 16a3 3 0 1 0 0 6 3 3 0 1 0 0-6z" />
-<path d="m8.59 13.51 6.83 3.98" />
-<path d="m15.41 6.51-6.82 3.98" />
-</svg>
-                     }
-                  </span>
-                  {
-                     copy ? "Copied !"  :  "Copy URL"
-                  }
-               </button>
-            </li>
-            <li className='ps-2 pe-2'>
-               <button className={`text-sm font-normal leading-5 flex items-center hover:back-gray200 gap-3 w-full p-2 border-none rounded-md text-2a2e34`} onClick={(e)=>{
-                  handelDownload({user, spaceID, projectID, folderInfo,setNotification,setMessage,setFolderOptions})
+            <button className={`text-sm font-normal leading-5 flex items-center hover:back-gray200 gap-3 w-full min-h-8 p-1.5 border-none rounded-md text-2a2e34 `} onClick={(e)=>{
+handelDownload(clip,clipName,setClipOpt) 
                }}>
                   <span className="text-656f7d">
                   <svg 
@@ -198,12 +148,8 @@ fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" s
                </button>
             </li>
 
-            <div className='bg-gray-200 w-full my-2' style={{height:'1px'}}>
-
-            </div>
-
             <li className='ps-2 pe-2'>
-               <button className={`text-sm font-normal text-red-700 leading-5 flex items-center hover:back-gray200 gap-3 w-full p-2 border-none rounded-md`} onClick={(e)=>{
+               <button className={`text-sm font-normal text-red-700 leading-5 flex items-center hover:back-gray200 gap-3 w-full min-h-8 p-1.5 border-none rounded-md`} onClick={(e)=>{
                   handelDelete({user, spaceID, projectID, folderInfo, setNotification,setMessage,setReferesh,referesh,setFolderOptions})
                }}>
                   <span className=' text-red-700 flex items-center justify-center'>
@@ -220,13 +166,6 @@ fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" s
       </div>
 
       </DropDownModel>
-      {
-         rename && 
-      <Rename setRename={setRename} 
-      setNotification={setNotification}
-      setMessage={setMessage}
-      user={user} spaceID={spaceID} projectID={projectID} folderInfo={folderInfo} folderLeft={folderLeft + 208} folderTop={folderTop + 40} />
-      }
       </>
    );
 }
