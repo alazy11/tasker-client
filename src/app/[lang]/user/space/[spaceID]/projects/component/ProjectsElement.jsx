@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import profile from "@/public/project-image/user-profile.jpeg";
-import TableSkeleton from "@/app/[lang]/component/TableSkeleton";
+import TableSkeleton from "@/app/[lang]/component/skeletons/TableSkeleton";
 import DropDownModel from "@/app/[lang]/component/DropDownModel";
 import SaveModel from "@/app/[lang]/component/SaveModel";
 // import EditEmployeeJob from "./models/EditEmployeeJob";
