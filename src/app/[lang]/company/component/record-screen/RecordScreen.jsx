@@ -76,21 +76,18 @@ const HandleUploadFile = (selectedFile,setLoader,setPercent,setModel) => {
  
   const SuccessHandler = (e,setLoader) => {
     setLoader(false)
-    console.log('ressssss',e.target.response)
+    console.log('successfully',e.target.response)
     saveClip(e.target.response.data.folderPath,e.target.response.data.fileName)
   };
   const ErrorHandler = (e,setLoader,response) => {
     setLoader(false)
-    console.log('ressssss',e.target.response)
-    console.log('ressssseeeeeerrrrrs',e)
+    console.log('error',e.target.response)
+    console.log('error e',e)
   };
   const AbortHandler = (e,setLoader,response) => {
     setLoader(false)
   };
  
-
-
-
 
 async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord,setLoader,setPercent,setModel,setDownload,setFileName) {
 
@@ -149,6 +146,16 @@ async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord
         
             mediaRecorder.addEventListener('stop', function(){
                 clearInterval(count);
+                
+                if (mediaRecorder) {
+                    mediaRecorder.stop();
+                    mediaRecorder.ondataavailable = null;
+                    mediaRecorder.onstop = null;
+                    mediaRecorder = null;
+                }
+
+                console.log('cancelRecord',cancelRecord)
+
                 if(!cancelRecord) {
                     console.log("download")
                     let blob = new Blob(chunks, {

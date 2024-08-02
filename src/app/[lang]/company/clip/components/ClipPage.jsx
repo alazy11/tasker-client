@@ -6,7 +6,8 @@ import GalleryView from "./GalleryView";
 export default function ClipPage() {
 
 
-    const[clip, setClip] = useState([])
+    const[clip, setClip] = useState([]);
+    const[loader, setLoader] = useState(true);
 
     useEffect(()=>{
         const abortController = new AbortController();
@@ -30,6 +31,7 @@ export default function ClipPage() {
               } else {
                  console.log("data folder dd....", data.data);
                  setClip(data.data);
+                 setLoader(false);
               }
            })
            .catch((error) => {
@@ -124,7 +126,7 @@ export default function ClipPage() {
                         </div>
                     </div>
 
-                    <GalleryView clip={clip} />
+                    <GalleryView clip={clip} loader={loader} />
 
                 </div>
 

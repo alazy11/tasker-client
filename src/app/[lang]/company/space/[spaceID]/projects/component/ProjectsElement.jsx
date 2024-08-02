@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import profile from "@/public/project-image/user-profile.jpeg";
-import TableSkeleton from "@/app/[lang]/component/TableSkeleton";
+import TableSkeleton from "@/app/[lang]/component/skeletons/TableSkeleton";
 import SaveModel from "@/app/[lang]/component/SaveModel";
 // import EditEmployeeJob from "./models/EditEmployeeJob";
 import ProjectOptions from "./model/Options";

@@ -3,8 +3,9 @@
 // import ClipOption from "./ClipOption";
 import { useState } from "react";
 import Clip from "./Clip";
+import ClipSkeleton from "@/app/[lang]/component/skeletons/ClipSkeleton";
 
-export default function GalleryView ({clip}) {
+export default function GalleryView ({clip,loader}) {
 
     // const [clipOpt, setClipOpt] = useState(false);
     // const [left, setLeft] = useState('');
@@ -17,8 +18,8 @@ export default function GalleryView ({clip}) {
         <div _nghost-ng-c1185353688="">
 
             {
+                loader ? <ClipSkeleton length={6} /> : clip.length > 0 ?
                 clip?.map((item, index)=>{
-
                     return (
                         <Clip key={item.clip_id + index}
                         item={item}
@@ -29,7 +30,7 @@ export default function GalleryView ({clip}) {
                         />
                     );
 
-                })
+                }) : ''
             }
 
         </div>
