@@ -373,7 +373,7 @@ export default function RecordScreen() {
 
         {
             model &&
-                <div _nghost-ng-c3720892492="" className="z-1000">
+                <div _nghost-ng-c3720892492="" >
                 <div _nghost-ng-c1738963587="">
                     <div className="content-clip">
                         <div className="cu3-toast">

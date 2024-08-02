@@ -63,7 +63,7 @@ export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverl
 
    return (
       <>
-      <header className="z-40 back-nav">
+      <header className="z-50 back-nav lg:z-40">
          <div className="back-nav h-12 flex items-center">
             <div className="relative flex w-full items-center px-2 justify-between">
 
