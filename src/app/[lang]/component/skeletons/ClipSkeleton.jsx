@@ -11,7 +11,8 @@ export default function ClipSkeleton({length}) {
         {
              array.map((item,index)=>{
                 return (  
-                    <div _nghost-ng-c734340672="">
+                    <>
+                                        {/* <div _nghost-ng-c734340672="">
                     <div className="cu-clip-card__content">
                       <div
                         className="cu-clip-card__link relative overflow-hidden back-skeleton"
@@ -29,7 +30,32 @@ export default function ClipSkeleton({length}) {
             
                       <span className="cu-clip-card__date relative min-h-5 w-2/5 back-skeleton overflow-hidden"></span>
                     </div>
-                  </div> 
+                  </div>  */}
+
+                  <div _nghost-ng-c711805542="">
+
+                    <div className="content-clip-skeleton">
+
+                    </div>
+
+                    <div className="footer-clip-skeleton ">
+                        <div className="footer-clip-skeleton-row footer-clip-skeleton-row-title">
+                            <div className="footer-clip-skeleton-row-item"></div>
+                            <div className="footer-clip-skeleton-row-item"></div>
+                        </div>
+
+                        <div className="footer-clip-skeleton-row footer-clip-skeleton-row-date">
+                            <div className="footer-clip-skeleton-row-item"></div>
+                            <div className="footer-clip-skeleton-row-item"></div>
+                        </div>
+
+                    </div>
+
+                  </div>
+
+                    </>
+
+
                  )
             })
         }

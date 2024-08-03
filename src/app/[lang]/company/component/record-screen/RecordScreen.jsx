@@ -97,7 +97,7 @@ async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord
 //     video: true,
 //     audio:true
 //   })
-  let stream =navigator.mediaDevices.getDisplayMedia({ 
+  let stream = navigator.mediaDevices.getDisplayMedia({ 
     video: { 
         mediaSource: 'screen', 
     }, 
@@ -105,7 +105,7 @@ async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord
 }) 
     .then(async (e) => {
         let audio = await navigator.mediaDevices.getUserMedia({  
-            audio: true, video: false }) 
+            audio: true, video: false })
 
             let combine = new MediaStream( 
                 [...e.getTracks(), ...audio.getTracks()]) 
