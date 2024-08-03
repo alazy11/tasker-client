@@ -6,10 +6,10 @@ import TopNavInbox from './TopNavInbox';
 // import Video from 'next-video';
 // import ReactPlayer from "react-player";
 // import PlayIcon from "./PlayIcon";
-import Video from 'next-video';
+// import Video from 'next-video';
 // import getStarted from '/videos/get-started.mp4';
 
-// import Player from 'next-video/player';
+import Player from 'next-video/player';
 
 export default function ClipPage({clipID}) {
 
@@ -68,7 +68,7 @@ export default function ClipPage({clipID}) {
                                 controls url={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${clip?.path?.substr(clip?.path?.indexOf('uploads')).split("\\").join('/')}`} className="w-full h-auto" preload="auto" playsInline="true"
                                 /> */}
                                     {/* </div> */}
-                                <Video 
+                                <Player 
                                 // src={getStarted}
                                 accentColor="var(--cu-border-primary)"
                                 src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${clip?.path?.substr(clip?.path?.indexOf('uploads')).split("\\").join('/')}`}
