@@ -58,7 +58,7 @@ const HandleUploadFile = (selectedFile,setLoader,setPercent,setModel,setStatus) 
     var xhr = new XMLHttpRequest();
     xhr.responseType = "json";
     xhr.upload.addEventListener("progress",(e)=> {ProgressHandler(e,setLoader,setPercent,setModel)}, false);
-    xhr.addEventListener("load",(e)=> {SuccessHandler(e,setLoader)}, false);
+    xhr.addEventListener("load",(e)=> {SuccessHandler(e,setLoader,setStatus)}, false);
     xhr.addEventListener("error",(e)=> {ErrorHandler(e,setLoader)}, false);
     xhr.addEventListener("abort",(e)=> {AbortHandler(e,setLoader)}, false);
     xhr.open("POST", `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip`);
@@ -74,7 +74,7 @@ const HandleUploadFile = (selectedFile,setLoader,setPercent,setModel,setStatus) 
     setPercent(Math.round(percent))
   };
  
-  const SuccessHandler = (e,setLoader) => {
+  const SuccessHandler = (e,setLoader,setStatus) => {
     setLoader(false)
     console.log('successfully',e.target.response)
     saveClip(e.target.response.data.folderPath,e.target.response.data.fileName,setStatus)
@@ -159,8 +159,6 @@ async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord
                         track.stop();
                     });
                 }
-
-                document.exitPictureInPicture();
 
                 console.log('cancelRecord',cancelRecord)
 
