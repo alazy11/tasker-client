@@ -4,7 +4,12 @@ import TopNavInbox from './TopNavInbox';
 // import GalleryView from "./GalleryView";
 
 // import Video from 'next-video';
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
+// import PlayIcon from "./PlayIcon";
+// import Video from 'next-video';
+// import getStarted from '/videos/get-started.mp4';
+
+import Player from 'next-video/player';
 
 export default function ClipPage({clipID}) {
 
@@ -58,11 +63,16 @@ export default function ClipPage({clipID}) {
                             <div className="cu-video-markup__video items-center overflow-hidden">
                                 <div className="vg-player">
                                     {/* <div className="cu-video__container"> */}
-                                <ReactPlayer
-                                
+                                {/* <ReactPlayer
+                                playIcon={PlayIcon}
                                 controls url={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${clip?.path?.substr(clip?.path?.indexOf('uploads')).split("\\").join('/')}`} className="w-full h-auto" preload="auto" playsInline="true"
-                                />
+                                /> */}
                                     {/* </div> */}
+                                <Player 
+                                // src={getStarted}
+                                accentColor="var(--cu-border-primary)"
+                                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${clip?.path?.substr(clip?.path?.indexOf('uploads')).split("\\").join('/')}`}
+                                />
                                 </div>
                                 {/* <video controls src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${clip?.path?.substr(clip?.path?.indexOf('uploads')).split("\\").join('/')}/${clip?.title}`} className="w-full h-auto" preload="auto" playsInline="true"></video> */}
                             </div>
