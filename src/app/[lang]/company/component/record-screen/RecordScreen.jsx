@@ -31,7 +31,6 @@ fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/save`, {
           console.log("data space faild....", data);
         //   setLoader(false)
        } else {
-          // setErrorMessage(false);
           console.log("data project dd....", data.data);
           setStatus("done");
         //   setNotesModel("list")
