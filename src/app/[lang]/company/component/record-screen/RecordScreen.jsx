@@ -277,6 +277,14 @@ export default function RecordScreen() {
 
 
     useEffect(()=>{
+        if(status === 'done') {
+            setTimeout(() => {
+                setModel(false)
+            }, 5000);
+        }
+    },[status])
+
+    useEffect(()=>{
 
         if(secondTimeRecord == 59) {
             setMinutesTimeRecord(prev=>prev+1)
