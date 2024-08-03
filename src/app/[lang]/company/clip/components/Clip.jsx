@@ -47,6 +47,13 @@ function handleRename(e, setClipName, item, setRename) {
   setRename(false);
 }
 
+function handleDate(date) {
+  // let d = new Date(date).toLocaleDateString();
+  let d = new Date(date).toDateString();
+  return d;
+}
+
+
 // export default function Clip({item,setClipOpt,clipOpt,setLeft,setTop}) {
 export default function Clip({ item }) {
   const [clipOpt, setClipOpt] = useState(false);
@@ -72,7 +79,7 @@ export default function Clip({ item }) {
               className="object-cover"
             />
           </Link>
-          
+
           <div className="cu-clip-card__overlay"></div>
 
           <div className="cu-clip-card__actions">
@@ -167,7 +174,7 @@ export default function Clip({ item }) {
             )}
           </div>
 
-          <span className="cu-clip-card__date">{item.create_date}</span>
+          <span className="cu-clip-card__date">{handleDate(item.create_date)}</span>
         </div>
       </div>
 
