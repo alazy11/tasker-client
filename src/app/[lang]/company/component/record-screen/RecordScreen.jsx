@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import handleDateFormat from "@/_util/handleDateFormat";
 
 
-function saveClip(path,title) {
+function saveClip(path,title,setStatus) {
 
 fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/save`, {
     method:'POST',
@@ -33,6 +33,7 @@ fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/save`, {
        } else {
           // setErrorMessage(false);
           console.log("data project dd....", data.data);
+          setStatus("done");
         //   setNotesModel("list")
         //   setDesc('');
           // setLoader(false);
@@ -48,7 +49,7 @@ fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/save`, {
 
 
 
-const HandleUploadFile = (selectedFile,setLoader,setPercent,setModel) => {
+const HandleUploadFile = (selectedFile,setLoader,setPercent,setModel,setStatus) => {
 
     const formData = new FormData();
     // formData.append('folderFilePath',folderInfo.folder_path)
@@ -77,7 +78,7 @@ const HandleUploadFile = (selectedFile,setLoader,setPercent,setModel) => {
   const SuccessHandler = (e,setLoader) => {
     setLoader(false)
     console.log('successfully',e.target.response)
-    saveClip(e.target.response.data.folderPath,e.target.response.data.fileName)
+    saveClip(e.target.response.data.folderPath,e.target.response.data.fileName,setStatus)
   };
   const ErrorHandler = (e,setLoader,response) => {
     setLoader(false)
@@ -89,7 +90,7 @@ const HandleUploadFile = (selectedFile,setLoader,setPercent,setModel) => {
   };
  
 
-async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord,setLoader,setPercent,setModel,setDownload,setFileName) {
+async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord,setLoader,setPercent,setModel,setDownload,setFileName,setStatus) {
 
     let count;
 
@@ -154,6 +155,14 @@ async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord
                     mediaRecorder = null;
                 }
 
+                if (audio) {
+                    audio.getTracks().forEach(track => {
+                        track.stop();
+                    });
+                }
+
+                document.exitPictureInPicture();
+
                 console.log('cancelRecord',cancelRecord)
 
                 if(!cancelRecord) {
@@ -169,7 +178,7 @@ async function start(setStartRecord,setRecorder,cancelRecord,setSecondTimeRecord
                         type: blob.type,
                     });
 
-                    HandleUploadFile(myFile,setLoader,setPercent,setModel);
+                    HandleUploadFile(myFile,setLoader,setPercent,setModel,setStatus);
 
                     let url = URL.createObjectURL(blob);
                     setFileName(filename);
@@ -261,6 +270,7 @@ export default function RecordScreen() {
     const [secondTimeRecord,setSecondTimeRecord] = useState(0);
     const [minutesTimeRecord,setMinutesTimeRecord] = useState(0);
     const [loader, setLoader] = useState(false);
+    const [status, setStatus] = useState('process');
     const [model, setModel] = useState(false);
     const [percent, setPercent] = useState('');
     const [fileName, setFileName] = useState('');
@@ -295,7 +305,7 @@ export default function RecordScreen() {
             <div>
             <button className="flex items-center p-2 btn-top-nav rounded-md bg-transparent text-white  dark:bg-dark/40 hover:text-primary hover:bg-white-light/90 dark:hover:bg-dark/60" 
             onClick={(e)=>{
-                start(setStartRecord,setRecorder,cancelRecord,setCountTimeRecord,setLoader,setPercent,setModel,setDownload,setFileName)
+                start(setStartRecord,setRecorder,cancelRecord,setCountTimeRecord,setLoader,setPercent,setModel,setDownload,setFileName,setStatus)
             }}>
     
     <svg width={20} height={20} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -392,11 +402,15 @@ export default function RecordScreen() {
                         <div className="main-content-clip-title">
                             {
                                 loader ?
-                                <div>
+                            <div>
                             Clip Uploading ({percent}%)
                             </div>:
+                            status === 'process' ? 
                              <div>
                              Clip Processing...
+                             </div> : 
+                             <div>
+                             Clip Uploaded Successfully.
                              </div>
                             }
 
