@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import ModelOverlay from "@/app/[lang]/component/ModelOverlay";
 
 import FolderTree from "./FolderTree";
+import handleDateFormat from "@/_util/handleDateFormat";
 
 const SuccessNotification = dynamic(() => import("@/app/[lang]/component/SuccessNotification"));
 
@@ -12,7 +13,7 @@ const SuccessNotification = dynamic(() => import("@/app/[lang]/component/Success
 function createFolder({spaceID, projectID, folderName, folderID, folderPath,setLoader, setNotification}) {
 
    setLoader(true);
-   let date = new Date();
+   let date = handleDateFormat();
    const folder = {folderName,folderID,spaceID, folderPa:folderPath, date};
 
    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/folder`, {
