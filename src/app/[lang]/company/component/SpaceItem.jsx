@@ -32,7 +32,7 @@ export default function SpaceItem({item,getSpace,setGetSpace}) {
                 <li className={`rounded-md text-sm h-8	ltr:pr-1 rtl:pl-1 relative space-item-li nav-item_ele ${[`/en/company/space/${item.space_id}`,`/en/company/space/${item.space_id}/members`,`/en/company/space/${item.space_id}/projects`,`/en/company/space/${item.space_id}/chat`].includes(path) ? 'active-space' : ''}`}>
         <div className="flex items-center h-8">
            <div className="text-gray-600 w-10 ltr:pl-2.5 rtl:pr-2.5">
-              <span className={`flex hide icon-space-color-324075 items-center justify-center w-5 h-5 rounded icon-space-size ${spaceInfo.color}`}>
+              <span className={` hide space-avatar space-bg-${spaceInfo.color}`}>
                  {
                     spaceInfo.icon_path ? <Image src={spaceInfo.icon_path} alt="space logo"
                     className="h-3.5 w-3.5 item-s-color"

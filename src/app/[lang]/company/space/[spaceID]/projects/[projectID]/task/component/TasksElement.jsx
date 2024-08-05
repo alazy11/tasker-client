@@ -5,87 +5,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import profile from "@/public/project-image/user-profile.jpeg";
 import TableSkeleton from "@/app/[lang]/component/skeletons/TableSkeleton";
-import DropDownModel from "@/app/[lang]/component/DropDownModel";
 import SaveModel from "@/app/[lang]/component/SaveModel";
-
-
-async function getTask(spaceID,projectID,taskID, setTaskInfo, setModel, setEditModel,setProcess) {
-
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/task/${taskID}?spaceID=${spaceID}`,
-   {
-      credentials: "include",
-      headers: {
-         "content-type": "application/json",
-         "cache-control": "no-cache",
-      },
-   })
-      .then((res) => {
-         return res.json();
-      })
-      .then((data) => {
-         if (data.status === "fail" || data.status === "error") {
-            // setErrorMessage(true);
-            // setErrorText(data?.message);
-         } else {
-            console.log("data space information....", data.data);
-            setTaskInfo((prev) => {
-               return { ...data.data };
-            });
-            setModel(false);
-            setEditModel(true);
-            setProcess('update')
-         }
-      })
-      .catch((error) => {
-         console.log(error);
-      });
-}
-
-
-async function deleteTask(
-   projectID,
-   referesh,
-   setProgress,
-   setSave,
-   setModel,
-   setReferesh,
-   spaceID,
-   taskID
-) {
-   setSave(true);
-   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/project/${projectID}/task/${taskID}?spaceID=${spaceID}`,{
-      method: "DELETE",
-      credentials: "include",
-      headers: {
-         "content-type": "application/json",
-         "cache-control": "no-cache",
-      },
-   })
-      .then((res) => {
-         return res.json();
-      })
-      .then((data) => {
-         if (data.status === "fail" || data.status === "error") {
-            // setErrorMessage(true);
-            // setErrorText(data?.message);
-            setSave(false);
-         } else {
-            setModel(false);
-            setProgress(false);
-            setTimeout(() => {
-               setSave(false);
-               setProgress(true);
-               setReferesh(!referesh);
-            }, 2000);
-         }
-      })
-      .catch((error) => {
-         console.log(error);
-         setSave(false);
-      });
-}
-
-
+import TaskOptions from "./model/Options";
+import Link from "next/link";
 function handleDate(date) {
    // let d = new Date(date).toLocaleDateString();
    let d = new Date(date).toDateString();
@@ -159,131 +81,121 @@ export default function TasksElement({
       <>
 
       {
-      skeleton ? <TableSkeleton length={6} /> : projectElement.length > 0 ? 
+      skeleton ? <TableSkeleton length={15} /> : projectElement.length > 0 ? 
          projectElement?.map((item, index) => {
 
             return (
                // <>
-               <tr
-               className={`border-bottom-f0f1f3 hover:bg-gray-50 cursor-default`}
-               key={item.task_id}
-            >
-               <td className="text-center">{pageStart + index}</td>
-               <td className="">
-                  <a
-                     // href={`/en/company/space/${spaceID}/projects/${item.project_id}`}
-                     href={`#`}
-                     className="flex font-medium items-center gap-2 max-w-72 text-ellipsis overflow-hidden whitespace-nowrap h-full w-full"
-                  >
-                     <div className="flex items-center justify-center w-4 h-4 rounded-full relative todo-state">
-                     <svg width={'100%'} height={'100%'} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <path d="M12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" />
- <path d="M12 22.5A10.5 10.5 0 1 1 22.5 12 10.512 10.512 0 0 1 12 22.5ZM12 3a9 9 0 1 0 9 9 9.01 9.01 0 0 0-9-9Z" />
+
+                        <div role="rowgroup" className="w-full" key={item.project_id}>
+<div role="row" aria-rowindex="2" className="w-full flex items-center table-grid-body_row cursor-default" style={{height:'28px'}}>
+
+    <div role="gridcell" aria-colindex="1" className="table-grid-body_row-cell justify-center" style={{width:'5%',justifyContent:'center'}}>
+    {pageStart + index}
+    </div>
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'18%'}}>
+    <Link
+                     href={`/en/company/space/${spaceID}/projects/${item.project_id}`}
+className="flex items-center font-medium gap-2 text-ellipsis overflow-hidden whitespace-nowrap h-full w-full"
+>
+<div className="flex items-center justify-center table-grid-icon-status rounded-full relative todo-state">
+<svg width={'100%'} height={'100%'} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" />
+<path d="M12 22.5A10.5 10.5 0 1 1 22.5 12 10.512 10.512 0 0 1 12 22.5ZM12 3a9 9 0 1 0 9 9 9.01 9.01 0 0 0-9-9Z" />
 </svg>
-                     </div>
-                     <span className="text-2a2e34 link-hover">
-                     {item.title}
-                     </span>
-                  </a>
-               </td>
-               <td className="">
-                  <div className="w-full h-full flex items-center gap-1">
-                  <span
-                     className={`flex hide items-center justify-center w-5 h-5 rounded-full overflow-hidden`}
-                  >
-                      {item.profile_path ? (
-                           <Image
-                              src={item.profile_path}
-                              alt="manager logo"
-                              className="w-full"
-                           />
-                        ) : (
-                           <Image
-                              src={profile}
-                              alt="manager logo"
-                              className="w-full"
-                           />
-                        )}
-                  </span>
-                  <span className="text-xs flex-1">
-                     <span className="block w-full max-w-full text-ellipsis overflow-hidden whitespace-nowrap">
-                        {item.public_name}
-                     </span>
-                  </span>
-                  </div>
-               </td>
-               <td className="">
-                  <div
-                     className=" h-full w-full"
-                     title={handleDate(item.start_date)}
-                  >
-                     <span className="text-ellipsis overflow-hidden whitespace-nowrap inline-block " style={{maxWidth:"90%"}}>
-                        {handleDate(item.start_date)}
-                     </span>
-                  </div>
-               </td>
-               <td className="">
-                  <div
-                     className=" h-full w-full"
-                     title={handleDate(item.end_date)}
-                  >
-                     <span className="text-ellipsis overflow-hidden whitespace-nowrap inline-block " style={{maxWidth:"90%"}}>
-                        {handleDate(item.end_date)}
-                     </span>
-                  </div>
-               </td>
-               <td className="">
-                  <div
-                     className="max-w-72 text-ellipsis overflow-hidden whitespace-nowrap h-full w-full"
-                     // title={item.email}
-                  >
-                     <button className="border-0 bg-transparent underline font-medium cursor-pointer link-hover underline-offset-2">
-                        View
-                     </button>
-                  </div>
-               </td>
-               <td className="">
-                  <div className="flex items-center gap-1 h-6 rounded pt-1 ltr:pr-2 rtl:pl-2 pb-1 ltr:pl-1 rtl:pr-1 back-todo-state ">
-                     <div className="w-4 h-4 flex items-center justify-center">
-                     <svg width={'100%'} height={'100%'} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <path d="M12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" />
- <path d="M12 22.5A10.5 10.5 0 1 1 22.5 12 10.512 10.512 0 0 1 12 22.5ZM12 3a9 9 0 1 0 9 9 9.01 9.01 0 0 0-9-9Z" />
+</div>
+<span className="text-inherit link-hover leading-4 " style={{marginTop:"-3px"}} >
+{item.title}
+</span>
+</Link>
+    </div>
+
+
+     <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'12%'}}>
+     <div className="w-full h-full flex items-center gap-1">
+<span className="flex-1">
+<span className="block w-full max-w-full text-ellipsis overflow-hidden whitespace-nowrap">
+{item.public_name}
+</span>
+</span>
+</div>
+    </div>
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'12%'}}>
+    <div
+className=" h-full w-full"
+title={handleDate(item.start_date)}
+>
+<span className="text-ellipsis overflow-hidden whitespace-nowrap inline-block " style={{maxWidth:"90%"}}>
+{handleDate(item.start_date)}
+</span>
+</div>
+    </div>
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'12%'}}>
+    <div
+className=" h-full w-full"
+title={handleDate(item.end_date)}
+>
+<span className="text-ellipsis overflow-hidden whitespace-nowrap inline-block " style={{maxWidth:"90%"}}>
+{handleDate(item.end_date)}
+</span>
+</div>
+    </div>
+
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'12%'}}>
+    <div
+className="text-ellipsis overflow-hidden whitespace-nowrap h-full w-full"
+// title={item.email}
+>
+<button className="border-0 bg-transparent underline font-medium cursor-pointer link-hover underline-offset-2">
+View
+</button>
+</div>
+    </div>
+
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'12%'}}>
+    <div className="table-grid-status back-todo-state">
+<div className="icon-status flex items-center justify-center">
+<svg width={'100%'} height={'100%'} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 19.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Z" />
+<path d="M12 22.5A10.5 10.5 0 1 1 22.5 12 10.512 10.512 0 0 1 12 22.5ZM12 3a9 9 0 1 0 9 9 9.01 9.01 0 0 0-9-9Z" />
 </svg>
-                     </div>
-                     <span className="whitespace-nowrap overflow-hidden text-ellipsis text-xs font-medium leading-4 uppercase text-inherit">
-                        {item.state}
+</div>
+<span className="whitespace-nowrap overflow-hidden text-ellipsis font-medium uppercase text-inherit">
+{item.state}
+</span>
+</div>
+    </div>
+
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'12%'}}>
+    <div className="flex items-center h-full w-full rounded">
+<div className="font-normal capitalize flex items-center gap-2 w-full border-none rounded-md">
+                     <span
+                        className={`color-${item.priority} table-grid-icon-priority flex items-center justify-center`}
+                     >
+
+                        <svg width={"100%"}
+                           height={"100%"} className="block fill-inherit" viewBox="0 0 24 24" fill="currentColor">
+                            <path fillRule="evenodd" d="M6 3a1 1 0 0 0-2 0v18a1 1 0 1 0 2 0v-6h13a1 1 0 0 0 .858-1.514L17.166 9l2.692-4.486A1 1 0 0 0 19 3H6Z" clipRule="evenodd"></path>
+                        </svg>
+
                      </span>
+                     {item.priority}
                   </div>
-               </td>
-               <td className="">
-                  <div className="flex items-center h-6 rounded">
-                  <div className="text-sm font-normal capitalize leading-5 flex items-center gap-1 w-full border-none rounded-md text-2a2e34">
-                                             <span
-                                                className={` text-sm color-${item.priority} w-4 h-4 flex items-center justify-center`}
-                                             >
-                                                <svg
-                                                   width={"100%"}
-                                                   height={"100%"}
-                                                   fill="currentColor"
-                                                   stroke="currentColor"
-                                                   strokeLinecap="round"
-                                                   strokeLinejoin="round"
-                                                   strokeWidth={2}
-                                                   viewBox="0 0 24 24"
-                                                   xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                   <path d="M4 15h13.865a1 1 0 0 0 .768-1.64L15 9l3.633-4.36A1 1 0 0 0 17.865 3H4v18" />
-                                                </svg>
-                                             </span>
-                                             {item.priority}
-                                          </div>
-                  </div>
-               </td>
-               <td className="text-center">
-                  <div className="w-full h-full flex items-center justify-center">
-                  <button
-                           className="border-0 w-6 back-hover h-6 rounded color-700 bg-transparent flex items-center justify-center"
-                           data-task={item.task_id}
+</div>
+    </div>
+
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'5%'}}>
+    <div className="w-full h-full flex items-center justify-center">
+<button
+   className="border-0 w-6 back-hover h-6 rounded color-700 bg-transparent flex items-center justify-center"
+   data-task={item.task_id}
                            onClick={(e) => {
                               let id = e.currentTarget.dataset.task;
                               setTaskID((prev) => {
@@ -291,239 +203,25 @@ export default function TasksElement({
                               });
                               setModel(true);
                            }}
-                        >
-                           <svg
-                              width="90%"
-                              height="100%"
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                           >
-                              <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm-6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-                           </svg>
-                        </button>
+>
+    <div className="flex items-center justify-center w-4 h-4">
+    <svg viewBox="0 0 24 24" width="1rem" height="1rem" fill="currentColor">
+    <path  d="M19.2 13.6a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Zm-7.2 0a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Zm-7.2 0a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Z"></path>
+   </svg>
+    </div>
+</button>
+</div>
+    </div>
+</div>
+</div>
 
-
-                        {model && (
-                           <DropDownModel setShowIcon={setModel}>
-                              <div
-                                 className="h-full m-auto relative"
-                                 style={{ width: "100%", maxWidth: "100%" }}
-                              >
-                                 <div
-                                    className="absolute z-2700 ltr:right-3 rtl:left-3 drop-menu-shadow bg-white border-e8eaed rounded-md min-w-40 overflow-y-auto flex flex-col pt-2 pb-2"
-                                    style={{ width: "224px", top: "36%" }}
-                                 >
-                                    <ul>
-                                       <li className="border-bottom-e8eaed">
-                                          <ul className="pb-2 flex flex-col gap-1.5">
-                                             <li className="min-h-3 pe-2 ps-2">
-                                                <button
-                                                   className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded"
-                                                   onClick={async (e) => {
-                                                      await getTask(spaceID,projectID,taskID, setTaskInfo, setModel, setTaskModel,setProcess);
-                                                   }}
-                                                >
-                                                   <span className="text-656f7d">
-                                                      <svg
-                                                         width="1rem"
-                                                         height="1rem"
-                                                         fill="none"
-                                                         stroke="currentColor"
-                                                         strokeLinecap="round"
-                                                         strokeLinejoin="round"
-                                                         strokeWidth="2"
-                                                         viewBox="0 0 24 24"
-                                                         xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                         <path d="m14 6 4 4m.414-5.586 1.172 1.171a2 2 0 0 1 0 2.829L8 20H4v-4L15.586 4.414a2 2 0 0 1 2.828 0Z"></path>
-                                                      </svg>
-                                                   </span>
-                                                   <span className="option-style text-2a2e34">
-                                                      Edit
-                                                   </span>
-                                                </button>
-                                             </li>
-                                             <li className="min-h-3 pe-2 ps-2">
-                                                <button className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded">
-                                                   <span className="text-656f7d">
-                                                      <svg
-                                                         width="1rem"
-                                                         height="1rem"
-                                                         fill="none"
-                                                         stroke="currentColor"
-                                                         strokeLinecap="round"
-                                                         strokeLinejoin="round"
-                                                         strokeWidth="2"
-                                                         viewBox="0 0 24 24"
-                                                         xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                         <path d="M12 4v16m-8-8h16"></path>
-                                                      </svg>
-                                                   </span>
-                                                   <span className="option-style text-2a2e34">
-                                                      Add To Space
-                                                   </span>
-                                                </button>
-                                             </li>
-                                             <li className="min-h-3 pe-2 ps-2">
-                                                <button className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded">
-                                                   <span className="text-656f7d">
-                                                      <svg
-                                                         width="1rem"
-                                                         height="1rem"
-                                                         fill="none"
-                                                         stroke="currentColor"
-                                                         strokeLinecap="round"
-                                                         strokeLinejoin="round"
-                                                         strokeWidth="2"
-                                                         viewBox="0 0 24 24"
-                                                         xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                         <rect
-                                                            width="13"
-                                                            height="13"
-                                                            x="9"
-                                                            y="9"
-                                                            rx="2"
-                                                         ></rect>
-                                                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                                      </svg>
-                                                   </span>
-                                                   <span className="option-style text-2a2e34">
-                                                      Create new Task
-                                                   </span>
-                                                </button>
-                                             </li>
-                                             <li className="min-h-3 pe-2 ps-2">
-                                                <button className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded">
-                                                   <span className="text-656f7d">
-                                                      <svg
-                                                         width="1rem"
-                                                         height="1rem"
-                                                         fill="none"
-                                                         stroke="currentColor"
-                                                         strokeLinecap="round"
-                                                         strokeLinejoin="round"
-                                                         strokeWidth="2"
-                                                         viewBox="0 0 24 24"
-                                                         xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                         <rect
-                                                            width="13"
-                                                            height="13"
-                                                            x="9"
-                                                            y="9"
-                                                            rx="2"
-                                                         ></rect>
-                                                         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                                      </svg>
-                                                   </span>
-                                                   <span className="option-style text-2a2e34">
-                                                      Add as a manager
-                                                   </span>
-                                                </button>
-                                             </li>
-                                          </ul>
-                                       </li>
-
-                                       <li className="border-bottom-e8eaed">
-                                          <ul className="pb-2 pt-2 flex flex-col gap-1.5">
-                                             <li className="min-h-3 pe-2 ps-2">
-                                                <button
-                                                   className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded"
-                                                   onClick={(e) => {
-                                                      setMessage(
-                                                         "save in Archive"
-                                                      );
-
-                                                   }}
-                                                >
-                                                   <span className="text-656f7d">
-                                                      <svg
-                                                         width="1rem"
-                                                         height="1rem"
-                                                         fill="none"
-                                                         stroke="currentColor"
-                                                         strokeLinecap="round"
-                                                         strokeLinejoin="round"
-                                                         strokeWidth="2"
-                                                         viewBox="0 0 24 24"
-                                                         xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                         <path d="M2 3h20v6H2z"></path>
-                                                         <path d="M4 9v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"></path>
-                                                         <path d="M10 13h4"></path>
-                                                      </svg>
-                                                   </span>
-                                                   <span className="option-style text-2a2e34">
-                                                      Archive
-                                                   </span>
-                                                </button>
-                                             </li>
-                                             <li className="min-h-3 pe-2 ps-2">
-                                                <button
-                                                   className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded button-delete"
-                                                   onClick={(e) => {
-                                                      setMessage(
-                                                         "Delete Task Successfully"
-                                                      );
-                                                      deleteTask(
-                                                         projectID,
-                                                         referesh,
-                                                         setProgress,
-                                                         setSave,
-                                                         setModel,
-                                                         setReferesh,
-                                                         spaceID,
-                                                         taskID
-                                                      );
-                                                   }}
-                                                >
-                                                   <span className="text-inherit">
-                                                      <svg
-                                                         width="1rem"
-                                                         height="1rem"
-                                                         fill="none"
-                                                         stroke="currentColor"
-                                                         strokeLinecap="round"
-                                                         strokeLinejoin="round"
-                                                         strokeWidth="2"
-                                                         viewBox="0 0 24 24"
-                                                         xmlns="http://www.w3.org/2000/svg"
-                                                      >
-                                                         <path d="M3 6h18M5 6v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                                         <path d="M14 11v6"></path>
-                                                         <path d="M10 11v6"></path>
-                                                      </svg>
-                                                   </span>
-                                                   <span className="option-style text-inherit">
-                                                      Delete
-                                                   </span>
-                                                </button>
-                                             </li>
-                                          </ul>
-                                       </li>
-
-                                       <li className="pe-2 ps-2 pt-2">
-                                          <button className="w-full h-8 button-background text-white rounded-md flex items-center justify-center text-sm font-medium">
-                                             View Profile
-                                          </button>
-                                       </li>
-                                    </ul>
-                                 </div>
-                              </div>
-                           </DropDownModel>
-                        )}
-                  </div>
-               </td>
-            </tr>
-            // </>
             );
 
          }) : ''
       }
-
+                        {model && (
+<TaskOptions  taskID={taskID} setOptions={setModel}/>
+                        )}
 {
             save && <SaveModel progress={progress} >
                {message}

@@ -160,7 +160,7 @@ export default function AddSpace({ user, setGetSpace,setModel, getSpace,spaceHan
                                  }}
                               >
                                  <div
-                                    className={`text-87909e font-medium uppercase relative w-full h-full flex items-center justify-center ${selectColor}`}
+                                    className={`text-87909e font-medium uppercase relative w-full h-full flex items-center justify-center space-bg-${selectColor}`}
                                     ref={inputRef}
                                  >
                                     {

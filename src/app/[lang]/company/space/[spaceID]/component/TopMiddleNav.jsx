@@ -99,8 +99,8 @@ export default function TopMiddleNav ({children,spaceID, setEmployee,setSetting,
                </li>
 
                <li className='flex items-center'>
-                  <button className='relative backgroung-f2f1fe border-0 h-7 w-full rounded-md ps-1.5 pe-1.5 flex items-center gap-1 hover:bg-gray-100'>
-                     <span className='w-4 h-4 color-544dc9'>
+                  <button className='relative hide-btn border-0 h-7 w-full rounded-md ps-1.5 pe-1.5 flex items-center gap-1'>
+                     <span className='w-4 h-4 text-inherit'>
                      <svg width="100%" height="100%" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M21 19H9"></path>
 <path d="M7 17a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"></path>
@@ -113,7 +113,7 @@ export default function TopMiddleNav ({children,spaceID, setEmployee,setSetting,
 <path d="M3 5h4"></path>
 </svg>
                      </span>
-                     <span className='text-ellipsis whitespace-nowrap text-sm font-medium color-544dc9'>
+                     <span className='text-ellipsis whitespace-nowrap text-sm font-medium text-inherit'>
                         Hide
                      </span>
                   </button>

@@ -4,12 +4,11 @@ import { useEffect, useState } from "react";
 import profile from "@/public/project-image/user-profile.jpeg";
 import Image from "next/image";
 import TableSkeleton from "@/app/[lang]/component/skeletons/TableSkeleton";
-import DropDownModel from "@/app/[lang]/component/DropDownModel";
 import SaveModel from "@/app/[lang]/component/SaveModel";
 // import EditEmployeeJob from "./models/EditEmployeeJob";
 import MemberOptions from "./Options";
 
-// const DropDownModel = 
+
 
 
 export default function MemberElement({
@@ -74,17 +73,15 @@ export default function MemberElement({
 
          employee?.map((item, index) => {
             return (
-               <tr
-                  className={`border-bottom-f0f1f3 hover:bg-gray-100 ${
-                     employeeID === item.user_id && model === true
-                        ? "bg-gray-100"
-                        : ""
-                  }`}
-                  key={item.user_id}
-               >
-                  <td className="text-center">{pageStart + index}</td>
-                  <td className="">
-                     <span
+<div role="rowgroup" className="w-full" key={item.user_id}>
+<div role="row" aria-rowindex="2" className="w-full flex items-center table-grid-body_row cursor-default" style={{height:'28px'}}>
+
+    <div role="gridcell" aria-colindex="1" className="table-grid-body_row-cell justify-center" style={{width:'5%',justifyContent:'center'}}>
+    {pageStart + index}
+    </div>
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'10%'}}>
+    <span
                         className={`flex hide items-center justify-center w-5 h-5 rounded-full overflow-hidden`}
                      >
                         {item.profile_path ? (
@@ -101,61 +98,67 @@ export default function MemberElement({
                            />
                         )}
                      </span>
-                  </td>
-                  <td className="">
-                     <a
-                        href={`/en/company/profile/${item.user_id}`}
-                        className="block w-full h-full"
-                     >
-                        {item.public_name}
-                     </a>
-                  </td>
-                  <td className="">
-                     <div
-                        className="max-w-72 text-ellipsis overflow-hidden whitespace-nowrap h-full w-full"
-                        title={item.email}
-                     >
-                        {item.email}
-                     </div>
-                  </td>
-                  <td className="">
-                     <div className="max-w-72 text-ellipsis overflow-hidden whitespace-nowrap h-full w-full">
-                        {item.job_for}
-                     </div>
-                  </td>
-                  <td className="text-center">
-                     <div className="w-full h-full flex items-center justify-center">
-                        <button
-                           className="border-0 w-6 back-hover h-6 rounded color-700 bg-transparent flex items-center justify-center"
-                           data-employee={item.employee_id}
-                           onClick={(e) => {
-                              let id = e.currentTarget.dataset.employee;
-                              setEmployeeID((prev) => {
-                                 return id;
-                              });
-                              setOptions(true);
-                           }}
-                        >
-                           <svg
-                              width="90%"
-                              height="100%"
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                           >
-                              <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm-6 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm12 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
-                           </svg>
-                        </button>
+    </div>
 
-                        {save && (
-                           <SaveModel progress={progress}>{message}</SaveModel>
-                        )}
-                        {editModel && (
-                           <EditEmployeeJob setModel={setEditModel} />
-                        )}
-                     </div>
-                  </td>
-               </tr>
+
+     <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'30%'}}>
+     <div className="w-full h-full flex items-center gap-1">
+<span className="flex-1">
+<span className="block w-full max-w-full text-ellipsis overflow-hidden whitespace-nowrap">
+{item.public_name}
+</span>
+</span>
+</div>
+    </div>
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'30%'}}>
+    <div
+className=" h-full w-full"
+title={item.email}
+>
+<span className="text-ellipsis overflow-hidden whitespace-nowrap inline-block " style={{maxWidth:"90%"}}>
+{item.email}
+</span>
+</div>
+    </div>
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'20%'}}>
+    <div
+className=" h-full w-full"
+>
+<span className="text-ellipsis overflow-hidden whitespace-nowrap inline-block " style={{maxWidth:"90%"}}>
+{item.job_for}
+</span>
+</div>
+    </div>
+
+    <div role="gridcell" aria-colindex="2" className="table-grid-body_row-cell" style={{width:'5%'}}>
+    <div className="w-full h-full flex items-center justify-center">
+<button
+   className="border-0 w-6 back-hover h-6 rounded color-700 bg-transparent flex items-center justify-center"
+   data-employee={item.employee_id}
+   onClick={(e) => {
+      let id = e.currentTarget.dataset.employee;
+      setEmployeeID((prev) => {
+         return id;
+      });
+      setOptions(true);
+   }}
+>
+    <div className="flex items-center justify-center w-4 h-4">
+    <svg viewBox="0 0 24 24" width="1rem" height="1rem" fill="currentColor">
+    <path  d="M19.2 13.6a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Zm-7.2 0a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Zm-7.2 0a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6Z"></path>
+   </svg>
+    </div>
+</button>
+</div>
+    </div>
+
+
+
+</div>
+</div>
+
             );
          })
       }
@@ -164,6 +167,13 @@ export default function MemberElement({
       {
             options && <MemberOptions employeeID={employeeID} setOptions={setOptions} />
          }
+
+{save && (
+                           <SaveModel progress={progress}>{message}</SaveModel>
+                        )}
+                        {editModel && (
+                           <EditEmployeeJob setModel={setEditModel} />
+                        )}
 
       </>
    );

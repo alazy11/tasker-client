@@ -122,15 +122,12 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                            type="button"
                            className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5  ${pathname === '/en/company/employee' ? 'active' : ''}`}
                         >
-                           <span className="text-icon">
-                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-xl" viewBox="0 0 24 24">
-    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">
-        <path d="M21 19.75c0-2.09-1.67-5.068-4-5.727m-2 5.727c0-2.651-2.686-6-6-6s-6 3.349-6 6"/>
-        <circle cx="9" cy="7.25" r="3"/>
-        <path d="M15 10.25a3 3 0 1 0 0-6"/>
-    </g>
+                           <span className="text-icon flex items-center justify-center w-5 h-5">
+                          <svg width={'100%'} height={'100%'} className="block" viewBox="0 0 24 24" fill="currentColor" >
+                          <path fillRule="evenodd" d="M15.5 5c-.703 0-1.34.272-1.816.718a1 1 0 0 1-1.368-1.46 4.656 4.656 0 0 1 6.399 6.766 7.51 7.51 0 0 1 4.277 5.851 1 1 0 1 1-1.984.25c-.34-2.707-2.672-4.813-5.508-4.813a1 1 0 1 1 0-2A2.656 2.656 0 1 0 15.5 5Zm-7 3a2.656 2.656 0 1 0 0 5.312A2.656 2.656 0 0 0 8.5 8Zm3.215 6.024a4.656 4.656 0 1 0-6.43 0 7.51 7.51 0 0 0-4.277 5.851 1 1 0 0 0 1.984.25c.34-2.707 2.672-4.813 5.508-4.813s5.168 2.106 5.508 4.813a1 1 0 1 0 1.984-.25c-.326-2.598-1.988-4.779-4.277-5.85Z" clipRule="evenodd"></path>
 </svg>
                            </span>
+
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm">
                                  Employees
                               </span>

@@ -13,18 +13,18 @@ const colorIcon = ['#8077f1', '#6a85ff', '#40a6e5', '#3fb1b2', '#64c6a2', '#f9be
 // const backcolorIcon = ['cu-project-avatar__space-bg-purple', 'cu-project-avatar__space-bg-neon-blue', 'cu-project-avatar__space-bg-azure-blue', 'cu-project-avatar__space-bg-teal', 'cu-project-avatar__space-bg-mint', 'cu-project-avatar__space-bg-yellow', 'cu-project-avatar__space-bg-orange', 'cu-project-avatar__space-bg-red', 'cu-project-avatar__space-bg-pink', 'cu-project-avatar__space-bg-violet', 'cu-project-avatar__space-bg-brown', 'cu-project-avatar__space-bg-black'];
 
 const backcolorIcon = [
-   [ '#8077f1', 'cu-project-avatar__space-bg-purple' ],
-   [ '#6a85ff', 'cu-project-avatar__space-bg-neon-blue' ],
-   [ '#40a6e5', 'cu-project-avatar__space-bg-azure-blue' ],
-   [ '#3fb1b2', 'cu-project-avatar__space-bg-teal' ],
-   [ '#64c6a2', 'cu-project-avatar__space-bg-mint' ],
-   [ '#f9be34', 'cu-project-avatar__space-bg-yellow' ],
-   [ '#e78845', 'cu-project-avatar__space-bg-orange' ],
-   [ '#dc646a', 'cu-project-avatar__space-bg-red' ],
-   [ '#f17ead', 'cu-project-avatar__space-bg-pink' ],
-   [ '#c580e6', 'cu-project-avatar__space-bg-violet' ],
-   [ '#bba399', 'cu-project-avatar__space-bg-brown' ],
-   [ '#595d66', 'cu-project-avatar__space-bg-black' ]
+   [ '#8077f1', 'purple' ],
+   [ '#6a85ff', 'blue' ],
+   [ '#40a6e5', 'azure-blue' ],
+   [ '#3fb1b2', 'teal' ],
+   [ '#64c6a2', 'mint' ],
+   [ '#f9be34', 'yellow' ],
+   [ '#e78845', 'orange' ],
+   [ '#dc646a', 'red' ],
+   [ '#f17ead', 'pink' ],
+   [ '#c580e6', 'violet' ],
+   [ '#bba399', 'brown' ],
+   [ '#595d66', 'black' ]
  ]
 
 
