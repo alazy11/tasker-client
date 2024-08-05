@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import profile from "@/public/project-image/user-profile.jpeg";
-
+import handleDateFormat from "@/_util/handleDateFormat";
 // import UploadFile from "./UploadFile";
 
 const UploadFile = dynamic(() => import("./UploadFile"));
@@ -98,7 +98,7 @@ export default function AddFile({user, spaceID, projectID,setModel, folderInfo})
                            projectID,
                            taskID:null,
                            employeeID:null,
-                           uploadDate:new Date(),
+                           uploadDate:handleDateFormat(),
                            folderID: folderInfo.folder_id
                         })
 
