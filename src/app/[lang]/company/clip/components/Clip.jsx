@@ -82,7 +82,7 @@ export default function Clip({ item }) {
 
           <div className="cu-clip-card__overlay"></div>
 
-          <div className="cu-clip-card__actions">
+          <div className="cu-clip-card__actions md:flex">
             <div>
               <button className="btn-normal clip-copy-button">
                 <div _nghost-ng-c4133689536="">

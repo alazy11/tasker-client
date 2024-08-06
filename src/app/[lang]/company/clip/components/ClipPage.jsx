@@ -70,9 +70,9 @@ export default function ClipPage() {
                                             <span className="sm:">
                                             Sort: Date created 
                                             </span>
-                                            <span className="hidden sm:inline-block">
+                                            {/* <span className="hidden sm:inline-block">
                                             Sort
-                                            </span>
+                                            </span> */}
                                             <div _nghost-ng-c4133689536="" className="cu3-icon">
                                             <svg width={"1rem"} height={"1rem"} className="block" viewBox="0 0 24 24" fill="currentColor" >
                                                 <path  fill-rule="evenodd" d="M12 17a1 1 0 0 1-.707-.293l-6-6a1 1 0 0 1 1.414-1.414L12 14.586l5.293-5.293a1 1 0 1 1 1.414 1.414l-6 6A1 1 0 0 1 12 17Z" clip-rule="evenodd"></path>

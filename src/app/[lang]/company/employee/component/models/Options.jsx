@@ -106,7 +106,7 @@ async function deleteEmployee(
       });
 }
 
-export default function EmployeeOptions({employeeID,setOptions}) {
+export default function EmployeeOptions({employeeID,setOptions,setMessage,referesh,setReferesh,setProgress,setSave}) {
 
    const [spaceModel, setSpaceModel] = useState(false);
    const [spaceID, setSpaceID] = useState([]);
@@ -163,7 +163,8 @@ export default function EmployeeOptions({employeeID,setOptions}) {
                      <li className="min-h-3 pe-2 ps-2">
                         <button className={`p-2 flex items-center w-full gap-3 back-search-member ${active === "Add To Space" && spaceModel ? 'nav-menu-item-active' : ''} rounded`} onClick={(e)=>{
                                        let rect = e.currentTarget.getBoundingClientRect();
-                                       setLeft((rect.left - 300) + 'px');
+                                       let x = rect.left - 300;
+                                       setLeft((rect.left > 300 ? x : 10) + 'px');
                                        setActive("Add To Space")
                            setSpaceModel(true);
 
@@ -227,7 +228,7 @@ export default function EmployeeOptions({employeeID,setOptions}) {
                                  referesh,
                                  setProgress,
                                  setSave,
-                                 setModel,
+                                 setOptions,
                                  setReferesh
                               );
                            }}

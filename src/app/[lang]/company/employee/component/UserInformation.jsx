@@ -96,7 +96,7 @@ export default function UserInformation({user, setModel, setNotification, compan
       
 
       <ModelOverlay showModel={setModel}>
-          <div className="z-2700 drop-menu-shadow bg-white w-72 min-w-40 min-h-80 overflow-y-auto flex flex-col border-top-7f77f1" style={{ width:'400px', maxHeight:" calc(100vh - 20px)", top:'19%'}}>
+          <div className="z-2700 drop-menu-shadow mx-[10px] bg-white w-72 min-w-40 min-h-80 overflow-y-auto flex flex-col border-top-7f77f1" style={{ width:'400px', maxHeight:" calc(100vh - 20px)", top:'19%'}}>
             <div className="w-full h-full flex flex-col ">
                <div className='border-bottom-f0f1f3 mt-3 pb-3'>
                   <div className="flex items-center justify-center min-h-20">

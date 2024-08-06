@@ -247,7 +247,7 @@ Archive
 </div>
 
          </div>
-         <div className={`flex items-center justify-end pe-12 ps-12 ${employee ? 'mr-60' : ''}`}>
+         <div className={`flex items-center border-t border-solid border-t-[var(--cu-border-default)] justify-end pe-12 ps-12 ${employee ? 'mr-60' : ''}`}>
             <div className="flex items-center gap-1">
                <p className="flex items-center gap-1 color-544dc9 font-semibold">
                   <span className="flex items-center ">

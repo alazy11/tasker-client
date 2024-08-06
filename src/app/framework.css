@@ -2660,7 +2660,7 @@ kbd {
 }
 .animation-notification {
   left: -100%;
-  animation: notification .5s linear 1 forwards;
+  animation: notification .2s linear 1 forwards;
 }
 .border-normal {
   border-left: 4px solid var(--theme-main-color);
@@ -2752,6 +2752,55 @@ kbd {
   background-color: var(--theme-main-color-dark);
 }
 
+.cu-dashboard__float-container_v3 {
+  right: 20px;
+  bottom: 30px;
+  z-index: 500;
+  display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.cu-view-saving-status__banner{
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background-color: #2a2e34;
+}
+
+.cu-view-saving-status__loader {
+  margin-right: 11px;
+  margin-left: 1px;
+}
+
+.cu-loader__circle {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--cu-border-primary);
+  border-top-color: var(--cu-effect-primary);
+  animation: spinner 1.2s linear infinite;
+}
+
+.cu-view-saving-status__text {
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+}
+
+100% {
+    transform: rotate(360deg);
+}
+}
 
 /* ? ////////////////////////////////////////// */
 
@@ -4462,6 +4511,12 @@ video {
   top:8px;
   right: 8px;
   z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .cu-clip-card__actions {
+      display: flex;
+  }
 }
 
 [_nghost-ng-c734340672]:hover .cu-clip-card__actions ,

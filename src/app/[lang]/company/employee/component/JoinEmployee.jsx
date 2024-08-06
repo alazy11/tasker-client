@@ -4,9 +4,10 @@ import Profile from "@/public/project-image/user-profile.jpeg";
 import { useState, useTransition } from "react";
 import UserInformation from "./UserInformation";
 import SuccessNotification from "@/app/[lang]/component/SuccessNotification";
+import Loading from "@/app/[lang]/component/Loading";
 
-
-function inputHandler(value, setUser) {
+function inputHandler(value, setUser,setLoader) {
+   setLoader(true);
    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/search?user=${value}`, {
       credentials: "include",
       headers: {
@@ -22,13 +23,16 @@ function inputHandler(value, setUser) {
             // setErrorMessage(true);
             // setErrorText(data?.message);
             console.log("employee faaaaaaa.....", data.data);
+            setLoader(false);
          } else {
             console.log("employee user.....", [...Object.values(data.data)]);
             setUser([...Object.values(data.data)]);
+            setLoader(false);
          }
       })
       .catch((error) => {
          console.log(error);
+         setLoader(false);
       });
 }
 
@@ -40,10 +44,10 @@ export default function JoinEmployee({ setEmployee,company }) {
 
    const [user, setUser] = useState([]);
    const [model, setModel] = useState(false)
+   const [loader, setLoader] = useState(false)
    const [notification,setNotification] = useState(false);
    const [message,setMessage] = useState('');
    const [active, setActive] = useState('');
-
 
    return (
       <div className="absolute -right-full top-0 h-full animation-assign bg-white z-50 w-60 border-top-e8eaed border-left-e8eaed">
@@ -102,7 +106,7 @@ export default function JoinEmployee({ setEmployee,company }) {
                         setMember(e.target.value);
 
                         startTransition(() => {
-                           inputHandler(e.target.value, setUser);
+                           inputHandler(e.target.value, setUser,setLoader);
                         });
                      }}
                   />
@@ -110,68 +114,71 @@ export default function JoinEmployee({ setEmployee,company }) {
             </div>
 
             <div className="w-full overflow-auto flex-1 scroll-bar pb-2.5 h-5/6">
+            {
+               loader ? <Loading styleClass="w-full flex items-center justify-center" /> :
                <ul className="flex flex-col gap-1">
-                  {user?.map((item) => {
-                     return (
-                        <li
-                           className={`flex items-center relative p-5px cursor-pointer h-38px ms-3 me-3 w-search employee-item  ${model ? 'employee-active' : '' } `}
-                           data-user={item.user_id}
-                           onClick={(e)=>{
-                              setModel(true);
-                           }}
-                        >
-                           <div className="w-7 h-7 ltr:mr-2.5 rtl:ml-2.5">
-                              <div
-                                 className="flex items-center justify-center w-full h-full icon rounded-full overflow-hidden"
-                                 style={{ fill: "#b9bec7" }}
-                              >
-                                 {item.profile_path ? (
-                                    <Image
-                                       src={item.profile_path}
-                                       alt="profile"
-                                       className="w-full object-cover"
-                                    />
-                                 ) : (
-                                    <svg
-                                       fill="currentColor"
-                                       viewBox="0 0 24 24"
-                                       xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                       <path d="M20.062 18.697A10.492 10.492 0 1 0 1.5 12c0 2.45.864 4.82 2.438 6.697l-.015.013c.053.063.113.117.167.18.067.077.14.15.21.225.21.227.426.446.652.652.07.063.14.121.21.181.24.207.487.403.743.587.033.023.062.052.096.075v-.01a10.426 10.426 0 0 0 12 0v.01c.033-.024.062-.052.095-.076.256-.183.503-.379.743-.586.07-.06.141-.119.21-.18.227-.207.442-.426.652-.653.07-.076.142-.148.21-.226.054-.062.114-.116.167-.18l-.016-.012ZM12 6a3.375 3.375 0 1 1 0 6.75A3.375 3.375 0 0 1 12 6ZM6.005 18.697A3.746 3.746 0 0 1 9.75 15h4.5a3.747 3.747 0 0 1 3.745 3.697 8.955 8.955 0 0 1-11.99 0Z" />
-                                    </svg>
-                                 )}
-                              </div>
+               {user?.map((item) => {
+                  return (
+                     <li
+                        className={`flex items-center relative p-5px cursor-pointer h-38px ms-3 me-3 w-search employee-item  ${model ? 'employee-active' : '' } `}
+                        data-user={item.user_id}
+                        onClick={(e)=>{
+                           setModel(true);
+                        }}
+                     >
+                        <div className="w-7 h-7 ltr:mr-2.5 rtl:ml-2.5">
+                           <div
+                              className="flex items-center justify-center w-full h-full icon rounded-full overflow-hidden"
+                              style={{ fill: "#b9bec7" }}
+                           >
+                              {item.profile_path ? (
+                                 <Image
+                                    src={item.profile_path}
+                                    alt="profile"
+                                    className="w-full object-cover"
+                                 />
+                              ) : (
+                                 <svg
+                                    fill="currentColor"
+                                    viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                 >
+                                    <path d="M20.062 18.697A10.492 10.492 0 1 0 1.5 12c0 2.45.864 4.82 2.438 6.697l-.015.013c.053.063.113.117.167.18.067.077.14.15.21.225.21.227.426.446.652.652.07.063.14.121.21.181.24.207.487.403.743.587.033.023.062.052.096.075v-.01a10.426 10.426 0 0 0 12 0v.01c.033-.024.062-.052.095-.076.256-.183.503-.379.743-.586.07-.06.141-.119.21-.18.227-.207.442-.426.652-.653.07-.076.142-.148.21-.226.054-.062.114-.116.167-.18l-.016-.012ZM12 6a3.375 3.375 0 1 1 0 6.75A3.375 3.375 0 0 1 12 6ZM6.005 18.697A3.746 3.746 0 0 1 9.75 15h4.5a3.747 3.747 0 0 1 3.745 3.697 8.955 8.955 0 0 1-11.99 0Z" />
+                                 </svg>
+                              )}
                            </div>
-                           <div className="flex-1">
-                              <div className="max-w-full whitespace-nowrap text-ellipsis overflow-hidden font-normal leading-4 font-13px employee-name">
-                                 {item.public_name}
-                              </div>
-                              <div className="font-10px font-normal text-b9bec7">
-                                 {item.job}
-                              </div>
+                        </div>
+                        <div className="flex-1">
+                           <div className="max-w-full whitespace-nowrap text-ellipsis overflow-hidden font-normal leading-4 font-13px employee-name">
+                              {item.public_name}
                            </div>
-                           <div className="icon w-5 h-5 flex items-center justify-center ltr:mr-1 rtl:ml-1 ltr:ml-2 rtl:mr-2 opacity-30 fill-7f77f1 employee-check flex-shrink-0 rounded-full ">
-                              <svg
-                                 fill="currentColor"
-                                 viewBox="0 0 24 24"
-                                 xmlns="http://www.w3.org/2000/svg"
-                              >
-                                 <path d="M12 2.25c-5.376 0-9.75 4.374-9.75 9.75s4.374 9.75 9.75 9.75 9.75-4.374 9.75-9.75S17.376 2.25 12 2.25Zm-1.781 14.643L6.44 12.694l1.115-1.003 2.625 2.916 6.225-7.414 1.15.963-7.337 8.737Z" />
-                              </svg>
+                           <div className="font-10px font-normal text-b9bec7">
+                              {item.job}
                            </div>
-                        </li>
-                     );
-                  })}
+                        </div>
+                        <div className="icon w-5 h-5 flex items-center justify-center ltr:mr-1 rtl:ml-1 ltr:ml-2 rtl:mr-2 opacity-30 fill-7f77f1 employee-check flex-shrink-0 rounded-full ">
+                           <svg
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                           >
+                              <path d="M12 2.25c-5.376 0-9.75 4.374-9.75 9.75s4.374 9.75 9.75 9.75 9.75-4.374 9.75-9.75S17.376 2.25 12 2.25Zm-1.781 14.643L6.44 12.694l1.115-1.003 2.625 2.916 6.225-7.414 1.15.963-7.337 8.737Z" />
+                           </svg>
+                        </div>
+                     </li>
+                  );
+               })}
 
-                  {
-                     model && <UserInformation company={company} user={user} setModel={setModel} setNotification={setNotification} setMessage={setMessage} />
-                  }
+               {
+                  model && <UserInformation company={company} user={user} setModel={setModel} setNotification={setNotification} setMessage={setMessage} />
+               }
 
-                  {
-                     notification && <SuccessNotification setNotification={setNotification} >{message}</SuccessNotification>
-                  }
+               {
+                  notification && <SuccessNotification setNotification={setNotification} >{message}</SuccessNotification>
+               }
 
-               </ul>
+            </ul>
+            }
             </div>
          </div>
       </div>

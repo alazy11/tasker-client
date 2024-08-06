@@ -159,7 +159,13 @@ className=" h-full w-full"
          })}
 
 {model && (
-<EmployeeOptions setOptions={setModel} employeeID={employeeID} />
+<EmployeeOptions 
+setMessage={setMessage}
+referesh={referesh}
+setReferesh={setReferesh}
+setProgress={setProgress}
+setSave={setSave}
+setOptions={setModel} employeeID={employeeID} />
 )}
 
                         {save && (
