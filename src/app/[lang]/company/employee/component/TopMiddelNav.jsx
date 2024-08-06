@@ -26,7 +26,7 @@ export default function TopMiddleNav ({setEmployee}) {
                   </a>
                </li> */}
 
-               <li className='flex items-center'>
+               <li className='flex items-center sm:hidden'>
                   <a href="#" className='relative h-7 w-full rounded-md ps-1.5 pe-1.5 flex top-item active items-center gap-1 back-search-member'
                   
                   >

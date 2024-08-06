@@ -42,7 +42,7 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
       <>
       <div className="fixed sidebar side-height z-50">
          <nav className="border-main-right h-full top-0 bottom-0 w-[260px] z-50 transition-all duration-300 ">
-            <div className="back-nav-side pb-6 dark:bg-black h-full flex flex-col">
+            <div className="back-nav-side pb-6 h-full flex flex-col">
                <div className="flex justify-between items-center p-2 border-main-bottom">
                   <Link
                      aria-current="page"
@@ -187,10 +187,10 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                            className=" nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5"
                         >
                            <span className="text-icon">
-                           <svg className="h-5 w-5 text-xl" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
- <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
- <path d="m22 6-10 7L2 6" />
-</svg>                           </span>
+<svg className="h-[1.1rem] w-[1.1rem] text-inherit" viewBox="0 0 18 14" fill="currentColor">
+   <path fillRule="evenodd" d="M4 2h10c.628 0 1.174.347 1.459.86a.83.83 0 0 0-.292.14L9 7.625 2.833 3a.83.83 0 0 0-.292-.14C2.826 2.347 3.372 2 4 2zM2.333 4.708v5.625C2.333 11.253 3.08 12 4 12h10c.92 0 1.667-.746 1.667-1.667V4.708L9.5 9.333a.833.833 0 0 1-1 0L2.333 4.708zM.667 3.667A3.333 3.333 0 0 1 4 .333h10a3.333 3.333 0 0 1 3.333 3.334v6.666A3.333 3.333 0 0 1 14 13.667H4a3.333 3.333 0 0 1-3.333-3.334V3.667z" clipRule="evenodd"></path>
+</svg>
+</span>
                               <span className="text-2a2e34  whitespace-nowrap overflow-hidden text-ellipsis flex-1 text-sm">
                                  Email
                               </span>

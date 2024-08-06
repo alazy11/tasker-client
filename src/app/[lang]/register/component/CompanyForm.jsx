@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
-import socket from "@/app/socket";
 import { useRouter } from "next/navigation";
 import LoaderBtn from './LoaderBtn';
 import countries from '@/public/countries.json';
@@ -32,11 +31,13 @@ function clean(...fun) {
 }
 
 function isSecretKey(secretKey,inputSecretKey) {
-   return secretKey === inputSecretKey;
+   // console.log("secretKey",secretKey)
+   // console.log("inputSecretKey",inputSecretKey)
+   return secretKey == inputSecretKey;
 }
 
 
-function formHandler(e,cleanf,setErrorMessage,setErrorText,next,setNext,setViewNext,disabledPerson,setCommingSecretKey,commingSecretKey,inputSecretKey,setDisable, router,...data) {
+function formHandler(e,setLoader,cleanf,setErrorMessage,setErrorText,next,setNext,setViewNext,disabledPerson,setCommingSecretKey,commingSecretKey,inputSecretKey,setDisable, router,...data) {
    e.preventDefault();
    if(next === '') {
       setNext('next');
@@ -77,6 +78,7 @@ function formHandler(e,cleanf,setErrorMessage,setErrorText,next,setNext,setViewN
    };
    console.log(JSON.stringify(personalJsonData));
    // clean(...cleanf);
+   setLoader(true);
    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/register/company`,{
       method:"post",
       credentials: 'include',
@@ -92,14 +94,17 @@ function formHandler(e,cleanf,setErrorMessage,setErrorText,next,setNext,setViewN
       if(data.status === 'fail' || data.status === 'error' ) {
          setErrorMessage(true);
          setErrorText(data?.message);
+         setLoader(false);
       } else {
          setErrorMessage(false);
-         socket.connect();
-         router.push('/en/company');
+         let link = document.createElement('a');
+         link.href = '/en/company';
+         link.click();
       }
       console.log(data);
    }).catch(error=>{
       console.log(error);
+      setLoader(false);
    })
 }
 
@@ -175,6 +180,7 @@ export default function PersonalForm({dic, disabledPerson}) {
    const [errorMessage, setErrorMessage] = useState(false);
    const [errorMessageText, setErrorMessageText] = useState('');
    const [next,setNext] = useState('');
+   const [loader,setLoader] = useState(false);
    const [viewnext,setViewNext] = useState(false);
    const [commingSecretKey,setCommingSecretKey] = useState('');
    const router = useRouter();
@@ -183,7 +189,7 @@ export default function PersonalForm({dic, disabledPerson}) {
       <>
       {errorMessage && <ErrorMessage errorText={errorMessageText} seterrorText={setErrorMessageText} errorMessage={setErrorMessage} />}
       <form action="#" className="gap-4" autoComplete="on" onSubmit={(e)=>{
-         formHandler(e,clean,setErrorMessage,setErrorMessageText,next,setNext,setViewNext,disabledPerson,setCommingSecretKey,commingSecretKey,secretKey,setDisable,router,userName,name,phone,email,password,job,country,secretKey);
+         formHandler(e,setLoader,clean,setErrorMessage,setErrorMessageText,next,setNext,setViewNext,disabledPerson,setCommingSecretKey,commingSecretKey,secretKey,setDisable,router,userName,name,phone,email,password,job,country,secretKey);
       }}>
          <div className={`company-form ${next}`}>
          <div className="first gap-4">
@@ -481,11 +487,14 @@ export default function PersonalForm({dic, disabledPerson}) {
                      setSecretKey(e.target.value);
                   }}
                   onBlur={(e)=>{
+                     console.log('commingSecretKey',commingSecretKey)
+                     console.log('secretKey',secretKey)
+                     console.log(isSecretKey(commingSecretKey,secretKey))
                      if(messageHandle(e,setSecretKeyError)){
                         console.log('ok key')
                         if(!isSecretKey(commingSecretKey,secretKey)) {
-                           console.log('commingSecretKey',commingSecretKey)
-                           console.log('secretKey',secretKey)
+                           // console.log('commingSecretKey',commingSecretKey)
+                           // console.log('secretKey',secretKey)
                            // console.log('ok secretkey')
                            setDisable(true);
                            setErrorMessage(true);
@@ -509,7 +518,10 @@ export default function PersonalForm({dic, disabledPerson}) {
          }
          </div>
          <div className="form-group  relative">
+         {loader ? 
+            <LoaderBtn /> : 
             <button type="submit" disabled={disable} className="btn btn-primary btn-lg">SIGN UP</button>
+         }
          </div>
       </form>
       </>

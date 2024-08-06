@@ -14,7 +14,7 @@ const colorIcon = ['#8077f1', '#6a85ff', '#40a6e5', '#3fb1b2', '#64c6a2', '#f9be
 
 const backcolorIcon = [
    [ '#8077f1', 'purple' ],
-   [ '#6a85ff', 'blue' ],
+   [ '#6a85ff', 'neon-blue' ],
    [ '#40a6e5', 'azure-blue' ],
    [ '#3fb1b2', 'teal' ],
    [ '#64c6a2', 'mint' ],
@@ -43,8 +43,7 @@ export default function IconSpace({setShowIcon, setSelectColor, setIcon, SetActi
                         </div>
 
                         <div className='m-4 mt-0 '>
-                           <ul className='flex relative flex-wrap -m-1 '>
-
+                           <ul className='flex relative flex-wrap -m-1 color-parent'>
                               {
                                  backcolorIcon.map(color=>{
                                     return (
@@ -52,8 +51,11 @@ export default function IconSpace({setShowIcon, setSelectColor, setIcon, SetActi
                                           {/* color-active */}
                                        <button className={`h-7 w-7 flex items-center justify-center border-none rounded-full hover:border-2 hover:border-solid hover:border-gray-300`} data-color={color[1]} style={{color:color[0]}} onClick={(e)=>{
                                           setSelectColor(e.target.dataset.color);
+                                          e.currentTarget.closest('.color-parent').childNodes.forEach(item=>{
+                                             console.log(item)
+                                             item.firstElementChild.classList.remove('color-active')
+                                          })
                                           e.currentTarget.classList.add('color-active');
-                                          // SetActiveIcon('active-icon')
                                        }}>
                                           <span className='trans-color w-5 h-5 rounded-full bg-current' data-color={color[1]}>
                                           </span>

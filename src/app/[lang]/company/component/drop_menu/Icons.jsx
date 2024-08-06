@@ -15,15 +15,15 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__address-book"
                   aria-pressed="false"
                   aria-label="address-book"
-                  onClick={(e) => {
-                     setIcon(e.currentTarget.innerHTML);
-                     SetActiveIcon("active-icon");
-                     setTextIcon(null);
-                  }}
                >
                   <div size="1x" class="ng-fa-icon cu-avatar-picker__font-icon">
                      <svg
@@ -47,15 +47,15 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bug"
                   aria-pressed="false"
                   aria-label="bug"
-                  onClick={(e) => {
-                     setIcon(e.currentTarget.innerHTML);
-                     SetActiveIcon("active-icon");
-                     setTextIcon(null);
-                  }}
                >
                   <div size="1x" class="ng-fa-icon cu-avatar-picker__font-icon">
                      <svg
@@ -80,6 +80,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__desktop"
                   aria-pressed="false"
@@ -107,6 +112,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__globe"
                   aria-pressed="false"
@@ -134,6 +144,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__calendar-days"
                   aria-pressed="false"
@@ -161,6 +176,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user"
                   aria-pressed="false"
@@ -188,6 +208,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__landmark"
                   aria-pressed="false"
@@ -215,6 +240,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__clipboard-list"
                   aria-pressed="false"
@@ -242,6 +272,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__mug-saucer"
                   aria-pressed="false"
@@ -269,6 +304,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__eye"
                   aria-pressed="false"
@@ -296,6 +336,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__power-off"
                   aria-pressed="false"
@@ -323,6 +368,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__folder"
                   aria-pressed="false"
@@ -350,6 +400,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__file-lines"
                   aria-pressed="false"
@@ -377,6 +432,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pizza-slice"
                   aria-pressed="false"
@@ -404,6 +464,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__wifi"
                   aria-pressed="false"
@@ -431,6 +496,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__camera"
                   aria-pressed="false"
@@ -458,6 +528,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__comment"
                   aria-pressed="false"
@@ -485,6 +560,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__envelope"
                   aria-pressed="false"
@@ -512,6 +592,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__gift"
                   aria-pressed="false"
@@ -539,6 +624,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__info"
                   aria-pressed="false"
@@ -566,6 +656,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__image"
                   aria-pressed="false"
@@ -593,6 +688,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__key"
                   aria-pressed="false"
@@ -620,6 +720,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__lock"
                   aria-pressed="false"
@@ -647,6 +752,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__lightbulb"
                   aria-pressed="false"
@@ -674,6 +784,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__music"
                   aria-pressed="false"
@@ -701,6 +816,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__paperclip"
                   aria-pressed="false"
@@ -728,6 +848,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__plus"
                   aria-pressed="false"
@@ -755,6 +880,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__share-nodes"
                   aria-pressed="false"
@@ -782,6 +912,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-user"
                   aria-pressed="false"
@@ -809,6 +944,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-secret"
                   aria-pressed="false"
@@ -836,6 +976,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__snowflake"
                   aria-pressed="false"
@@ -863,6 +1008,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__accessible-icon"
                   aria-pressed="false"
@@ -890,6 +1040,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__rectangle-ad"
                   aria-pressed="false"
@@ -917,6 +1072,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__address-card"
                   aria-pressed="false"
@@ -944,6 +1104,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-half-stroke"
                   aria-pressed="false"
@@ -971,6 +1136,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__hands-asl-interpreting"
                   aria-pressed="false"
@@ -998,6 +1168,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__angular"
                   aria-pressed="false"
@@ -1025,6 +1200,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__apple-whole"
                   aria-pressed="false"
@@ -1052,6 +1232,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__box-archive"
                   aria-pressed="false"
@@ -1079,6 +1264,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__archway"
                   aria-pressed="false"
@@ -1106,6 +1296,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ear-listen"
                   aria-pressed="false"
@@ -1133,6 +1328,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__at"
                   aria-pressed="false"
@@ -1160,6 +1360,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__book-atlas"
                   aria-pressed="false"
@@ -1187,6 +1392,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__audio-description"
                   aria-pressed="false"
@@ -1214,6 +1424,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__baby"
                   aria-pressed="false"
@@ -1241,6 +1456,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__baby-carriage"
                   aria-pressed="false"
@@ -1268,6 +1488,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__backward"
                   aria-pressed="false"
@@ -1295,6 +1520,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bacon"
                   aria-pressed="false"
@@ -1322,6 +1552,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__scale-balanced"
                   aria-pressed="false"
@@ -1349,6 +1584,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__scale-unbalanced"
                   aria-pressed="false"
@@ -1376,6 +1616,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__scale-unbalanced-flip"
                   aria-pressed="false"
@@ -1403,6 +1648,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ban"
                   aria-pressed="false"
@@ -1430,6 +1680,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__barcode"
                   aria-pressed="false"
@@ -1457,6 +1712,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__baseball"
                   aria-pressed="false"
@@ -1484,6 +1744,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__basketball"
                   aria-pressed="false"
@@ -1511,6 +1776,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bath"
                   aria-pressed="false"
@@ -1538,6 +1808,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__battery-empty"
                   aria-pressed="false"
@@ -1565,6 +1840,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__battery-full"
                   aria-pressed="false"
@@ -1592,6 +1872,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__battery-half"
                   aria-pressed="false"
@@ -1619,6 +1904,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__battery-quarter"
                   aria-pressed="false"
@@ -1646,6 +1936,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__battery-three-quarters"
                   aria-pressed="false"
@@ -1673,6 +1968,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bed"
                   aria-pressed="false"
@@ -1700,6 +2000,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bell"
                   aria-pressed="false"
@@ -1727,6 +2032,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bell-slash"
                   aria-pressed="false"
@@ -1754,6 +2064,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bezier-curve"
                   aria-pressed="false"
@@ -1781,6 +2096,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bicycle"
                   aria-pressed="false"
@@ -1808,6 +2128,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-biking"
                   aria-pressed="false"
@@ -1835,6 +2160,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cake-candles"
                   aria-pressed="false"
@@ -1862,6 +2192,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bitcoin"
                   aria-pressed="false"
@@ -1889,6 +2224,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-walking-with-cane"
                   aria-pressed="false"
@@ -1916,6 +2256,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__blog"
                   aria-pressed="false"
@@ -1943,6 +2288,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bluetooth"
                   aria-pressed="false"
@@ -1970,6 +2320,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bluetooth-b"
                   aria-pressed="false"
@@ -1997,6 +2352,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bone"
                   aria-pressed="false"
@@ -2024,6 +2384,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__book"
                   aria-pressed="false"
@@ -2051,6 +2416,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bookmark"
                   aria-pressed="false"
@@ -2078,6 +2448,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bowling-ball"
                   aria-pressed="false"
@@ -2105,6 +2480,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__box"
                   aria-pressed="false"
@@ -2132,6 +2512,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__boxes-stacked"
                   aria-pressed="false"
@@ -2159,6 +2544,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bread-slice"
                   aria-pressed="false"
@@ -2186,6 +2576,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__briefcase"
                   aria-pressed="false"
@@ -2213,6 +2608,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__tower-broadcast"
                   aria-pressed="false"
@@ -2240,6 +2640,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__brush"
                   aria-pressed="false"
@@ -2267,6 +2672,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__btc"
                   aria-pressed="false"
@@ -2294,6 +2704,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__building"
                   aria-pressed="false"
@@ -2321,6 +2736,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bullhorn"
                   aria-pressed="false"
@@ -2348,6 +2768,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bullseye"
                   aria-pressed="false"
@@ -2375,6 +2800,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__fire-flame-simple"
                   aria-pressed="false"
@@ -2402,6 +2832,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bus"
                   aria-pressed="false"
@@ -2429,6 +2864,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bus-simple"
                   aria-pressed="false"
@@ -2456,6 +2896,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__business-time"
                   aria-pressed="false"
@@ -2483,6 +2928,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__calculator"
                   aria-pressed="false"
@@ -2510,6 +2960,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__calendar"
                   aria-pressed="false"
@@ -2537,6 +2992,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__calendar-check"
                   aria-pressed="false"
@@ -2564,6 +3024,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__calendar-day"
                   aria-pressed="false"
@@ -2591,6 +3056,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__calendar-minus"
                   aria-pressed="false"
@@ -2618,6 +3088,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__calendar-plus"
                   aria-pressed="false"
@@ -2645,6 +3120,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__calendar-xmark"
                   aria-pressed="false"
@@ -2672,6 +3152,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__calendar-week"
                   aria-pressed="false"
@@ -2699,6 +3184,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__camera-retro"
                   aria-pressed="false"
@@ -2726,6 +3216,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__candy-cane"
                   aria-pressed="false"
@@ -2753,6 +3248,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__car"
                   aria-pressed="false"
@@ -2780,6 +3280,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__carrot"
                   aria-pressed="false"
@@ -2807,6 +3312,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cart-arrow-down"
                   aria-pressed="false"
@@ -2834,6 +3344,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cart-plus"
                   aria-pressed="false"
@@ -2861,6 +3376,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cash-register"
                   aria-pressed="false"
@@ -2888,6 +3408,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__certificate"
                   aria-pressed="false"
@@ -2915,6 +3440,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__chalkboard"
                   aria-pressed="false"
@@ -2942,6 +3472,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__chalkboard-user"
                   aria-pressed="false"
@@ -2969,6 +3504,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__chart-area"
                   aria-pressed="false"
@@ -2996,6 +3536,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__chart-bar"
                   aria-pressed="false"
@@ -3023,6 +3568,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__chart-line"
                   aria-pressed="false"
@@ -3050,6 +3600,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__chart-pie"
                   aria-pressed="false"
@@ -3077,6 +3632,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cheese"
                   aria-pressed="false"
@@ -3104,6 +3664,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__child"
                   aria-pressed="false"
@@ -3131,6 +3696,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle"
                   aria-pressed="false"
@@ -3158,6 +3728,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__city"
                   aria-pressed="false"
@@ -3185,6 +3760,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__clipboard"
                   aria-pressed="false"
@@ -3212,6 +3792,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__clipboard-check"
                   aria-pressed="false"
@@ -3239,6 +3824,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__clone"
                   aria-pressed="false"
@@ -3266,6 +3856,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__closed-captioning"
                   aria-pressed="false"
@@ -3293,6 +3888,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cloud-meatball"
                   aria-pressed="false"
@@ -3320,6 +3920,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__martini-glass-citrus"
                   aria-pressed="false"
@@ -3347,6 +3952,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__code"
                   aria-pressed="false"
@@ -3374,6 +3984,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__code-branch"
                   aria-pressed="false"
@@ -3401,6 +4016,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__coins"
                   aria-pressed="false"
@@ -3428,6 +4048,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__table-columns"
                   aria-pressed="false"
@@ -3455,6 +4080,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__message"
                   aria-pressed="false"
@@ -3482,6 +4112,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__comment-dollar"
                   aria-pressed="false"
@@ -3509,6 +4144,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__comment-slash"
                   aria-pressed="false"
@@ -3536,6 +4176,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__comments"
                   aria-pressed="false"
@@ -3563,6 +4208,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__comments-dollar"
                   aria-pressed="false"
@@ -3590,6 +4240,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__compass"
                   aria-pressed="false"
@@ -3617,6 +4272,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__compress"
                   aria-pressed="false"
@@ -3644,6 +4304,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__minimize"
                   aria-pressed="false"
@@ -3671,6 +4336,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bell-concierge"
                   aria-pressed="false"
@@ -3698,6 +4368,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cookie"
                   aria-pressed="false"
@@ -3725,6 +4400,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__copy"
                   aria-pressed="false"
@@ -3752,6 +4432,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__copyright"
                   aria-pressed="false"
@@ -3779,6 +4464,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__credit-card"
                   aria-pressed="false"
@@ -3806,6 +4496,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__crop"
                   aria-pressed="false"
@@ -3833,6 +4528,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__crop-simple"
                   aria-pressed="false"
@@ -3860,6 +4560,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__crosshairs"
                   aria-pressed="false"
@@ -3887,6 +4592,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__css3-alt"
                   aria-pressed="false"
@@ -3914,6 +4624,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__scissors"
                   aria-pressed="false"
@@ -3941,6 +4656,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__database"
                   aria-pressed="false"
@@ -3968,6 +4688,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__dice"
                   aria-pressed="false"
@@ -3995,6 +4720,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__dice-five"
                   aria-pressed="false"
@@ -4022,6 +4752,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__dolly"
                   aria-pressed="false"
@@ -4049,6 +4784,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cart-flatbed"
                   aria-pressed="false"
@@ -4076,6 +4816,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-dollar-to-slot"
                   aria-pressed="false"
@@ -4103,6 +4848,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__door-closed"
                   aria-pressed="false"
@@ -4130,6 +4880,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__door-open"
                   aria-pressed="false"
@@ -4157,6 +4912,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__download"
                   aria-pressed="false"
@@ -4184,6 +4944,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__compass-drafting"
                   aria-pressed="false"
@@ -4211,6 +4976,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__draw-polygon"
                   aria-pressed="false"
@@ -4238,6 +5008,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__drum"
                   aria-pressed="false"
@@ -4265,6 +5040,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__drum-steelpan"
                   aria-pressed="false"
@@ -4292,6 +5072,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__drumstick-bite"
                   aria-pressed="false"
@@ -4319,6 +5104,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__dumbbell"
                   aria-pressed="false"
@@ -4346,6 +5136,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pen-to-square"
                   aria-pressed="false"
@@ -4373,6 +5168,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__egg"
                   aria-pressed="false"
@@ -4400,6 +5200,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__eject"
                   aria-pressed="false"
@@ -4427,6 +5232,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__envelope-open"
                   aria-pressed="false"
@@ -4454,6 +5264,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__envelope-open-text"
                   aria-pressed="false"
@@ -4481,6 +5296,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-envelope"
                   aria-pressed="false"
@@ -4508,6 +5328,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__eraser"
                   aria-pressed="false"
@@ -4535,6 +5360,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ethereum"
                   aria-pressed="false"
@@ -4562,6 +5392,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ethernet"
                   aria-pressed="false"
@@ -4589,6 +5424,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__exclamation"
                   aria-pressed="false"
@@ -4616,6 +5456,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-exclamation"
                   aria-pressed="false"
@@ -4643,6 +5488,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__triangle-exclamation"
                   aria-pressed="false"
@@ -4670,6 +5520,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__expand"
                   aria-pressed="false"
@@ -4697,6 +5552,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__maximize"
                   aria-pressed="false"
@@ -4724,6 +5584,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__eye-dropper"
                   aria-pressed="false"
@@ -4751,6 +5616,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__eye-slash"
                   aria-pressed="false"
@@ -4778,6 +5648,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__facebook"
                   aria-pressed="false"
@@ -4805,6 +5680,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__backward-fast"
                   aria-pressed="false"
@@ -4832,6 +5712,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__forward-fast"
                   aria-pressed="false"
@@ -4859,6 +5744,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__fax"
                   aria-pressed="false"
@@ -4886,6 +5776,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-dress"
                   aria-pressed="false"
@@ -4913,6 +5808,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__file"
                   aria-pressed="false"
@@ -4940,6 +5840,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__file-audio"
                   aria-pressed="false"
@@ -4967,6 +5872,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__file-code"
                   aria-pressed="false"
@@ -4994,6 +5904,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__file-invoice"
                   aria-pressed="false"
@@ -5021,6 +5936,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__file-invoice-dollar"
                   aria-pressed="false"
@@ -5048,6 +5968,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__file-video"
                   aria-pressed="false"
@@ -5075,6 +6000,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__fill"
                   aria-pressed="false"
@@ -5102,6 +6032,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__fill-drip"
                   aria-pressed="false"
@@ -5129,6 +6064,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__film"
                   aria-pressed="false"
@@ -5156,6 +6096,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__filter"
                   aria-pressed="false"
@@ -5183,6 +6128,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__fire-flame-curved"
                   aria-pressed="false"
@@ -5210,6 +6160,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__fire-extinguisher"
                   aria-pressed="false"
@@ -5237,6 +6192,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__fish"
                   aria-pressed="false"
@@ -5264,6 +6224,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__folder-minus"
                   aria-pressed="false"
@@ -5291,6 +6256,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__folder-open"
                   aria-pressed="false"
@@ -5318,6 +6288,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__folder-plus"
                   aria-pressed="false"
@@ -5345,6 +6320,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__football"
                   aria-pressed="false"
@@ -5372,6 +6352,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__forward"
                   aria-pressed="false"
@@ -5399,6 +6384,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__face-frown"
                   aria-pressed="false"
@@ -5426,6 +6416,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__filter-circle-dollar"
                   aria-pressed="false"
@@ -5453,6 +6448,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__futbol"
                   aria-pressed="false"
@@ -5480,6 +6480,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__gas-pump"
                   aria-pressed="false"
@@ -5507,6 +6512,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__gem"
                   aria-pressed="false"
@@ -5534,6 +6544,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__martini-glass-empty"
                   aria-pressed="false"
@@ -5561,6 +6576,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__martini-glass"
                   aria-pressed="false"
@@ -5588,6 +6608,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__glasses"
                   aria-pressed="false"
@@ -5615,6 +6640,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__earth-africa"
                   aria-pressed="false"
@@ -5642,6 +6672,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__earth-americas"
                   aria-pressed="false"
@@ -5669,6 +6704,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__earth-asia"
                   aria-pressed="false"
@@ -5696,6 +6736,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__earth-europe"
                   aria-pressed="false"
@@ -5723,6 +6768,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__golf-ball-tee"
                   aria-pressed="false"
@@ -5750,6 +6800,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__google-wallet"
                   aria-pressed="false"
@@ -5777,6 +6832,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__guitar"
                   aria-pressed="false"
@@ -5804,6 +6864,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__burger"
                   aria-pressed="false"
@@ -5831,6 +6896,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__hand-holding-dollar"
                   aria-pressed="false"
@@ -5858,6 +6928,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__handshake"
                   aria-pressed="false"
@@ -5885,6 +6960,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__helmet-safety"
                   aria-pressed="false"
@@ -5912,6 +6992,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__hashtag"
                   aria-pressed="false"
@@ -5939,6 +7024,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__hard-drive"
                   aria-pressed="false"
@@ -5966,6 +7056,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__headphones"
                   aria-pressed="false"
@@ -5993,6 +7088,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__headphones-simple"
                   aria-pressed="false"
@@ -6020,6 +7120,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__heart"
                   aria-pressed="false"
@@ -6047,6 +7152,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__heart-pulse"
                   aria-pressed="false"
@@ -6074,6 +7184,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__highlighter"
                   aria-pressed="false"
@@ -6101,6 +7216,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-hiking"
                   aria-pressed="false"
@@ -6128,6 +7248,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__hockey-puck"
                   aria-pressed="false"
@@ -6155,6 +7280,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__hot-tub-person"
                   aria-pressed="false"
@@ -6182,6 +7312,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__hotdog"
                   aria-pressed="false"
@@ -6209,6 +7344,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__hotel"
                   aria-pressed="false"
@@ -6236,6 +7376,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__js"
                   aria-pressed="false"
@@ -6263,6 +7408,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ice-cream"
                   aria-pressed="false"
@@ -6290,6 +7440,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__icons"
                   aria-pressed="false"
@@ -6317,6 +7472,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__id-badge"
                   aria-pressed="false"
@@ -6344,6 +7504,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__id-card"
                   aria-pressed="false"
@@ -6371,6 +7536,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__id-card-clip"
                   aria-pressed="false"
@@ -6398,6 +7568,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__images"
                   aria-pressed="false"
@@ -6425,6 +7600,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__inbox"
                   aria-pressed="false"
@@ -6452,6 +7632,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__industry"
                   aria-pressed="false"
@@ -6479,6 +7664,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__infinity"
                   aria-pressed="false"
@@ -6506,6 +7696,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-info"
                   aria-pressed="false"
@@ -6533,6 +7728,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__instagram"
                   aria-pressed="false"
@@ -6560,6 +7760,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__keyboard"
                   aria-pressed="false"
@@ -6587,6 +7792,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__language"
                   aria-pressed="false"
@@ -6614,6 +7824,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__laptop"
                   aria-pressed="false"
@@ -6641,6 +7856,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__laptop-code"
                   aria-pressed="false"
@@ -6668,6 +7888,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__layer-group"
                   aria-pressed="false"
@@ -6695,6 +7920,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__lemon"
                   aria-pressed="false"
@@ -6722,6 +7952,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__linkedin"
                   aria-pressed="false"
@@ -6749,6 +7984,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__lock-open"
                   aria-pressed="false"
@@ -6776,6 +8016,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cart-flatbed-suitcase"
                   aria-pressed="false"
@@ -6803,6 +8048,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__wand-magic"
                   aria-pressed="false"
@@ -6830,6 +8080,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__envelopes-bulk"
                   aria-pressed="false"
@@ -6857,6 +8112,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person"
                   aria-pressed="false"
@@ -6884,6 +8144,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__map"
                   aria-pressed="false"
@@ -6911,6 +8176,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__map-location"
                   aria-pressed="false"
@@ -6938,6 +8208,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__map-location-dot"
                   aria-pressed="false"
@@ -6965,6 +8240,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__location-pin"
                   aria-pressed="false"
@@ -6992,6 +8272,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__location-dot"
                   aria-pressed="false"
@@ -7019,6 +8304,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__marker"
                   aria-pressed="false"
@@ -7046,6 +8336,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__face-meh"
                   aria-pressed="false"
@@ -7073,6 +8368,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__memory"
                   aria-pressed="false"
@@ -7100,6 +8400,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__microchip"
                   aria-pressed="false"
@@ -7127,6 +8432,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__microphone"
                   aria-pressed="false"
@@ -7154,6 +8464,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__microphone-lines"
                   aria-pressed="false"
@@ -7181,6 +8496,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__microphone-lines-slash"
                   aria-pressed="false"
@@ -7208,6 +8528,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__microphone-slash"
                   aria-pressed="false"
@@ -7235,6 +8560,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__minus"
                   aria-pressed="false"
@@ -7262,6 +8592,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-minus"
                   aria-pressed="false"
@@ -7289,6 +8624,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-minus"
                   aria-pressed="false"
@@ -7316,6 +8656,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__mobile"
                   aria-pressed="false"
@@ -7343,6 +8688,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__mobile-screen-button"
                   aria-pressed="false"
@@ -7370,6 +8720,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__money-bill"
                   aria-pressed="false"
@@ -7397,6 +8752,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__money-bill-1"
                   aria-pressed="false"
@@ -7424,6 +8784,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__money-bill-wave"
                   aria-pressed="false"
@@ -7451,6 +8816,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__money-bill-1-wave"
                   aria-pressed="false"
@@ -7478,6 +8848,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__money-check"
                   aria-pressed="false"
@@ -7505,6 +8880,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__money-check-dollar"
                   aria-pressed="false"
@@ -7532,6 +8912,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__monument"
                   aria-pressed="false"
@@ -7559,6 +8944,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__napster"
                   aria-pressed="false"
@@ -7586,6 +8976,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__newspaper"
                   aria-pressed="false"
@@ -7613,6 +9008,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__object-group"
                   aria-pressed="false"
@@ -7640,6 +9040,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__object-ungroup"
                   aria-pressed="false"
@@ -7667,6 +9072,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__paintbrush"
                   aria-pressed="false"
@@ -7694,6 +9104,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__paint-roller"
                   aria-pressed="false"
@@ -7721,6 +9136,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__palette"
                   aria-pressed="false"
@@ -7748,6 +9168,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pallet"
                   aria-pressed="false"
@@ -7775,6 +9200,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__paper-plane"
                   aria-pressed="false"
@@ -7802,6 +9232,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__paragraph"
                   aria-pressed="false"
@@ -7829,6 +9264,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-parking"
                   aria-pressed="false"
@@ -7856,6 +9296,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__passport"
                   aria-pressed="false"
@@ -7883,6 +9328,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__paste"
                   aria-pressed="false"
@@ -7910,6 +9360,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pause"
                   aria-pressed="false"
@@ -7937,6 +9392,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-pause"
                   aria-pressed="false"
@@ -7964,6 +9424,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pen"
                   aria-pressed="false"
@@ -7991,6 +9456,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pen-clip"
                   aria-pressed="false"
@@ -8018,6 +9488,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pen-fancy"
                   aria-pressed="false"
@@ -8045,6 +9520,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pen-nib"
                   aria-pressed="false"
@@ -8072,6 +9552,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-pen"
                   aria-pressed="false"
@@ -8099,6 +9584,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pencil"
                   aria-pressed="false"
@@ -8126,6 +9616,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pen-ruler"
                   aria-pressed="false"
@@ -8153,6 +9648,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__people-carry-box"
                   aria-pressed="false"
@@ -8180,6 +9680,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pepper-hot"
                   aria-pressed="false"
@@ -8207,6 +9712,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__percent"
                   aria-pressed="false"
@@ -8234,6 +9744,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__percent"
                   aria-pressed="false"
@@ -8261,6 +9776,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-booth"
                   aria-pressed="false"
@@ -8288,6 +9808,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__pinterest"
                   aria-pressed="false"
@@ -8315,6 +9840,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__phone"
                   aria-pressed="false"
@@ -8342,6 +9872,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__phone-flip"
                   aria-pressed="false"
@@ -8369,6 +9904,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__phone-slash"
                   aria-pressed="false"
@@ -8396,6 +9936,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-phone"
                   aria-pressed="false"
@@ -8423,6 +9968,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-phone-flip"
                   aria-pressed="false"
@@ -8450,6 +10000,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__phone-volume"
                   aria-pressed="false"
@@ -8477,6 +10032,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__photo-film"
                   aria-pressed="false"
@@ -8504,6 +10064,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__piggy-bank"
                   aria-pressed="false"
@@ -8531,6 +10096,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__plane"
                   aria-pressed="false"
@@ -8558,6 +10128,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__plane-arrival"
                   aria-pressed="false"
@@ -8585,6 +10160,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__plane-departure"
                   aria-pressed="false"
@@ -8612,6 +10192,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__play"
                   aria-pressed="false"
@@ -8639,6 +10224,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-play"
                   aria-pressed="false"
@@ -8666,6 +10256,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__plug"
                   aria-pressed="false"
@@ -8693,6 +10288,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-plus"
                   aria-pressed="false"
@@ -8720,6 +10320,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-plus"
                   aria-pressed="false"
@@ -8747,6 +10352,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__podcast"
                   aria-pressed="false"
@@ -8774,6 +10384,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-poll-vertical"
                   aria-pressed="false"
@@ -8801,6 +10416,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-poll-horizontal"
                   aria-pressed="false"
@@ -8828,6 +10448,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__poo"
                   aria-pressed="false"
@@ -8855,6 +10480,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__image-portrait"
                   aria-pressed="false"
@@ -8882,6 +10512,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-praying"
                   aria-pressed="false"
@@ -8909,6 +10544,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__print"
                   aria-pressed="false"
@@ -8936,6 +10576,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__diagram-project"
                   aria-pressed="false"
@@ -8963,6 +10608,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__react"
                   aria-pressed="false"
@@ -8990,6 +10640,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__qrcode"
                   aria-pressed="false"
@@ -9017,6 +10672,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__question"
                   aria-pressed="false"
@@ -9044,6 +10704,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-question"
                   aria-pressed="false"
@@ -9071,6 +10736,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__broom-ball"
                   aria-pressed="false"
@@ -9098,6 +10768,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__quote-left"
                   aria-pressed="false"
@@ -9125,6 +10800,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__quote-right"
                   aria-pressed="false"
@@ -9152,6 +10832,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__radiation"
                   aria-pressed="false"
@@ -9179,6 +10864,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-radiation"
                   aria-pressed="false"
@@ -9206,6 +10896,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__shuffle"
                   aria-pressed="false"
@@ -9233,6 +10928,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__receipt"
                   aria-pressed="false"
@@ -9260,6 +10960,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__arrow-rotate-right"
                   aria-pressed="false"
@@ -9287,6 +10992,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__rotate-right"
                   aria-pressed="false"
@@ -9314,6 +11024,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__registered"
                   aria-pressed="false"
@@ -9341,6 +11056,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__restroom"
                   aria-pressed="false"
@@ -9368,6 +11088,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__retweet"
                   aria-pressed="false"
@@ -9395,6 +11120,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__rss"
                   aria-pressed="false"
@@ -9422,6 +11152,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__square-rss"
                   aria-pressed="false"
@@ -9449,6 +11184,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ruler-combined"
                   aria-pressed="false"
@@ -9476,6 +11216,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ruler-horizontal"
                   aria-pressed="false"
@@ -9503,6 +11248,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ruler-vertical"
                   aria-pressed="false"
@@ -9530,6 +11280,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-running"
                   aria-pressed="false"
@@ -9557,6 +11312,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__satellite"
                   aria-pressed="false"
@@ -9584,6 +11344,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__satellite-dish"
                   aria-pressed="false"
@@ -9611,6 +11376,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__floppy-disk"
                   aria-pressed="false"
@@ -9638,6 +11408,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__sd-card"
                   aria-pressed="false"
@@ -9665,6 +11440,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__magnifying-glass-dollar"
                   aria-pressed="false"
@@ -9692,6 +11472,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__magnifying-glass-location"
                   aria-pressed="false"
@@ -9719,6 +11504,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__seedling"
                   aria-pressed="false"
@@ -9746,6 +11536,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__server"
                   aria-pressed="false"
@@ -9773,6 +11568,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__share"
                   aria-pressed="false"
@@ -9800,6 +11600,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__share-from-square"
                   aria-pressed="false"
@@ -9827,6 +11632,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__shield-halved"
                   aria-pressed="false"
@@ -9854,6 +11664,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__truck-fast"
                   aria-pressed="false"
@@ -9881,6 +11696,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__shoe-prints"
                   aria-pressed="false"
@@ -9908,6 +11728,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bag-shopping"
                   aria-pressed="false"
@@ -9935,6 +11760,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__basket-shopping"
                   aria-pressed="false"
@@ -9962,6 +11792,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cart-shopping"
                   aria-pressed="false"
@@ -9989,6 +11824,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__shower"
                   aria-pressed="false"
@@ -10016,6 +11856,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__van-shuttle"
                   aria-pressed="false"
@@ -10043,6 +11888,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__right-to-bracket"
                   aria-pressed="false"
@@ -10070,6 +11920,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__right-from-bracket"
                   aria-pressed="false"
@@ -10097,6 +11952,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__signal"
                   aria-pressed="false"
@@ -10124,6 +11984,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__sim-card"
                   aria-pressed="false"
@@ -10151,6 +12016,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__sitemap"
                   aria-pressed="false"
@@ -10178,6 +12048,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-skating"
                   aria-pressed="false"
@@ -10205,6 +12080,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-skiing"
                   aria-pressed="false"
@@ -10232,6 +12112,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-skiing-nordic"
                   aria-pressed="false"
@@ -10259,6 +12144,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__skull-crossbones"
                   aria-pressed="false"
@@ -10286,6 +12176,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__sliders"
                   aria-pressed="false"
@@ -10313,6 +12208,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__face-smile"
                   aria-pressed="false"
@@ -10340,6 +12240,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__smoking"
                   aria-pressed="false"
@@ -10367,6 +12272,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ban-smoking"
                   aria-pressed="false"
@@ -10394,6 +12304,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__snapchat"
                   aria-pressed="false"
@@ -10421,6 +12336,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-snowboarding"
                   aria-pressed="false"
@@ -10448,6 +12368,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__socks"
                   aria-pressed="false"
@@ -10475,6 +12400,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__soundcloud"
                   aria-pressed="false"
@@ -10502,6 +12432,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__spa"
                   aria-pressed="false"
@@ -10529,6 +12464,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__splotch"
                   aria-pressed="false"
@@ -10556,6 +12496,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__spotify"
                   aria-pressed="false"
@@ -10583,6 +12528,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__spray-can"
                   aria-pressed="false"
@@ -10610,6 +12560,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__stamp"
                   aria-pressed="false"
@@ -10637,6 +12592,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__star"
                   aria-pressed="false"
@@ -10664,6 +12624,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__star-half"
                   aria-pressed="false"
@@ -10691,6 +12656,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__star-half-stroke"
                   aria-pressed="false"
@@ -10718,6 +12688,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__backward-step"
                   aria-pressed="false"
@@ -10745,6 +12720,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__forward-step"
                   aria-pressed="false"
@@ -10772,6 +12752,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__note-sticky"
                   aria-pressed="false"
@@ -10799,6 +12784,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__stop"
                   aria-pressed="false"
@@ -10826,6 +12816,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__circle-stop"
                   aria-pressed="false"
@@ -10853,6 +12848,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__bars-staggered"
                   aria-pressed="false"
@@ -10880,6 +12880,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__street-view"
                   aria-pressed="false"
@@ -10907,6 +12912,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__stripe"
                   aria-pressed="false"
@@ -10934,6 +12944,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__stripe-s"
                   aria-pressed="false"
@@ -10961,6 +12976,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__stroopwafel"
                   aria-pressed="false"
@@ -10988,6 +13008,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__suitcase"
                   aria-pressed="false"
@@ -11015,6 +13040,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__suitcase-rolling"
                   aria-pressed="false"
@@ -11042,6 +13072,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__swatchbook"
                   aria-pressed="false"
@@ -11069,6 +13104,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-swimming"
                   aria-pressed="false"
@@ -11096,6 +13136,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__water-ladder"
                   aria-pressed="false"
@@ -11123,6 +13168,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__arrows-rotate"
                   aria-pressed="false"
@@ -11150,6 +13200,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__rotate"
                   aria-pressed="false"
@@ -11177,6 +13232,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__table"
                   aria-pressed="false"
@@ -11204,6 +13264,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__table-tennis-paddle-ball"
                   aria-pressed="false"
@@ -11231,6 +13296,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__tablet"
                   aria-pressed="false"
@@ -11258,6 +13328,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__tablet-screen-button"
                   aria-pressed="false"
@@ -11285,6 +13360,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__tag"
                   aria-pressed="false"
@@ -11312,6 +13392,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__tags"
                   aria-pressed="false"
@@ -11339,6 +13424,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__list-check"
                   aria-pressed="false"
@@ -11366,6 +13456,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__taxi"
                   aria-pressed="false"
@@ -11393,6 +13488,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__telegram"
                   aria-pressed="false"
@@ -11420,6 +13520,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__terminal"
                   aria-pressed="false"
@@ -11447,6 +13552,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__temperature-empty"
                   aria-pressed="false"
@@ -11474,6 +13584,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__temperature-full"
                   aria-pressed="false"
@@ -11501,6 +13616,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__temperature-half"
                   aria-pressed="false"
@@ -11528,6 +13648,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__temperature-quarter"
                   aria-pressed="false"
@@ -11555,6 +13680,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__temperature-three-quarters"
                   aria-pressed="false"
@@ -11582,6 +13712,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__thumbs-down"
                   aria-pressed="false"
@@ -11609,6 +13744,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__thumbs-up"
                   aria-pressed="false"
@@ -11636,6 +13776,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__thumbtack"
                   aria-pressed="false"
@@ -11663,6 +13808,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__droplet"
                   aria-pressed="false"
@@ -11690,6 +13840,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__droplet-slash"
                   aria-pressed="false"
@@ -11717,6 +13872,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__toggle-off"
                   aria-pressed="false"
@@ -11744,6 +13904,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__toggle-on"
                   aria-pressed="false"
@@ -11771,6 +13936,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__trademark"
                   aria-pressed="false"
@@ -11798,6 +13968,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__cable-car"
                   aria-pressed="false"
@@ -11825,6 +14000,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__trophy"
                   aria-pressed="false"
@@ -11852,6 +14032,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__truck"
                   aria-pressed="false"
@@ -11879,6 +14064,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__tty"
                   aria-pressed="false"
@@ -11906,6 +14096,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__tv"
                   aria-pressed="false"
@@ -11933,6 +14128,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__twitter"
                   aria-pressed="false"
@@ -11960,6 +14160,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__umbrella-beach"
                   aria-pressed="false"
@@ -11987,6 +14192,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__arrow-rotate-left"
                   aria-pressed="false"
@@ -12014,6 +14224,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__rotate-left"
                   aria-pressed="false"
@@ -12041,6 +14256,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__unlock"
                   aria-pressed="false"
@@ -12068,6 +14288,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__unlock-keyhole"
                   aria-pressed="false"
@@ -12095,6 +14320,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__upload"
                   aria-pressed="false"
@@ -12122,6 +14352,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-large"
                   aria-pressed="false"
@@ -12149,6 +14384,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-large-slash"
                   aria-pressed="false"
@@ -12176,6 +14416,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-astronaut"
                   aria-pressed="false"
@@ -12203,6 +14448,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-check"
                   aria-pressed="false"
@@ -12230,6 +14480,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-clock"
                   aria-pressed="false"
@@ -12257,6 +14512,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-gear"
                   aria-pressed="false"
@@ -12284,6 +14544,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-pen"
                   aria-pressed="false"
@@ -12311,6 +14576,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-group"
                   aria-pressed="false"
@@ -12338,6 +14608,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-graduate"
                   aria-pressed="false"
@@ -12365,6 +14640,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-injured"
                   aria-pressed="false"
@@ -12392,6 +14672,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-lock"
                   aria-pressed="false"
@@ -12419,6 +14704,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__ship"
                   aria-pressed="false"
@@ -12446,6 +14736,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__sailboat"
                   aria-pressed="false"
@@ -12473,6 +14768,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-doctor"
                   aria-pressed="false"
@@ -12500,6 +14800,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-minus"
                   aria-pressed="false"
@@ -12527,6 +14832,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-ninja"
                   aria-pressed="false"
@@ -12554,6 +14864,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-nurse"
                   aria-pressed="false"
@@ -12581,6 +14896,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-plus"
                   aria-pressed="false"
@@ -12608,6 +14928,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-shield"
                   aria-pressed="false"
@@ -12635,6 +14960,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-slash"
                   aria-pressed="false"
@@ -12662,6 +14992,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-tag"
                   aria-pressed="false"
@@ -12689,6 +15024,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-tie"
                   aria-pressed="false"
@@ -12716,6 +15056,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__user-xmark"
                   aria-pressed="false"
@@ -12743,6 +15088,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__users"
                   aria-pressed="false"
@@ -12770,6 +15120,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__users-gear"
                   aria-pressed="false"
@@ -12797,6 +15152,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__utensils"
                   aria-pressed="false"
@@ -12824,6 +15184,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__vector-square"
                   aria-pressed="false"
@@ -12851,6 +15216,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__video"
                   aria-pressed="false"
@@ -12878,6 +15248,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__video-slash"
                   aria-pressed="false"
@@ -12905,6 +15280,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__voicemail"
                   aria-pressed="false"
@@ -12932,6 +15312,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__volleyball"
                   aria-pressed="false"
@@ -12959,6 +15344,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__volume-low"
                   aria-pressed="false"
@@ -12986,6 +15376,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__volume-xmark"
                   aria-pressed="false"
@@ -13013,6 +15408,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__volume-off"
                   aria-pressed="false"
@@ -13040,6 +15440,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__volume-high"
                   aria-pressed="false"
@@ -13067,6 +15472,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__vuejs"
                   aria-pressed="false"
@@ -13094,6 +15504,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__person-walking"
                   aria-pressed="false"
@@ -13121,6 +15536,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__wallet"
                   aria-pressed="false"
@@ -13148,6 +15568,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__warehouse"
                   aria-pressed="false"
@@ -13175,6 +15600,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__wheelchair"
                   aria-pressed="false"
@@ -13202,6 +15632,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__rectangle-xmark"
                   aria-pressed="false"
@@ -13229,6 +15664,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__window-maximize"
                   aria-pressed="false"
@@ -13256,6 +15696,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__window-minimize"
                   aria-pressed="false"
@@ -13283,6 +15728,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__window-restore"
                   aria-pressed="false"
@@ -13310,6 +15760,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__wine-glass"
                   aria-pressed="false"
@@ -13337,6 +15792,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__wine-glass-empty"
                   aria-pressed="false"
@@ -13364,6 +15824,11 @@ export default function Icons({ setIcon, SetActiveIcon, setTextIcon }) {
             <li role="listitem" class="ng-star-inserted">
                <button
                   role="button"
+                  onClick={(e) => {
+                     setIcon(e.currentTarget.innerHTML);
+                     e.currentTarget.classList.add("cu-avatar-picker__icons-item_selected")
+                     setTextIcon(null);
+                  }}
                   class="cu-avatar-picker__icons-item"
                   data-test="avatar-picker__icons__youtube"
                   aria-pressed="false"

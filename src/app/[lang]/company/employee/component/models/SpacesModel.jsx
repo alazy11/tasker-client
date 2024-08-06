@@ -5,8 +5,8 @@ import profile from '@/public/project-image/user-profile.jpeg';
 import DropDownModel from '@/app/[lang]/component/DropDownModel';
 import Image from 'next/image';
 import Loading from '@/app/[lang]/component/Loading';
-
-export default function SpaceModel({setSpaceModel, setSpaceID, spaceID}) {
+import parse  from "html-react-parser";
+export default function SpaceModel({setSpaceModel, setSpaceID, spaceID,left,employeeID,addUserToSpace}) {
 
    const [space, setSpace] = useState([]);
    const [page, setPage] = useState(1);
@@ -20,7 +20,7 @@ export default function SpaceModel({setSpaceModel, setSpaceID, spaceID}) {
       const abortController = new AbortController();
 
       fetch(
-         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space?page=${page}&recordNumber=${recordNumber}`,
+         `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/user?page=${page}&recordNumber=${recordNumber}&user=${employeeID}`,
          {
             signal: abortController.signal,
             credentials: "include",
@@ -39,9 +39,9 @@ export default function SpaceModel({setSpaceModel, setSpaceID, spaceID}) {
                console.log("data space faild....", data);
             } else {
                // setErrorMessage(false);
-               console.log("data space dd....", data);
-               setSpace(prev => [...prev,...Object.values(data.data.result)]);
-               setTotal(data.data.total)
+               console.log("data space dd....", data.data);
+               setSpace(data.data);
+               // setTotal(data.data.total)
                setLoader(false);
                setFirstLoader(false);
             }
@@ -62,7 +62,7 @@ export default function SpaceModel({setSpaceModel, setSpaceID, spaceID}) {
       <DropDownModel setShowIcon={setSpaceModel}>
       <div className='h-full top-0 left-0 relative w-full'>
       {/* drop-menu-shadow  */}
-      <div className="absolute z-2700 shadow-xl bg-white rounded-md w-72 min-w-40 min-h-80 overflow-y-auto flex flex-col" style={{ height:"344px", maxHeight:" calc(100vh - 20px)", top:'36%'}}>
+      <div className={`absolute z-2700 shadow-xl bg-[var(--cu-background-menu)] rounded-md w-72 min-w-40 min-h-80 left-[${left}] overflow-y-auto flex flex-col`} style={{ height:"344px", maxHeight:" calc(100vh - 20px)",left:left, top:'36%'}}>
          
          <div>
             <div className="w-full flex items-center relative">
@@ -101,6 +101,7 @@ export default function SpaceModel({setSpaceModel, setSpaceID, spaceID}) {
                                     // console.log("e.target.dataset?.member",e.target.dataset?.member)
                                     let index = e.currentTarget.dataset?.index;
                                     console.log('member......',spaceID);
+                                    addUserToSpace(index,employeeID,setSpaceModel)
                                     if(spaceID.some(item=>{
                                        return item.space_id === space[index].space_id
                                     })) {

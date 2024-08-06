@@ -64,9 +64,8 @@ export default function SpaceOption({setSpaceOptionModel,folderLeft, folderTop,s
          style={{ width: "100%", maxWidth: "100%" }}
       >
          <div
-            className="absolute z-2700 ltr:right-3 rtl:left-3 drop-menu-shadow border-e8eaed rounded-md min-w-40 overflow-y-auto flex flex-col pt-2 pb-2"
+            className="absolute z-2700 ltr:right-3 rtl:left-3 bg-[var(--cu-background-menu)] drop-menu-shadow border-e8eaed rounded-md min-w-40 overflow-y-auto flex flex-col pt-2 pb-2"
             style={{ top:folderTop+'px',left:folderLeft+'px',width: "272px", top: "auto",bottom: "10px",
-               background: "var(--cu-background-menu)"
             }}
          >
             <ul>

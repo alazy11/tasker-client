@@ -32,6 +32,38 @@ async function getSpace(employeeID, setEmployeeInfo, setModel, setEditModel) {
       });
 }
 
+function addUserToSpace(spaceID,employeeID,setSpaceModel) {
+
+   fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/user`, {
+      method:'POST',
+      credentials: "include",
+      headers: {
+         "content-type": "application/json",
+         "cache-control": "no-cache",
+      },
+      body:JSON.stringify({
+            memberID:employeeID,
+            spaceID
+      })
+   })
+      .then((res) => {
+         return res.json();
+      })
+      .then((data) => {
+         if (data.status === "fail" || data.status === "error") {
+            // setErrorMessage(true);
+            // setErrorText(data?.message);
+            console.log("data space fails....", data);
+         } else {
+            console.log("data space information....", data.data);
+            setSpaceModel(false);
+         }
+      })
+      .catch((error) => {
+         console.log(error);
+      });
+}
+
 
 async function deleteEmployee(
    employeeID,
@@ -77,7 +109,10 @@ async function deleteEmployee(
 export default function EmployeeOptions({employeeID,setOptions}) {
 
    const [spaceModel, setSpaceModel] = useState(false);
-   const [spaceID, setSpaceID] = useState('');
+   const [spaceID, setSpaceID] = useState([]);
+   const [top, setTop] = useState(0);
+   const [left, setLeft] = useState(0);
+   const [active, setActive] = useState("");
 
     return (
       <>
@@ -95,7 +130,7 @@ export default function EmployeeOptions({employeeID,setOptions}) {
                   <ul className="pb-2 flex flex-col gap-1.5">
                      <li className="min-h-3 pe-2 ps-2">
                         <button
-                           className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded"
+                           className="p-2 flex items-center w-full gap-3 back-search-member rounded"
                            onClick={async (e) => {
                               await getSpace(
                                  employeeID,
@@ -126,8 +161,12 @@ export default function EmployeeOptions({employeeID,setOptions}) {
                         </button>
                      </li>
                      <li className="min-h-3 pe-2 ps-2">
-                        <button className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded" onClick={(e)=>{
-                           setSpaceModel(true)
+                        <button className={`p-2 flex items-center w-full gap-3 back-search-member ${active === "Add To Space" && spaceModel ? 'nav-menu-item-active' : ''} rounded`} onClick={(e)=>{
+                                       let rect = e.currentTarget.getBoundingClientRect();
+                                       setLeft((rect.left - 300) + 'px');
+                                       setActive("Add To Space")
+                           setSpaceModel(true);
+
                         }} >
                            <span className="text-656f7d">
                               <svg
@@ -150,7 +189,7 @@ export default function EmployeeOptions({employeeID,setOptions}) {
                         </button>
                      </li>
                      <li className="min-h-3 pe-2 ps-2">
-                        <button className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded">
+                        <button className="p-2 flex items-center w-full gap-3 back-search-member rounded">
                            <span className="text-656f7d">
                               <svg viewBox="0 0 24 24" width="1rem"
                                  height="1rem" fill="currentColor">
@@ -163,7 +202,7 @@ export default function EmployeeOptions({employeeID,setOptions}) {
                         </button>
                      </li>
                      <li className="min-h-3 pe-2 ps-2">
-                        <button className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded">
+                        <button className="p-2 flex items-center w-full gap-3 back-search-member rounded">
                            <span className="text-656f7d">
                               <svg width="1rem"
                                  height="1rem" viewBox="0 0 24 24" fill="currentColor">
@@ -178,7 +217,7 @@ export default function EmployeeOptions({employeeID,setOptions}) {
 
                      <li className="min-h-3 pe-2 ps-2">
                         <button
-                           className="p-2 flex items-center w-full gap-3 hover:bg-gray-100 rounded button-delete"
+                           className="p-2 flex items-center w-full gap-3 back-search-member rounded button-delete"
                            onClick={(e) => {
                               setMessage(
                                  "Fired Employee Successfully"
@@ -234,6 +273,9 @@ export default function EmployeeOptions({employeeID,setOptions}) {
       setSpaceModel={setSpaceModel}
       setSpaceID={setSpaceID}
       spaceID={spaceID}
+      left={left}
+      employeeID={employeeID}
+      addUserToSpace={addUserToSpace}
    />
 )}
 
