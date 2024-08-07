@@ -25,6 +25,8 @@ module.exports = {
 
       'sm': {'max': '576px'},
       // => @media (max-width: 639px) { ... }
+
+      'vs': {'max': '400px'},
     }
 
   },

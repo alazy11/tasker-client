@@ -128,7 +128,7 @@ export default function TopNavTrans({user}) {
          <div className='flex items-center' >
             <ul className='flex self-stretch gap-1'>
 
-               <li className='flex items-center'>
+               <li className='flex items-center sm:hidden'>
                   <button className='relative bg-transparent border-0 h-7 w-full rounded-md ps-1.5 pe-1.5 flex items-center gap-1 hover:bg-gray-100 '>
                      <span className='w-4 h-4 text-656f7d'>
                      <svg width="100%" height="100%" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

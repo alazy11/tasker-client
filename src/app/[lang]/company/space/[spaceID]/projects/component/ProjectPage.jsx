@@ -66,9 +66,13 @@ export default function PageProject({ user,spaceID }) {
 <>
 
       
-<TopMiddleNav setEmployee={setProjectModel} spaceID={spaceID} >Create Project</TopMiddleNav>
+<TopMiddleNav setEmployee={setProjectModel} spaceID={spaceID} >
+   <span className="vs:hidden">
+   Create Project
+   </span>
+   </TopMiddleNav>
 
-<div className='ps-4 pe-4 h-12 w-full'>
+<div className='px-4 sm:px-2 h-12 w-full'>
       <div className='flex items-center justify-between pt-2 pb-2'>
       <ul className='flex items-center gap-1 flex-1'>
          <li>

@@ -170,7 +170,7 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                activeModel == 1 
                ? */}
 
-                  <div className="grid grid-cols-2 overflow-hidden" autoComplete="off">
+                  <div className="grid grid-cols-2 h-full relative scroll-bar overflow-hidden md:overflow-y-auto md:block" autoComplete="off">
                      <div className="border-right-e8eaed flex flex-col overflow-hidden">
                         <div className="border-bottom-e8eaed min-h-12 flex items-center p-2 ltr:pl-3 rtl:pr-3 text-xl font-medium leading-6  text-2a2e34 ">
                            <h2>Details</h2>

@@ -1,9 +1,11 @@
+"use client";
+import parse  from "html-react-parser";
 
-
-export default function ListElement({item,setNote,setNotesModel,deleteNote,refresh, setRefresh}) {
+export default function ListElement({item,setNote,setNotesModel,deleteNote,refresh, setRefresh,setDeleteModel,setNoteId}) {
 
 
     return(
+<>
 
         <div className="scratchpad-item" key={item.note_id}>
          <button className="scratchpad-item__content" onClick={(e)=>{
@@ -17,7 +19,7 @@ export default function ListElement({item,setNote,setNotesModel,deleteNote,refre
             </div>
             <div className="text-xs font-normal scratchpad-item__body">
                {
-                  item.content
+                  parse(item.content)
                }
             </div>
          </button>
@@ -37,7 +39,8 @@ export default function ListElement({item,setNote,setNotesModel,deleteNote,refre
 
 
          <button className="w-6 h-6 rounded flex items-center justify-center text-2a2e34 border-0 scratchpad-item__button" onClick={(e)=>{
-            deleteNote(item.note_id,refresh, setRefresh);
+            setNoteId(item.note_id)
+            setDeleteModel(true);
          }}>
          <div className="w-4 h-4 flex items-center justify-center text-2a2e34">
          <svg width={'1rem'} height={'1rem'} className="block" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -51,6 +54,14 @@ export default function ListElement({item,setNote,setNotesModel,deleteNote,refre
          </div>
 
       </div>
+
+{
+   
+}
+
+
+</>
+
 
     );
 

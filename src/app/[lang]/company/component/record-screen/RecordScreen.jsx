@@ -323,7 +323,7 @@ export default function RecordScreen() {
          </div>
 
 :
-<div>
+<div className="sm:absolute recored-start">
     <div className="clip-controls flex items-center p-1 gap-0.5">
 
         <div className="cu-clip-controls__container">

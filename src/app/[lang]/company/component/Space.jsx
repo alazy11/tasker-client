@@ -118,7 +118,7 @@ export default function Space({ }) {
             <h2 className=" flex-1 text-sm leading-8 font-medium" style={{color:"var(--cu-content-tertiary)"}}>
                Spaces
             </h2>
-            <div className={`items-center ${search ? 'flex' : 'hidden'} h-6 space-item`}>
+            <div className={`items-center sm:flex ${search ? 'flex' : 'hidden'} h-6 space-item`}>
                <button 
                   className=" rounded icon-padding flex items-center h-6 w-6 justify-center icon-parent-space "
                   >

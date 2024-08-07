@@ -87,7 +87,7 @@ export default function StartMeetingBtn({spaceID,user}) {
 
     return (
 
-        <div className="cu-onboarding-checklist  ltr:left-72  rtl:right-72  ">
+        <div className="cu-onboarding-checklist  ltr:left-[28%]  rtl:right-[28%] sm:ltr:left-[5%] sm:rtl:right-[5%] sm:bottom-[5%] ">
 
             <a href={`/en/company/space/${spaceID}/room/${meetId}`} ref={meet} ></a>
 

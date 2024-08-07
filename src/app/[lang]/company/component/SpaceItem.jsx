@@ -61,11 +61,12 @@ export default function SpaceItem({item,getSpace,setGetSpace}) {
               >
                  {spaceInfo.title}
               </Link>
-              <div className="hidden items-center relative z-10 item">
+              <div className="hidden sm:flex items-center relative z-10 item">
                  <button className="rounded icon-padding icon-space-option flex items-center justify-center  item-s-color" data-space = {spaceInfo.space_id} onClick={(e)=>{
                     setSpaceID(e.currentTarget.dataset.space);
                     setSpaceOptionModel(true);
                     let left = e.currentTarget.closest('.space-item-li').clientWidth;
+                    if(e.currentTarget.getBoundingClientRect().right > 300)
                     setFolderLeft(left);
                  }}>
                     <svg

@@ -60,7 +60,7 @@ export default function Members({user,spaceID,roomId}) {
    return (
       <>
       <aside
-      className={`w-64 h-full border-r border-solid border-r-gray-200 pt-2 pb-2 flex flex-col`}
+      className={`w-64 h-full border-r border-solid border-r-gray-200 pt-2 pb-2 flex flex-col sm:hidden`}
       >
               <div>
             <div className="ml-4 mr-4 mb-3">

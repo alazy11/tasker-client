@@ -5,9 +5,10 @@ import Image from "next/image";
 import notepad from '@/public/project-image/notepad.svg';
 import ListElement from "./ListElement";
 import Loading from "@/app/[lang]/component/Loading";
+import DeleteModel from "@/app/[lang]/component/delete/DeleteModel";
 
-
-function deleteNote(note_id,refresh, setRefresh) {
+function deleteNote(setModel,setLoader,note_id,refresh, setRefresh) {
+   setLoader(true);
     fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/note?note_id=${note_id}`, {
        method:'DELETE',
        credentials: "include",
@@ -28,11 +29,12 @@ function deleteNote(note_id,refresh, setRefresh) {
              // setErrorMessage(false);
              console.log("data project dd....", data.data);
              setRefresh(!refresh)
+             setModel(false)
           }
        })
        .catch((error) => {
           console.log(error);
-          // setLoader(false)
+          setLoader(false)
        });
  }
 
@@ -47,8 +49,9 @@ export default function List({setNotesModel,setNote,setNoteModel}) {
     const [refresh, setRefresh] = useState(false);
     const [notes, setNotes] = useState([]);
     const [search, setSearch] = useState(false);
+    const [deleteModel, setDeleteModel] = useState(false);
     const [loader, setLoader] = useState(true);
-
+    const [noteId, setNoteId] = useState([]);
 
     useEffect(()=>{
 
@@ -198,6 +201,8 @@ setNoteModel(false)
                            deleteNote={deleteNote}
                            refresh={refresh}
                            setRefresh={setRefresh}
+                           setDeleteModel={setDeleteModel}
+                           setNoteId={setNoteId}
                            />
                         );
           
@@ -226,6 +231,14 @@ setNoteModel(false)
 
 
      </div>
+{
+   deleteModel && <DeleteModel 
+   deleteFunction={deleteNote}
+   deleteFunctionParams={[noteId,refresh, setRefresh]}
+   setModel={setDeleteModel}/>
+}
+
+
 </>
 
 
