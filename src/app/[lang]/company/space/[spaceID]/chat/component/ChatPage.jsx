@@ -11,7 +11,8 @@ import SendFileMessage from "./message/SendFileMessage";
 import ReceivedMessage from "./message/ReceivedMessage";
 import ChatSetting from "./ChatSetting ";
 import Emoji from "@/app/[lang]/component/message/Emoji";
-
+import CircleLoader from "@/app/[lang]/component/loaders/CircleLoader";
+import Link from "next/link";
 
 function deleteMessage(spaceID, messageId, messageType, setIsDeleted,filePath,roomId) {
 
@@ -59,6 +60,7 @@ export default function ChatPage({ user, spaceID }) {
     const [recordNumber, setRecordNumber] = useState(10);
     const [total, setTotal] = useState('')
     const [loader, setLoader] = useState(false);
+    const [circleLoader, setCircleLoader] = useState(true);
     const [scrollPosition, setScrollPosition] = useState(0);
     const [place, setPlace] = useState(true);
     const [isFocus, setIsFocus] = useState(false);
@@ -66,7 +68,7 @@ export default function ChatPage({ user, spaceID }) {
     const [setting, setSetting] = useState(false);
     const [settingClose,setSettingClose] = useState(false);
     const [isLock, setIsLock] = useState(false);
-
+    const [chattingMember, setChattingMember] = useState(false);
     const scroll = useRef(null);
     const inputElement = useRef(null);
 
@@ -77,7 +79,7 @@ export default function ChatPage({ user, spaceID }) {
     useEffect(() => {
         if (scroll) {
             scroll.current.scroll({
-                top: scroll.current.scrollHeight,
+                top: scroll.current.scrollHeight + 20,
                 left: "0",
                 // behavior:"smooth"
             });
@@ -153,6 +155,8 @@ export default function ChatPage({ user, spaceID }) {
     }, []);
 
     useEffect(() => {
+
+        setCircleLoader(true)
         const abortController = new AbortController();
 
         fetch(
@@ -173,16 +177,20 @@ export default function ChatPage({ user, spaceID }) {
                     // setErrorMessage(true);
                     // setErrorText(data?.message);
                     console.log("data space faild....", data);
+                    setCircleLoader(false)
                 } else {
                     if(data.data?.result?.length > 0) {
                         data.data?.result?.reverse();
                         setStoredMessage(prev => [...data.data.result, ...prev]);
                         setTotal(data.data.total);
+                        setCircleLoader(false)
                      }
+                     setCircleLoader(false)
                 }
             })
             .catch((error) => {
                 console.log(error);
+                setCircleLoader(false)
             });
 
         return () => {
@@ -193,22 +201,55 @@ export default function ChatPage({ user, spaceID }) {
     return (
         <>
             <TopMiddleNav setEmployee={setch} spaceID={spaceID} setSetting={setSetting} setSettingClose={setSettingClose} setting={setting}  >
-                Add Member
+                <span className="vs:hidden">
+   Add Member
+   </span>
             </TopMiddleNav>
 
-            <div className="flex-1 w-full overflow-hidden relative">
-                <div className="w-full h-full flex overflow-hidden">
+            <div className="flex-1 w-full overflow-hidden relative md:absolute md:top-0 md:left-0 md:h-full" onClick={(e)=>{
+                console.log("outer")
+                e.stopPropagation()
+                if(messageInput.length == 0)
+                   setIsFocus(false)
+            }}>
+                <div className={`w-full h-full flex overflow-hidden relative ${chattingMember && "menu-chat-member"}`}>
                     <Members user={user} spaceID={spaceID} roomId={roomId} />
+
+                    <div className="absolute w-full h-full top-[9px] left-[9px] z-[900] hidden overlay-chat bg-[var(--cu-background-overlay)]" onClick={(e)=>{
+                        setChattingMember(false)
+                    }}>
+
+                    </div>
 
                     <div className="flex-1 h-full mr-2 ml-2 pt-2 pb-5">
                         <div className="relative flex flex-col h-full border border-solid border-gray-200 rounded-md flex-1 back-nav-side">
                             <div className=" bg-white overflow-hidden h-12 w-full rounded-tl-md rounded-tr-md">
-                                <div className=" px-2 w-full h-full flex items-center border-b border-solid border-gray-200">
+                                <div className=" px-2 w-full h-full flex items-center  border-b justify-between border-solid border-gray-200">
+
+                                    <div className="h-full flex items-center gap-3">
+                                    <button className="btn-normal show-member-chat-btn" onClick={(e)=>{
+                                        setChattingMember(true)
+                                    }}>
+                                        <div className="w-4 h-4 flex items-center justify-center text-[var(--cu-content-secondary)]">
+                                            <svg width="1rem" height="1rem" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="block" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 10H3"></path><path d="M21 6H3"></path><path d="M21 14H3"></path><path d="M17 18H3"></path></svg>
+                                        </div>
+                                    </button>
+
                                     <h3 className="text-lg leading-4 font-medium">space1</h3>
+                                    </div>
+
+                                    <Link href={`/en/company/space/${spaceID}/members`} className="btn-normal show-member-chat-btn">
+                                        <div className="w-4 h-4 flex items-center justify-center text-[var(--cu-content-secondary)]">
+                                        <svg className="w-4 h-4 block" viewBox="0 0 24 24" fill="currentColor" >
+                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 0 1 1.414 0L12 10.586l6.293-6.293a1 1 0 1 1 1.414 1.414L13.414 12l6.293 6.293a1 1 0 0 1-1.414 1.414L12 13.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L10.586 12 4.293 5.707a1 1 0 0 1 0-1.414Z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        </div>
+                                    </Link>
+
                                 </div>
                             </div>
 
-                            <div className="flex-1 w-full overflow-hidden py-2">
+                                <div className="flex-1 w-full overflow-hidden py-2 md:pb-[4.3rem]">
                                 <div
                                     className="w-full h-full overflow-y-auto scroll-bar"
                                     ref={scroll}
@@ -225,7 +266,11 @@ export default function ChatPage({ user, spaceID }) {
                                         }
                                     }}
                                 >
-                                    {loader && (
+ {
+circleLoader ? <CircleLoader styleClass={'w-full h[100px] flex items-center justify-center'} /> :
+
+<>
+{loader && (
                                         <div className="flex items-center justify-center w-full h-7">
                                             <span className="flex">
                                                 <svg
@@ -379,22 +424,26 @@ export default function ChatPage({ user, spaceID }) {
                                             </div>
                                         </div>
                                     </div>
+
+</>
+
+                                    }
+
                                 </div>
                             </div>
 
                             {
                                 !isLock ? 
-                                <div className="relative bottom-0 top-auto left-0 w-full px-3 overflow-y-auto rounded-bl-md rounded-br-md ">
+                                <div className="relative bottom-0 top-auto left-0 w-full px-3 overflow-y-auto rounded-bl-md rounded-br-md md:absolute ">
                         <div className="w-full relative mb-3">
-                        <div className={` ${isFocus && "comment-bar_active"} w-full h-full max-h-full flex bg-white items-center gap-1 border rounded-lg border-solid border-gray-200 p-revert`} onFocus={(e)=>{
+                        <div className={` ${isFocus && "comment-bar_active"} w-full h-full max-h-full flex bg-white items-center gap-1 border rounded-lg border-solid border-gray-200 p-revert`} onClick={(e)=>{
+                            e.stopPropagation()
                                  setIsFocus(true);
+                                 console.log("inner")
                               }}
-                              outs
-                              
-                              onBlur={(e)=>{
-                                 if(messageInput.length == 0)
-                                 setIsFocus(false)
-                              }}
+                            //   onBlur={(e)=>{
+
+                            //   }}
                               >
 
 <div className=" grow relative max-h-72">
@@ -408,6 +457,7 @@ export default function ChatPage({ user, spaceID }) {
                                  } else {
                                     setPlace(false)
                                  }
+
                               }} 
                               
                               // onFocus={(e)=>{
@@ -544,6 +594,7 @@ if (File) {
                                        });
                                        setMessageInput('');
                                        inputElement.current.textContent = '';
+                                       setPlace(true)
                                     }}>
                                        Send
                                     </button>

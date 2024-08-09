@@ -7,7 +7,6 @@ html.dark{
 
 html,
 body {
-
   overflow-x: hidden;
   min-height: 100vh;
   background-color: var(--main-background-color);
@@ -379,6 +378,38 @@ body {
 /* ? ////////////////////////////////////////////////////////////// */
 
 
+
+@media (max-width: 767px) {
+  .member-aside-chatting {
+    position: absolute;
+      left: -300px;
+      top: 9px;
+      z-index: 1000;
+      background: #fff;
+      transition: left .3s;
+  }
+
+  .menu-chat-member .member-aside-chatting {
+      left: 9px;
+  }
+
+  .menu-chat-member .overlay-chat {
+      display: block;
+  }
+
+}
+.show-member-chat-btn {
+  height: 32px;
+    width: 32px;
+    padding: 0;
+    font-size: 1rem;
+    color: var(--cu-content-secondary);
+    background-color: transparent;
+}
+.show-member-chat-btn:hover {
+    background-color: var(--cu-background-main-hover-strong);;
+}
+
 /* ? ///////////////////////////////top navbar/////////////////////////////// */
 
 .search-modal-toggle__search-button::before {
@@ -498,6 +529,13 @@ span[_ngcontent-ng-c2871122969] {
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
+
+@media (max-width:400px) {
+  .theme-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .theme-selection-button {
   display: flex;
   align-items: center;
@@ -674,9 +712,9 @@ span[_ngcontent-ng-c2871122969] {
   border-top-right-radius: .625rem;
 }
 
-.ql-editor{
+/* .ql-editor{
   color: #2a2e34;
-}
+} */
 .ql-blank::before {
   content: attr(data-placeholder);
   pointer-events: none;
@@ -735,14 +773,20 @@ span[_ngcontent-ng-c2871122969] {
 }
 
 .comment-bar__send-btn {
+/* 
+  --theme-main-color: #7f77f1;
+    --theme-main-color-rgb: 127, 119, 241;
+    --theme-main-color-dark: #5c52ed;
+    --theme-main-color-light: #ecebfd; */
+
   background-color: var(--theme-main-color);
   line-height: 1.14;
 }
 
 .comment-bar__first-send-btn {
   /* background-color: var(--theme-main-color); */
-  color: var(--button-color-disabled);
-  background-color: var(--button-background-disabled);
+  color: var(--cu-content-on-dark-disabled);
+  background-color:var(--cu-background-primary-disabled);
   line-height: 1.14;
 }
 
@@ -795,7 +839,7 @@ span[_ngcontent-ng-c2871122969] {
 
 } */
 .send-message .message-box{
-  background-color: #5f55ee;
+  background-color: var(--theme-main-color-dark);
   float: inline-start;
   max-width: 80%;
   min-width: 120px;
@@ -814,8 +858,8 @@ span[_ngcontent-ng-c2871122969] {
   left: -10px;
   right: auto;
   border: 9px solid transparent;
-  border-right-color: #5f55ee;
-  border-top-color: #5f55ee;
+  border-right-color: var(--theme-main-color-dark);
+  border-top-color: var(--theme-main-color-dark);
   border-radius: 4px;
 }
 
@@ -828,7 +872,7 @@ span[_ngcontent-ng-c2871122969] {
   background-color:#ffffff;
 }
 .send-message .message-box .button-msg:hover span {
-  color:#5f55ee;
+  color: var(--theme-main-color-dark);
 }
 
 
@@ -1042,7 +1086,7 @@ span[_ngcontent-ng-c2871122969] {
 }
 
 .btn-search-note:hover {
-  background-color: var(--button-background-hover);
+  background-color: var(--cu-background-on-dark-hover);
 }
 
 .scratchpad-navigation.scratchpad-navigation-search .scratchpad-search .scratchpad-search-close {
@@ -1137,11 +1181,15 @@ span[_ngcontent-ng-c2871122969] {
 .scratchpad-item__button {
   position: relative;
   background-color: var(--cu-background-main);
-  border: 1px solid var(--gray-300);
+  border: 1px solid var(--cu-border-high-contrast);
   box-shadow: var(--cu-elevation-1);
+  color: var(--cu-content-secondary);
+}
+.scratchpad-item__button > div{
+  color: var(--cu-content-secondary);
 }
 .scratchpad-item__button:hover {
-  background-color: var(--button-background-hover);
+  background-color: var(--cu-background-main-hover-strong);
   cursor: pointer;
 }
 
@@ -1149,7 +1197,7 @@ span[_ngcontent-ng-c2871122969] {
   font-size: .875rem;
   font-weight: 400;
   line-height: 1.143;
-  color: var(--gray-600);
+  color: var(--cu-content-tertiary);
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -1157,8 +1205,7 @@ span[_ngcontent-ng-c2871122969] {
   border-radius: 0 0 .5rem .5rem;
   border: none;
   border-block-start: 1px solid var(--cu-border-default);
-  background: var(--gray-50);
-
+  background: var(--cu-background-subtle);
 }
 
 .scratchpad-footer__text-and-icon {
@@ -1173,7 +1220,32 @@ span[_ngcontent-ng-c2871122969] {
   background-color: var(--cu-background-subtle-hover);
 }
 
-/* ? //////////////////// */
+.scratchpad-item:nth-child(n+2):before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 8px;
+  bottom: 0;
+  left: 8px;
+  height: 1px;
+  background-color: var(--cu-border-low-contrast);
+}
+
+.dark-theme .cu-editor-wrapper .ql-editor {
+  caret-color: #fff;
+}
+
+.dark-theme .ql-editor.ql-blank::before {
+  color: #d5d6d74d !important;
+}
+
+.dark-theme .ql-snow .ql-stroke {
+  stroke: #fff !important;
+}
+
+
+/* ? /////////////////////////////////////////////// */
 
 .cu-avatar-picker__font-icon * {
   transition: color .2s cubic-bezier(.785,.135,.15,.86) 0s;
@@ -1218,8 +1290,8 @@ span[_ngcontent-ng-c2871122969] {
   fill:#656f7d;
 }
 .color-urgent {
-  fill: var(--cu-priority-normal);
-  border-color: var(--cu-priority-normal);
+  fill: var(--cu-priority-urgent);
+  border-color: var(--cu-priority-urgent);
 }
 .color-high {
   fill: rgb(248, 174, 0);
@@ -5072,10 +5144,10 @@ media-controller:is([mediapaused], :not([userinactive])) ::slotted([slot='media'
 }
 
 .cu-btn {
-  --theme-main-color: #7f77f1;
+  /* --theme-main-color: #7f77f1;
     --theme-main-color-rgb: 127, 119, 241;
     --theme-main-color-dark: #5c52ed;
-    --theme-main-color-light: #ecebfd;
+    --theme-main-color-light: #ecebfd; */
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
@@ -5248,12 +5320,23 @@ media-controller:is([mediapaused], :not([userinactive])) ::slotted([slot='media'
 .loading-circle {
   width: 1rem;
   height: 1rem;
-  border: solid 2px var(--button-load-border-color);
-  border-bottom-color: var(--button-load-border-bottom-color);
+  border: solid 2px var(--cu-content-on-dark);
+  border-bottom-color: var(--cu-background-on-dark-pressed);
   border-radius: 50%;
   position: absolute;
   animation: cu3-spin 1s linear infinite;
 }
+
+.loading-circle-normal {
+  width: 1rem;
+  height: 1rem;
+  border: solid 2px var(--cu-content-on-dark);
+  border-bottom-color: var(--cu-background-on-dark-pressed);
+  border-radius: 50%;
+  position: absolute;
+  animation: cu3-spin 1s linear infinite;
+}
+
 
 @keyframes cu3-spin {
   0% {

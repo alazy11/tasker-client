@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function DeleteModel({setModel,deleteFunction,deleteFunctionParams}) {
 
-    const[loader,setLoader] = useState(false);
+    const[loader,setLoader] = useState(true);
 
     return (
         <ModelOverlay showModel={setModel} styleCss='block'>
@@ -54,9 +54,8 @@ export default function DeleteModel({setModel,deleteFunction,deleteFunctionParam
 
                             deleteFunction(setModel,setLoader,...deleteFunctionParams);
                         }}>
-                        Delete
                         {
-                            loader && <span className="loading-circle"></span>
+                            loader ? <span className="loading-circle"></span> : "Delete"
                         }
                         
                         </button>

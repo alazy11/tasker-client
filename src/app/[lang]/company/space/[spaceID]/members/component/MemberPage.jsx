@@ -57,7 +57,11 @@ export default function PageMember({ user,spaceID }) {
 <>
 
       
-<TopMiddleNav setEmployee={setEmployee} spaceID={spaceID} >Add Member</TopMiddleNav>
+<TopMiddleNav setEmployee={setEmployee} spaceID={spaceID} >
+   <span className="vs:hidden">
+   Add Member
+   </span>
+   </TopMiddleNav>
 
 <div className='ps-4 pe-4 h-12 w-full'>
       <div className='flex items-center justify-between pt-2 pb-2'>

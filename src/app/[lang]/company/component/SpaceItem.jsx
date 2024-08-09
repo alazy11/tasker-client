@@ -65,9 +65,16 @@ export default function SpaceItem({item,getSpace,setGetSpace}) {
                  <button className="rounded icon-padding icon-space-option flex items-center justify-center  item-s-color" data-space = {spaceInfo.space_id} onClick={(e)=>{
                     setSpaceID(e.currentTarget.dataset.space);
                     setSpaceOptionModel(true);
-                    let left = e.currentTarget.closest('.space-item-li').clientWidth;
-                    if(e.currentTarget.getBoundingClientRect().right > 300)
+                    let left = e.currentTarget.closest('.space-item-li').clientWidth + 10;
+                    let screenWidth = document.body.getBoundingClientRect().width;
+                    let right = screenWidth - e.currentTarget.getBoundingClientRect().right;
+                    console.log(screenWidth)
+                    console.log((left * (100/screenWidth)),"%")
+                    console.log(screenWidth - e.currentTarget.getBoundingClientRect().right)
+                    if(right > 300)
                     setFolderLeft(left);
+                    else
+                    setFolderLeft("auto");
                  }}>
                     <svg
                        className="block icon-size"

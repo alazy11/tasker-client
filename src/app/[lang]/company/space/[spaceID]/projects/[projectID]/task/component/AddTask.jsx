@@ -472,19 +472,9 @@ export default function AddTask({ setModel, spaceID,taskInfo = {}, referesh,setR
                                  >
                                     <div className="grid gap-2 label items-center min-h-9">
                                        <span className=" w-4 h-4 flex items-center justify-center color-600">
-                                          <svg
-                                             width={"100%"}
-                                             height={"100%"}
-                                             fill="none"
-                                             stroke="currentColor"
-                                             strokeLinecap="round"
-                                             strokeLinejoin="round"
-                                             strokeWidth={2}
-                                             viewBox="0 0 24 24"
-                                             xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                             <path d="M4 15h13.865a1 1 0 0 0 .768-1.64L15 9l3.633-4.36A1 1 0 0 0 17.865 3H4v18" />
-                                          </svg>
+                                       <svg width="100%" height="100%" className="block fill-inherit" viewBox="0 0 24 24" fill="currentColor" >
+   <path  fillRule="evenodd" d="M6 3a1 1 0 0 0-2 0v18a1 1 0 1 0 2 0v-6h13a1 1 0 0 0 .858-1.514L17.166 9l2.692-4.486A1 1 0 0 0 19 3H6Z" clipRule="evenodd"></path>
+</svg>
                                        </span>
                                        <p className="text-sm leading-4 font-normal color-600">
                                           Priority
@@ -498,19 +488,9 @@ export default function AddTask({ setModel, spaceID,taskInfo = {}, referesh,setR
                                                 <span
                                                    className={`text-base color-${priority} w-4 h-4 flex items-center justify-center`}
                                                 >
-                                                   <svg
-                                                      width={"100%"}
-                                                      height={"100%"}
-                                                      fill="currentColor"
-                                                      stroke="currentColor"
-                                                      strokeLinecap="round"
-                                                      strokeLinejoin="round"
-                                                      strokeWidth={2}
-                                                      viewBox="0 0 24 24"
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                   >
-                                                      <path d="M4 15h13.865a1 1 0 0 0 .768-1.64L15 9l3.633-4.36A1 1 0 0 0 17.865 3H4v18" />
-                                                   </svg>
+                                                                                         <svg width="100%" height="100%" className="block fill-inherit" viewBox="0 0 24 24" fill="currentColor" >
+   <path  fillRule="evenodd" d="M6 3a1 1 0 0 0-2 0v18a1 1 0 1 0 2 0v-6h13a1 1 0 0 0 .858-1.514L17.166 9l2.692-4.486A1 1 0 0 0 19 3H6Z" clipRule="evenodd"></path>
+</svg>
                                                 </span>
                                                 {priority}
                                              </div>

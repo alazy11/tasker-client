@@ -35,7 +35,7 @@ export default function ChatSetting({setSetting,setSettingClose,settingClose,isL
                         model === 'block' ?
                         <>
                         
-                        <button className="w-6 h-6 ltr:mr-2 rtl:ml-2 ltr:-ml-1 rtl:-mr-1 self-start p-0 hover-gray-100 text-base rounded flex items-center justify-center text-2a2e34 border-0" onClick={(e)=>{
+                        <button className="w-6 h-6 ltr:mr-2 rtl:ml-2 ltr:-ml-1 rtl:-mr-1 self-start p-0 hover:bg-[var(--cu-background-main-hover-strong)] text-base rounded flex items-center justify-center text-2a2e34 border-0" onClick={(e)=>{
                             setModel('main');
                         }} >
                             

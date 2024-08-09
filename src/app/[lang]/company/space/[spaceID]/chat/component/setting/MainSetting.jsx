@@ -85,7 +85,7 @@ export default function MainSetting({isLock, setIsLock,spaceID,roomId,setModel,s
     return (
         <>
 
-                <div className="mx-2 px-1 flex cursor-pointer min-h-8 rounded-md hover-gray-100">
+                <div className="mx-2 px-1 flex cursor-pointer min-h-8 rounded-md hover:bg-[var(--cu-background-main-hover)]">
                     <button className="border-0 flex flex-col min-h-8 w-full py-2 text-start" onClick={(e)=>{
                             setModel('block');
                         }} >
@@ -126,7 +126,7 @@ export default function MainSetting({isLock, setIsLock,spaceID,roomId,setModel,s
 
                 </div>
 
-                <div className="mx-2 px-1 flex cursor-pointer min-h-8 rounded-md hover-gray-100">
+                <div className="mx-2 px-1 flex cursor-pointer min-h-8 rounded-md hover:bg-[var(--cu-background-main-hover)]">
                     <button className="border-0 flex flex-col min-h-8 w-full py-2 text-start" onClick={(e)=>{
                             setModel('lock');
                         }}>
@@ -170,7 +170,7 @@ export default function MainSetting({isLock, setIsLock,spaceID,roomId,setModel,s
 
                 <div className="my-2 h-1px w-full border-bottom-e8eaed"></div>
 
-                <div className="mx-2 px-1 flex cursor-pointer min-h-8 rounded-md hover-gray-100">
+                <div className="mx-2 px-1 flex cursor-pointer min-h-8 rounded-md hover:bg-[var(--cu-background-main-hover)]">
                     <button className="border-0 flex flex-col min-h-8 w-full py-2 text-start" onClick={(e)=>{
                         setIsLock(!isLock)
                         lockChat(!isLock,setIsLock,spaceID,roomId);

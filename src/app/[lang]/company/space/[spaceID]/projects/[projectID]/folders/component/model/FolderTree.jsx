@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 
-
+import FolderLoader from "@/app/[lang]/component/loaders/FolderLoader";
 
 function fillState(count, element) {
    const elementsToAdd = Array(count).fill(element);
@@ -29,7 +29,8 @@ function getSubFolder(
    folderID,
    spaceID,
    projectID,
-   setSubChild
+   setSubChild,
+   setLoader
 ) {
    // console.log('okokokookokok',projectID)
 
@@ -48,15 +49,18 @@ function getSubFolder(
       .then((data) => {
          if (data.status === "fail" || data.status === "error") {
             console.log("data space faild....", data);
+            setLoader(false)
          } else {
             console.log("data folder dd....", data.data);
             setChildren([...Object.values(data.data)]);
             setSubChild([...Object.values(data.data)]);
             setFetch(true);
+            setLoader(false)
          }
       })
       .catch((error) => {
          console.log(error);
+         setLoader(false)
       });
 }
 
@@ -87,6 +91,7 @@ const Folder = ({
    // const [folderPa, setFolderPa] = useState(folder.folder_id);
    const [first, setFirst] = useState(false);
    const [fetch, setFetch] = useState(false);
+   const [loader, setLoader] = useState(false);
    // const [factive, setFActive] = useState(folderOptions)
    const aaa = useRef(null);
 
@@ -102,13 +107,15 @@ const Folder = ({
          // console.log('alazy/...first....')
          if (!fetch) {
             // console.log('alazy/...first....fetch')
+            setLoader(true);
             getSubFolder(
                setChildren,
                setFetch,
                folderID,
                spaceID,
                projectID,
-               setSubChild
+               setSubChild,
+               setLoader
             );
          }
       }
@@ -267,6 +274,7 @@ const Folder = ({
          {folder.kind === "file"
             ? ""
             : isExpanded &&
+            loader ? <FolderLoader /> :
                children.length > 0 && (
                   <ul>
                      {" "}

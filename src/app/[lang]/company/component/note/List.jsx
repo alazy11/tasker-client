@@ -216,10 +216,11 @@ setNoteModel(false)
               setNotesModel("create")
            }}>
            <span className="scratchpad-footer__text-and-icon">
-           <div className="w-4 h-4 flex items-center justify-center" style={{color:'#4f5762'}}>
-              <svg width={'1rem'} height={'1rem'} className="block" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 4v16m-8-8h16" />
+           <div className="w-4 h-4 flex items-center justify-center text-[var(--cu-content-secondary)]">
+<svg viewBox="0 0 24 24" fill="none" width={'1rem'} height={'1rem'} className="block">
+   <path fill="currentColor" fillRule="evenodd" d="M13 5a1 1 0 1 0-2 0v6H5a1 1 0 1 0 0 2h6v5.995a1 1 0 1 0 2 0V13h5.995a1 1 0 1 0 0-2H13V5Z" clipRule="evenodd"></path>
 </svg>
+
                  </div>
            New note 
            </span>

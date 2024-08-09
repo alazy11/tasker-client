@@ -32,9 +32,10 @@ export default function MemberElement({
    const [save, setSave] = useState(false);
    const [message, setMessage] = useState("");
    const [options, setOptions] = useState(false);
-
+   const [skeleton, setSkeleton] = useState(true);
 
    useEffect(() => {
+      setSkeleton(true);
       fetch(
          `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/space/${spaceID}/members?page=${page}&recordNumber=${recordNumber}`,
          {
@@ -52,16 +53,19 @@ export default function MemberElement({
                // setErrorMessage(true);
                // setErrorText(data?.message);
                console.log("data space faild....", data);
+               setSkeleton(false);
             } else {
                // setErrorMessage(false);
                console.log("data space dd....", data);
                // setEmployees([...Object.values(data.data)]);
                setEmployees([...Object.values(data.data.result)]);
                setTotalSpace(data.data.total);
+               setSkeleton(false);
             }
          })
          .catch((error) => {
             console.log(error);
+            setSkeleton(false);
          });
    }, [page, referesh]);
 
@@ -69,8 +73,7 @@ export default function MemberElement({
       <>
 
       {
-         employee.length <= 0 ? <TableSkeleton length={6} /> :
-
+         skeleton ? <TableSkeleton length={15} /> : employee.length > 0 ? 
          employee?.map((item, index) => {
             return (
 <div role="rowgroup" className="w-full" key={item.user_id}>
@@ -160,7 +163,7 @@ className=" h-full w-full"
 </div>
 
             );
-         })
+         }) : ''
       }
       
       

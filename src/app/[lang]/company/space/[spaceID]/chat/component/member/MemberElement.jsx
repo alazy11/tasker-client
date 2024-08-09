@@ -65,9 +65,12 @@ export default function MemberElement({member,setLeft, setTop, setOption,option,
                               const rect = e.currentTarget.getBoundingClientRect();
                               const left = rect.left + rect.width;
                               const top = rect.top;
+                              if( document.body.getBoundingClientRect().width - rect.right > 200)
                               setLeft(left);
+                              else
+                              setLeft('auto');
+                           
                               setTop(top);
-                              setOption(true);
                               setEmployee({
                                 employee_id:e.currentTarget.dataset.user,
                                 user_id:e.currentTarget.dataset.userid,
@@ -75,6 +78,7 @@ export default function MemberElement({member,setLeft, setTop, setOption,option,
                                 room_ID:e.currentTarget.dataset.userroom
                             });
                               setActive(true);
+                              setOption(true);
                            }}
 
                            >

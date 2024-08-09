@@ -52,7 +52,7 @@ export default function SearchMember({setSearchMember, setMemberID, memberID}) {
       <DropDownModel setShowIcon={setSearchMember}>
       <div className='h-full m-auto relative' style={{width:'480px', maxWidth:'100%' }}>
 
-      <div className="absolute z-2700 ltr:right-6 rtl:left-6 md:rtl:-left-32 md:ltr:-right-32  drop-menu-shadow rounded-md w-72 min-w-40 min-h-80 overflow-y-auto flex flex-col" style={{ height:"344px", maxHeight:" calc(100vh - 20px)", top:'36%',
+      <div className="absolute z-2700 ltr:right-6 rtl:left-6 min-md:rtl:-left-32 min-md:ltr:-right-32  drop-menu-shadow rounded-md w-72 min-w-40 min-h-80 overflow-y-auto flex flex-col" style={{ height:"344px", maxHeight:" calc(100vh - 20px)", top:'36%',
 background: "var(--cu-background-menu)",
 color: "var(--cu-content-default)"
       }}>

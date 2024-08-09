@@ -15,14 +15,15 @@ export default function Theme({user,setThemeModel, dic, lang}) {
          style={{ width: "100%", maxWidth: "100%" }}
       >
          <div
-            className="absolute z-2700 ltr:right-3 rtl:left-3 top-14 box-shadow-profile border-e8eaed rounded-md w-96 min-w-96 overflow-y-auto flex flex-col p-5 pt-4"
-            style={{ minWidth:'440px',width:'440px',background:" var(--cu-background-main)"}}
+            className="absolute z-2700 ltr:right-3 rtl:left-3 top-14 box-shadow-profile bg-[var(--cu-background-main)] border-e8eaed rounded-md w-[440px] max-w-[96%] overflow-y-auto flex flex-col p-5 pt-4"
          >
             <div className="w-full h-full flex flex-col">
                <div className="w-full flex flex-col">
                   <div className="w-full flex items-center justify-between">
                      <h1 className=" text-lg font-semibold ">Themes</h1>
-                     <button className="border-0 w-8 h-8 flex items-center justify-center back-search-member rounded-md cursor-pointer">
+                     <button className="border-0 w-8 h-8 flex items-center justify-center back-search-member rounded-md cursor-pointer" onClick={()=>{
+                        setThemeModel(false)
+                     }}>
                         <span className=" w-4 h-4 inline-flex items-center justify-center"
                         style={{color:" var(--cu-content-secondary)"}}
                         >

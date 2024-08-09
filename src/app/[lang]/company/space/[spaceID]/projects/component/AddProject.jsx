@@ -201,24 +201,10 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                                  <li className="grid grid-project gap-1 cursor-pointer">
                                     <div className="grid gap-2 label items-center min-h-9">
                                        <span className=" w-4 h-4 flex items-center justify-center color-600">
-                                          <svg
-                                             width={"100%"}
-                                             height={"100%"}
-                                             fill="none"
-                                             stroke="currentColor"
-                                             strokeLinecap="round"
-                                             strokeLinejoin="round"
-                                             strokeWidth={2}
-                                             viewBox="0 0 24 24"
-                                             xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                             <path d="M12 21.143a9.143 9.143 0 1 0 0-18.286 9.143 9.143 0 0 0 0 18.286Z" />
-                                             <path
-                                                fillRule="evenodd"
-                                                d="M5.4 12a6.6 6.6 0 1 0 13.2 0 6.6 6.6 0 0 0-13.2 0Zm10.8 0a4.2 4.2 0 1 1-8.4 0 4.2 4.2 0 0 1 8.4 0Z"
-                                                clipRule="evenodd"
-                                             />
-                                          </svg>
+                                       <svg className="w-4 h-4 block" viewBox="0 0 24 24" fill="currentColor">
+                                          <path fillRule="evenodd" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-3 5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Z" clipRule="evenodd"></path>
+                                          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2ZM4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0Z" clipRule="evenodd"></path>
+                                       </svg>
                                        </span>
                                        <p className="text-sm leading-4 font-normal color-600">
                                           State
@@ -297,20 +283,9 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                                  >
                                     <div className="grid gap-2 label items-center min-h-9">
                                        <span className=" w-4 h-4 flex items-center justify-center color-600">
-                                          <svg
-                                             width={"100%"}
-                                             height={"100%"}
-                                             fill="none"
-                                             stroke="currentColor"
-                                             strokeLinecap="round"
-                                             strokeLinejoin="round"
-                                             strokeWidth={2}
-                                             viewBox="0 0 24 24"
-                                             xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                             <path d="M12 3a4 4 0 1 0 0 8 4 4 0 1 0 0-8z" />
-                                          </svg>
+                                       <svg className="w-4 h-4 block" viewBox="0 0 24 24" fill="currentColor">
+                                       <path fillRule="evenodd" d="M12 5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm3.537 7.712a5.5 5.5 0 1 0-7.075 0c-2.912 1.227-5.047 3.926-5.454 7.163a1 1 0 0 0 1.984.25C5.425 16.678 8.392 14 12 14c3.607 0 6.575 2.678 7.008 6.125a1 1 0 1 0 1.984-.25c-.407-3.237-2.542-5.936-5.455-7.163Z" clipRule="evenodd"></path>
+                                       </svg>
                                        </span>
                                        <p className="text-sm leading-4 font-normal color-600">
                                           Manager
@@ -356,19 +331,9 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                                  >
                                     <div className="grid gap-2 label items-center min-h-9">
                                        <span className=" w-4 h-4 flex items-center justify-center color-600">
-                                          <svg
-                                             width={"100%"}
-                                             height={"100%"}
-                                             fill="none"
-                                             stroke="currentColor"
-                                             strokeLinecap="round"
-                                             strokeLinejoin="round"
-                                             strokeWidth={2}
-                                             viewBox="0 0 24 24"
-                                             xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                             <path d="M4 15h13.865a1 1 0 0 0 .768-1.64L15 9l3.633-4.36A1 1 0 0 0 17.865 3H4v18" />
-                                          </svg>
+                                       <svg className="w-4 h-4 block" viewBox="0 0 24 24" fill="currentColor">
+                                       <path fill-rule="evenodd" d="M6 3a1 1 0 0 0-2 0v18a1 1 0 1 0 2 0v-6h13a1 1 0 0 0 .858-1.514L17.166 9l2.692-4.486A1 1 0 0 0 19 3H6Zm0 2v8h11.234l-2.092-3.486a1 1 0 0 1 0-1.028L17.235 5H6Z" clip-rule="evenodd"></path>
+                                       </svg>
                                        </span>
                                        <p className="text-sm leading-4 font-normal color-600">
                                           Priority
@@ -382,19 +347,9 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                                                 <span
                                                    className={`text-base color-${priority} w-4 h-4 flex items-center justify-center`}
                                                 >
-                                                   <svg
-                                                      width={"100%"}
-                                                      height={"100%"}
-                                                      fill="currentColor"
-                                                      stroke="currentColor"
-                                                      strokeLinecap="round"
-                                                      strokeLinejoin="round"
-                                                      strokeWidth={2}
-                                                      viewBox="0 0 24 24"
-                                                      xmlns="http://www.w3.org/2000/svg"
-                                                   >
-                                                      <path d="M4 15h13.865a1 1 0 0 0 .768-1.64L15 9l3.633-4.36A1 1 0 0 0 17.865 3H4v18" />
-                                                   </svg>
+                                                                                         <svg width="100%" height="100%" className="block fill-inherit" viewBox="0 0 24 24" fill="currentColor" >
+   <path  fillRule="evenodd" d="M6 3a1 1 0 0 0-2 0v18a1 1 0 1 0 2 0v-6h13a1 1 0 0 0 .858-1.514L17.166 9l2.692-4.486A1 1 0 0 0 19 3H6Z" clipRule="evenodd"></path>
+</svg>
                                                 </span>
                                                 {priority}
                                              </div>
@@ -411,20 +366,9 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                                  >
                                     <div className="grid gap-2 label items-center min-h-9">
                                        <span className=" w-4 h-4 flex items-center justify-center color-600">
-                                          <svg
-                                             width={"100%"}
-                                             height={"100%"}
-                                             fill="none"
-                                             stroke="currentColor"
-                                             strokeLinecap="round"
-                                             strokeLinejoin="round"
-                                             strokeWidth={2}
-                                             viewBox="0 0 24 24"
-                                             xmlns="http://www.w3.org/2000/svg"
-                                          >
-                                             <path d="M15.244 21.366a2.164 2.164 0 0 1-3.061 0l-8.549-8.549A2.164 2.164 0 0 1 3 11.287V5.163C3 3.97 3.97 3 5.164 3h6.123c.573 0 1.124.228 1.53.634l8.549 8.549a2.164 2.164 0 0 1 0 3.061l-6.122 6.122z" />
-                                             <path d="M6.5 6.5 7 7" />
-                                          </svg>
+                                       <svg className="w-4 h-4 block" viewBox="0 0 24 24" fill="currentColor">
+                                       <path fill-rule="evenodd" d="M6 5h4.757a1 1 0 0 1 .707.293l7.5 7.5a1 1 0 0 1 0 1.414l-4.757 4.758a1 1 0 0 1-1.414 0l-7.5-7.5A1 1 0 0 1 5 10.756V6a1 1 0 0 1 1-1ZM3 6a3 3 0 0 1 3-3h4.757a3 3 0 0 1 2.122.879l7.5 7.5a3 3 0 0 1 0 4.242L15.62 20.38a3 3 0 0 1-4.242 0l-7.5-7.5A3 3 0 0 1 3 10.757V6Zm6 4.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd"></path>
+                                       </svg>
                                        </span>
                                        <p className="text-sm leading-4 font-normal color-600">
                                           Tags
@@ -564,29 +508,9 @@ export default function AddProject({ setModel, spaceID, referesh,setReferesh }) 
                                     <li className="grid grid-project gap-1 cursor-pointer">
                                        <div className="grid gap-2 label items-center min-h-9">
                                           <span className=" w-4 h-4 flex items-center justify-center color-600">
-                                             <svg
-                                                width={"100%"}
-                                                height={"100%"}
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                             >
-                                                <rect
-                                                   width={18}
-                                                   height={18}
-                                                   x={3}
-                                                   y={4}
-                                                   rx={2}
-                                                   ry={2}
-                                                />
-                                                <path d="M16 2v4" />
-                                                <path d="M8 2v4" />
-                                                <path d="M3 10h18" />
-                                             </svg>
+                                          <svg className="w-4 h-4 block" viewBox="0 0 24 24" fill="currentColor">
+                                          <path fill-rule="evenodd" d="M7 1a1 1 0 0 1 1 1v1h8V2a1 1 0 1 1 2 0v1.126c1.725.444 3 2.01 3 3.874v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4.002 4.002 0 0 1 3-3.874V2a1 1 0 0 1 1-1Zm0 4a2 2 0 0 0-2 2v1h14V7a2 2 0 0 0-2-2H7Zm12 5H5v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7Z" clip-rule="evenodd"></path>
+                                          </svg>
                                           </span>
                                           <p className="text-sm leading-4 font-normal color-600" onClick={()=>{
                                              setDateModel(true);

@@ -11,10 +11,10 @@ const CustomToolbar = () => (
    <div id="toolbar" className="p-2 border-none alazy">
       <span className="ql-formats">
          <select className="ql-header" >
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-            <option selected="selected"></option>
+            <option value="1">H1</option>
+            <option value="2">H2</option>
+            <option value="3">H3</option>
+            <option selected="selected">H4</option>
          </select>
          <select class="ql-font"></select>
       </span>

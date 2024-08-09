@@ -6,7 +6,7 @@ export default function SettingModel({children,layout='absolute',height='h-full'
 
     return (
         <div className={`${layout} ${top} ltr:right-0 ltr:left-auto rtl:left-0 rtl:right-auto z-50 w-80 ${height} border-top-e8eaed border-left-e8eaed setting-model ${settingClose && "setting-model-close"} `} style={{ zIndex: 500,height:height, top:top }}>
-            <button className="w-8 h-8 p-0 hover-gray-100 text-base absolute z-30 ltr:right-3 rtl:left-3 top-3 rounded flex items-center justify-center text-2a2e34 border-0" onClick={(e)=>{
+            <button className="w-8 h-8 p-0 hover:bg-[var(--cu-background-main-hover-strong)] text-base absolute z-30 ltr:right-3 rtl:left-3 top-3 rounded flex items-center justify-center text-2a2e34 border-0" onClick={(e)=>{
 
     setSettingClose(true);
 

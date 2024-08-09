@@ -86,17 +86,6 @@ function handelLock(spaceID,employee_id,isLocked,roomId,public_name,setMessage,s
 
 export default function MemberOption({spaceID,setOption,top,left,employee,roomId,setMessage,setTitle,setNotification}) {
 
-   const refr = useRef(null);
-   const [height, setHeight] = useState('');
-
-   useEffect(()=>{
-    if(refr) {
-        let ele = refr.current.getBoundingClientRect();
-        setHeight(ele.height);
-        console.log("element hieght",ele.height);
-    }
-   },[refr])
-
    return (
       <>
       <DropDownModel setShowIcon={setOption}>
@@ -104,7 +93,7 @@ export default function MemberOption({spaceID,setOption,top,left,employee,roomId
       // style={{width:'480px', maxWidth:'100%' }}
       >
       {/* drop-menu-shadow  */}
-      <div ref={refr} className="absolute z-2700 shadow-xl bg-white border-e8eaed rounded-lg min-w-44 w-52 pt-2 pb-2 overflow-y-auto flex flex-col" style={{ top:(top - height)+'px',left:left+'px'}}>
+      <div className={`absolute z-2700 shadow-xl bg-white border-e8eaed rounded-lg min-w-44 w-52 right-2 pt-2 pb-2 overflow-y-auto flex flex-col top-auto bottom-[${top - 20}px]`} style={{ left:left+'px'}}>
          <div className='py-2 ps-4 pe-3'>
             <div className='flex items-center max-w-full overflow-hidden text-ellipsis whitespace-nowrap text-xs font-semibold uppercase color-600' style={{letterSpacing:'.05em', fontSize:'11px'}}>
             <div>
