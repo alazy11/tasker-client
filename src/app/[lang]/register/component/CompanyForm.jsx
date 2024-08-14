@@ -50,6 +50,7 @@ function formHandler(e,setLoader,cleanf,setErrorMessage,setErrorText,next,setNex
          if(data.status === 'fail' || data.status === 'error' ) {
             setErrorMessage(true);
             setErrorText(data?.message);
+            console.log(data);
          } else {
             setErrorMessage(false);
             setCommingSecretKey(data.data.secretKey);
