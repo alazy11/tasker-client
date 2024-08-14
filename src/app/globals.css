@@ -3,6 +3,15 @@
 @tailwind utilities;
 
 
+
+@layer utilities {
+
+  .normal-btn {
+    @apply text-base bg-[var(--cu-background-primary)] rounded-md p-2.5 flex items-center justify-center
+  }
+
+}
+
 :root{
   --_cu-grey1100: 26, 28, 32;
   --_cu-grey1000: 42, 46, 52;
