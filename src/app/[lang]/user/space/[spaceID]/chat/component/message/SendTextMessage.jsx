@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import socket from "@/app/MainSocket";
+import handleDateFormat from "@/_util/handleDateFormat";
 
 
 function sendMessage({ spaceID, text, setMessage, roomId, user, setIsSending }) {
@@ -16,7 +17,7 @@ function sendMessage({ spaceID, text, setMessage, roomId, user, setIsSending }) 
       public_name: user.public_name,
       profile_path: user.profile_path,
       senderType: 'user',
-      send_date: new Date(),
+      send_date: handleDateFormat(),
       send_time: new Date().toLocaleTimeString(),
       size: null,
       name: null,

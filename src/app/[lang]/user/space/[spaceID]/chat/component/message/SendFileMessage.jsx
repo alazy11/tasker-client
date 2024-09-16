@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import socket from "@/app/MainSocket";
 import Image from "next/image";
+import handleDateFormat from "@/_util/handleDateFormat";
 
 
 const units = ["bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
@@ -140,7 +141,7 @@ function sendFile({
          public_name: user.public_name,
          profile_path: user.profile_path,
          senderType: "user",
-         send_date: new Date(),
+         send_date: handleDateFormat(),
          send_time: new Date().toLocaleTimeString(),
          size: file.size,
          name: file.name,
