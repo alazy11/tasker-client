@@ -2,15 +2,17 @@
 
 import TopNavBar from './TopNavBar'
 import SideNavBar from './SideNavBar';
-// import Footer from '../../component/Footer'
-import { useState } from 'react';
-// import TopInlineNav from './TopInlineNav';
+import { useState, useReducer } from 'react';
+import sideBarReducer,{initialState} from '@/state-management/sideBarReducer';
 
 import CompanyInformation, { CompanyProvider } from './UserContext';
 
 export default function MainContainer({ children,lang,dic,user }) {
 
-   // console.log('user....main',user);
+   const [state,dispatch] = useReducer(sideBarReducer,initialState)
+
+   console.log('state.value',state);
+
 
    const [showMenu, setShowMenu] = useState('');
    const [showOverlay, setShowOverlay] = useState('hidden');
@@ -22,8 +24,10 @@ export default function MainContainer({ children,lang,dic,user }) {
 
 if(showMenu === '') {
    setShowMenu('toggle-sidebar');
+   dispatch("show");
 } else {
    setShowMenu('');
+   dispatch("close");
 }
 if(showOverlay === '') {
    setShowOverlay('hidden')

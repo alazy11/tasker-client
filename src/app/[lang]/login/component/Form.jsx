@@ -22,7 +22,7 @@ function messageHandle(e,setError) {
    }
 }
 
-function handleFormSubmition(e,link,isSecretKey,setErrorMessage,setErrorText,router,setLoader,...data) {
+function handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorText,router,setLoader,...data) {
    e.preventDefault();
    setLoader(true);
    if(isSecretKey) {
@@ -91,8 +91,9 @@ function handleFormSubmition(e,link,isSecretKey,setErrorMessage,setErrorText,rou
             } else {
                // socket.connect();
                // socket.emit('user',data.data);
-               link.current.click();
-               console.log("link",link.current)
+               let link = document.createElement('a');
+               link.href = '/en/user';
+               link.click();
                // router.push('/en/user');
             }
             setErrorMessage(false);
@@ -123,7 +124,6 @@ export default function Form({ dic }) {
    const [showPassword, setShowPassword] = useState(false);
    const router = useRouter();
 
-   let link = useRef();
 
    return (
       <>
@@ -132,14 +132,12 @@ export default function Form({ dic }) {
          if(isSecretKey) {
             handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,secretKey) 
          } else {
-
             handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password) 
          }
       }}>
          <div className="form-group  relative">
             <label htmlFor="userName">{dic.login.field1.title}</label>
 
-            <a href="/en/user" ref={link}></a>
             <div className="field-group">
                <span>
                <svg width="22" height="22" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -317,10 +315,10 @@ export default function Form({ dic }) {
                console.log("handleFormSubmition",userName)
 
                if(isSecretKey) {
-                  handleFormSubmition(e,link,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,secretKey) 
+                  handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password,secretKey) 
                } else {
       
-                  handleFormSubmition(e,link,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password) 
+                  handleFormSubmition(e,isSecretKey,setErrorMessage,setErrorMessageText,router,setLoader,userName,password) 
                }
 
             }} >SIGN IN</button>  

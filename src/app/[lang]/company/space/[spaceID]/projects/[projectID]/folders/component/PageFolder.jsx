@@ -94,7 +94,7 @@ export default function PageFolder({ user, spaceID, projectID }) {
                                  {
                               subChild?.map((item,index)=>{
 
-                                 console.log("item",item)
+                                 // console.log("item",item)
 
                                  return (
 
@@ -120,8 +120,12 @@ export default function PageFolder({ user, spaceID, projectID }) {
                                                 data-filename = {item.name}
                                                 data-filepath = {item.file_path}
                                                 onClick={(e)=>{
+
+                                                   console.log("file path",e.currentTarget.dataset.filepath)
+
+                                                   let filepath = e.currentTarget.dataset.filepath;
                                                    let fileName = e.currentTarget.dataset.filename;
-                                                   let filepath = e.currentTarget.dataset.filepath.substr(filepath.indexOf('uploads')).split("\\").join('/');
+                                                   filepath = filepath.substr(filepath.indexOf('uploads')).split("\\").join('/');
                                                    // console.log(filepath.substr(filepath.indexOf('uploads')).split("\\").join('/'))
                                                    setUrl(`${process.env.NEXT_PUBLIC_BACKEND_URL}/${filepath}`);
                                                    setViewer(true);

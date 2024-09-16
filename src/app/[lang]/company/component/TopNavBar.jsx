@@ -4,15 +4,19 @@ import Image from "next/image";
 import logo from '../../../../../public/project-image/logo.svg';
 import languageIcon from '../../../../../public/project-image/EN.svg';
 import userProfile from '../../../../../public/project-image/user-profile.jpeg';
-import { useState,useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import dynamic from "next/dynamic";
 import socket from "@/app/socket";
-import RecordScreen from "./record-screen/RecordScreen";
+// import RecordScreen from "./record-screen/RecordScreen";
+import RecordScreen from "./record-screen/RecordScreenA";
+import sideBarReducer,{initialState} from '@/state-management/sideBarReducer';
+
 
 const Profile = dynamic(()=> import("./profile/Profile"));
 const Theme = dynamic(()=> import("./profile/Theme"));
 const ProfileDropMenu = dynamic(()=> import("./drop_menu/ProfileDropMenu"));
 const NoteList = dynamic(()=> import("./note/NoteList"));
+
 
 
 
@@ -24,6 +28,10 @@ export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverl
    const [noteModel, setNoteModel] = useState(false);
    const [isConnected, setIsConnected] = useState(false);
    const [transport, setTransport] = useState("N/A");
+   const [state,dispatch] = useReducer(sideBarReducer,initialState)
+
+   console.log('state.value--top',state);
+   // console.log('dispatch',dispatch);
 
    useEffect(() => {
       socket.connect();
@@ -86,8 +94,10 @@ export default function TopNavBar({lang, dic,setShowMenu, showMenu, setShowOverl
             <button type="button" className="collapse-icon w-8 h-8  text-white rounded-md flex items-center btn-top-nav dark:text-white-light" onClick={(e)=>{
                         if(showMenu === '') {
                            setShowMenu('toggle-sidebar');
+                           dispatch("show");
                         } else {
                            setShowMenu('');
+                           dispatch("close");
                         }
                         if(showOverlay === '') {
                            setShowOverlay('hidden')

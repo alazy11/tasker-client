@@ -3,9 +3,9 @@
 import ModelOverlay from "@/app/[lang]/component/ModelOverlay";
 import { useState } from "react";
 
-export default function DeleteModel({setModel,deleteFunction,deleteFunctionParams}) {
+export default function DeleteModel({setModel,deleteFunction,deleteFunctionParams,note='note'}) {
 
-    const[loader,setLoader] = useState(true);
+    const[loader,setLoader] = useState(false);
 
     return (
         <ModelOverlay showModel={setModel} styleCss='block'>
@@ -34,7 +34,7 @@ export default function DeleteModel({setModel,deleteFunction,deleteFunctionParam
                         </div>
 
                         <h2 className="ng-star-inserted">
-                        Are you sure you want to delete this note? 
+                        Are you sure you want to delete this {note}? 
                         </h2>
 
                         <p className="ng-star-inserted-p">

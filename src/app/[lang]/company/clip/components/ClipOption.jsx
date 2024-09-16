@@ -6,42 +6,6 @@ import { useRef, useState } from 'react';
 
 
 
-function handelDelete(clip,clipName,setClipOpt) {
-
-   let url= '';
-
-   url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/${clip.clip_id}`;
-
-   fetch(url, {
-      method:'DELETE',
-      credentials: "include",
-      headers: {
-         "content-type": "application/json",
-         "cache-control": "no-cache",
-      },
-      body:JSON.stringify({clip_path:clip.path})
-      })
-         .then((res) => {
-            return res.json();
-         })
-         .then((data) => {
-            if (data.status === "fail" || data.status === "error") {
-               console.log("data space faild....", data);
-               // setLoader(false);
-            } else {
-               console.log("data folder dd....", data.data);
-               // setLoader(false);
-               setFolderOptions(false);
-               setMessage(`the ${folderInfo.kind} ${name} has been deleted Successfully.`)
-               setNotification(true);
-               setReferesh(!referesh);
-            }
-         })
-         .catch((error) => {
-            console.log(error);
-            // setLoader(false);
-         });
-}
 
 
 function handelDownload(clip,clipName,setClipOpt) {
@@ -89,7 +53,7 @@ function handelCopy({user, spaceID, projectID, folderInfo,setCopy}) {
 
 
 
-export default function ClipOption({setClipOpt, clip, clipName, left, top,setRename}) {
+export default function ClipOption({setClipOpt, clip, clipName, left, top,setRename,setDeleteModel}) {
 
    // const [priority, setpriority] = useState('normal');
    const refr = useRef(null);
@@ -150,7 +114,8 @@ handelDownload(clip,clipName,setClipOpt)
 
             <li className='ps-2 pe-2'>
                <button className={`text-sm font-normal text-red-700 leading-5 flex items-center hover:back-gray200 gap-3 w-full min-h-8 p-1.5 border-none rounded-md`} onClick={(e)=>{
-                  handelDelete({user, spaceID, projectID, folderInfo, setNotification,setMessage,setReferesh,referesh,setFolderOptions})
+                  setClipOpt(false)
+                  setDeleteModel(true);
                }}>
                   <span className=' text-red-700 flex items-center justify-center'>
                   <svg width={'1rem'} height={'1rem'} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

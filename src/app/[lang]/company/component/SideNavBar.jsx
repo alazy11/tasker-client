@@ -150,9 +150,9 @@ export default function SideNavBar({lang, dic,setShowMenu, showMenu, setShowOver
                      </li> */}
 
                      <li className="nav-item">
-                        <Link href="#"
+                        <Link href="/en/company/requests"
                            type="button"
-                           className=" nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5 0"
+                           className={`nav-link group w-full py-1.5 px-2.5 rounded-md flex items-center gap-x-2.5  ${pathname === '/en/company/requests' ? 'active' : ''}`}
                         >
                            <span className="text-icon flex items-center justify-center w-4 h-4">
                            <svg width={'100%'} height={'100%'} className="block" viewBox="0 0 24 24" fill="currentColor" >

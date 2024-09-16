@@ -3302,6 +3302,20 @@ color-mix(in srgb, var(--cu-status-open), transparent 85%);
 }
 
 
+.group-list.rejected {
+  --board-group-color: var(--cu-status-red);
+  --board-group-color-contrast: var(--cu-content-on-dark);
+  --board-group-color-translucent: 
+color-mix(in srgb, var(--cu-status-red), transparent 95%);
+  --board-group-color-translucent-contrast: var(--cu-content-default);
+  --board-group-color-translucent-emphasis: 
+color-mix(in srgb, var(--cu-status-red), transparent 90%);
+  --board-group-default-translucent: 
+color-mix(in srgb, var(--cu-status-open), transparent 90%);
+  --board-group-default-translucent-emphasis: 
+color-mix(in srgb, var(--cu-status-open), transparent 85%);
+}
+
 
 .group-list {
   display: grid;
@@ -3358,6 +3372,11 @@ color-mix(in srgb, var(--cu-status-open), transparent 85%);
 }
 .complete .status{
   --status-group-header-background-color: var(--cu-status-green);
+  --status-group-header-indicator-color: var(--cu-content-on-dark);
+  --status-group-header-label-color: var(--cu-content-on-dark);
+}
+.rejected .status{
+  --status-group-header-background-color: var(--cu-status-red);
   --status-group-header-indicator-color: var(--cu-content-on-dark);
   --status-group-header-label-color: var(--cu-content-on-dark);
 }
@@ -4627,6 +4646,10 @@ video {
 [_nghost-ng-c734340672]:hover .cu-clip-card__actions ,
 [_nghost-ng-c734340672].active .cu-clip-card__actions {
   display: flex;
+}
+
+mux-player video {
+  background-color: #eee;
 }
 
 .clip-copy-button {

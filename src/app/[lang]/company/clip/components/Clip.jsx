@@ -4,6 +4,48 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ClipOption from "./ClipOption";
+import DeleteModel from "@/app/[lang]/component/delete/DeleteModel";
+
+
+
+function handelDelete(setModel,setLoader,clip) {
+  setLoader(true)
+  let url= '';
+
+  url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/en/company/clip/${clip.clip_id}`;
+
+  fetch(url, {
+     method:'DELETE',
+     credentials: "include",
+     headers: {
+        "content-type": "application/json",
+        "cache-control": "no-cache",
+     },
+     body:JSON.stringify({clip_path:clip.path})
+     })
+        .then((res) => {
+           return res.json();
+        })
+        .then((data) => {
+           if (data.status === "fail" || data.status === "error") {
+              console.log("data space faild....", data);
+              setLoader(false);
+           } else {
+              console.log("data folder dd....", data.data);
+              setModel(false)
+              setLoader(false);
+              // setNotification(true);
+              // setReferesh(!referesh);
+           }
+        })
+        .catch((error) => {
+           console.log(error);
+           setLoader(false);
+        });
+}
+
+
+
 
 function autoResize(e) {
   const textarea = e.currentTarget;
@@ -54,6 +96,9 @@ function handleDate(date) {
 }
 
 
+
+
+
 // export default function Clip({item,setClipOpt,clipOpt,setLeft,setTop}) {
 export default function Clip({ item }) {
   const [clipOpt, setClipOpt] = useState(false);
@@ -62,6 +107,7 @@ export default function Clip({ item }) {
   const [clipName, setClipName] = useState(item.title);
   const [clipTitle, setClipTitle] = useState(item.title);
   const [rename, setRename] = useState(false);
+  const [deleteModel, setDeleteModel] = useState(false);
 
   return (
     <>
@@ -186,8 +232,18 @@ export default function Clip({ item }) {
           setRename={setRename}
           clipName={clipName}
           clip={item}
+          setDeleteModel={setDeleteModel}
         />
       )}
+
+      {
+          deleteModel && <DeleteModel 
+          deleteFunction={handelDelete}
+          deleteFunctionParams={[item]}
+          note='clip'
+          setModel={setDeleteModel}/>
+      }
+
     </>
   );
 }

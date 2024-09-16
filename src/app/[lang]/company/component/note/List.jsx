@@ -195,7 +195,9 @@ setNoteModel(false)
           
                         return (		
                            // create_date	company_id	
-                           <ListElement item={item} 
+                           <ListElement 
+                           key={item.note_id}
+                           item={item} 
                            setNotesModel={setNotesModel}
                            setNote={setNote}
                            deleteNote={deleteNote}
